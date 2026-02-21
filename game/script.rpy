@@ -78,8 +78,11 @@ transform shaking:
 ## Fondos
 image mainmenubg = "bg/main_menu.png"
 image gameover_screen = "bg/game_over.jpg"
+image foreboding_1 = "bg/pasillo_oscuro.jpg"
+image escape_1 = "bg/pasillo_corriendo.jpg"
+image puerta_abierta_sotano = "bg/puerta_oxidada.png"
 # Muertes
-image spdr1 = "game_over/death_spdr_1"
+image spdr1 = "game_over/death_spdr_1.png"
 
 ## Escenarios
 ### image bg clase = "escenarios/sala_clases.jpg"
@@ -203,7 +206,7 @@ define audio.chase = "<loop 62.8>music/persecucion.ogg"
 define audio.chase1 = "<loop 34.5>music/persecucion (galaxia).ogg"
 define audio.flashback = "<loop 28.00>music/flashback.ogg"
 define audio.credits = "music/creditos.mp3"
-define audio.rodtheme = "music/rodtheme.ogg" //DEFINIR LOOP
+define audio.rodtheme = "music/rodtheme.ogg" #DEFINIR LOOP
 
 label start:
     scene bosque_tarde with fade
@@ -410,7 +413,7 @@ label start:
     "Antes de poder terminar la frase, una gota espesa y tibia cayó sobre su mejilla. No era agua."
     "Acto seguido, subieron la vista."
 
-    scene criatura_techo with dissolve
+    scene scene_spdr with dissolve
     pause 0.7
     play music chase fadein 0.5
     
@@ -455,12 +458,14 @@ label game_over_spdr:
     "Pero..."
     
     play music curse
-    scene death_spdr_1 with fade
+    scene spdr1 with fade
     pause(1)
     "La criatura fue más rápida, más fuerte, más letal de lo que Rodrigo jamás pudo anticipar."
     "Su acto de valentía solo resultó en una muerte sin gloria."
     pause(1)
     "{cps=15}Rodrigo murió como un idiota...{/cps}"
+
+    pause(2)
 
     scene gameover_screen with dissolve
     pause(2)
@@ -485,6 +490,15 @@ label escapar_araña:
     "El pasillo se convertía en un túnel borroso mientras sus pulmones ardían."
 
     scene escape_1
+    show rodrigo scared at right:
+        linear 0.5 xalign 0.4
+        linear 0.5 xalign 0.3
+        repeat
+
+    show luz scared at left:
+        linear 0.5 xalign 0.6
+        linear 0.5 xalign 0.7
+        repeat
     
     r "¿¡Donde están las demás!?"
     
@@ -556,11 +570,16 @@ label escapar_araña:
     "En su camino, encontraron algunas puertas cerradas y otras que solo daban a oficinas vacías o salas comunes en ruinas."
 
     stop sound fadeout 0.7
-    scene pasillo_objeto with dissolve
+    show obj-bag at truecenter
+    with dissolve
 
     "Pero entonces, una linterna tirada en el suelo, junto con una mochila abierta, captó su atención."
 
+    pause 0.7
+
+    hide obj-bag
     show rodrigo sorprendido
+    with dissolve
 
     "Rodrigo se acercó con rapidez, reconociendo los pines personalizados en la tela negra."
 
