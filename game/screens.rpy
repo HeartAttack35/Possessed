@@ -930,6 +930,7 @@ screen history():
 ## This determines what tags are allowed to be displayed on the history screen.
 
 define gui.history_allow_tags = { "alt", "noalt", "rt", "rb", "art" }
+define gui.main_menu_background = "bg/main_menu.png"
 
 
 style history_window is empty
@@ -1551,9 +1552,7 @@ style nvl_window:
     variant "small"
     background "gui/phone/nvl.png"
 
-style main_menu_frame:
-    variant "small"
-    background "gui/phone/overlay/main_menu.png"
+#style main_menu_frame:    variant "small"    background "gui/phone/overlay/main_menu.png"
 
 style game_menu_outer_frame:
     variant "small"

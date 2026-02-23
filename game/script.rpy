@@ -9,12 +9,14 @@ define sujeto = Character("Sujeto")
 define ln = Character("Lucien", color="#fd5353")
 
 # Variables y definiciones
+
 default afinidad_luz = 0
 default afinidad_azura = 0
 default afinidad_cutipye = 0
 default afinidad_nagi = 0
 default estado_mental = 0
 default tiempo_escape = 0
+default nombre_capitulo = ""
 
 style button_panic is button:
     background "#5a0000"
@@ -75,12 +77,21 @@ transform shaking:
     linear 0.05 xoffset 0 yoffset 0
     repeat
 
+transform vjump:
+    yoffset 0
+    linear 0.08 yoffset -25
+    linear 0.08 yoffset 0
+
 ## Fondos
 image mainmenubg = "bg/main_menu.png"
 image gameover_screen = "bg/game_over.jpg"
 image foreboding_1 = "bg/pasillo_oscuro.jpg"
 image escape_1 = "bg/pasillo_corriendo.jpg"
 image puerta_abierta_sotano = "bg/puerta_oxidada.png"
+image pasillo_lab = "bg/pasillo_abandonado.jpg"
+image sala_h127_1 = "bg/sala_h127.jpg"
+image puerta_cerrandose = "bg/puerta_h127.jpg"
+image pasillo_huida = "bg/pasillo_corriendo.jpg"
 # Muertes
 image spdr1 = "game_over/death_spdr_1.png"
 
@@ -161,7 +172,10 @@ image galaxia headshot = "images/sprites/Galaxia.png"
 
 
 # Otros
-image sujeto_herido = "images/sprites/Sujeto_Herido.png"
+#image sujeto_herido = "images/sprites/Sujeto_Herido.png"
+image sujeto_herido:
+    "images/sprites/Nagi.png"
+    matrixcolor TintMatrix("#000000")
 
 # Objetos
 image cuaderno_bitacora = "images/objects/obj_cuaderno.png"
@@ -604,33 +618,8 @@ label escapar_araña:
 
     "Todas llevaban escaleras abajo, a lo que parecía ser el sótano del orfanato."
 
-    jump cap_1_cmplt
-
-label cap_1_cmplt:
-
-    stop music fadeout 1.5
-    scene black with fade
-    pause(1.0)
-
-    ### TERMINA CAPÍTULO 1
-    play sound chptr_cmplt fadein 1.5
-    show text "{size=50}Capítulo 1 Completado{/size}" at truecenter with dissolve
-    pause(2.5)
-    hide text with fade
-
-    pause(0.5)
-
-    show text "¿Deseas guardar tu progreso antes de continuar?" at truecenter with dissolve
-    pause(1.0)
-
-    menu:
-        "Guardar y Continuar":
-            $ renpy.save("1-1", "Capítulo 1 Completado")
-            "Progreso guardado."
-            jump cap_2
-        "Continuar sin guardar":
-            jump cap_2
-
+    call chapter_complete("Capítulo 1")
+    jump cap_2
 
 label cap_2:
 
@@ -640,6 +629,7 @@ label cap_2:
 
     show rodrigo linterna at left
     show luz worry at right
+    with dissolve
 
     "La linterna de Rodrigo iluminaba paredes de concreto agrietado, cables expuestos, y manchas que no sabían si eran óxido o sangre vieja."
 
@@ -729,11 +719,14 @@ label cap_2:
     r "Vamos."
 
     play sound door_open
-
-    scene sala_h127 with fade
+    scene sala_h127
+    show sujeto_herido at right
+    with fade
 
     "El olor golpeó primero. Agrio. Metálico. Animal."
-    show sujeto_herido at center with dissolve
+    show luz surprised at left
+    show rodrigo alert at centro_izquierda
+    with moveinleft
 
     l "¿E... Está vivo?"
     
@@ -750,6 +743,8 @@ label cap_2:
     
     l "¿Ella...? ¿Te refieres a una de las criaturas?"
     scene sala_h127_1
+    show sujeto_herido at center
+    with dissolve
     pause (1)
     sujeto "Galaxia... su nombre... es Galaxia..."
     pause (1)
@@ -804,9 +799,11 @@ label cap_2:
     scene foreboding_2 with fade
     stop sound
     $ renpy.save("1-1", "Encuentro 2")
+    show rodrigo neutral at center
     "Rodrigo entró en una habitación de literas oxidadas. Su linterna parpadeó."
 
     play sound nailtap
+    show rodrigo alert at vjump
     "Clic. Clic. Clic."
     "Garras sobre el linóleo."
     
@@ -824,10 +821,11 @@ label cap_2:
 label escape_mnts:
     "Rodrigo apagó la linterna y se pegó a la pared, tras el armario, conteniendo el aliento hasta que le dolieron los pulmones."
 
-    play sound "sfx/garra_pared.wav"
+    scene foreboding_2 with dissolve
+    play sound "sfx/claw_drag_concrete.mp3"
     "Entonces, un chasquido metálico, seguido del raspado de una garra recorriendo la pared..."
     
-    play sound door_open
+    play sound door_open fadein 0.3
     "...y el crujido de la puerta abriéndose."
     scene habitacion_mantis with dissolve
     
@@ -854,6 +852,9 @@ label escape_mnts:
     
     "Una alarma lejana distrajo a la bestia. Con un chillido, la criatura salió disparada."
     stop sound fadeout 2.0
+    scene foreboding_2
+    show rodrigo scared at center
+    with dissolve
     
     $ estado_mental += 1
     "Rodrigo cayó al suelo, temblando. Había estado a centímetros."
@@ -868,8 +869,10 @@ label escape_mnts:
     "Cuando por fin se incorporó, su espalda crujió y soltó un suspiro contenido."
     "Abrió la puerta de la habitación lentamente, asomandose al pasillo."
     
-    scene pasillo with fade
+    scene pasillo_abandonado with fade
     "Vacío."
+
+    show rodrigo neutral at center with dissolve
     
     stop music fadeout 1.5
     "El aire seguía denso, cargado de polvo viejo y una humedad que parecía aferrarse a su ropa como telarañas invisible."
@@ -883,8 +886,10 @@ label escape_mnts:
     "Avanzó sin rumbo claro, deseando encontrar a Luz, escuchar su voz."
     "Y entonces, como si el orfanato se burlara de sus pensamientos..."
 
-    scene reunion_luz with fade
-    show luz smile with dissolve
+    #scene reunion_luz with fade
+    show luz smile at centro_derecha
+    show rodrigo sorprendido at centro_izquierda
+    with moveinright
     play music menu
     l "¡Rodri!"
     "Él se giró en seco, instintivamente alzando el brazo con el que sostenía su daga, aunque sin intención real de atacar."
@@ -913,6 +918,7 @@ label escape_mnts:
     "Sin esperar respuesta, lo tomó de la mano, apretándola fuerte, arrastrándolo con ella."
 
     scene pasaje_secreto with dissolve
+    pause (0.7)
     
     r "No había visto ese rincón antes..."
     pause(0.4)
@@ -923,24 +929,25 @@ label escape_mnts:
     "...sintiendo que las cosas van a mejorar."
     r "Vamos."
 
-    jump cap_2_cmplt
+    call chapter_complete("Capítulo 2")
+    jump cap_3
 
 label game_over_mnts_1:
     "Rodrigo avanzó con cautela, su linterna apagada, guiado solamente por instinto."
     scene black with fade
     "Pero no había tiempo para dudar."
     
-    play sound "sfx/garra_pared.wav"
+    play sound "sfx/claw_drag_concrete.mp3"
     "Una figura se abalanzó desde las sombras, dos hojas brillantes descendieron."
     play music curse
     scene death_mnts_1 with fade
     
     "Por un momento, la aterrada mirada de Rodrigo se encontró con los seis ojos de aquella criatura, pero antes de poder siquiera gritar por ayuda..."
-    scene death_mnts_2
+    scene death_mnts_2 with shake
     play sound slash
     pause 3
     "{cps=20}.{/cps}"
-    pause 3
+    pause 2
     scene gameover_screen with dissolve
     pause(2)
     menu:
@@ -959,16 +966,18 @@ label game_over_mnts_2:
     "Una sombra se detuvo justo frente a la cama..."
     pause (2)
     
-    play sound "sfx/garra_pared.wav"
+    play sound "sfx/claw_drag_concrete.mp3"
     "Una garra raspa el suelo... Luego la cama."
     
     
     pause (1.5)
+    scene death_mnts_3 with shake
     play music curse
     play sound slash
     "Sin aviso, la hoja atraviesa el colchón y su torso."
     
     play sound "sfx/ultimo_aliento.wav"
+    pause(2)
     scene gameover_screen with dissolve
     pause(2)
     menu:
@@ -976,35 +985,6 @@ label game_over_mnts_2:
             jump load_screen
         "Volver al menú principal":
             return
-
-
-
-label cap_2_cmplt:
-
-    stop music fadeout 1.5
-    scene black with fade
-    pause(1.0)
-
-    ### TERMINA CAPÍTULO 2
-    play sound chptr_cmplt fadein 1.5
-
-    show text "{size=40}Capítulo 2 Completado{/size}" at truecenter with dissolve
-    pause 3.0
-    hide text with fade
-
-    pause(0.5)
-
-    show text "¿Deseas guardar tu progreso antes de continuar?" at truecenter with dissolve
-    pause(1.0)
-
-    menu:
-        "Sí, guardar ahora":
-            $ renpy.save("1-1", "Capítulo 2 Completado")
-            "Progreso guardado."
-            jump cap_3
-        "No, continuar sin guardar":
-            jump cap_3
-
 
 
 label cap_3:
@@ -1318,35 +1298,8 @@ label cap_3:
     hide azura
     hide luz
 
-    jump cap_3_cmplt
-
-
-
-label cap_3_cmplt:
-
-    stop music fadeout 1.5
-    scene black with fade
-    pause(1.0)
-
-    ### TERMINA CAPÍTULO 3
-    play sound chptr_cmplt fadein 1.5
-
-    show text "{size=40}Capítulo 3 Completado{/size}" at truecenter with dissolve
-    pause 3.0
-    hide text with fade
-
-    pause(0.5)
-
-    show text "¿Deseas guardar tu progreso antes de continuar?" at truecenter with dissolve
-    pause(1.0)
-
-    menu:
-        "Sí, guardar ahora":
-            $ renpy.save("1-1", "Capítulo 3 Completado")
-            "Progreso guardado."
-            jump cap_4
-        "No, continuar sin guardar":
-            jump cap_4
+    call chapter_complete("Capítulo 3")
+    jump cap_4
 
 
 
@@ -1608,7 +1561,8 @@ label continue_escape_ladder:
     "La verdadera pesadilla no era morir."
     "Era sobrevivir para ver lo que ella les haría."
 
-    jump cap_4_cmplt
+    call chapter_complete("Capítulo 4")
+    jump cap_5
 
 # --- PANTALLAS (QTE) ---
 
@@ -1660,32 +1614,6 @@ label game_over_ladder:
             jump load_screen
         "Volver al menú principal":
             return
-
-label cap_4_cmplt:
-
-    stop music fadeout 1.5
-    scene black with fade
-    pause(1.0)
-
-    ### TERMINA CAPÍTULO 4
-    play sound chptr_cmplt fadein 1.5
-
-    show text "{size=40}Capítulo 4 Completado{/size}" at truecenter with dissolve
-    pause 3.0
-    hide text with fade
-
-    pause(0.5)
-
-    show text "¿Deseas guardar tu progreso antes de continuar?" at truecenter with dissolve
-    pause(1.0)
-
-    menu:
-        "Sí, guardar ahora":
-            $ renpy.save("1-1", "Capítulo 4 Completado")
-            "Progreso guardado."
-            jump cap_5
-        "No, continuar sin guardar":
-            jump cap_5
             
 
 
@@ -1917,7 +1845,8 @@ label combate_ganado:
     
     n "Está vivo. Ese bastardo duro de matar está vivo."
     
-    jump cap_5_cmplt
+    call chapter_complete("Capítulo 5")
+    jump cap_6
 
 label game_over_wasp:
     scene pasillo_servicio_lucha
@@ -2045,31 +1974,6 @@ label qte_wasp_4:
     
     call screen combate_ganado
 
-label cap_5_cmplt:
-
-    stop music fadeout 1.5
-    scene black with fade
-    pause(1.0)
-
-    ### TERMINA CAPÍTULO 5
-    play sound chptr_cmplt fadein 1.5
-
-    show text "{size=40}Capítulo 5 Completado{/size}" at truecenter with dissolve
-    pause 3.0
-    hide text with fade
-
-    pause(0.5)
-
-    show text "¿Deseas guardar tu progreso antes de continuar?" at truecenter with dissolve
-    pause(1.0)
-
-    menu:
-        "Sí, guardar ahora":
-            $ renpy.save("1-1", "Capítulo 5 Completado")
-            "Progreso guardado."
-            jump cap_6
-        "No, continuar sin guardar":
-            jump cap_6
 
 
 label cap_6:
@@ -2216,39 +2120,40 @@ label cap_6:
     
     l "Te tengo, Rodri... Estoy aquí."
 
+    call chapter_complete("Capítulo 6")
+    jump cap_7
+
     # Continuar historia...
-    
-label cap_6_cmplt:
-
-    stop music fadeout 1.5
-    scene black with fade
-    pause(1.0)
-
-    ### TERMINA CAPÍTULO 6
-    play sound chptr_cmplt fadein 1.5
-
-    show text "{size=40}Capítulo 6 Completado{/size}" at truecenter with dissolve
-    pause 3.0
-    hide text with fade
-
-    pause(0.5)
-
-    show text "¿Deseas guardar tu progreso antes de continuar?" at truecenter with dissolve
-    pause(1.0)
-
-    menu:
-        "Sí, guardar ahora":
-            $ renpy.save("1-1", "Capítulo 6 Completado")
-            "Progreso guardado."
-            jump cap_7
-        "No, continuar sin guardar":
-            jump cap_7
 
 
 label cap_7:
     return
 
 
+label chapter_complete(nombre):
+
+    $ nombre_capitulo = nombre
+    stop music fadeout 1.5
+    scene black with fade
+    pause(1.0)
+
+    play sound chptr_cmplt
+    show text "{size=50}[nombre_capitulo] Completado{/size}" at truecenter with dissolve
+    pause(2.5)
+    hide text with fade
+
+    pause(0.5)
+
+    show text "¿Deseas guardar tu progreso antes de continuar?" with dissolve
+    pause(1.0)
+
+    menu:
+        "Guardar y Continuar":
+            $ renpy.save("1-1", f"{nombre_capitulo} Completado.")
+            "Progreso guardado."
+            return
+        "Continuar sin guardar":
+            return
 
 
 
@@ -2263,7 +2168,6 @@ label creditos:
 
     Historia y Dirección:
     HeartAttack51
-    Vins2099
 
 
     Programación:
@@ -2285,6 +2189,7 @@ label creditos:
 
     Ilustraciones:
     ReFresh
+    Vins2099
     Artistas libres de derechos
 
 
@@ -2301,7 +2206,7 @@ label creditos:
     Agradecimientos:
     La gente que fue parte del proyecto.
     Canela la perrita.
-    A todos los que no huyeron a la primera criatura.
+    A todos los que no atacaron a la primera criatura.
     '''
     
     show text credits_text at slow_scroll
