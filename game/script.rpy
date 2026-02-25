@@ -92,13 +92,22 @@ image pasillo_lab = "bg/pasillo_abandonado.jpg"
 image sala_h127_1 = "bg/sala_h127.jpg"
 image puerta_cerrandose = "bg/puerta_h127.jpg"
 image pasillo_huida = "bg/pasillo_corriendo.jpg"
+image corredor_amplio = "bg/pasillo_corriendo.jpg"
+image chase1_1 = "bg/bg_bodega_pan.jpg"
+image bg_pasillo_escombros = "bg/pasillo_corriendo.jpg"
+image bg_cuarto_maquinas = "bg/puerta_oxidada.png"
+image pasillo_servicio = "bg/pasillo_oscuro.jpg"
+image cocina_puerta = "bg/puerta_oxidada.png"
+image cuarto_maquinas_puerta = "bg/bg_bodega_pan.jpg"
+image pistola_primer_plano = "objects/obj-gun.png"
+image pasillo_servicio_lucha = "bg/pasillo_oscuro.jpg"
 # Muertes
 image spdr1 = "game_over/death_spdr_1.png"
 
 ## Escenarios
 ### image bg clase = "escenarios/sala_clases.jpg"
 image bg_pasillo_scroll:
-    "bg_pasillo.png"
+    "bg/pasillo.png"
     linear 5.0 xpos -500
 
 ## Sprites
@@ -121,6 +130,30 @@ image rodrigo shock_state = "images/sprites/Rodri.png"
 image rodrigo bleeding_wall = "images/sprites/Rodri.png" # sangrando en la pared
 image rodrigo casual_young_shy = "images/sprites/Rodri.png"
 image rodrigo casual_young_blush = "images/sprites/Rodri.png"
+image rodrigo move_slow:
+    "images/sprites/Rodri.png"
+
+    yoffset 0
+    xoffset 0
+
+    block:
+        linear 0.6 yoffset -6 xoffset 2
+        linear 0.6 yoffset 0 xoffset 0
+        linear 0.6 yoffset -6 xoffset -2
+        linear 0.6 yoffset 0 xoffset 0
+        repeat
+image rodrigo run_panic:
+    "images/sprites/Rodri.png"
+
+    yoffset 0
+    xoffset 0
+
+    block:
+        linear 0.2 yoffset -12 xoffset 4
+        linear 0.2 yoffset 0 xoffset 0
+        linear 0.2 yoffset -12 xoffset -4
+        linear 0.2 yoffset 0 xoffset 0
+        repeat
 
 
 # Azura
@@ -129,6 +162,7 @@ image azura smile = "images/sprites/Azura.png"
 image azura temblor = "images/sprites/Azura.png"
 image azura emocion = "images/sprites/Azura.png"
 image azura scared = "images/sprites/Azura.png"
+image azura worried = "images/sprites/Azura.png"
 image azura casual_young = "images/sprites/Azura.png"
 image azura casual_young_smile = "images/sprites/Azura.png"
 
@@ -176,6 +210,8 @@ image galaxia headshot = "images/sprites/Galaxia.png"
 image sujeto_herido:
     "images/sprites/Nagi.png"
     matrixcolor TintMatrix("#000000")
+image avispa_zangano = "images/sprites/avispa_zangano.png"
+image avispa_zangano attack = "images/sprites/avispa_zangano.png"
 
 # Objetos
 image cuaderno_bitacora = "images/objects/obj_cuaderno.png"
@@ -988,9 +1024,9 @@ label game_over_mnts_2:
 
 
 label cap_3:
-    scene white with fade
+    scene expression Solid((255,255,255)) with fade
     
-    centered "{i}...Estático. Luz cálida. Voces infantiles a lo lejos...{/i}"
+    centered "{i}{color=#000000}...Estático. Luz cálida. Voces infantiles a lo lejos...{/color}{/i}"
     play music flashback fadein 2
     scene luzdrigo_fb_1 with dissolve
     show layer master at sepia_filter
@@ -1127,6 +1163,10 @@ label cap_3:
     pause 0.5
 
     "Una habitación... Limpia. Sin sangre. Sin roturas."
+    show rodrigo neutral
+    show luz neutral at left
+    show azura neutral at right
+    with dissolve
 
     "En el fondo, en un perchero, cuelga un abrigo viejo. Un olor a humedad y tinta seca impregna el ambiente."
 
@@ -1141,10 +1181,18 @@ label cap_3:
 
     "Luz sacó un pañuelo de un cajón. Dentro, el metal frío brilló bajo la linterna."
     
-    show pistola_primer_plano with dissolve
+    hide rodrigo
+    hide azura
+    hide luz
+    show pistola_primer_plano at truecenter
+    with dissolve
     "Una pistola. Vieja, pero aceitada. Y una caja de balas."
     
-    hide pistola_primer_plano with dissolve
+    show rodrigo neutral
+    show luz smile at left
+    show azura neutral at right
+    hide pistola_primer_plano
+    with dissolve
     
     l "¿Crees que funcione?"
     r "Esperemos no tener que averiguarlo."
@@ -1200,19 +1248,18 @@ label cap_3:
     r "No se muevan."
 
     "Extiende su mano hacia Luz sin apartar la vista."
-
-    scene galaxia_ventana with dissolve
-    play ambient "sfx/susurro_cercano.wav"
+    
     play music melody
 
     "Una voz femenina se desliza entre las paredes, suave, casi cantarina, con un tono juguetón que hiela la sangre."
 
+    play ambient "sfx/susurro_cercano.wav"
     g "Sé que están ahí~"
 
     "Azura se cubre la boca con ambas manos, retrocediendo."
     "Luz gira lentamente hacia la ventana, donde una silueta se asoma."
 
-    show galaxia_sombra at center # Asumiendo sprite silueta
+    scene galaxia_ventana with dissolve
     
     "En la ventana. Una silueta con orejas de gato y una sonrisa demasiado ancha."
     
@@ -1230,7 +1277,7 @@ label cap_3:
     play sound "sfx/rasguño_vidrio.wav"
     "Un chirrido agudo de garras contra el cristal los persiguió mientras huían."
     
-    scene pasillo_oscuro with dissolve
+    scene pasillo_corriendo with dissolve
     play sound run
     "Cuando finalmente abandonan la habitación y cierran la puerta con suavidad, el grupo suelta el aire contenido."
 
@@ -1241,7 +1288,11 @@ label cap_3:
 
     "Como si algo dentro de él empezara a agitar"
     
-    scene pasillo_polvoriento with fade
+    scene pasillo_abandonado
+    show rodrigo serio
+    show luz neutral at left
+    show azura worried at right
+    with fade
     play sound walk loop
     stop music fadeout 1.5
     play ambient wood_creak
@@ -1272,9 +1323,10 @@ label cap_3:
 
     r "¡No se muevan!"
 
-    play sound break_wood
-    scene derrumbe with vpunch
     play music shock noloop
+    pause 0.2
+    scene derrumbe with vpunch
+    play sound break_wood
     pause 0.5
     
     "Demasiado tarde."
@@ -1283,20 +1335,22 @@ label cap_3:
 
     "Azura y Luz logran aferrarse a los bordes, gritando al hacerlo, pero Rodrigo —el más cercano al centro— desaparece en la penumbra, tragado por el derrumbe."
 
-    show luz scared at right
+    #show luz scared at right
     l "¡RODRIGOOOO!"
 
-    show azura scared at left
+    #show azura scared at left
     a "¡No... no, no, no!"
 
-    scene polvo_niebla with dissolve
+    scene pasillo_abandonado
+    show luz at centro_derecha
+    show azura at right
+    show nagi at centro_izquierda
+    show cutipye at left
+    with dissolve
     "El polvo cubre todo. Desde el piso superior sólo se ve el vacío, y el eco lejano del cuerpo de Rodrigo golpeando estructuras al caer."
 
     play ambient "dust_and_echo.ogg"
     pause 2
-
-    hide azura
-    hide luz
 
     call chapter_complete("Capítulo 3")
     jump cap_4
@@ -1315,8 +1369,9 @@ label cap_4:
     play sound "sfx/heavy_breathing.ogg" loop volume 0.8
     r "Estoy vivo... Creo que eso cuenta para algo..."
 
-    scene bg_bodega_dark with fade
-    show rodrigo injured at center with dissolve
+    scene bodega_dark
+    show rodrigo injured at center
+    with fade
 
     "El aire en el subsuelo era denso, una mezcla rancia de humedad, moho y sangre seca."
     "Rodrigo se sacudió el polvo, tosiendo. Le dolían las costillas, pero la adrenalina silenciaba el dolor con pánico frío."
@@ -1333,7 +1388,7 @@ label cap_4:
     r "Perfecto... Un sótano oscuro en un orfanato abandonado."
     r "Solo falta una niña en triciclo y tengo el bingo del terror completo."
 
-    scene bg_bodega_pan
+    scene bg_bodega_pan with dissolve
     "Observa a su alrededor."
     "Estanterías corroídas, cajas desechas, frascos vacíos y algunos envases sellados con etiquetas ilegibles."
     "El lugar parece una bodega metálica olvidada, húmeda y colapsada en varias secciones."
@@ -1341,8 +1396,8 @@ label cap_4:
     "Silencio."
     "Solo el lejano goteo de agua."
 
-    scene bg_bodega_walk with dissolve
-    show rodrigo move_slow
+    # scene bg_bodega_walk with dissolve
+    show rodrigo move_slow with dissolve
     play sound walk loop
     "Rodrigo da unos pasos con lentitud, examinando la habitación. Se apoya contra una pared y para mantener el equilibrio."
     "Por unos instantes, se permite respirar."
@@ -1354,13 +1409,13 @@ label cap_4:
     stop sound
     stop music
     play sound "sfx/claw_drag_concrete.mp3"
+    show rodrigo alert at vjump
     "CRRRK..."
     "Un sonido rasposo. Uñas largas contra el hormigón."
     
     play sound glx_laugh
     "Y una risita baja, gutural."
 
-    show rodrigo tense
     stop sound fadeout 3
     "Rodrigo se detiene en seco."
     "Nada visible, pero algo se movió en la penumbra."
@@ -1380,7 +1435,8 @@ label cap_4:
 
     r "¡Déjame en paz, maldita sea!"
     
-    scene bg_pasillo_scroll with vpunch
+    #scene bg_pasillo_scroll with vpunch
+    scene pasillo_corriendo with vpunch
     play sound run
     show rodrigo run_panic at center
     
@@ -1392,6 +1448,7 @@ label cap_4:
     "Impactos pesados contra las paredes y el techo."
 
     scene bg_almacen_medico with fade
+    show rodrigo alert at left with moveinright
     play sound "sfx/glass_break_footsteps.mp3"
     
     "Derrapó en un almacén médico. Cristales rotos bajo sus rodillas. Se levantó al instante."
@@ -1431,10 +1488,9 @@ label cap_4:
     "¡BANG!"
     
     play sound "sfx/thud.mp3"
-    scene galaxia headshot with vpunch
+    scene gal_dead_floor with vpunch
     "El impacto fue brutal. Un tiro limpio en la frente."
     
-    scene gal_dead_floor
     play sound "sfx/body_fall_glass.mp3"
     
     "El cuerpo cayó pesadamente entre los cristales."
@@ -1446,12 +1502,15 @@ label cap_4:
     r "Dios... Se acabó."
     
     "Rodrigo bajó el arma, temblando. Exhaló. Necesitaba salir."
+    scene pasillo_corriendo
+    show rodrigo neutral at center
+    with fade
     "Se giró para buscar otra salida, dándole la espalda al cuerpo."
     
     play sound "sfx/wet_whisper.mp3" volume 2.0 # Sonido fuerte y cercano
     g "{size=+10}{cps=5}Oye...{/cps}{/size}"
 
-    show rodrigo scared with vpunch
+    show rodrigo scared at vjump
     "Rodrigo tropezó hacia atrás."
 
     play music chase1 volume 1.0 # Música frenética
@@ -1483,15 +1542,16 @@ label cap_4:
 
     r "¡NO!"
     
-    scene bg_pasillo_escombros with vpunch
+    scene bg_pasillo_escombros
+    show rodrigo run_panic
+    with vpunch
     
     g "¡CORRE, CORRE, CORRE!"
     
     "Ya no había coquetería. Solo hambre."
     
-    show rodrigo run_panic
+    play sound "sfx/heavy_bang.mp3"
     "Rodrigo volcó un archivador."
-    play sound "sfx/metal_crash.mp3"
     
     "No sirvió. Ella saltó sobre él, rebotando en las paredes."
     
@@ -1505,12 +1565,12 @@ label cap_4:
     call screen qte_escalera
 
 label continue_escape_ladder:
-    scene bg_escalera_mano
+    scene escalera_mano_1 with fade
     
     "Rodrigo puso un pie en el peldaño."
     
+    scene escalera_mano_2 with shake
     play sound slash
-    show rodrigo pain with vpunch
     r "¡¡AAAGH!!"
     
     "Garras en su costado. Ardor lacerante."
@@ -1518,7 +1578,7 @@ label continue_escape_ladder:
     
     g "Te tengo."
     
-    show rodrigo gun_point_blank
+    #show rodrigo gun_point_blank
     r "¡Suéltame!"
     
     play sound gunshot
@@ -1583,7 +1643,7 @@ label game_over_ladder:
     
     "{cps=15}Demasiado lento.{/cps}"
     
-    scene death_spdr_1 with fade
+    scene death_glx_1 with fade
     g "Te dije que eras torpe~"
     
     pause(1)
@@ -1618,11 +1678,13 @@ label game_over_ladder:
 
 
 label cap_5:
-    scene polvo_niebla with fade
-    stop music fadeout 2.0
-    
-    show luz scared at right
-    show azura scared at left
+    scene pasillo_abandonado
+    show luz scared at centro_derecha
+    show azura scared at right
+    show nagi serio at centro_izquierda
+    show cutipye scared at left
+    with fade
+    stop music fadeout 2
     
     l "¡RODRIGO! ¡RESPONDE!"
     
@@ -1631,10 +1693,10 @@ label cap_5:
     play sound "sfx/rocks_falling_echo.mp3"
     "Solo se escucha el eco lejano de piedras cayendo. Y luego... nada."
     
-    show nagi serio at center with dissolve
+    #show nagi serio at center with dissolve
     n "Mierda... El suelo estaba podrido."
     
-    show cutipye scared at centro_derecha behind nagi with dissolve
+    #show cutipye scared at centro_derecha behind nagi with dissolve
     c "¿Se... se mató? ¿Cayó hasta el fondo?"
     
     l "¡No! ¡Él está bien! ¡Tiene que estar bien!"
@@ -1671,7 +1733,6 @@ label cap_5:
     
     "Lo que alguna vez fue una cocina industrial ahora es un nido."
     
-    show nidos_larvas at truecenter with dissolve
     "Las mesas de metal están cubiertas de una sustancia cerosa y amarillenta."
     "Y sobre ella... cosas."
     
@@ -1686,7 +1747,7 @@ label cap_5:
     
     "Un aleteo pesado desciende del techo."
     
-    show avispa_guardia at center with dissolve
+    scene avispa_guardia with dissolve
     "Una criatura desciende. Mitad hombre, mitad insecto. Sus piernas son largas y quitinosas, su abdomen palpita con un aguijón rezumante."
     
     "El grupo retrocede, preparando sus armas."
@@ -1707,7 +1768,7 @@ label cap_5:
     pause 1
     "{i}¡BAAANG!{/i}"
     
-    show avispa_guardia alert with vpunch
+    #show avispa_guardia alert with vpunch
     play sound larvcry volume 2.5
     pause 1
     "Las larvas comienzan a chillar. Un sonido agudo, como llanto de bebé distorsionado."
@@ -1747,7 +1808,7 @@ label cap_5:
     
     scene pasillo_servicio_lucha
     play sound "sfx/wasp_wings.mp3" fadein 1.0
-    show avispa_zangano attack at center with moveinright
+    show avispa_zangano at center with moveinright
     
     "El Zángano se libera, aleteando furiosamente en el espacio cerrado del pasillo."
     "Bloquea el camino hacia el sótano."
@@ -1762,11 +1823,10 @@ label cap_5:
 label exito_qte_1:
     # Resultado visual Fase 1
     play sound "sfx/throw_object.mp3"
-    show cutipye throw
-    "¡CLANG!"
-    
+    show cutipye throw # "¡CLANG!"
     play sound "sfx/metal_hit_chitin.mp3"
     with vpunch
+    show avispa_zangano at right with moveinleft
     "El extintor golpea la cabeza del zángano. La criatura se sacude, aturdida por un segundo."
     
     # --- FASE 2: NAGI (GOLPEAR) ---
@@ -1782,6 +1842,7 @@ label exito_qte_2:
     
     play sound "sfx/bat_hit_hard.mp3"
     with shake
+    show avispa_zangano at left with moveinright
     "¡CRACK!"
     "El golpe destroza el ala derecha. La avispa chilla y cae al suelo, expuesta."
     
@@ -1860,12 +1921,9 @@ label game_over_wasp:
     show avispa_zangano attack at truecenter with vpunch
     "El zumbido se convirtió en un rugido ensordecedor cuando el zángano ignoró a Nagi y a Luz, abalanzándose directamente sobre Azura con todo su peso."
     
-    scene game_over_wasp_1
+    scene death_wasp with shake
     play sound slash
     a "¡¡AAAGH!!"
-    
-    show luz scared at left
-    show nagi scared at right
     
     n "¡SUÉLTALA, MIERDA!"
     
@@ -1903,8 +1961,6 @@ label game_over_wasp:
     l "¡¡AZURA!! ¡¡NO!!"
     
     "Los gritos de Azura se ahogaron rápidamente en un gorgoteo sangriento."
-    
-    scene game_over_wasp_2 with fade
     
     "Incluso cuando dejó de moverse, la avispa no se detuvo. Seguía atacando el cadáver, movida por puro instinto asesino, defendiendo su colmena de la intrusa."
     
