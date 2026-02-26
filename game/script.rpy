@@ -272,7 +272,6 @@ label start:
     show cutipye smile at right
     show rodrigo at left
     with moveinright
-    #show rodrigo neutral at left with moveinleft
     c "Vamos, Rodri, no seas tan agüafiestas. Además, solo está a unos diez minutos de aquí."
 
     menu:
@@ -303,7 +302,8 @@ label start:
 
     menu:
         "Te burlas del rumor":
-            r "Sí, claro, y probablemente también hay un monstruo bajo cada cama, ¿no?"
+            r "Vaya giro de guión. Qué conveniente."
+            r "¿También hay una niña de pelo largo que aparece en los espejos o eso viene en el DLC de pago?"
             $ afinidad_azura -= 1
 
         "Te muestras incómodo":
@@ -922,7 +922,6 @@ label escape_mnts:
     "Avanzó sin rumbo claro, deseando encontrar a Luz, escuchar su voz."
     "Y entonces, como si el orfanato se burlara de sus pensamientos..."
 
-    #scene reunion_luz with fade
     show luz smile at centro_derecha
     show rodrigo sorprendido at centro_izquierda
     with moveinright
@@ -937,18 +936,94 @@ label escape_mnts:
     "Luz estaba limpia. Demasiado limpia. Y esa sonrisa..."
         
     menu:
-        "¿Estás bien?":
-            r "¿Estás bien?"
-            l "¡Si, mejor que nunca! Me siento... Ligera."
-            $afinidad_luz +=1
-    
-        "¿Eres realmente tú?":
-            "Todavía incrédulo por el contraste, el castaño se acercó titubeando a la pelirroja."
-            r "Luz... Tu voz..."
-            l "¿Qué pasa, tontito? ¿El miedo te comió la lengua?"
-        
-            "La voz de Luz no parecía estar preocupada... Más bien, estaba feliz... Demasiado feliz..."
-            $ estado_mental +=1
+        "Abrazarla sin pensar":
+            "El alivio le ganó al orgullo."
+            "Antes de poder analizarlo, Rodrigo avanzó y la rodeó con los brazos con más fuerza de la que pretendía."
+            
+            l "¿R-Rodri?"
+            
+            "Su cuerpo estaba tibio. Real. No había rigidez antinatural. No había trampa."
+            
+            r "Esa cosa estaba cerca..."
+            r "Pensé que..."
+            
+            "No terminó la frase."
+            
+            "Luz, todavía sorprendida por lo inusualmente físico del gesto —porque Rodrigo rara vez iniciaba contacto así—, dudó apenas un segundo antes de corresponder."
+            
+            l "...Estoy aquí."
+            
+            "Sus manos se apoyaron en su espalda, suaves. Firmes."
+            
+            "Después de unos segundos, fue ella quien se separó primero, mirándolo con una mezcla de ternura y preocupación."
+            
+            l "Debió ser horrible."
+            
+            $ afinidad_luz += 2
+            $ estado_mental -= 1
+
+
+        "Comprobar si está bien":
+            "Rodrigo se acercó sin decir nada."
+            "Sus manos se alzaron y sostuvieron el rostro de Luz entre sus dedos, examinando cada rasgo con intensidad."
+            
+            l "¿Qué haces?"
+            
+            "Bajó las manos por su cuello, palpando con cuidado, como buscando marcas invisibles."
+            
+            r "Quédate quieta."
+            
+            "No había suavidad en su voz. Solo tensión."
+            "Sus ojos recorrían su piel en busca de heridas… o algo peor."
+            pause 0.5
+            "Nada."
+            "La piel estaba limpia. Demasiado limpia."
+            "Entonces, como si recién recordara lo extraño de su actitud, Rodrigo inclinó el rostro y dejó un beso breve en sus labios."
+            
+            r "...Solo quería asegurarme."
+            
+            "Luz parpadeó, confundida, pero sonrió."
+            
+            l "Podías haber empezado por ahí, paranoico."
+            
+            $ afinidad_luz += 1
+            $ estado_mental += 1
+
+
+        "Cuestionar a Luz":
+            "Rodrigo no se movió."
+            
+            r "¿Por qué estás tan tranquila?"
+            r "Y limpia."
+            
+            "La sonrisa de Luz vaciló apenas."
+            
+            l "¿Eh?"
+            
+            r "Hemos visto un fenómeno araña colgar del techo."
+            r "No pareces... afectada."
+            
+            "Por un momento, el silencio pesó entre ambos."
+            "Luego, la expresión de Luz se suavizó."
+            
+            l "Rodri..."
+            l "Tuvimos suerte. No nos encontró."
+            l "Y si no sonrío, me pongo a temblar."
+            
+            "Antes de que él pudiera responder, ella dio un paso al frente y lo abrazó."
+            "Esta vez fue ella quien lo sostuvo con fuerza."
+            
+            l "Estás tenso."
+            
+            "Rodrigo tardó un segundo en corresponder."
+            
+            r "...Estoy bien."
+            
+            "Mentía."
+            "Luz se separó con suavidad, pero su mirada permaneció atenta."
+            
+            $ estado_mental += 2
+            $ afinidad_luz += 1
     
     l "Ven, quiero mostrarte esto."
     "Sin esperar respuesta, lo tomó de la mano, apretándola fuerte, arrastrándolo con ella."
@@ -1121,26 +1196,116 @@ label cap_3:
 
     show rodrigo serio at right with moveinright
     menu:
-        "Preguntas si está bien.":
+        "Preguntas si está bien":
             $ afinidad_azura += 2
+
+            show rodrigo serio at centro_izquierda
+            show luz neutral at centro_derecha
+            with move
+            "Rodrigo acorta la distancia en dos pasos firmes."
+
+            "No mira el vestíbulo. No mira las sombras."
+            "Mira a Azura."
+
             r "¿Estás herida?"
+
+            "Sus ojos recorren sus brazos, su cuello, las mangas rasgadas."
+            "Azura tarda un segundo en responder, como si la pregunta tuviera que atravesar una niebla espesa."
             
-            a "No... solo asustada. No quise separarme, pero… algo nos forzó a dispersarnos."    
+            a "No... solo asustada."
+            a "No quise separarme, pero… algo nos forzó a dispersarnos."
             a "Fue... el ruido."
+
             "Se seca una lágrima rápidamente y se endereza."
+            "Está intentando mantenerse compuesta, fallando apenas."
+            "Rodrigo asiente, pero su mandíbula permanece tensa."
+
+            r "Nagi y Cuty."
+            r "¿Los viste lastimados?"
+
+            a "No."
+            a "Corrían."
+
+            "No dice 'están bien'. No dice 'están vivos'"
+            "Solo 'corrían'."
+            "Eso basta para que el silencio vuelva a pesar"
         
         "Preguntas por lo que ocurrió":
             $ afinidad_azura += 1
-            r "¿Qué ocurrió? ¿Donde están los otros?"
-         
-            a "No lo sé. Corrimos en direcciones opuestas. Nagi y Cuty subieron al segundo piso."
+            "Rodrigo no se acerca."
+            "Su postura se mantiene rígida, como si cualquier paso en falso pudiera activar algo."
+
+            r "¿Qué ocurrió?"
+            r "¿Donde están los otros?"
+
+            "La pregunta sale rápida. Precisa."
+            "Casi militar."
+            "Azura parpadea, desorientada por el tono."
+            
+            a "Yo..."
+
+            "Miró el suelo, tratando de ordenar el recuerdo."
+
+            a "No lo sé. Corrimos en direcciones opuestas."
+            a "Nagi y Cuty subieron al segundo piso."
+
+            "Se lleva una mano a la sien."
+            
+            a "Escuché algo detrás de nosotros."
+            a "No eran pasos."
+            a "Era... más pesado."
+            
+            "Su respiración se acelera apenas al recordarlo."
+            
+            "Rodrigo aprieta la empuñadura de su daga."
+            
+            r "¿Los viste caer?"
+            
+            a "¡No!"
+            
+            "La respuesta es demasiado rápida."
+            "Demasiado frágil."
+            
+            a "Solo... corrimos."
+            
+            "El vestíbulo vuelve a sentirse inmenso."
+            "Y el segundo piso, peligrosamente lejano."
         
         "Te quedas callado":
-            $ estado_mental += 1
-            r "..."
-            "Rodrigo solo miraba las sombras. ¿Estarán vivos? La imagen de sus cuerpos rotos invadía su mente."
-            a "Rodrigo..."
-            "Él parpadeó, volviendo a la realidad."
+            $ estado_mental += 2
+            "Rodrigo no respondió."
+            
+            "Su mirada no estaba en Azura… sino en el espacio detrás de ella."
+            
+            "El vestíbulo era demasiado grande. Demasiado abierto. Demasiados lugares donde algo podía estar observándolos."
+            
+            a "Rodrigo…"
+            
+            "Azura da un paso hacia él, pero vacila a mitad de camino."
+            
+            a "Oye… di algo."
+            
+            "Sus manos tiemblan. No de miedo inmediato… sino de agotamiento. De sobrecarga."
+            
+            a "No sé dónde están Nagi y Cuty."
+            a "Y si tú te quedas así…"
+            
+            "Traga saliva. Sus palabras se fragmentan."
+            
+            a "No puedo ser la única que piense."
+            
+            "Eso lo golpea más que cualquier grito."
+            "Rodrigo parpadea. La imagen de cuerpos mutilados desaparece lentamente."
+            
+            r "...Siguen vivos."
+            r "Tienen que estarlo."
+            
+            "No suena convencido."
+            
+            a "Entonces vamos a encontrarlos."
+            
+            "Azura no sonríe. No se recompone."
+            "Solo se obliga a mantenerse en pie."
 
     show luz worry
     "Luz mira hacia Rodrigo. Él evita la mirada por un segundo, pero luego asiente."
@@ -1300,9 +1465,9 @@ label cap_3:
     "Los tres avanzaban con pasos medidos. La linterna de Rodrigo barre el pasillo, revelando capas de polvo, trozos de pintura descascarada, y puertas cerradas con placas oxidadas."
     "A cada paso, el crujido del suelo de madera hace eco, forzándolos a contener la respiración."
 
-    a "¿Siempre fue así de frágil...?"
-    r "No es solo viejo... Está a punto de ceder..."
-    l "Entonces vayamos más lento... Por las orillas si es posible."
+    l "¿Siempre fue así de frágil...?"
+    a "No es solo viejo... Está a punto de ceder..."
+    r "Entonces vayamos más lento... Por las orillas si es posible."
 
     "Se acomodan, caminando en fila, pegados a la pared. Sus sombras oscilan con la luz, proyectándose deformadas."
     "La tensión se siente con cada movimiento."
@@ -1693,10 +1858,8 @@ label cap_5:
     play sound "sfx/rocks_falling_echo.mp3"
     "Solo se escucha el eco lejano de piedras cayendo. Y luego... nada."
     
-    #show nagi serio at center with dissolve
     n "Mierda... El suelo estaba podrido."
     
-    #show cutipye scared at centro_derecha behind nagi with dissolve
     c "¿Se... se mató? ¿Cayó hasta el fondo?"
     
     l "¡No! ¡Él está bien! ¡Tiene que estar bien!"
@@ -1814,10 +1977,7 @@ label cap_5:
     "Bloquea el camino hacia el sótano."
     "Va a atacar a Azura."
     
-    l "¡Azura, abajo!"
-    
-    "El tiempo se ralentiza. Tienen que actuar en equipo o morirán."
-    
+    l "¡Azura, abajo!"    
     call screen qte_wasp_1
 
 label exito_qte_1:
@@ -1854,24 +2014,45 @@ label exito_qte_2:
 
 label combate_ganado:
     
-    play sound gunshot
-    with flash
-    
-    play sound "sfx/insect_splat.mp3"
-    "La bala atraviesa el tórax de la avispa, explotando en una lluvia de icor verde."
-    
+    play sound "sfx/metal_swing.mp3"
+    "Luz levanta la barra por encima de su cabeza, temblando -no de miedo, sino de adrenalina pura."
+
+    with hpunch
+    play sound "sfx/metal_crush.mp3"
+    "¡CLANG!"
+
+    "El metal impacta contra el tórax abierto del zángano."
+
+    with vpunch
+    play sound "sfx/splat.mp3"
+    "El exoesqueleto cede con un crujido viscoso."
+    "Icor verde salpica el suelo y parte de la pared."
+    "La criatura se retuerce violentamente."
+
+    play sound "sfx/metal_crush.mp3"
+    with hpunch
+    "Luz golpea otra vez."
+
+    l "¡MUERE! ¡MUERE!"
+
+    "El tercer impacto atraviesa lo que queda del caparazón."
+
     scene avispa_dead with dissolve
     "La criatura cae, convulsionando una última vez antes de quedar inmóvil."
     
     stop music fadeout 2.0
     
-    "El silencio vuelve al pasillo, roto solo por los jadeos del grupo."
+    "El silencio vuelve al pasillo, roto solo por los jadeos descompasados del grupo."
     
     c "¿La... matamos?"
-    n "Eso parece."
+    n "Si..."
     
-    "Nagi se limpia una mancha de sangre verde de la mejilla, mirando su bate abollado."
-    
+    "Nagi observa a Luz."
+    "Ella nsigue sosteniendo la barra."
+    "No la suelta."
+    pause 1
+    "Luego, cuando la adrenalina comienza a bajar, Azura observa a su alrededor, anunciando con voz temblorosa:"
+
     a "Miren... ahí."
     
     scene cuarto_maquinas_puerta with dissolve
@@ -2012,7 +2193,7 @@ screen qte_wasp_3():
         
         text "¡LUZ! ¡REMATA!" color "#f00" outlines [(2, "#000", 0, 0)] size 50 at transform_blink
         
-        textbutton "¡DISPARAR!" style "button_panic" action Jump("combate_ganado") text_size 70 text_color "#fff" text_bold True
+        textbutton "¡GOLPEA!" style "button_panic" action Jump("combate_ganado") text_size 70 text_color "#fff" text_bold True
 
 label qte_wasp_4:
     # Resultado visual Fase 2
@@ -2025,8 +2206,10 @@ label qte_wasp_4:
     "El golpe destroza el ala derecha. La avispa chilla y cae al suelo, expuesta."
     
     # --- FASE 3: LUZ (REMATAR) ---
-    show luz aim at center
-    l "¡MUERE!"
+    show luz angry at center
+    "Entre los escombros, Luz agarra una barra metálica desprendida de una banca rota."
+
+    l "¡Hazte a un lado!"
     
     call screen combate_ganado
 
@@ -2172,7 +2355,6 @@ label cap_6:
     
     "El recuerdo se disipó, reemplazado por el olor a sangre y aceite."
     "Luz seguía abrazándolo, temblando, pero ya no era aquella chica tímida con vestido pastel."
-    "Ahora sostenía una pistola vacía y tenía la ropa sucia de escombros."
     
     l "Te tengo, Rodri... Estoy aquí."
 
