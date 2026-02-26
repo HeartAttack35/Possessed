@@ -1,4 +1,8 @@
 # Personajes
+# NOTA: Para activar/desactivar el contador HUD desde la consola (Shift+O):
+# - Escribe: mostrar_hud = True  (para mostrarlo)
+# - Escribe: mostrar_hud = False (para ocultarlo)
+
 define r = Character("Rodrigo", color="#0c0472")
 define l = Character("Luz", color="#fd5353")
 define c = Character("Cutipye", color="#2dff5a")
@@ -17,6 +21,7 @@ default afinidad_nagi = 0
 default estado_mental = 0
 default tiempo_escape = 0
 default nombre_capitulo = ""
+default mostrar_hud = True
 
 style button_panic is button:
     background "#5a0000"
@@ -258,7 +263,56 @@ define audio.flashback = "<loop 28.00>music/flashback.ogg"
 define audio.credits = "music/creditos.mp3"
 define audio.rodtheme = "music/rodtheme.ogg" #DEFINIR LOOP
 
+# Pantalla HUD de afinidades y estado mental
+screen hud_stats():
+    if mostrar_hud:
+        frame:
+            xpos 10
+            ypos 10
+            xysize (320, 280)
+            background Frame("gui/frame.png", 10, 10)
+            
+            vbox:
+                spacing 8
+                xpos 15
+                ypos 15
+                
+                text "=== ESTADÍSTICAS ===" size 20 bold True
+                
+                fixed:
+                    xysize (290, 30)
+                    text "Luz:" align (0.0, 0.5)
+                    text "[afinidad_luz]" color "#fd5353" align (0.9, 0.5)
+                
+                fixed:
+                    xysize (290, 30)
+                    text "Azura:" align (0.0, 0.5)
+                    text "[afinidad_azura]" color "#0f8028" align (0.9, 0.5)
+                
+                fixed:
+                    xysize (290, 30)
+                    text "Cutipye:" align (0.0, 0.5)
+                    text "[afinidad_cutipye]" color "#2dff5a" align (0.9, 0.5)
+                
+                fixed:
+                    xysize (290, 30)
+                    text "Nagi:" align (0.0, 0.5)
+                    text "[afinidad_nagi]" color "#7b2cbf" align (0.9, 0.5)
+                
+                null height 5
+                
+                fixed:
+                    xysize (290, 30)
+                    text "Estado Mental:" align (0.0, 0.5)
+                    text "[estado_mental]" color "#ffaa00" align (0.9, 0.5)
+
 label start:
+    show screen hud_stats
+
+################
+#    ACTO 1
+################
+
     scene bosque_tarde with fade
     play music forest fadein 2
 
@@ -293,7 +347,6 @@ label start:
 
         "No dices nada":
             "Rodrigo simplemente suspira, resignado."
-            $ afinidad_cutipye += 0
             pause 1
             show azura smile with dissolve
             a "Si sirve de algo..."
@@ -313,7 +366,6 @@ label start:
 
         "Guardas silencio":
             "Rodrigo se limitó a fruncir el ceño sin responder, su mueca una clara muestra de desapruebo."
-            $ afinidad_azura += 0
 
     show azura at centro_derecha with moveinright
     show nagi smug with dissolve
@@ -481,7 +533,6 @@ label start:
             menu:
                 "Huyes con Luz":
                     "El grito de Luz lo trajo a la realidad. No podía ganar esto."
-                    $ estado_mental += 1
                     jump escapar_araña
 
                 "Insistes en atacar":
@@ -1889,6 +1940,7 @@ label cap_5:
     a "Suena como... ¿electricidad?"
     
     "No era electricidad. Era un zumbido orgánico."
+    $ renpy.save("1-1", "Encuentro 5")
     
     scene cocina_infestada with dissolve
     
@@ -2217,6 +2269,10 @@ label qte_wasp_4:
 
 label cap_6:
 
+################
+#    ACTO 2    #
+################
+
     scene black with fade
     stop music fadeout 2.0
     
@@ -2398,7 +2454,7 @@ label chapter_complete(nombre):
 label creditos:
 
     play music credits fadein 1.5
-    scene black with fade
+    show expression Solid("#0006") as oscurecer
 
     $ credits_text = '''
     POSSESSED
@@ -2452,8 +2508,13 @@ label creditos:
     hide text
 
     pause 3
-    show text "Fin." with fade
+    scene black
+    show text "Fin."
+    with dissolve
     pause 4
+    hide text
+    hide oscurecer
+    with fade
     return
 
 
