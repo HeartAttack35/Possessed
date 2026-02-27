@@ -1,310 +1,6 @@
-# Personajes
 # NOTA: Para activar/desactivar el contador HUD desde la consola (Shift+O):
 # - Escribe: mostrar_hud = True  (para mostrarlo)
 # - Escribe: mostrar_hud = False (para ocultarlo)
-
-define r = Character("Rodrigo", color="#0c0472")
-define l = Character("Luz", color="#fd5353")
-define c = Character("Cutipye", color="#2dff5a")
-define a = Character("Azura", color="#0f8028")
-define n = Character("Nagi", color="#7b2cbf")
-define g = Character("Galaxia", what_font="fonts/HelpMe.ttf", color="#390169")
-define sujeto = Character("Sujeto")
-define ln = Character("Lucien", color="#fd5353")
-
-# Variables y definiciones
-
-default afinidad_luz = 0
-default afinidad_azura = 0
-default afinidad_cutipye = 0
-default afinidad_nagi = 0
-default estado_mental = 0
-default tiempo_escape = 0
-default nombre_capitulo = ""
-default mostrar_hud = True
-
-style button_panic is button:
-    background "#5a0000"
-    hover_background "#ff0000"
-
-style button_panic_text is text:
-    size 60
-    color "#ffffff"
-    bold True
-    outlines [(3, "#000000", 0, 0)]
-
-transform slow_scroll:
-    yalign -1.1
-    xalign 0.5
-    linear 130.0 yalign 1.2
-
-transform fadein_center:
-    alpha 0.0
-    zoom 0.8
-    linear 1.5 alpha 1.0 zoom 1.0
-
-transform heartbeat:
-    zoom 1.0
-    linear 0.1 zoom 1.02
-    linear 0.1 zoom 1.0
-    pause 0.5
-    repeat
-
-transform transform_blink:
-    alpha 1.0
-    linear 0.1 alpha 0.2
-    linear 0.1 alpha 1.0
-    repeat
-
-transform sepia_filter:
-    matrixcolor SepiaMatrix()
-
-define flash = Fade(.25, 0.0, .75, color="#fff")
-
-define shake = hpunch
-
-transform centro_izquierda:
-    xalign 0.35
-    yalign 1.0
-
-transform blanco_y_negro:
-    matrixcolor SaturationMatrix(0.0)
-
-transform centro_derecha:
-    xalign 0.65
-    yalign 1.0
-
-transform shaking:
-    linear 0.05 xoffset -2 yoffset 2
-    linear 0.05 xoffset 3 yoffset -3
-    linear 0.05 xoffset 2 yoffset -2
-    linear 0.05 xoffset -3 yoffset 3
-    linear 0.05 xoffset 0 yoffset 0
-    repeat
-
-transform vjump:
-    yoffset 0
-    linear 0.08 yoffset -25
-    linear 0.08 yoffset 0
-
-## Fondos
-image mainmenubg = "bg/main_menu.png"
-image gameover_screen = "bg/game_over.jpg"
-image foreboding_1 = "bg/pasillo_oscuro.jpg"
-image escape_1 = "bg/pasillo_corriendo.jpg"
-image puerta_abierta_sotano = "bg/puerta_oxidada.png"
-image pasillo_lab = "bg/pasillo_abandonado.jpg"
-image sala_h127_1 = "bg/sala_h127.jpg"
-image puerta_cerrandose = "bg/puerta_h127.jpg"
-image pasillo_huida = "bg/pasillo_corriendo.jpg"
-image corredor_amplio = "bg/pasillo_corriendo.jpg"
-image chase1_1 = "bg/bg_bodega_pan.jpg"
-image bg_pasillo_escombros = "bg/pasillo_corriendo.jpg"
-image bg_cuarto_maquinas = "bg/puerta_oxidada.png"
-image pasillo_servicio = "bg/pasillo_oscuro.jpg"
-image cocina_puerta = "bg/puerta_oxidada.png"
-image cuarto_maquinas_puerta = "bg/bg_bodega_pan.jpg"
-image pistola_primer_plano = "objects/obj-gun.png"
-image pasillo_servicio_lucha = "bg/pasillo_oscuro.jpg"
-# Muertes
-image spdr1 = "game_over/death_spdr_1.png"
-
-## Escenarios
-### image bg clase = "escenarios/sala_clases.jpg"
-image bg_pasillo_scroll:
-    "bg/pasillo.png"
-    linear 5.0 xpos -500
-
-## Sprites
-# Rodrigo
-image rodrigo neutral = "images/sprites/Rodri.png" 
-image rodrigo soft = "images/sprites/Rodri.png"
-image rodrigo molesto = "images/sprites/Rodri.png"
-image rodrigo serio = "images/sprites/Rodri.png"
-image rodrigo frustrado = "images/sprites/Rodri.png"
-image rodrigo nervioso = "images/sprites/Rodri.png"
-image rodrigo sorprendido = "images/sprites/Rodri.png"
-image rodrigo pain = "images/sprites/Rodri.png"
-image rodrigo scared = "images/sprites/Rodri.png"
-image rodrigo alert = "images/sprites/Rodri.png"
-image rodrigo linterna = "images/sprites/Rodri.png"
-image rodrigo shocked = "images/sprites/Rodri.png"
-image rodrigo aim_gun = "images/sprites/Rodri.png"
-image rodrigo injured = "images/sprites/Rodri.png" # herido
-image rodrigo shock_state = "images/sprites/Rodri.png"
-image rodrigo bleeding_wall = "images/sprites/Rodri.png" # sangrando en la pared
-image rodrigo casual_young_shy = "images/sprites/Rodri.png"
-image rodrigo casual_young_blush = "images/sprites/Rodri.png"
-image rodrigo move_slow:
-    "images/sprites/Rodri.png"
-
-    yoffset 0
-    xoffset 0
-
-    block:
-        linear 0.6 yoffset -6 xoffset 2
-        linear 0.6 yoffset 0 xoffset 0
-        linear 0.6 yoffset -6 xoffset -2
-        linear 0.6 yoffset 0 xoffset 0
-        repeat
-image rodrigo run_panic:
-    "images/sprites/Rodri.png"
-
-    yoffset 0
-    xoffset 0
-
-    block:
-        linear 0.2 yoffset -12 xoffset 4
-        linear 0.2 yoffset 0 xoffset 0
-        linear 0.2 yoffset -12 xoffset -4
-        linear 0.2 yoffset 0 xoffset 0
-        repeat
-
-
-# Azura
-image azura neutral = "images/sprites/Azura.png"
-image azura smile = "images/sprites/Azura.png"
-image azura temblor = "images/sprites/Azura.png"
-image azura emocion = "images/sprites/Azura.png"
-image azura scared = "images/sprites/Azura.png"
-image azura worried = "images/sprites/Azura.png"
-image azura casual_young = "images/sprites/Azura.png"
-image azura casual_young_smile = "images/sprites/Azura.png"
-
-# Cutipye
-image cutipye smile = "images/sprites/Cutipye.png"
-image cutipye scared = "images/sprites/Cutipye.png"
-image cutipye disgust = "images/sprites/Cutipye.png"
-image cutipye casual_young = "images/sprites/Cutipye.png"
-image cutipye throw = "images/sprites/Cutipye.png"
-
-# Nagi
-image nagi smug = "images/sprites/Nagi.png"
-image nagi smile = "images/sprites/Nagi.png"
-image nagi serio = "images/sprites/Nagi.png"
-image nagi angry = "images/sprites/Nagi.png"
-image nagi scared = "images/sprites/Nagi.png"
-image nagi casual_young = "images/sprites/Nagi.png"
-image nagi casual_young_molesto = "images/sprites/Nagi.png"
-image nagi casual_young_shock = "images/sprites/Nagi.png"
-
-# Luz
-image luz smile = "images/sprites/Luz.png"
-image luz scared = "images/sprites/Luz.png"
-image luz worry = "images/sprites/Luz.png"
-image luz neutral = "images/sprites/Luz.png"
-image luz surprised = "images/sprites/Luz.png"
-image luz determined = "images/sprites/Luz.png"
-image luz aim = "images/sprites/Luz.png"
-image luz pre_transition_shy = "images/sprites/Luz.png"
-image luz pre_transition_smile_tears = "images/sprites/Luz.png"
-
-# Galaxia
-image galaxia walk_creepy = "images/sprites/Galaxia.png"
-image galaxia smile = "images/sprites/Galaxia.png"
-image galaxia half_smile = "images/sprites/Galaxia.png"
-image galaxia shadow_eyes = "images/sprites/Galaxia.png"
-image galaxia laugh = "images/sprites/Galaxia.png"
-image galaxia regen = "images/sprites/Galaxia.png"
-image galaxia healed = "images/sprites/Galaxia.png"
-image galaxia headshot = "images/sprites/Galaxia.png"
-
-
-# Otros
-#image sujeto_herido = "images/sprites/Sujeto_Herido.png"
-image sujeto_herido:
-    "images/sprites/Nagi.png"
-    matrixcolor TintMatrix("#000000")
-image avispa_zangano = "images/sprites/avispa_zangano.png"
-image avispa_zangano attack = "images/sprites/avispa_zangano.png"
-
-# Objetos
-image cuaderno_bitacora = "images/objects/obj_cuaderno.png"
-image item_gun = "images/objects/obj-gun.png"
-
-
-
-##Sonidos
-define shock = "sfx/shock.mp3"
-define slash = "sfx/slash.mp3"
-define run = "sfx/run.mp3"
-define flies = "sfx/flies.mp3"
-define crack = "sfx/crack-and-crunch.mp3"
-define walk0 = "sfx/walking_intro.mp3"
-define break_glass = "sfx/break-glass.mp3"
-define break_wood = "sfx/break-wood.mp3"
-define wood_creak = "sfx/wood-creak.mp3"
-define door_break = "sfx/door-break.mp3" # bajar volumen a 0.6
-define door_slam = "sfx/door-slam.mp3"
-define thud = "sfx/thud.mp3"
-define door_open = "sfx/door-open.mp3"
-define door_close = "sfx/door-close.mp3"
-define scream1 = "sfx/scream-echo.mp3"
-define chptr_cmplt ="sfx/chapter-clear.mp3"
-define glx_laugh = "sfx/laugh.mp3"
-define paper_flip = "sfx/paper-flip.mp3"
-define alarm = "sfx/alarm.mp3" #bajar volumen a 0.7"
-define gunshot = "sfx/gunshot.mp3"
-define walk = "sfx/walking.mp3"
-define land = "sfx/land.mp3"
-define objfall = "sfx/object-fall.mp3"
-define nailtap = "sfx/nails-tapping.mp3"
-define larvcry = "sfx/larvae_cry.mp3"
-
-# Música
-define audio.main_menu = "<loop 28.25>music/menu.ogg"
-define audio.forest = "music/bosque.mp3"
-define audio.melody = "music/melodia.ogg"
-define audio.story = "<loop 41.53>music/historia.ogg"
-define audio.curse = "music/maldicion.ogg"
-define audio.chase = "<loop 62.8>music/persecucion.ogg"
-define audio.chase1 = "<loop 34.5>music/persecucion (galaxia).ogg"
-define audio.flashback = "<loop 28.00>music/flashback.ogg"
-define audio.credits = "music/creditos.mp3"
-define audio.rodtheme = "music/rodtheme.ogg" #DEFINIR LOOP
-
-# Pantalla HUD de afinidades y estado mental
-screen hud_stats():
-    if mostrar_hud:
-        frame:
-            xpos 10
-            ypos 10
-            xysize (320, 280)
-            background Frame("gui/frame.png", 10, 10)
-            
-            vbox:
-                spacing 8
-                xpos 15
-                ypos 15
-                
-                text "=== ESTADÍSTICAS ===" size 20 bold True
-                
-                fixed:
-                    xysize (290, 30)
-                    text "Luz:" align (0.0, 0.5)
-                    text "[afinidad_luz]" color "#fd5353" align (0.9, 0.5)
-                
-                fixed:
-                    xysize (290, 30)
-                    text "Azura:" align (0.0, 0.5)
-                    text "[afinidad_azura]" color "#0f8028" align (0.9, 0.5)
-                
-                fixed:
-                    xysize (290, 30)
-                    text "Cutipye:" align (0.0, 0.5)
-                    text "[afinidad_cutipye]" color "#2dff5a" align (0.9, 0.5)
-                
-                fixed:
-                    xysize (290, 30)
-                    text "Nagi:" align (0.0, 0.5)
-                    text "[afinidad_nagi]" color "#7b2cbf" align (0.9, 0.5)
-                
-                null height 5
-                
-                fixed:
-                    xysize (290, 30)
-                    text "Estado Mental:" align (0.0, 0.5)
-                    text "[estado_mental]" color "#ffaa00" align (0.9, 0.5)
 
 label start:
     show screen hud_stats
@@ -1331,6 +1027,8 @@ label cap_3:
             "El vestíbulo era demasiado grande. Demasiado abierto. Demasiados lugares donde algo podía estar observándolos."
             
             a "Rodrigo…"
+            show azura emocion at centro_izquierda, shaking
+            with move
             
             "Azura da un paso hacia él, pero vacila a mitad de camino."
             
@@ -2311,7 +2009,7 @@ label cap_6:
     
     "Murmullos en la entrada. Nagi alzó una ceja, confundido."
     
-    c "Pasen, pasen... chicos, miren quién llegó primero."
+    c "Pasa, pasa... chicos, miren quién llegó primero."
 
     show cutipye casual_young at center with moveinright
     show nagi casual_young at centro_derecha
@@ -2405,49 +2103,529 @@ label cap_6:
     pause 2.0
     
     play music main_menu fadein 2.0
-    scene bg_cuarto_maquinas with dissolve
-    
-    scene luz_hug_rodrigo at center
+    scene luz_hug_rodrigo with dissolve
+    # afinidad_luz tiene un valor entre 2 y 5 para este punto
     
     "El recuerdo se disipó, reemplazado por el olor a sangre y aceite."
     "Luz seguía abrazándolo, temblando, pero ya no era aquella chica tímida con vestido pastel."
     
     l "Te tengo, Rodri... Estoy aquí."
 
+    "Rodrigo trató de contestar, pero su respiración era más pesada de lo que recordaba."
+    "Había un sabor extraño en su boca."
+    "{cps=15}Dulce. Metálico.{/cps}"
+
+    r "...Luz..."
+    $ estado_mental += 1
+    scene bg_cuarto_maquinas
+    show rodrigo shock_state at right
+    show luz worry at left
+    with dissolve
+
+    "El costado le ardía. Bajó la mirada un instante."
+    
+    "Donde antes la sangre empapaba su ropa, ahora la tela estaba húmeda... Pero la herida parecía menos profunda."
+    "Demasiado menos profunda."
+
+    r "...No estaba así..."
+
+    pause 0.5
+
+    play ammbient "sfx/wet_whisper.mp3" fadein 0.3
+    centered "{cps=15}{color=#390169}{i}Casi... casi mía...{/i}{/color}{/cps}"
+    stop ambient fadeout 0.5
+    $ estado_mental += 1
+
+    "Rodrigo parpadeó con fuerza."
+
+    r "¿Escucharon eso...?"
+
+    if estado_mental >= 7:
+        show luz worry at centro_derecha with move
+        show cutipye worried at left
+        show nagi worried at centro_izquierda
+        with moveinleft
+        "Pero el único sonido era el goteo distante del lugar."
+
+        n "Ey... Cálmate, hombre. No hay nada."
+        c "No sobrepienses las cosas. Solo es el estrés."
+
+    "Luz lo miró con preocupación, sin soltarlo."
+
+    l "Rodri... estás frío."
+
+    "Al apoyar la mano en el suelo para incorporarse, notó pequeñas motas oscuras pegadas a sus dedos."
+    "Parecían ceniza… o algo peor."
+
+    "Las frotó instintivamente."
+    "Desaparecieron."
+    "Pero dejaron una sensación pegajosa que no se iba."
+
+    $ estado_mental += 1
+
+    "Por un segundo —solo un segundo— la luz del lugar le molestó más de lo normal."
+    "Su pupila se contrajo… de una forma que no reconoció."
+
+    pause 0.8
+
+    "Parpadeó."
+    "Todo volvió a la normalidad."
+
+    "Tal vez era el golpe."
+    "Tal vez era el miedo."
+
+    "Tal vez..."
+
+    stop music fadeout 0.7
+    pause 1.5
+
+    scene pasillo_abandonado with fade
+    play sound wood_creak loop
+    show luz worry at centro_derecha
+    show azura scared at right
+    show nagi serio at centro_izquierda
+    show cutipye disgust at left
+    show rodrigo neutral at center
+    with dissolve
+
+    "El grupo avanzó a paso lento. El orfanato se sentía más cerrado, como si los pasillos respiraran con ellos."
+    
+    n "Hay una ala administrativa por aquí. Si hay planos o salidas, estarán ahí."
+    c "¿Y si es una trampa? Ya vimos lo que hay cuando nos metemos más adentro."
+    n "No podemos quedarnos dando vueltas. Información nos da ventaja."
+    c "O podemos irnos y vivir otro día. Yo prefiero no 'arriesgar ventaja'."
+
+    show rodrigo nervioso at center
+    "Rodrigo notó la discusión."
+    "El sonido de sus voces le parecía lejano, como si viniera desde el fondo de un túnel."
+
+    "Su pecho apretó nuevamente."
+    "La punta de los dedos le vibró con esa sensación extraña, apenas perceptible."
+
+    r "(No... no ahora.)"
+
+    "Ambos lo miraron casi al mismo tiempo."
+    stop sound fadeout 0.4
+    pause 0.6
+
+    r "¿Qué?"
+    r "¿Ahora soy el comité ejecutivo?"
+
+    "Intentó sonar ligero."
+    "No lo logró del todo."
+
+    r "A ver si entiendo."
+    r "O nos metemos más profundo en el edificio embrujado buscando planos que probablemente estén mascados por algo..."
+    r "O retrocedemos por el mismo camino por donde casi nos matan hace veinte minutos."
+
+    pause 0.5
+
+    r "Decisiones, decisiones."
+
+    "Se llevó una mano al costado casi sin darse cuenta."
+    "El ardor seguía ahí."
+    "Constante."
+
+    r "La verdad es que ambas opciones suenan como el comienzo de una historia que termina mal."
+    r "Pero supongo que elegir no hacer nada tampoco nos va a teletransportar mágicamente afuera."
+
+    "Mantuvo la mirada baja unos segundos más de lo normal."
+
+    r "Así que sí."
+    r "Vamos a hacer algo estúpido."
+    r "Solo decidamos qué tipo de estupidez."
+
+    menu:
+        "Nagi tiene razón. Necesitamos información.":
+            show rodrigo serio
+            r "Si vamos a morir, prefiero hacerlo con un mapa en la mano."
+            r "Al menos así podremos decir que fue una muerte organizada."
+            "Su voz fue seca."
+            "Demasiado seca."
+            "No estaba intentando ser gracioso."
+            $ afinidad_nagi += 1
+            $ estado_mental += 1
+            jump ir_administracion
+            
+        "Cuty tiene razón. No podemos seguir adentrándonos.":
+            show rodrigo serio
+            r "Ya tuvimos suficiente turismo oscuro por hoy."
+            r "Retirarse no es cobardía."
+            r "Es… estrategia con pulso funcional."
+            "Forzó una media sonrisa."
+            "Duró menos de un segundo."
+            $ afinidad_cutipye += 1
+            $ estado_mental -= 1
+            jump volver_afuera
+
+label ir_administracion:
+    "Aceptaron seguir a Nagi."
+    "Normalmente, eso implica escuchar un discurso motivador exagerado, una sonrisa confiada, y algún comentario sarcástico para empujar a todos a moverse."
+    "Pero esta vez no hubo nada de eso."
+    scene pasillo_lab with dissolve
+    play sound walk loop
+    show nagi smug at centro_izquierda
+    show cutipye neutral at left
+    show luz worry at centro_derecha
+    show azura worried at right
+    show rodrigo nervioso at center
+
+    "Nagi caminaba al frente, sí... Pero no volteaba a hacer chistes."
+    "No miraba a Rodrigo para lanzarle uno de sus típicos:"
+    "{cps=20}\"Vamos, ermitaño, muévete o te cargo.\"{/cps}"
+
+    "Ese era el guión de siempre."
+    "El chico ruidoso arrastrando al callado fuera de su caparazón."
+    "El equilibrio que habían tenido desde secundaria."
+
+    "Ahora, Nagi bajaba el ritmo cada pocos pasos."
+    "Demasiado pendiente."
+    "Demasiado atento."
+
+    scene pasillo_lab_close with dissolve
+
+    "El olor a papel viejo y humedad aumentó conforme avanzaban."
+    "El letrero corroído apareció al final del pasillo."
+
+    "{cps=25}ADMINISTRACIÓN.{/cps}"
+    play sound door_open
+    scene oficina_admin with fade
+    "Dentro, mesas cubiertas de polvo, archivadores volcados y un mapa clavado en la pared."
+    "La luz temblorosa del techo apenas iluminaba los bordes."
+
+    show nagi serio at centro_izquierda
+    show rodrigo nervioso at center
+
+    n "Aquí debería haber algo útil."
+
+    "No hubo sonrisa."
+    "No hubo exageración teatral."
+
+    "Solo una frase corta."
+    "Directa."
+
+    "Rodrigo sintió esa ausencia más que cualquier grito."
+
+    "Mientras los demás revisaban cajones, Nagi se acercó al mapa."
+    "Y luego, sin decir nada, se colocó al lado de Rodrigo."
+
+    show nagi worried at centro_izquierda with dissolve
+    
+    "No invadió su espacio. No le dió un golpe en el hombro. No lo llamó 'fantasma' ni 'poeta deprimido'."
+    n "Oye..."
+
+    pause 0.5
+
+    n "Respira."
+
+    "No fue una orden burlona."
+    "Fue... suave."
+
+    "Demasiado suave."
+
+    "Rodrigo evitó mirarlo."
+    "El sabor dulce volvió a su lengua."
+
+    $ estado_mental += 1
+
+    n "Te conozco."
+    n "Cuando te quedas así de callado no es porque estés pensando."
+    n "Es porque algo te aplasta por dentro."
+
+    "Eso tampoco era normal."
+    "Nagi no solía leerlo tan directamente."
+    "Lo empujaba."
+    "Lo provocaba."
+    "Lo obligaba a reaccionar."
+
+    "Pero ahora no intentaba sacarlo de su caparazón."
+    "Intentaba... sostenerlo."
+
+    #show rodrigo nervioso at center
+    menu:
+        "Estoy bien.":
+            $ estado_mental -= 1
+            r "Estoy bien. Solo... Necesito un minuto."
+            n "Vale."
+            n "Pero no me mientas si deja de ser verdad."
+
+        "Creo que algo no está bien conmigo.":
+            $ afinidad_nagi += 2
+            $ estado_mental += 1
+            show rodrigo nervioso
+            r "No me siento bien, Nagi."
+            show nagi worried
+            n "¿Te mareas? ¿Te duele algo?"
+            n "Dime dónde y vemos qué hacemos."
+
+    "Nagi dio un paso más cerca."
+    "Instintivamente, como siempre hacía cuando estaba por hacer una broma."
+    "Pero esta vez no dijo nada gracioso."
+
+    "Sus ojos recorrían el rostro de Rodrigo."
+    "Analizando."
+    "Buscando algo que no sabía nombrar."
+
+    n "Ella te tocó, ¿no?"
+
+    "La pregunta quedó suspendida en el aire."
+
+    $ estado_mental += 1
+
+    "Rodrigo apoyó la mano en el borde del mapa para no tambalearse."
+
+    show rodrigo shocked at vjump
+
+    "Una fina mancha oscura quedó marcada sobre el papel."
+    "Pequeña."
+    "Casi como tinta húmeda."
+
+    "La cubrió con la manga antes de que nadie más la viera."
+
+    "Nagi sí lo notó."
+
+    show nagi serio
+
+    "Pero no dijo nada."
+
+    "Eso tampoco era normal."
+    "Nagi siempre decía algo."
+
+    pause 1.0
+
+    n "Vamos a salir de aquí."
+    n "¿Sí?"
+
+    "No era el tono del líder empujando al grupo."
+    "Era el tono de alguien que, por primera vez, no estaba intentando sacar a Rodrigo al mundo…"
+    "Sino impedir que algo se lo llevara."
+
+    $ afinidad_nagi += 1
+
+    "Revisaron archivadores y encontraron planos parciales del edificio."
+    "Suficientes para trazar una ruta tentativa de salida."
+
+    "Pero cuando Rodrigo miró el mapa otra vez…"
+    "Por una fracción de segundo, las líneas parecieron moverse."
+
+    $ estado_mental += 1
+
+    "Parpadeó."
+    "Todo estaba quieto."
+
     call chapter_complete("Capítulo 6")
     jump cap_7
 
-    # Continuar historia...
+label volver_afuera:
 
+    "Cutipye ganó la disputa."
+    "Con pasos firmes —más firmes de lo que se sentía por dentro— giró sobre sus talones."
+
+    scene pasillo_servicio with dissolve
+    play sound walk loop
+
+    show cutipye determined at left
+    show nagi annoyed at centro_izquierda
+    show luz worry at centro_derecha
+    show azura scared at right
+    show rodrigo nervioso at center
+
+    "El grupo retrocedió hacia la lavandería por donde habían entrado."
+    "El aire parecía más frío en esa dirección, como si el edificio exhalara detrás de ellos."
+
+    "Rodrigo caminaba en silencio."
+    "El sabor dulce volvió a su lengua."
+    "{cps=15}Dulce. Metálico.{/cps}"
+
+    $ estado_mental += 1
+
+    "Cutipye notó el silencio."
+    "Demasiado silencio."
+
+    c "Bueno… miren el lado positivo."
+
+    pause 0.5
+
+    c "Si sobrevivimos, jamás volveremos a quejarnos de una prueba sorpresa."
+
+    "Nadie respondió."
+
+    c "...¿No?"
+    c "¿Nada?"
+    c "¿Ni una sonrisa irónica, Rodrigo? Eso sí que me preocupa."
+
+    "Soltó una pequeña risa."
+    "Fue corta."
+    "Demasiado rápida."
+    "Más parecida a un reflejo que a algo genuino."
+
+    show cutipye smile_nervous
+
+    c "En serio, piénsenlo. '¿Cuál fue su actividad extracurricular?'"
+    c "'Ah, exploré un orfanato abandonado y casi muero tres veces.'"
+    c "Eso suma puntos en la universidad, ¿no?"
+
+    "Otra risa."
+    "Esta vez más baja."
+    "Más quebrada."
+
+    "Rodrigo notó cómo sus manos estaban tensas."
+    "Cómo sus dedos temblaban apenas."
+    "Cómo cada vez que hacía un chiste, miraba de reojo las sombras del pasillo."
+
+    "No estaba tratando de ser graciosa."
+    "Estaba tratando de que nadie se rompiera."
+
+    "Especialmente él."
+
+    scene pasillo_servicio_dim with dissolve
+
+    "Al doblar una esquina, encontraron el corredor parcialmente bloqueado por escombros recientes."
+    "Polvo aún suspendido en el aire."
+    "La salida directa no sería tan sencilla."
+
+    show cutipye serious with dissolve
+
+    c "Genial."
+    c "Me encanta cuando el edificio decide redecorarse sin avisar."
+
+    pause 0.5
+
+    c "Vale. Rodeamos."
+    c "Porque somos personas inteligentes."
+    c "Personas que no vuelven al ala administrativa."
+    c "Personas que toman decisiones sanas."
+
+    "Su voz subía apenas en cada frase."
+    "Como si necesitara convencerse a sí misma."
+
+    show rodrigo nervioso at right
+    show cutipye serious at left
+    with dissolve
+
+    "Rodrigo sintió un pequeño zumbido en la punta de los dedos."
+    "Un impulso extraño."
+    "Un deseo breve de… empujar los escombros con una fuerza que sabía que no tenía."
+
+    r "(No.)"
+
+    $ estado_mental += 1
+
+    "Cutipye caminó más despacio hasta quedar a su lado."
+
+    show cutipye neutral at center with move
+
+    c "Oye."
+
+    "No sonó como un chiste."
+
+    c "¿Sabes cuál es la parte buena de que seas tan callado?"
+
+    pause 0.5
+
+    c "Que cuando te quedas más callado de lo normal… es muy obvio."
+
+    "Rodrigo desvió la mirada."
+
+    c "No me mires así."
+    c "No estoy haciendo un discurso motivacional."
+    c "Eso es territorio de Nagi."
+
+    "Intentó sonreír."
+    "No le salió del todo."
+
+    "Bajó la voz."
+
+    c "Solo… dime si estás aquí conmigo."
+
+    menu:
+        "No voy a dejar que nadie más se lastime.":
+            $ afinidad_cutipye += 1
+            show rodrigo serio
+            r "No voy a dejar que nadie más se lastime."
+            "Cutipye lo miró un segundo más de lo normal."
+            c "Lo sé."
+            c "Pero no te toca cargar con todo."
+            c "No eres el guardaespaldas oficial del grupo."
+            c "Eres Rodrigo."
+            c "Y eso ya es suficiente."
+
+        "Tengo miedo, Cutipye.":
+            $ afinidad_cutipye += 2
+            $ estado_mental += 1
+            show rodrigo soft
+            r "Tengo miedo, Cuty."
+            "La confesión salió más baja de lo que esperaba."
+            "Más honesta."
+            show cutipye soft
+            c "Bien."
+            c "Eso significa que todavía quieres salir de aquí."
+            c "Yo también tengo miedo."
+            c "Pero prefiero tener miedo contigo que hacerme la valiente sola."
+
+    "Durante un segundo, el pasillo dejó de sentirse tan estrecho."
+
+    "Rodrigo apoyó la mano contra la pared para estabilizarse."
+
+    show rodrigo shocked at vjump
+
+    "Una leve marca oscura quedó sobre el concreto."
+    "Pequeña."
+    "Casi como hollín húmedo."
+
+    "La limpió rápido con la manga."
+
+    "Cutipye frunció el ceño."
+    "Notó el gesto."
+
+    pause 0.5
+
+    c "¿Te manchaste con algo?"
+
+    menu:
+        "Es polvo. Nada más.":
+            $ estado_mental -= 1
+            r "Es polvo. Nada más."
+            c "Claro."
+            c "Polvo misterioso de edificio maldito."
+            c "Mi favorito."
+
+        "No lo sé.":
+            $ afinidad_cutipye += 1
+            $ estado_mental += 1
+            r "No lo sé."
+            show cutipye worried
+            c "Vale."
+            c "Entonces lo vigilamos."
+            c "No te voy a dejar convertirte en…"
+            c "Bueno."
+            c "En algo raro sin avisarme."
+
+            "Intentó que sonara ligero."
+            "No lo logró del todo."
+
+    scene lavanderia_exterior with dissolve
+    #play sound door_squeak
+    play sound wood_creak
+
+    "Al final del corredor apareció la lavandería por donde habían entrado."
+    "La luz fluorescente parpadeaba sobre la puerta metálica."
+
+    "El olor a detergente viejo y humedad les golpeó de frente."
+
+    "Rodrigo sintió algo extraño al cruzar el umbral."
+    "Como si una parte de él no quisiera salir."
+
+    $ estado_mental += 1
+
+    "Parpadeó."
+    "La sensación desapareció."
+
+    call chapter_complete("Capítulo 6")
+    jump cap_7
 
 label cap_7:
     return
-
-
-label chapter_complete(nombre):
-
-    $ nombre_capitulo = nombre
-    stop music fadeout 1.5
-    scene black with fade
-    pause(1.0)
-
-    play sound chptr_cmplt
-    show text "{size=50}[nombre_capitulo] Completado{/size}" at truecenter with dissolve
-    pause(2.5)
-    hide text with fade
-
-    pause(0.5)
-
-    show text "¿Deseas guardar tu progreso antes de continuar?" with dissolve
-    pause(1.0)
-
-    menu:
-        "Guardar y Continuar":
-            $ renpy.save("1-1", f"{nombre_capitulo} Completado.")
-            "Progreso guardado."
-            return
-        "Continuar sin guardar":
-            return
 
 
 
@@ -2516,37 +2694,3 @@ label creditos:
     hide oscurecer
     with fade
     return
-
-
-
-
-###label splashscreen:    scene black    with Pause(1)    $ splash_text = """{size=+10}{color=#FF0000}ADVERTENCIA{/color}{/size}                                    Este juego contiene lenguaje fuerte, y escenas de violencia explícita y gore.    Se recomienda discreción."""    show text splash_text at fadein_center    with dissolve        pause 5    hide splash_text    scene black with dissolve        with fade    return
-
-label splashscreen:
-    scene mainmenubg at blanco_y_negro
-    with dissolve
-    pause 0.5
-    
-    $ splash_text = """{size=+10}{color=#FF0000}ADVERTENCIA{/color}{/size}
-    Este juego contiene lenguaje fuerte, y escenas de violencia explícita y gore.
-    Se recomienda discreción."""
-    
-    show text Text(splash_text, outlines=[(4, "#000000", 0 ,0)], text_align=0.5) at fadein_center with dissolve
-    
-    pause 5
-    hide text
-    scene black
-    with dissolve
-    pause 1
-    return
-
-
-label intro:
-    stop music fadeout 0.5
-    play sound door_open
-    scene black
-    with fade
-    pause 1
-    play sound door_close
-    pause 2
-    jump start
