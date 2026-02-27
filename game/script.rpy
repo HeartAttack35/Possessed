@@ -2161,8 +2161,6 @@ label cap_6:
     "Desaparecieron."
     "Pero dejaron una sensación pegajosa que no se iba."
 
-    $ estado_mental += 1
-
     "Por un segundo —solo un segundo— la luz del lugar le molestó más de lo normal."
     "Su pupila se contrajo… de una forma que no reconoció."
 
@@ -2262,13 +2260,14 @@ label ir_administracion:
     "Aceptaron seguir a Nagi."
     "Normalmente, eso implica escuchar un discurso motivador exagerado, una sonrisa confiada, y algún comentario sarcástico para empujar a todos a moverse."
     "Pero esta vez no hubo nada de eso."
-    scene pasillo_lab with dissolve
+    scene pasillo_lab
     play sound walk loop
     show nagi smug at centro_izquierda
     show cutipye neutral at left
     show luz worry at centro_derecha
     show azura worried at right
     show rodrigo nervioso at center
+    with dissolve
 
     "Nagi caminaba al frente, sí... Pero no volteaba a hacer chistes."
     "No miraba a Rodrigo para lanzarle uno de sus típicos:"
@@ -2293,8 +2292,9 @@ label ir_administracion:
     "Dentro, mesas cubiertas de polvo, archivadores volcados y un mapa clavado en la pared."
     "La luz temblorosa del techo apenas iluminaba los bordes."
 
-    show nagi serio at centro_izquierda
-    show rodrigo nervioso at center
+    show nagi serio at left
+    show rodrigo nervioso at centro_derecha
+    with dissolve
 
     n "Aquí debería haber algo útil."
 
@@ -2307,6 +2307,7 @@ label ir_administracion:
     "Rodrigo sintió esa ausencia más que cualquier grito."
 
     "Mientras los demás revisaban cajones, Nagi se acercó al mapa."
+    show nagi serio at centro_izquierda with move
     "Y luego, sin decir nada, se colocó al lado de Rodrigo."
 
     show nagi worried at centro_izquierda with dissolve
@@ -2370,8 +2371,6 @@ label ir_administracion:
 
     "La pregunta quedó suspendida en el aire."
 
-    $ estado_mental += 1
-
     "Rodrigo apoyó la mano en el borde del mapa para no tambalearse."
 
     show rodrigo shocked at vjump
@@ -2421,14 +2420,14 @@ label volver_afuera:
     "Cutipye ganó la disputa."
     "Con pasos firmes —más firmes de lo que se sentía por dentro— giró sobre sus talones."
 
-    scene pasillo_servicio with dissolve
-    play sound walk loop
-
+    scene pasillo_servicio
     show cutipye determined at left
     show nagi annoyed at centro_izquierda
     show luz worry at centro_derecha
     show azura scared at right
     show rodrigo nervioso at center
+    with fade
+    play sound walk loop
 
     "El grupo retrocedió hacia la lavandería por donde habían entrado."
     "El aire parecía más frío en esa dirección, como si el edificio exhalara detrás de ellos."
@@ -2436,8 +2435,6 @@ label volver_afuera:
     "Rodrigo caminaba en silencio."
     "El sabor dulce volvió a su lengua."
     "{cps=15}Dulce. Metálico.{/cps}"
-
-    $ estado_mental += 1
 
     "Cutipye notó el silencio."
     "Demasiado silencio."
@@ -2447,6 +2444,8 @@ label volver_afuera:
     pause 0.5
 
     c "Si sobrevivimos, jamás volveremos a quejarnos de una prueba sorpresa."
+
+    pause 0.5
 
     "Nadie respondió."
 
@@ -2478,7 +2477,9 @@ label volver_afuera:
 
     "Especialmente él."
 
-    scene pasillo_servicio_dim with dissolve
+    #scene pasillo_servicio_dim with dissolve
+    stop sound fadeout 1.6
+    scene bodega_gal_shadow with dissolve
 
     "Al doblar una esquina, encontraron el corredor parcialmente bloqueado por escombros recientes."
     "Polvo aún suspendido en el aire."
@@ -2604,9 +2605,8 @@ label volver_afuera:
             "Intentó que sonara ligero."
             "No lo logró del todo."
 
-    scene lavanderia_exterior with dissolve
-    #play sound door_squeak
-    play sound wood_creak
+    scene lavanderia_abandonada with dissolve
+    play sound door_open
 
     "Al final del corredor apareció la lavandería por donde habían entrado."
     "La luz fluorescente parpadeaba sobre la puerta metálica."
@@ -2615,8 +2615,6 @@ label volver_afuera:
 
     "Rodrigo sintió algo extraño al cruzar el umbral."
     "Como si una parte de él no quisiera salir."
-
-    $ estado_mental += 1
 
     "Parpadeó."
     "La sensación desapareció."

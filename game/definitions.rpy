@@ -102,6 +102,7 @@ image cocina_puerta = "bg/puerta_oxidada.png"
 image cuarto_maquinas_puerta = "bg/bg_bodega_pan.jpg"
 image pistola_primer_plano = "objects/obj-gun.png"
 image pasillo_servicio_lucha = "bg/pasillo_oscuro.jpg"
+image pasillo_lab_close = "bg/pasillo_corriendo.jpg"
 # Muertes
 image spdr1 = "game_over/death_spdr_1.png"
 
