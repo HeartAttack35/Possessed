@@ -119,12 +119,15 @@
                 }
             },
             {
+<<<<<<< HEAD
                 "scope": "renpy.meta.color.#ff0000",
                 "settings": {
                     "foreground": "#ff0000"
                 }
             },
             {
+=======
+>>>>>>> 7499d4ea1528235db16755bfc706dfd79228255b
                 "scope": "renpy.meta.color.#f00",
                 "settings": {
                     "foreground": "#f00"
