@@ -18,6 +18,7 @@ default estado_mental = 0
 default tiempo_escape = 0
 default nombre_capitulo = ""
 default mostrar_hud = True
+default label_nagi = False
 
 style button_panic is button:
     background "#5a0000"
@@ -54,6 +55,12 @@ transform transform_blink:
 
 transform sepia_filter:
     matrixcolor SepiaMatrix()
+
+transform oscuro:
+    matrixcolor BrightnessMatrix(-0.5)
+
+transform slight_zoom:
+    zoom 1.05
 
 define flash = Fade(.25, 0.0, .75, color="#fff")
 
@@ -103,6 +110,10 @@ image cuarto_maquinas_puerta = "bg/bg_bodega_pan.jpg"
 image pistola_primer_plano = "objects/obj-gun.png"
 image pasillo_servicio_lucha = "bg/pasillo_oscuro.jpg"
 image pasillo_lab_close = "bg/pasillo_corriendo.jpg"
+image pasillo_intermedio = "bg/pasillo_corriendo.jpg"
+image pasillo_oscuridad:
+    "images/bg/pasillo_corriendo.jpg"
+    matrixcolor BrightnessMatrix(-0.5)
 # Muertes
 image spdr1 = "game_over/death_spdr_1.png"
 
@@ -165,6 +176,7 @@ image azura temblor = "images/sprites/Azura.png"
 image azura emocion = "images/sprites/Azura.png"
 image azura scared = "images/sprites/Azura.png"
 image azura worried = "images/sprites/Azura.png"
+image azura shocked = "images/sprites/Azura.png"
 image azura casual_young = "images/sprites/Azura.png"
 image azura casual_young_smile = "images/sprites/Azura.png"
 
@@ -176,15 +188,18 @@ image cutipye determined = "images/sprites/Cutipye.png"
 image cutipye serious = "images/sprites/Cutipye.png"
 image cutipye soft = "images/sprites/Cutipye.png"
 image cutipye scared = "images/sprites/Cutipye.png"
+image cutipye shocked = "images/sprites/Cutipye.png"
 image cutipye disgust = "images/sprites/Cutipye.png"
 image cutipye casual_young = "images/sprites/Cutipye.png"
 image cutipye throw = "images/sprites/Cutipye.png"
 image cutipye worried = "images/sprites/Cutipye.png"
 
 # Nagi
+image nagi neutral = "images/sprites/Nagi.png"
 image nagi smug = "images/sprites/Nagi.png"
 image nagi smile = "images/sprites/Nagi.png"
 image nagi serio = "images/sprites/Nagi.png"
+image nagi soft = "images/sprites/Nagi.png"
 image nagi angry = "images/sprites/Nagi.png"
 image nagi annoyed = "images/sprites/Nagi.png"
 image nagi worried = "images/sprites/Nagi.png"
@@ -197,6 +212,7 @@ image nagi casual_young_shock = "images/sprites/Nagi.png"
 image luz smile = "images/sprites/Luz.png"
 image luz scared = "images/sprites/Luz.png"
 image luz worry = "images/sprites/Luz.png"
+image luz sad = "images/sprites/Luz.png"
 image luz neutral = "images/sprites/Luz.png"
 image luz surprised = "images/sprites/Luz.png"
 image luz determined = "images/sprites/Luz.png"
