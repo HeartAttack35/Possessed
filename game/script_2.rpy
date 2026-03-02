@@ -256,6 +256,8 @@ label cap_6:
     "El ardor seguía ahí."
     "Constante."
 
+    play music ambiental fadein 1.5
+
     r "La verdad es que ambas opciones suenan como el comienzo de una historia que termina mal."
     r "Pero supongo que elegir no hacer nada tampoco nos va a teletransportar mágicamente afuera."
 
@@ -547,6 +549,7 @@ label volver_afuera:
     "Cutipye caminó más despacio hasta quedar a su lado."
 
     show cutipye neutral at center with move
+    play music ambiental volume 0.6
 
     c "Oye."
 
@@ -832,7 +835,7 @@ label cap_7:
 
     c "...Era una huérfana."
 
-    silencio
+    "silencio"
 
     n "¿Y si la hicieron así?"
 

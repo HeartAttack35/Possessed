@@ -267,6 +267,7 @@ define audio.chase1 = "<loop 34.5>music/persecucion (galaxia).ogg"
 define audio.flashback = "<loop 28.00>music/flashback.ogg"
 define audio.credits = "music/creditos.mp3"
 define audio.rodtheme = "music/rodtheme.ogg" #DEFINIR LOOP
+define audio.ambiental = "music/ambiental.mp3" #DEFINIR LOOP
 
 # Pantalla HUD de afinidades y estado mental
 screen hud_stats():

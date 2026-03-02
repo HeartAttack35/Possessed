@@ -482,7 +482,7 @@ label cap_2:
     pause (2)
     
     r "..."
-    notas
+    
     pause (1)
     
     r "Usaron a los niños como ratas de laboratorio..."
