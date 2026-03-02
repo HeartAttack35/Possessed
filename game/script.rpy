@@ -26,16 +26,16 @@ label start:
 
     menu:
         "Respondes con sarcasmo":
+            $ afinidad_cutipye += 1
             r "Tch, estoy seguro de que solo encontraremos insectos y poco más..."
             r "Solo es un orfanato abandonado. ¿Qué es tan especial sobre este lugar?"
-            $ afinidad_cutipye += 1
             
             show azura smile with dissolve
             a "No es solamente un orfanato abandonado, Rodri."
 
         "Aceptas de mala gana":
-            r "Está bien... Pero si nos arrestan, no pienso correr."
             $ afinidad_cutipye += 2
+            r "Está bien... Pero si nos arrestan, no pienso correr."
             
             show azura smile with dissolve
             a "No creo que debas preocuparte por eso, el lugar fue desalojado hace mucho tiempo."
@@ -51,14 +51,14 @@ label start:
 
     menu:
         "Te burlas del rumor":
+            $ afinidad_azura -= 1
             r "Vaya giro de guión. Qué conveniente."
             r "¿También hay una niña de pelo largo que aparece en los espejos o eso viene en el DLC de pago?"
-            $ afinidad_azura -= 1
 
         "Te muestras incómodo":
-            r "...Ok, eso sí fue un poco más turbio de lo que esperaba."
             $ afinidad_azura += 1
             $ estado_mental += 1
+            r "...Ok, eso sí fue un poco más turbio de lo que esperaba."
 
         "Guardas silencio":
             "Rodrigo se limitó a fruncir el ceño sin responder, su mueca una clara muestra de desapruebo."
@@ -220,9 +220,9 @@ label start:
     
     menu:
         "Intentas atacar a la criatura":
+            $ estado_mental += 2
             r "¡Atrás!" 
             "Rodrigo sacudió su daga con más fuerza, avanzando un paso desafiante..."
-            $ estado_mental += 2
 
             l "¡Rodri, no!"
 
@@ -238,14 +238,14 @@ label start:
                     jump game_over_spdr
 
         "Sigues retrocediendo, sin atacar":
+            $ estado_mental += 1
             r "...Esto no vale la pena."
             "Rodrigo mantuvo su daga en alto, pero dio pasos hacia atrás sin atacar."
-            $ estado_mental += 1
             jump escapar_araña
 
         "Sales corriendo sin mirar atrás":
-            "El miedo pudo más. Rodrigo giró y corrió sin pensarlo."
             $ estado_mental += 3
+            "El miedo pudo más. Rodrigo giró y corrió sin pensarlo."
             jump escapar_araña
         
 label game_over_spdr:
@@ -325,6 +325,7 @@ label escapar_araña:
 
     menu:
         "Reconfortas a Luz":
+            $ afinidad_luz += 2
             r "Hey... vamos a salir de esta, cariño."
             pause 1
             l "¿Me lo prometes...?"
@@ -334,15 +335,14 @@ label escapar_araña:
             r "Con mi vida..."
             "Rodrigo se sentó junto a ella, apoyando una mano en su hombro. Luz no respondió al principio, pero su respiración se volvió más lenta."
             "Por un momento, el silencio dejó de ser tan pesado."
-            $ afinidad_luz += 2
 
         "Piensas en opciones":
+            $ estado_mental -= 1
             r "Tenemos que movernos... Debe haber una salida."
             "Rodrigo se quedó de pie, analizando el entorno, forzándose a no pensar en el miedo. Cada minuto que pasaba ahí era un riesgo."
             
             r "Enfoquémonos en encontrar a las demás, ¿Si?"
             "Luz solo asintió."
-            $ estado_mental -= 1
     
     "El silencio reinaba en aquella sala de espera, interrumpido únicamente por el sonido entrecortado de la respiración de ambos jóvenes."
     pause(1.0)
@@ -482,7 +482,11 @@ label cap_2:
     pause (2)
     
     r "..."
+<<<<<<< HEAD
     
+=======
+
+>>>>>>> 866bb334966882709f9c269eff75070e8c1dc79e
     pause (1)
     
     r "Usaron a los niños como ratas de laboratorio..."
@@ -684,6 +688,8 @@ label escape_mnts:
         
     menu:
         "Abrazarla sin pensar":
+            $ afinidad_luz += 2
+            $ estado_mental -= 1
             "El alivio le ganó al orgullo."
             "Antes de poder analizarlo, Rodrigo avanzó y la rodeó con los brazos con más fuerza de la que pretendía."
             
@@ -705,12 +711,11 @@ label escape_mnts:
             "Después de unos segundos, fue ella quien se separó primero, mirándolo con una mezcla de ternura y preocupación."
             
             l "Debió ser horrible."
-            
-            $ afinidad_luz += 2
-            $ estado_mental -= 1
 
 
         "Comprobar si está bien":
+            $ afinidad_luz += 1
+            $ estado_mental += 1
             "Rodrigo se acercó sin decir nada."
             "Sus manos se alzaron y sostuvieron el rostro de Luz entre sus dedos, examinando cada rasgo con intensidad."
             
@@ -732,12 +737,11 @@ label escape_mnts:
             "Luz parpadeó, confundida, pero sonrió."
             
             l "Podías haber empezado por ahí, paranoico."
-            
-            $ afinidad_luz += 1
-            $ estado_mental += 1
 
 
         "Cuestionar a Luz":
+            $ estado_mental += 2
+            $ afinidad_luz += 1
             "Rodrigo no se movió."
             
             r "¿Por qué estás tan tranquila?"
@@ -768,9 +772,6 @@ label escape_mnts:
             
             "Mentía."
             "Luz se separó con suavidad, pero su mirada permaneció atenta."
-            
-            $ estado_mental += 2
-            $ afinidad_luz += 1
     
     l "Ven, quiero mostrarte esto."
     "Sin esperar respuesta, lo tomó de la mano, apretándola fuerte, arrastrándolo con ella."

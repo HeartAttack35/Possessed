@@ -269,25 +269,26 @@ label cap_6:
 
     menu:
         "Nagi tiene razón. Necesitamos información.":
+            $ label_nagi = True
+            $ afinidad_nagi += 1
+            $ estado_mental += 1
             show rodrigo serio
             r "Si vamos a morir, prefiero hacerlo con un mapa en la mano."
             r "Al menos así podremos decir que fue una muerte organizada."
             "Su voz fue seca."
             "Demasiado seca."
             "No estaba intentando ser gracioso."
-            $ afinidad_nagi += 1
-            $ estado_mental += 1
             jump ir_administracion
             
         "Cuty tiene razón. No podemos seguir adentrándonos.":
+            $ afinidad_cutipye += 1
+            $ estado_mental -= 1
             show rodrigo serio
             r "Ya tuvimos suficiente turismo oscuro por hoy."
             r "Retirarse no es cobardía."
             r "Es… estrategia con pulso funcional."
             "Forzó una media sonrisa."
             "Duró menos de un segundo."
-            $ afinidad_cutipye += 1
-            $ estado_mental -= 1
             jump volver_afuera
 
 label ir_administracion:
@@ -639,9 +640,9 @@ label volver_afuera:
 
             "Intentó que sonara ligero."
             "No lo logró del todo."
-
-    scene lavanderia_abandonada with dissolve
+            
     play sound door_open
+    scene lavanderia_abandonada with dissolve
 
     "Al final del corredor apareció la lavandería por donde habían entrado."
     "La luz fluorescente parpadeaba sobre la puerta metálica."
@@ -675,11 +676,11 @@ label cap_7:
     "El aire era más denso."
     "Más estrecho."
 
-    if _last_label == "ir_administracion":
+    if label_nagi == True:
 
         "El mapa que Nagi llevaba en la mano ya no coincidía del todo con el pasillo frente a ellos."
 
-        show nagi frustrated
+        show nagi annoyed
         n "No tiene sentido… esto no estaba aquí."
 
         show cutipye serious
@@ -704,7 +705,13 @@ label cap_7:
     "Un golpe metálico resonó en el techo."
 
     play sound "sfx/metal_impact.mp3"
-    scene pasillo_oscuridad with vpunch
+    scene pasillo_oscuridad
+    show rodrigo neutral at center, oscuro
+    show luz worry at centro_derecha, oscuro
+    show azura worried at right, oscuro
+    show nagi serio at centro_izquierda, oscuro
+    show cutipye serious at left, oscuro
+    with vpunch
 
     stop ambient
     play ambient "sfx/ringing.mp3"
@@ -717,7 +724,9 @@ label cap_7:
 
     "Oscuridad total."
 
+    hide rodrigo
     show rodrigo shock_state at center
+    with dissolve
 
     "{cps=10}{color=#390169}{i}Rodrigo…{/i}{/color}{/cps}"
 
@@ -730,13 +739,13 @@ label cap_7:
     r "¿Quién—?"
 
     play sound "sfx/lights_back.mp3"
-    scene pasillo_intermedio with flash
-
+    scene pasillo_intermedio
     show luz worry at centro_derecha
     show azura worried at right
     show nagi serio at centro_izquierda
     show cutipye serious at left
     show rodrigo shock_state at center
+    with flash
 
     l "Rodri, ¿estás bien?"
 
@@ -745,35 +754,31 @@ label cap_7:
             $ estado_mental += 1
 
             if ruta_anterior == "nagi":
-                # Farmea con Cutipye
                 show cutipye worried
+                $ afinidad_cutipye += 2
                 c "¿La voz?"
                 c "Yo te creo."
                 c "No estás inventándolo."
 
-                $ afinidad_cutipye += 2
-
             else:
-                # Farmea con Nagi
                 show nagi worried
+                $ afinidad_nagi += 2
                 n "Vale. Bien."
                 n "Entonces no estás loco."
                 n "Algo está jugando contigo."
-
-                $ afinidad_nagi += 2
 
         "Nada. Vámonos.":
             $ estado_mental -= 1
             r "Nada. Fue el ruido."
 
             if ruta_anterior == "nagi":
+                $ afinidad_cutipye += 1
                 show cutipye serious
                 c "No me mientas."
-                $ afinidad_cutipye += 1
             else:
+                $ afinidad_nagi += 1
                 show nagi serio
                 n "No me apartes, Rodrigo."
-                $ afinidad_nagi += 1
 
 
     "Decidieron avanzar hacia una puerta semiabierta al fondo del pasillo."
@@ -781,9 +786,7 @@ label cap_7:
     scene habitacion_abandonada with fade
     play ambient "sfx/room_tone.mp3"
 
-    "Camas oxidadas."
-    "Un crucifijo torcido colgando de la pared."
-    "Un pequeño balcón al fondo."
+    "Camas oxidadas. Un crucifijo torcido colgando de la pared. Un pequeño balcón al fondo."
 
     show azura neutral at right
 
@@ -798,10 +801,7 @@ label cap_7:
 
     "Leyó en silencio."
 
-    "{cps=18}Sujeto 12-A demuestra compatibilidad superior.
-    No presenta rechazo celular.
-    Adaptación progresiva.
-    Posible simbiosis estable bajo control emocional.{/cps}"
+    "{cps=18}Sujeto 12-A demuestra compatibilidad superior.\nNo presenta rechazo celular.\nAdaptación progresiva.\nPosible simbiosis estable bajo control emocional.{/cps}"
 
     show azura worried
 
@@ -811,7 +811,7 @@ label cap_7:
 
     "Mientras tanto, Nagi levantó una vieja Biblia del suelo."
 
-    show nagi neutral
+    show nagi neutral at centro_izquierda
 
     n "Tiene un nombre escrito aquí."
 
@@ -819,7 +819,7 @@ label cap_7:
 
     n "No es Galaxia."
 
-    show cutipye serious
+    show cutipye serious at left
 
     c "Entonces… ese no era su nombre real."
 
@@ -827,7 +827,7 @@ label cap_7:
 
     l "Ella… vivía aquí."
 
-    show luz sad
+    show luz sad at centro_derecha
 
     n "Era una interna."
 
@@ -835,8 +835,11 @@ label cap_7:
 
     c "...Era una huérfana."
 
+<<<<<<< HEAD
     "silencio"
 
+=======
+>>>>>>> 866bb334966882709f9c269eff75070e8c1dc79e
     n "¿Y si la hicieron así?"
 
     c "¿Y si no tuvo opción?"
@@ -849,78 +852,203 @@ label cap_7:
 
     r "(No.)"
 
-    if ruta_anterior == "nagi":
+    pause 1.0
 
-        # Escena íntima con Cutipye
-        show cutipye soft at center with move
+    scene habitacion_abandonada at slight_zoom with fade
+    play music forest fadein 3.0 volume 0.65
 
-        c "No quiero volver a perder a alguien."
-        c "Ya es suficiente."
+    "El grupo se quedó en silencio varios minutos."
+    "Nadie quería ser el primero en admitir que no sabían qué hacer después."
 
-        r "No me voy a romper tan fácil."
+    scene rodrigo_cig_balcony with dissolve
 
-        c "No me prometas eso."
-        c "Prométeme que me vas a decir cuando empiece a pasar."
+    "Rodrigo se acercó al balcón oxidado."
+    "El metal crujió bajo su peso, pero aguantó."
 
-        $ afinidad_cutipye += 2
+    "Afuera, la noche era absoluta."
+    "Ni una luz. Ni un coche lejano. Ni siquiera el rumor del viento entre los árboles."
 
-    else:
+    "Solo negrura."
 
-        # Escena íntima con Nagi
-        show nagi soft at center with move
+    r "(Esto no es normal… incluso para un bosque tan profundo.)"
 
-        n "Si algo te pasa, yo…"
+    "Se llevó una mano al costado sin darse cuenta."
+    "La herida palpitaba, pero no dolía como debería."
+    "Era más bien… una presión. Algo que se expandía y contraía muy despacio."
 
-        pause 0.5
+    play sound "sfx/heart_slow.mp3" fadein 1.5 loop
 
-        n "No soy bueno diciendo esto."
-        n "Pero no pienso dejar que algo te arrastre."
+    "Latido."
+    "Latido."
+    "Latido."
 
-        r "No soy tan fácil de arrastrar."
+    "No era el suyo."
 
-        n "Eso espero."
+    r "…"
 
-        $ afinidad_nagi += 2
+    scene rodrigo_cig_balcony_2 with dissolve
 
+    "Se giró hacia el grupo."
 
-    # --- ESCENA FINAL ---
+    r "Chicos."
 
-    scene habitacion_abandonada_noche with fade
-    stop ambient fadeout 2.0
-    play music "music/quiet_night.mp3" fadein 2.0
+    "Todos alzaron la vista al mismo tiempo."
+    "Algo en su tono los alertó antes de que dijera otra palabra."
 
-    "Horas después."
+    r "Creo que… deberíamos dormir por turnos."
+    r "Y alguien tiene que quedarse despierto conmigo todo el tiempo."
 
-    "El grupo descansaba en silencio."
+    n "¿Por qué solo contigo?"
 
-    scene balcon_abandonado with dissolve
+    r "Porque…"
 
-    show rodrigo neutral at center
+    pause 1.2
 
-    "Rodrigo salió al balcón oxidado."
+    r "Porque creo que algo me está siguiendo."
+    r "Y no está afuera."
 
-    play sound "sfx/lighter.mp3"
+    "Silencio."
 
-    "Encendió un cigarrillo."
+    l "Rodri…"
 
-    "Su mano temblaba."
+    r "No estoy alucinando."
+    r "O… quizás sí."
+    r "Pero si estoy alucinando, entonces es mejor que alguien me vigile."
+    r "Y si no estoy alucinando…"
 
-    show rodrigo shock_state
+    "Dejó la frase colgando."
 
-    "No por frío."
+    c "¿Qué sientes exactamente?"
 
-    "El humo se elevó…"
-    "Y por un segundo pareció mezclarse con algo más oscuro."
+    "Rodrigo dudó."
+    "Buscó las palabras."
 
-    "{cps=10}{color=#390169}{i}Todavía no…{/i}{/color}{/cps}"
+    r "Como si… alguien respirara dentro de mi caja torácica."
+    r "Y cada vez que respiro yo… respira también."
+    r "Al mismo tiempo."
 
-    $ estado_mental += 1
+    "Azura se abrazó a sí misma."
 
-    "Rodrigo exhaló lentamente."
-    "Pero su pulso no se estabilizó."
+    a "Eso suena…"
+
+    r "A locura. Lo sé."
+
+    n "No."
+    n "Suena a que estás infectado."
+
+    "La palabra cayó como plomo."
+
+    l "¡Nagi!"
+
+    n "No lo digo para herirlo."
+    n "Lo digo porque ya vimos qué les pasa a los que se infectan."
+    n "Y si él está empezando…"
+
+    r "Entonces hay que decidir qué hacemos conmigo antes de que sea tarde."
+
+    "El grupo se miró entre sí."
+    "Nadie quería decirlo en voz alta."
+
+    c "Primero: nadie va a dispararte, apuñalarte ni dejarte tirado."
+    c "Segundo: vamos a vigilarte. Todos."
+    c "Tercero: si en algún momento empiezas a… cambiar… nos avisas."
+    c "Y cuarto…"
+
+    "Se acercó a él. Muy despacio."
+
+    c "Si llega ese momento… prométeme que lucharás contra eso con todo lo que tengas."
+    c "Porque no pienso perderte sin que al menos lo intentes."
+
+    r "…Lo intentaré."
+
+    "No era una promesa muy sólida."
+    "Pero era lo único que podía dar."
+
+    scene balcon_abandonado_night
+    show rodrigo worried at centro_izquierda
+    with dissolve
+
+    "Más tarde."
+
+    "Rodrigo seguía en el balcón."
+    "Luz se sentó a su lado, hombro con hombro."
+
+    show luz sad at centro_derecha
+
+    l "No tienes que cargar con esto solo."
+
+    r "No quiero que me vean… cuando pase."
+
+    l "Entonces no mires hacia otro lado cuando me mires a mí."
+    l "Mírame ahora."
+
+    "Rodrigo giró la cabeza con lentitud."
+
+    "Los ojos de Luz brillaban bajo la luz mortecina."
+    "No había miedo en ellos."
+    "Solo determinación."
+
+    l "Sea lo que sea que esté intentando meterse en ti…"
+    l "Va a tener que pasar por encima de mí primero."
+
+    "Rodrigo dejó escapar una risa rota."
+
+    r "Eres terrible mintiendo."
+
+    l "No estoy mintiendo."
+    l "Estoy amenazando a un parásito."
+
+    "Se quedaron en silencio."
+
+    "El viento trajo un olor extraño."
+    "Dulce. Metálico. Familiar."
+
+    play sound "sfx/drip_distant.mp3"
+
+    "Una gota cayó desde el techo del balcón."
+    "Aterrizó en el dorso de la mano de Rodrigo."
+
+    "No era agua."
+
+    show rodrigo scared
+
+    "Era negra."
+    "Y se movía."
+
+    "Muy despacio."
+    "Como si tuviera intención."
+
+    r "Luz…"
+
+    "Ella ya lo estaba viendo."
+
+    l "No te muevas."
+
+    "La gota se deslizó hacia su muñeca."
+    "Y desapareció bajo la piel."
+    "Sin dejar marca."
+
+    "Rodrigo cerró los ojos con fuerza."
+
+    "{cps=9}{color=#390169}{i}Shhh…{/i}{/color}{/cps}"
+    "{cps=9}{color=#390169}{i}Ya casi estamos en casa…{/i}{/color}{/cps}"
+
+    $ estado_mental += 2
+
+    "Cuando volvió a abrir los ojos…"
+
+    "La gota ya no estaba."
+
+    "Pero su mano temblaba."
+
+    "Y por primera vez…"
+    "No estaba seguro de quién la estaba moviendo."
 
     scene black with fade
+    stop music fadeout 4.0
 
     call chapter_complete("Capítulo 7")
+    jump cap_8
 
+label cap_8:
     return
