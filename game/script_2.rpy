@@ -1113,7 +1113,7 @@ label ocultar_influencia:
 
     jump escena_luz_balcon
 
-label luz_balcon
+label luz_balcon:
     scene balcon_abandonado_night
     show rodrigo worried at centro_derecha
     with dissolve
