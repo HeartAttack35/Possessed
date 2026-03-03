@@ -1059,7 +1059,7 @@ label confesion_rodrigo:
 
     "No era una promesa muy sólida."
     "Pero era lo único que podía dar."
-    jump luz_balcon
+    jump escena_luz_balcon_confesion
 
 label ocultar_influencia:
     scene rodrigo_cig_balcony_2 with dissolve
@@ -1111,9 +1111,9 @@ label ocultar_influencia:
 
     stop sound fadeout 1.0
 
-    jump escena_luz_balcon
+    jump escena_luz_balcon_oculta
 
-label luz_balcon:
+label escena_luz_balcon_confesion:
     scene balcon_abandonado_night
     show rodrigo worried at centro_derecha
     with dissolve
@@ -1199,5 +1199,472 @@ label luz_balcon:
     call chapter_complete("Capítulo 7")
     jump cap_8
 
+label escena_luz_balcon_oculta:
+
+    scene balcon_abandonado_night
+    show rodrigo worried at centro_derecha
+    with dissolve
+
+    "Más tarde."
+
+    "Rodrigo seguía en el balcón."
+    "Tenía los brazos apoyados en la baranda, rígido."
+    "Demasiado quieto."
+
+    show luz serious at centro_izquierda
+    with moveinleft
+
+    l "Rodri."
+
+    "Él no respondió."
+
+    l "No hagas eso."
+
+    r "¿Qué cosa?"
+
+    l "Desaparecer aunque estés aquí."
+
+    pause 0.5
+
+    r "Estoy bien."
+
+    l "No."
+    l "Estás funcionando."
+    l "Que no es lo mismo."
+
+    "Rodrigo apretó la mandíbula."
+
+    r "No hay nada que decir."
+
+    l "Soy tu pareja."
+    l "Merezco saber cómo te sientes."
+    l "Sea bueno o malo."
+    l "En especial si es más probable que sufras una crisis de pánico en cualquier momento."
+
+    "El viento golpeó el balcón con un quejido largo."
+
+    r "No voy a tener una crisis."
+
+    l "Te conozco."
+    l "Cuando te muerdes el interior de la mejilla así…"
+    l "Es porque estás conteniendo algo."
+
+    pause 0.5
+
+    l "No tienes que protegerme de lo que te pasa."
+    l "No soy de cristal."
+
+    r "No intento protegerte."
+
+    l "Entonces ¿qué haces?"
+
+    "Silencio."
+
+    play sound "sfx/heart_slow.mp3" fadein 1.5 loop
+
+    "Latido."
+
+    "Rodrigo cerró los ojos un segundo de más."
+
+    "{cps=9}{color=#390169}{i}Díselo.{/i}{/color}{/cps}"
+
+    "{cps=9}{color=#390169}{i}Quiero ver su cara cuando lo entienda…{/i}{/color}{/cps}"
+
+    r "(Cállate.)"
+
+    l "¿Qué dijiste?"
+
+    r "Nada."
+
+    "Luz dio un paso más cerca."
+
+    l "Rodrigo."
+    l "Si te estás quebrando por dentro, prefiero saberlo."
+    l "Prefiero sostenerte ahora que recoger los pedazos después."
+
+    "Sus ojos brillaban, pero esta vez sí había algo más."
+    "Miedo."
+
+    l "No me excluyas."
+    l "No me castigues con silencio."
+
+    "Rodrigo la miró."
+    "Por un momento pareció que iba a hablar."
+
+    pause 1.0
+
+    r "Si empiezo a perder el control…"
+    r "No quiero que tu última imagen mía sea esa."
+
+    l "Entonces dame algo mejor que recordar ahora."
+
+    "El aire se volvió denso."
+
+    play sound "sfx/drip_distant.mp3"
+
+    "Una gota cayó desde el techo del balcón."
+    "Aterrizó en el dorso de la mano de Rodrigo."
+
+    show rodrigo scared
+
+    l "…Rodri."
+
+    "La sustancia era negra."
+    "Y se movía."
+
+    "Muy despacio."
+
+    l "No te muevas."
+
+    "La gota avanzó hacia su muñeca."
+    "Y desapareció bajo la piel."
+
+    stop sound fadeout 1.0
+
+    "Rodrigo contuvo el aliento."
+
+    "{cps=9}{color=#390169}{i}¿Ves?{/i}{/color}{/cps}"
+    "{cps=9}{color=#390169}{i}Ni siquiera ahora puedes decírselo todo…{/i}{/color}{/cps}"
+
+    "Luz tomó su mano con fuerza."
+
+    l "Mírame."
+    l "Respira conmigo."
+
+    "Inhalaron."
+    "Exhalaron."
+
+    "Otra vez."
+
+    "La mano de Rodrigo temblaba."
+
+    r "No sé si…"
+    r "No sé si soy solo yo aquí dentro."
+
+    "Luz no soltó su mano."
+
+    l "Entonces vamos a averiguarlo juntos."
+
+    "Pero esta vez…"
+
+    "Rodrigo no estaba seguro de si eso seguía siendo verdad."
+
+    scene black with fade
+    stop music fadeout 4.0
+
+    call chapter_complete("Capítulo 7")
+    jump cap_8
+
 label cap_8:
+
+    scene black with fade
+    stop music fadeout 2.0
+
+    scene habitacion_abandonada_dawn with dissolve
+    #play ambient "sfx/morning_birds_distant.mp3" fadein 3.0 volume 0.4 # Pájaros lejanos, irónico
+    play ambient forest fadein 3.0 volume 0.4
+
+    "El amanecer se filtró a través de las ventanas rotas como un velo gris."
+    "No traía calidez. Solo una luz fría que hacía las sombras más largas."
+
+    "El grupo yacía disperso en el suelo polvoriento."
+    "Agotados. Inmóviles."
+    "Como si el orfanato los hubiera drenado durante la noche."
+    python:
+        afinidades = {
+            "nagi": afinidad_nagi,
+            "cutipye": afinidad_cutipye,
+            "azura": afinidad_azura,
+            "luz": afinidad_luz
+        }
+        min_afinidad_personaje = min(afinidades, key=afinidades.get)
+
+    show luz neutral at centro_derecha
+    show azura neutral at right
+    show nagi neutral at centro_izquierda
+    show cutipye neutral at left
+    with dissolve
+
+    "Uno a uno, comenzaron a moverse."
+    "Luz se incorporó primero, frotándose los ojos."
+    "Azura murmuró algo sobre un sueño extraño."
+    "Nagi estiró los brazos con un gruñido."
+    "Cutipye se sentó, revisando su mochila instintivamente."
+
+    "Pero Rodrigo…"
+    "Y [min_afinidad_personaje!c]…"
+
+    if min_afinidad_personaje == "nagi":
+        hide nagi
+    elif min_afinidad_personaje == "cutipye":
+        hide cutipye
+    elif min_afinidad_personaje == "azura":
+        hide azura
+    elif min_afinidad_personaje == "luz":
+        hide luz  # Raro, pero posible si afinidad baja
+
+    "Aún no se movían."
+    "Como si el sueño los hubiera retenido un poco más."
+
+    show rodrigo neutral at center with dissolve
+
+    "Rodrigo abrió los ojos lentamente."
+    "No se levantó de inmediato."
+    "Su mirada se clavó en las vigas del techo."
+    "No hacia la puerta. No hacia las ventanas."
+    "Hacia arriba."
+    "Hacia las alturas oscuras y expuestas."
+
+    r "(Demasiado expuesto…)"
+    r "(Necesito… ver mejor.)"
+
+    "El pensamiento llegó sin invitación."
+    "No era paranoia humana."
+    "Era instinto."
+    "De algo que vigila desde arriba."
+
+    $ estado_mental += 1
+
+    if min_afinidad_personaje == "nagi":
+        show nagi tired at centro_izquierda with dissolve
+        n "Ugh… ¿Ya amaneció?"
+        n "Siento como si me hubieran pisoteado."
+    elif min_afinidad_personaje == "cutipye":
+        show cutipye tired at left with dissolve
+        c "¿Qué hora es?"
+        c "Esto no fue una buena idea para dormir."
+    elif min_afinidad_personaje == "azura":
+        show azura tired at right with dissolve
+        a "…Mi cabeza."
+        a "Tuve un sueño horrible."
+    elif min_afinidad_personaje == "luz":
+        show luz tired at centro_derecha with dissolve
+        l "Rodri…"
+        l "¿Dormiste algo?"
+
+    "Rodrigo no respondió de inmediato."
+    "Solo se levantó con un movimiento fluido."
+    "Demasiado fluido para alguien que acababa de caer de un derrumbe el día anterior."
+
+    r "Vamos."
+    r "Hay que moverse."
+
+    "Su voz era seca."
+    "Pero sus ojos seguían volviendo al techo."
+
+    scene pasillo_dawn with fade
+    play sound walk loop volume 0.6
+    play music "music/tense_exploration.mp3" fadein 2.0 volume 0.5
+
+    "El grupo reanudó la búsqueda de una salida."
+    "Los pasillos parecían más laberínticos bajo la luz diurna."
+    "Como si el orfanato se reorganizara mientras dormían."
+
+    show rodrigo neutral at center
+    show luz neutral at centro_derecha
+    show azura neutral at right
+    show nagi neutral at centro_izquierda
+    show cutipye neutral at left
+
+    "Rodrigo caminaba al frente, pero sus pasos eran irregulares."
+    "Se detenía de pronto, inclinando la cabeza ligeramente."
+    "Como si escuchara algo que nadie más percibía."
+
+    play sound "sfx/distant_scratch.mp3" volume 0.3
+
+    r "…"
+
+    l "¿Qué pasa?"
+
+    if estado_mental < 10:  # Bajo: Racionaliza
+        r "Nada. Solo… el viento."
+        r "(Fatiga. Eso es todo.)"
+        $ estado_mental += 1
+
+    elif estado_mental < 15:  # Medio: Sensación mixta
+        r "Escuché algo."
+        r "Pero ya no."
+        r "(Ligero… como si pudiera flotar sobre eso.)"
+        $ estado_mental += 1
+
+    else:  # Alto: Disfruta claridad
+        r "Pasos. Pequeños. Lejanos."
+        r "(Puedo escuchar… todo.)"
+        $ estado_mental += 2
+
+    "Continuaron."
+    "Rodrigo parpadeaba menos."
+    "Sus ojos se fijaban en detalles altos: grietas en el techo, lámparas colgantes."
+
+    "En un momento, ante una escalera derruida…"
+
+    r "Subamos."
+
+    n "¿Para qué? La salida está abajo."
+
+    r "…"
+
+    "Sintió un impulso."
+    "Estirar la espalda."
+    "Sentir el aire desde arriba."
+    "Ligereza en los huesos."
+
+    if estado_mental < 10:
+        r "Mejor no. Sigamos."
+    else:
+        $ estado_mental += 1
+        r "(Arriba… seguro.)"
+
+    stop sound fadeout 1.0
+
+    scene vestibulo_dawn with fade
+
+    "Llegaron al vestíbulo principal."
+    "Dos pisos de altura."
+    "Escaleras curvadas a los lados."
+    "Un vacío central que invitaba a mirar hacia arriba."
+
+    show cutipye neutral at left
+
+    c "Dividámonos para cubrir más—"
+
+    hide rodrigo
+    show rodrigo neutral at center with moveinright  # Ya se mueve
+
+    "Pero Rodrigo ya estaba caminando hacia la escalera."
+    "Sin dudar."
+    "Sin explicación."
+
+    l "¿Rodri?"
+
+    r "Mejor vista."
+
+    "Simple. Seco. Funcional."
+
+    "Pero en su mente…"
+    "(Sentinela. Vigilar. Alto.)"
+
+    $ estado_mental += 1
+
+    "Subió al segundo piso sin mirar atrás."
+    "El grupo lo siguió, pero él ya estaba en la barandilla."
+    "Mirando abajo."
+    "Evaluando distancias."
+
+    play sound "sfx/scratch_wood.mp3" volume 0.8
+
+    "Un sonido."
+    "Uñas contra madera."
+    "Espasmódico. Rápido."
+
+    show rata_mutant at right with moveinbottom  # Emerge de las sombras
+
+    "La criatura surgió de una puerta lateral."
+    "Hombros encorvados. Mandíbula desproporcionada."
+    "Ojos rojos y hundidos."
+    "Se movía como una rata gigante, pero con rostro humano distorsionado."
+
+    "Atacó directamente al más vulnerable."
+    # Ataca al de menor afinidad
+
+    if min_afinidad_personaje == "nagi":
+        show rata_mutant at centro_izquierda with moveinright
+        n "¡Mierda!"
+    elif min_afinidad_personaje == "cutipye":
+        show rata_mutant at left with moveinright
+        c "¡Atrás!"
+    elif min_afinidad_personaje == "azura":
+        show rata_mutant at right with moveinright
+        a "¡No!"
+    elif min_afinidad_personaje == "luz":
+        show rata_mutant at centro_derecha with moveinright
+        l "¡Rodri!"
+
+    stop music
+    play music chase fadein 0.5
+
+    if estado_mental < 10:  # Bajo: Técnica humana
+        scene vestibulo_fight_normal with dissolve
+        play sound "sfx/human_scream.mp3"
+        # Emesis Blue reference
+        r "¡Aléjate!"
+        "Rodrigo gritó humano."
+        "Sacó la daga con precisión."
+        "Atacó calculado."
+        "Golpe en el flanco."
+        "Miedo en sus ojos."
+        play sound "sfx/stab.mp3"
+        with vpunch
+        r "Respira… respira…"
+
+    elif estado_mental < 15:  # Medio: Brusco, saturado
+        scene vestibulo_fight_saturated with dissolve  # Efecto visual saturado
+        play sound "sfx/beast_growl.mp3"
+        # GOW Reference
+        r "¡Grrraaah!"
+        "Grito mixto."
+        "Movimiento brusco."
+        "Ataques menos medidos."
+        play sound "sfx/slash_rough.mp3"
+        with shake
+        r "(Muévete.)"
+
+    else:  # Alto: Primal, glitch
+        scene vestibulo_fight_glitch with dissolve  # Fondo glitch, audio comprimido
+        play sound "sfx/primal_screech.mp3"  # Grito aviar/primal
+        # GOW 3 Reference
+        "No pensó."
+        "No habló."
+        "Solo saltó desde el segundo piso."
+        "Impacto brutal."
+        play sound "sfx/impact_heavy.mp3"
+        with hpunch
+        "Apuñaló sin control."
+        play sound "sfx/stab_repeated.mp3"
+        with vpunch
+
+    # Final de la pelea
+    scene vestibulo_aftermath with fade
+    stop music fadeout 2.0
+    play ambient "sfx/heavy_breathing.mp3" loop
+
+    "El mutante yacía inmóvil."
+    "Daga incrustada en el cráneo."
+    "Sangre por todas partes."
+
+    show rodrigo bloodied at center with dissolve
+
+    "Rodrigo jadeaba."
+    "Manos temblorosas."
+    "Cubiertas de icor."
+
+    "El grupo lo miró."
+    "No como héroe."
+
+    if min_afinidad_personaje == "nagi":
+        show nagi shocked at centro_izquierda
+        n "Eso… no fue normal."
+    elif min_afinidad_personaje == "cutipye":
+        show cutipye shocked at left
+        c "Rodri… ¿qué fue eso?"
+    elif min_afinidad_personaje == "azura":
+        show azura shocked at right
+        a "Retrocedió un paso."
+    elif min_afinidad_personaje == "luz":
+        show luz shocked at centro_derecha
+        l "…Amor."
+
+    "Rodrigo levantó la mirada."
+    "Por una fracción de segundo…"
+    "Sus pupilas estaban demasiado oscuras."
+    "Demasiado redondas."
+    "Demasiado… aviares."
+
+    scene black with fade
+    stop ambient fadeout 2.0
+
+    call chapter_complete("Capítulo 8")
+    jump cap_9
+
+label cap_9:
     return
