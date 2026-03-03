@@ -148,7 +148,6 @@ label cap_6:
     "{cps=15}Dulce. Metálico.{/cps}"
 
     r "...Luz..."
-    $ estado_mental += 1
     scene bg_cuarto_maquinas
     show rodrigo shock_state at right
     show luz worry at left
@@ -163,16 +162,15 @@ label cap_6:
 
     pause 0.5
 
-    play ammbient "sfx/wet_whisper.mp3" fadein 0.3
+    play ambient "sfx/wet_whisper.mp3" fadein 0.3
     centered "{cps=15}{color=#390169}{i}Casi... casi mía...{/i}{/color}{/cps}"
     stop ambient fadeout 0.5
-    $ estado_mental += 1
 
     "Rodrigo parpadeó con fuerza."
 
     r "¿Escucharon eso...?"
 
-    if estado_mental >= 7:
+    if estado_mental >= 6:
         show luz worry at centro_derecha with move
         show cutipye worried at left
         show nagi worried at centro_izquierda
@@ -181,6 +179,25 @@ label cap_6:
 
         n "Ey... Cálmate, hombre. No hay nada."
         c "No sobrepienses las cosas. Solo es el estrés."
+        a "¿Estás seguro, Rodri? No suenas bien."
+
+        "Los otros se inclinaron hacia él como si esperaran una explicación, sus rostros marcados por la preocupación y el desconcierto."
+        "Algo en su voz —tensa y quebrada— les hizo pensar que había más que un simple golpe; parecía un estado de shock."
+        n "¿Te acuerdas de quién... o qué dijiste?"
+        c "Respira, Rodri. Estamos acá."
+
+    else:
+        show luz worry at centro_derecha with move
+        show cutipye neutral at left
+        show nagi neutral at centro_izquierda
+        with moveinleft
+        "El único sonido seguía siendo ese goteo distante."
+
+        n "Ok, tranquilo, no pasa nada."
+        c "Probablemente fue el golpe, tómalo con calma."
+        a "Ven, recuéstate un segundo."
+
+        "Lo rodearon más suavemente, intentando reconfortarlo después del susto, como quien cuida a alguien que tuvo un mal rato."
 
     "Luz lo miró con preocupación, sin soltarlo."
 
@@ -256,7 +273,7 @@ label cap_6:
     "El ardor seguía ahí."
     "Constante."
 
-    play music ambiental fadein 1.5
+    play music rodtheme fadein 1.5
 
     r "La verdad es que ambas opciones suenan como el comienzo de una historia que termina mal."
     r "Pero supongo que elegir no hacer nada tampoco nos va a teletransportar mágicamente afuera."
@@ -362,8 +379,6 @@ label ir_administracion:
     "Rodrigo evitó mirarlo."
     "El sabor dulce volvió a su lengua."
 
-    $ estado_mental += 1
-
     n "Te conozco."
     n "Cuando te quedas así de callado no es porque estés pensando."
     n "Es porque algo te aplasta por dentro."
@@ -441,8 +456,6 @@ label ir_administracion:
 
     "Pero cuando Rodrigo miró el mapa otra vez…"
     "Por una fracción de segundo, las líneas parecieron moverse."
-
-    $ estado_mental += 1
 
     "Parpadeó."
     "Todo estaba quieto."
@@ -544,8 +557,6 @@ label volver_afuera:
     "Un deseo breve de… empujar los escombros con una fuerza que sabía que no tenía."
 
     r "(No.)"
-
-    $ estado_mental += 1
 
     "Cutipye caminó más despacio hasta quedar a su lado."
 
@@ -663,7 +674,10 @@ label cap_7:
     scene black with fade
     stop music fadeout 2.0
 
-    scene pasillo_intermedio with dissolve
+    if label_nagi == True:
+        scene pasillo_intermedio with dissolve
+    else:
+        scene lavanderia_abandonada with dissolve
     play ambient "sfx/low_drone.mp3" fadein 1.5
 
     show rodrigo neutral at center
@@ -721,6 +735,7 @@ label cap_7:
     l "¿Rodri?"
 
     pause 1.0
+    play music ambiental fadein 1.0 volume 0.6
 
     "Oscuridad total."
 
@@ -733,8 +748,6 @@ label cap_7:
     pause 0.5
 
     "{cps=12}{color=#390169}{i}Ellos no lo entienden…{/i}{/color}{/cps}"
-
-    $ estado_mental += 1
 
     r "¿Quién—?"
 
@@ -752,6 +765,8 @@ label cap_7:
     menu:
         "La escuché otra vez.":
             $ estado_mental += 1
+            r "Sí... la escuché."
+            r "No estoy inventando esto."
 
             if ruta_anterior == "nagi":
                 show cutipye worried
@@ -759,26 +774,37 @@ label cap_7:
                 c "¿La voz?"
                 c "Yo te creo."
                 c "No estás inventándolo."
-
+                r "Gracias, Cuty. Sólo... no quiero parecer un loco."
+                r "Necesito que alguien más lo confirme."
             else:
                 show nagi worried
                 $ afinidad_nagi += 2
                 n "Vale. Bien."
                 n "Entonces no estás loco."
                 n "Algo está jugando contigo."
+                r "¿Algo... o alguien?"
+                r "Me da la sensación de que me observan."
+
+            "Los demás se miraron entre sí, asintiendo con seriedad."
+            n "Si necesitás que estemos más atentos, lo estaremos."
+            c "No estás solo en esto."
 
         "Nada. Vámonos.":
             $ estado_mental -= 1
-            r "Nada. Fue el ruido."
+            r "No es nada. Fue un ruido."
+            r "Si nos vamos, quizá nos calme."
 
             if ruta_anterior == "nagi":
                 $ afinidad_cutipye += 1
                 show cutipye serious
-                c "No me mientas."
+                "Cutipye apretó los labios y frunció el seño ligeramente; su silencio era una mezcla de incredulidad y dolor."
             else:
                 $ afinidad_nagi += 1
                 show nagi serio
-                n "No me apartes, Rodrigo."
+                "Nagi frunció el ceño y negó con exageración, su expresión abierta de falta de creencia."
+
+            "Nadie dijo nada más."
+            "El aire pareció volverse más pesado mientras cada uno procesaba a su modo."
 
 
     "Decidieron avanzar hacia una puerta semiabierta al fondo del pasillo."
@@ -792,16 +818,23 @@ label cap_7:
 
     "Azura se apartó del grupo, revisando un archivador metálico."
 
-    play sound "sfx/paper_pick.mp3"
+    play sound paper_flip
 
     show azura shocked
 
     "Sus dedos encontraron una carpeta etiquetada como:"
-    "{i}Proyecto Huésped – Casos Especiales{/i}"
+    """
+    {cps=20}{b}Entrada 09 – Día 28{/b}{/cps}
+    \n
+    {cps=20}Cinco sujetos han mostrado una tolerancia parcial al patógeno. Los llamamos Huéspedes Activos.
+    Presentan signos de mutación adaptativa: aumento de masa muscular, endurecimiento dérmico y cambios oculares.{/cps}
+    """
 
-    "Leyó en silencio."
-
-    "{cps=18}Sujeto 12-A demuestra compatibilidad superior.\nNo presenta rechazo celular.\nAdaptación progresiva.\nPosible simbiosis estable bajo control emocional.{/cps}"
+    play sound paper_flip
+    """
+    {cps=20}También muestran comportamientos erráticos, violentos, territoriales.
+    Uno de ellos arrancó el rostro de un investigador por mirarlo fijamente durante más de tres segundos. Protocolos de seguridad revisados.{/cps}
+    """
 
     show azura worried
 
@@ -818,6 +851,7 @@ label cap_7:
     pause 0.5
 
     n "No es Galaxia."
+    n "Dice... Shio Katashi."
 
     show cutipye serious at left
 
@@ -835,27 +869,66 @@ label cap_7:
 
     c "...Era una huérfana."
 
-<<<<<<< HEAD
-    "silencio"
+    "Silencio."
 
-=======
->>>>>>> 866bb334966882709f9c269eff75070e8c1dc79e
     n "¿Y si la hicieron así?"
-
     c "¿Y si no tuvo opción?"
 
     show rodrigo neutral at center
 
-    "{cps=12}{color=#390169}{i}Yo también recé…{/i}{/color}{/cps}"
+    "Rodrigo observó la Biblia en las manos de Nagi."
 
-    $ estado_mental += 1
+    "Varias páginas estaban gastadas."
+    "Marcadas."
+    "Subrayadas con trazos temblorosos."
+
+    a "Hay una página doblada..."
+
+    "Nagi la abrió con cuidado."
+
+    pause 0.5
+    play sound paper_flip
+    show nagi surprised at centro_izquierda
+    n "Es Jeremías. Capítulo doce."
+    n "...Versículo nueve."
+    
+    pause 0.5
+
+    n '“¿Es mi heredad para mí como hiena manchada?'
+    n "¿Están las aves de rapiña contra ella en derredor?"
+    n "Venid, reunid todas las fieras del campo,"
+    n 'venid a devorarla.”'
+
+    "La palabra 'hiena' estaba subrayada una y otra vez."
+    "La presión del lápiz había rasgado levemente el papel."
+
+    pause 0.5
+
+    "{cps=12}{color=#390169}{i}¿Lo ves ahora, Rodrigo?{/i}{/color}{/cps}"
+    "{cps=12}{color=#390169}{i}Siempre estuvo escrito.{/i}{/color}{/cps}"
 
     r "(No.)"
 
-    pause 1.0
+    "{cps=12}{color=#390169}{i}Yo también recé…{/i}{/color}{/cps}"
+    "{cps=12}{color=#390169}{i}Pedí ser salvada.{/i}{/color}{/cps}"
+    "{cps=12}{color=#390169}{i}Pero Él me convirtió en la hiena.{/i}{/color}{/cps}"
+
+    "El aire de la habitación se volvió pesado."
+    "Rodrigo apartó la mirada del texto."
+
+    r "(Es solo un versículo.)"
+    r "(No significa nada.)"
+
+    pause 0.8
+
+    "{cps=12}{color=#390169}{i}Venid… reunid todas las fieras del campo…{/i}{/color}{/cps}"
+    "{cps=12}{color=#390169}{i}Venid a devorarla.{/i}{/color}{/cps}"
+
+    stop music fadeout 1.0
 
     scene habitacion_abandonada at slight_zoom with fade
-    play music forest fadein 3.0 volume 0.65
+    play music rodtheme fadein 3.0 volume 0.65
+    play sound forest fadein 3.0
 
     "El grupo se quedó en silencio varios minutos."
     "Nadie quería ser el primero en admitir que no sabían qué hacer después."
@@ -886,6 +959,29 @@ label cap_7:
 
     r "…"
 
+    menu:
+        "Confesar que sientes la influencia.":
+            $ afinidad_luz += 2
+            $ afinitad_azura += 2
+            $ afinidad_cutipye += 2
+            $ afinidad_nagi += 2
+
+            r "(Si me lo guardo... Puede que empeore.)"
+            r "(No puedo arrastrarlos a esto sin decir nada.)"
+            jump confesion_rodrigo
+        
+        "Mantenerlo en secreto.":
+            $ estado_mental += 2
+            r "(No.)"
+            r "(Si lo digo en voz alta, se vuelve real.)"
+            r "(Y no voy a darles una razón para que me miren como a los otros.)"
+
+            "Rodrigo dió una fuerte calada a su cigarrillo, esperando que el tabaco calmara la presión en su pecho."
+            "El latido dentro de su pecho se desaceleró."
+            "O tal vez solo se acostumbró a él por un momento."
+            jump ocultar_influencia
+
+label confesion_rodrigo:
     scene rodrigo_cig_balcony_2 with dissolve
 
     "Se giró hacia el grupo."
@@ -963,9 +1059,63 @@ label cap_7:
 
     "No era una promesa muy sólida."
     "Pero era lo único que podía dar."
+    jump luz_balcon
 
+label ocultar_influencia:
+    scene rodrigo_cig_balcony_2 with dissolve
+
+    "Se giró hacia el grupo."
+
+    r "Chicos."
+
+    "Todos alzaron la vista."
+
+    r "Deberíamos dormir por turnos."
+    r "Este lugar no es seguro."
+
+    n "Eso ya lo sabemos."
+    n "¿Algo más?"
+
+    r "No."
+    r "Solo… eso."
+
+    "Nagi lo observó unos segundos más."
+    "Como si esperara que dijera algo adicional."
+
+    "Rodrigo sostuvo la mirada."
+    "No parpadeó."
+
+    "El latido volvió."
+
+    play sound "sfx/heart_slow.mp3" fadein 1.0 loop
+
+    "{cps=9}{color=#390169}{i}Mentiroso…{/i}{/color}{/cps}"
+
+    r "(Cállate.)"
+
+    "Mientras el grupo discutía rutas de escape y posibles salidas del orfanato…"
+
+    c "Si encontramos el ala administrativa, quizá haya planos."
+    n "O una salida trasera que no esté bloqueada."
+    l "Tenemos que movernos antes del amanecer."
+
+    "Rodrigo apenas escuchaba."
+
+    "La conversación se sentía lejana."
+    "Como si estuviera ocurriendo al final de un túnel."
+
+    "{cps=9}{color=#390169}{i}No necesitan saberlo todavía…{/i}{/color}{/cps}"
+
+    r "(No estoy perdiendo el control.)"
+    r "(Todavía no.)"
+
+    stop sound fadeout 1.0
+
+    jump escena_luz_balcon
+
+label luz_balcon
     scene balcon_abandonado_night
-    show rodrigo worried at centro_izquierda
+    show rodrigo worried at centro_derecha
     with dissolve
 
     "Más tarde."
@@ -973,7 +1123,8 @@ label cap_7:
     "Rodrigo seguía en el balcón."
     "Luz se sentó a su lado, hombro con hombro."
 
-    show luz sad at centro_derecha
+    show luz sad at centro_izquierda
+    with moveinleft
 
     l "No tienes que cargar con esto solo."
 
@@ -1032,8 +1183,6 @@ label cap_7:
 
     "{cps=9}{color=#390169}{i}Shhh…{/i}{/color}{/cps}"
     "{cps=9}{color=#390169}{i}Ya casi estamos en casa…{/i}{/color}{/cps}"
-
-    $ estado_mental += 2
 
     "Cuando volvió a abrir los ojos…"
 

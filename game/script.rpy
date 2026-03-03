@@ -482,11 +482,8 @@ label cap_2:
     pause (2)
     
     r "..."
-<<<<<<< HEAD
     
-=======
 
->>>>>>> 866bb334966882709f9c269eff75070e8c1dc79e
     pause (1)
     
     r "Usaron a los niños como ratas de laboratorio..."
@@ -616,7 +613,6 @@ label escape_mnts:
     "...y el crujido de la puerta abriéndose."
     scene habitacion_mantis with dissolve
     
-    $ estado_mental += 1
     centered "{cps=10}La criatura te está buscando.{/cps}"
     
     "La Mantis entró. Sus antenas vibraban, captando el miedo en el aire."

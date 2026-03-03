@@ -134,6 +134,7 @@ image rodrigo nervioso = "images/sprites/Rodri.png"
 image rodrigo sorprendido = "images/sprites/Rodri.png"
 image rodrigo pain = "images/sprites/Rodri.png"
 image rodrigo scared = "images/sprites/Rodri.png"
+image rodrigo worried = "images/sprites/Rodri.png"
 image rodrigo alert = "images/sprites/Rodri.png"
 image rodrigo linterna = "images/sprites/Rodri.png"
 image rodrigo shocked = "images/sprites/Rodri.png"
@@ -203,6 +204,7 @@ image nagi soft = "images/sprites/Nagi.png"
 image nagi angry = "images/sprites/Nagi.png"
 image nagi annoyed = "images/sprites/Nagi.png"
 image nagi worried = "images/sprites/Nagi.png"
+image nagi surprised = "images/sprites/Nagi.png"
 image nagi scared = "images/sprites/Nagi.png"
 image nagi casual_young = "images/sprites/Nagi.png"
 image nagi casual_young_molesto = "images/sprites/Nagi.png"
@@ -282,8 +284,8 @@ define audio.chase = "<loop 62.8>music/persecucion.ogg"
 define audio.chase1 = "<loop 34.5>music/persecucion (galaxia).ogg"
 define audio.flashback = "<loop 28.00>music/flashback.ogg"
 define audio.credits = "music/creditos.mp3"
-define audio.rodtheme = "music/rodtheme.ogg" #DEFINIR LOOP
-define audio.ambiental = "music/ambiental.mp3" #DEFINIR LOOP
+define audio.rodtheme = "music/rodtheme.mp3" #DEFINIR LOOP, CAMBIAR A OGG
+define audio.ambiental = "music/ambiental.mp3" #DEFINIR LOOP, CAMBIAR A OGG
 
 # Pantalla HUD de afinidades y estado mental
 screen hud_stats():
