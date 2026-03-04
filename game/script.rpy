@@ -1754,7 +1754,7 @@ label exito_qte_2:
     "El golpe destroza el ala derecha. La avispa chilla y cae al suelo, expuesta."
     
     # --- FASE 3: LUZ (REMATAR) ---
-    show luz aim at left
+    show luz angry at left
     l "¡MUERE!"
     
     call screen qte_wasp_3

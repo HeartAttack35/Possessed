@@ -1617,3 +1617,31 @@ style slider_vbox:
 style slider_slider:
     variant "small"
     xsize 900
+################################################################################
+## Pantallas de Distorsión Psicológica
+################################################################################
+
+# Distorsión ligera: Saturación incrementada, vibración sutil, compresión de audio
+screen screen_distortion_light():
+    zorder 10000
+    
+    # Capa de ruido rojo sutil con vibración
+    add Solid("#ff0000", xysize=(config.screen_width, config.screen_height)):
+        alpha 0.02
+        at distortion_light
+
+# Distorsión pesada: Saturación muy incrementada, vibración intensiva, efecto glitch
+screen screen_distortion_heavy():
+    zorder 10000
+    
+    # Capa de ruido rojo intenso
+    add Solid("#ff0000", xysize=(config.screen_width, config.screen_height)):
+        alpha 0.05
+        at distortion_heavy
+    
+    # Capa secundaria con offset para efecto chromatic aberration
+    add Solid("#00ff00", xysize=(config.screen_width, config.screen_height)):
+        alpha 0.02
+        xoffset 2
+        yoffset 2
+        at distortion_heavy

@@ -42,6 +42,13 @@ define build.name = "Possessed"
 
 ## Sounds and music ############################################################
 
+init python:
+    renpy.music.register_channel(
+        "ambient",
+        mixer="ambient",
+        loop=True
+    )
+
 ## These three variables control, among other things, which mixers are shown
 ## to the player by default. Setting one of these to False will hide the
 ## appropriate mixer.

@@ -179,7 +179,6 @@ label cap_6:
 
         n "Ey... Cálmate, hombre. No hay nada."
         c "No sobrepienses las cosas. Solo es el estrés."
-        a "¿Estás seguro, Rodri? No suenas bien."
 
         "Los otros se inclinaron hacia él como si esperaran una explicación, sus rostros marcados por la preocupación y el desconcierto."
         "Algo en su voz —tensa y quebrada— les hizo pensar que había más que un simple golpe; parecía un estado de shock."
@@ -561,7 +560,6 @@ label volver_afuera:
     "Cutipye caminó más despacio hasta quedar a su lado."
 
     show cutipye neutral at center with move
-    play music ambiental volume 0.6
 
     c "Oye."
 
@@ -928,7 +926,7 @@ label cap_7:
 
     scene habitacion_abandonada at slight_zoom with fade
     play music rodtheme fadein 3.0 volume 0.65
-    play sound forest fadein 3.0
+    play ambient forest fadein 3.0
 
     "El grupo se quedó en silencio varios minutos."
     "Nadie quería ser el primero en admitir que no sabían qué hacer después."
@@ -949,10 +947,13 @@ label cap_7:
     "La herida palpitaba, pero no dolía como debería."
     "Era más bien… una presión. Algo que se expandía y contraía muy despacio."
 
-    play sound "sfx/heart_slow.mp3" fadein 1.5 loop
+    play sound heartbeat volume 0.8
+    "Latido."
+    
+    play sound heartbeat volume 0.8
+    "Latido."
 
-    "Latido."
-    "Latido."
+    play sound heartbeat volume 0.8
     "Latido."
 
     "No era el suyo."
@@ -962,7 +963,7 @@ label cap_7:
     menu:
         "Confesar que sientes la influencia.":
             $ afinidad_luz += 2
-            $ afinitad_azura += 2
+            $ afinidad_azura += 2
             $ afinidad_cutipye += 2
             $ afinidad_nagi += 2
 
@@ -1087,7 +1088,7 @@ label ocultar_influencia:
 
     "El latido volvió."
 
-    play sound "sfx/heart_slow.mp3" fadein 1.0 loop
+    play sound heartbeat fadein 1.0 loop
 
     "{cps=9}{color=#390169}{i}Mentiroso…{/i}{/color}{/cps}"
 
@@ -1195,6 +1196,7 @@ label escena_luz_balcon_confesion:
 
     scene black with fade
     stop music fadeout 4.0
+    stop ambient fadeout 2.0
 
     call chapter_complete("Capítulo 7")
     jump cap_8
@@ -1351,6 +1353,7 @@ label escena_luz_balcon_oculta:
 
     scene black with fade
     stop music fadeout 4.0
+    stop ambient fadeout 2.0
 
     call chapter_complete("Capítulo 7")
     jump cap_8
@@ -1377,12 +1380,18 @@ label cap_8:
             "azura": afinidad_azura,
             "luz": afinidad_luz
         }
-        min_afinidad_personaje = min(afinidades, key=afinidades.get)
+        # Prioridad en empates: nagi, cutipye, azura, luz
+        prioridad = {"nagi": 0, "cutipye": 1, "azura": 2, "luz": 3}
+        min_afinidad_personaje = min(afinidades.keys(), key=lambda k: (afinidades[k], prioridad.get(k, 999)))
 
-    show luz neutral at centro_derecha
-    show azura neutral at right
-    show nagi neutral at centro_izquierda
-    show cutipye neutral at left
+    if min_afinidad_personaje != "luz": # Raro, pero posible si afinidad baja
+        show luz neutral at centro_derecha
+    if min_afinidad_personaje != "azura":
+        show azura neutral at right
+    if min_afinidad_personaje != "nagi":
+        show nagi neutral at centro_izquierda
+    if min_afinidad_personaje != "cutipye":
+        show cutipye neutral at left
     with dissolve
 
     "Uno a uno, comenzaron a moverse."
@@ -1391,17 +1400,7 @@ label cap_8:
     "Nagi estiró los brazos con un gruñido."
     "Cutipye se sentó, revisando su mochila instintivamente."
 
-    "Pero Rodrigo…"
-    "Y [min_afinidad_personaje!c]…"
-
-    if min_afinidad_personaje == "nagi":
-        hide nagi
-    elif min_afinidad_personaje == "cutipye":
-        hide cutipye
-    elif min_afinidad_personaje == "azura":
-        hide azura
-    elif min_afinidad_personaje == "luz":
-        hide luz  # Raro, pero posible si afinidad baja
+    "Pero Rodrigo y [min_afinidad_personaje!c]…"
 
     "Aún no se movían."
     "Como si el sueño los hubiera retenido un poco más."
@@ -1451,7 +1450,8 @@ label cap_8:
 
     "Su voz era seca."
     "Pero sus ojos seguían volviendo al techo."
-
+    
+    stop ambient fadeout 1
     scene pasillo_dawn with fade
     play sound walk loop volume 0.6
     play music "music/tense_exploration.mp3" fadein 2.0 volume 0.5
@@ -1465,6 +1465,7 @@ label cap_8:
     show azura neutral at right
     show nagi neutral at centro_izquierda
     show cutipye neutral at left
+    with dissolve
 
     "Rodrigo caminaba al frente, pero sus pasos eran irregulares."
     "Se detenía de pronto, inclinando la cabeza ligeramente."
@@ -1476,12 +1477,12 @@ label cap_8:
 
     l "¿Qué pasa?"
 
-    if estado_mental < 10:  # Bajo: Racionaliza
+    if estado_mental < 4:  # Bajo: Racionaliza
         r "Nada. Solo… el viento."
         r "(Fatiga. Eso es todo.)"
         $ estado_mental += 1
 
-    elif estado_mental < 15:  # Medio: Sensación mixta
+    elif estado_mental < 11:  # Medio: Sensación mixta
         r "Escuché algo."
         r "Pero ya no."
         r "(Ligero… como si pudiera flotar sobre eso.)"
@@ -1649,7 +1650,7 @@ label cap_8:
         c "Rodri… ¿qué fue eso?"
     elif min_afinidad_personaje == "azura":
         show azura shocked at right
-        a "Retrocedió un paso."
+        "Azura, quien acababa de ser rescatada, retrocedió un paso."
     elif min_afinidad_personaje == "luz":
         show luz shocked at centro_derecha
         l "…Amor."
@@ -1666,5 +1667,268 @@ label cap_8:
     call chapter_complete("Capítulo 8")
     jump cap_9
 
+# Capítulo 9: Confrontación y Tragedia
+
+# Asumiendo que las variables de afinidad ya están definidas en capítulos previos (afinidad_nagi, afinidad_azura, afinidad_cutipye, afinidad_luz).
+# El "farmeo" de afinidades se hace en el flashback mediante descripciones narrativas de interacciones en una fiesta, incrementando puntos de afinidad de forma implícita (sin diálogos directos, como solicitado).
+# Los incrementos son moderados, ya que es el "último" farmeo – por ejemplo, +1 o +2 por personaje, basado en escenas compartidas.
+# El flashback es un recuerdo colectivo, perhaps triggered post-fight para contextualizar sus lazos antes de la confrontación.
+# Después, volvemos al vestíbulo, con la confrontación.
+# Rodrigo escucha voces superpuestas (amigos + Galaxia riendo).
+# La reacción violenta es accidental, grave (implicando herida mortal o severa en Luz).
+# Palabras finales de Luz escalan en afecto con afinidad_luz (2-7).
+# Fin del capítulo con Rodrigo llorando.
+
 label cap_9:
+
+    # Transición al flashback: Un recuerdo de una fiesta pasada para "farmear" afinidades.
+    scene black with fade
+    "Antes de todo esto, en tiempos más simples..."
+    scene fiesta_flashback with dissolve  # Imagen de una fiesta animada, perhaps en un salón o casa.
+    play music "bgm/nostalgic_party.mp3" fadein 1.0
+
+    # Escena 1: Interacción con Nagi – Energía juguetona, incrementa afinidad.
+    "Nagi bailaba con energía, arrastrándote al centro de la pista. Su risa era contagiosa, y por un momento, olvidaste tus libros."
+    $ afinidad_nagi += 2  # Incremento: Refleja conexión divertida.
+
+    # Escena 2: Interacción con Azura – Conversación profunda, incrementa afinidad.
+    "Azura compartía un rincón tranquilo, hablando de estrellas y sueños. Sus palabras te hicieron sentir comprendido."
+    $ afinidad_azura += 1  # Incremento: Refleja empatía intelectual.
+
+    # Escena 3: Interacción con Cutipye – Ayuda práctica, incrementa afinidad.
+    "Cutipye te ayudó a preparar bebidas, su enfoque meticuloso complementaba tu torpeza. Fue un equipo silencioso pero efectivo."
+    $ afinidad_cutipye += 2  # Incremento: Refleja confianza práctica.
+
+    # Escena 4: Interacción con Luz – Momento tierno, incrementa afinidad (más enfocado, ya que es clave).
+    "Luz te tomó de la mano durante un juego, su calidez te hizo sonreír. En esa fiesta, todo parecía posible."
+    $ afinidad_luz += 1  # Incremento moderado: Mantiene el rango 2-7 asumiendo progresión previa.
+
+    # Fin del flashback: Desvanecimiento nostálgico.
+    "Pero esos recuerdos ahora parecen lejanos, eclipsados por el horror del orfanato."
+    stop music fadeout 2.0
+    scene vestibulo_post_fight with fade  # Escena del vestíbulo después de la pelea, con el mutante derrotado en el suelo.
+    #play music "bgm/tense_confrontation.mp3" fadein 1.0
+    play music ambiental fadein 1.0
+
+    "El vestíbulo huele a óxido y carne abierta."
+    "El cuerpo de la criatura yace a unos metros. Demasiado destrozado."
+    "{cps=15}Demasiado... Irreconocible...{/cps}"
+
+    "Las manos de Rodrigo todavía tiemblan."
+    "No sabía bien si era por el esfuerzo..."
+    "...o por lo que disfrutó durante un segundo."
+
+    n "¡¿Qué ha sido eso?! ¡El ratón de biblioteca que conozco no hubiera acabado con esa bestia ni con la adrenalina de la muerte encima, mucho menos dejar su cráneo como queso suizo!"
+    "Nagi señala el cadáver. Evita mirar directamente a Rodrigo."
+
+    a "¿No creen que tras lo que haya pasado tenga sentido que empiece a decir que 'escucha voces'? O sea, dudo que le esté dando lo mismo que a las bestias del orfanato, podría ser solo la adrenalina o el pánico."
+
+    a "...o no, Cuty?"
+
+    pause 1.0
+
+    c "Miren, ya no tiene tanto caso el decir si Rodrigo tenía razón o no, venir a este orfanato fue una idea estúpida y debemos irnos cuanto antes."
+
+    "No se acercan a él."
+    "Forman un semicírculo."
+    "Como si fuera el siguiente peligro."
+
+    l "¡Esperen! Rodrigo no es así... él solo nos protegió. No lo juzguen tan rápido."
+    n "¡Pero míralo, Luz! Está cubierto de sangre, como un animal!"
+    l "¡No! Es nuestro amigo, y lo que hizo fue por nosotros. Denle una oportunidad de explicarse."
+
+    pause 1.5
+
+    "Rodrigo trató de hablar."
+    pause 0.7
+    "Su garganta arde."
+
+    r "Yo... yo no-"
+
+    show screen screen_distortion_light   # (placeholder visual)
+    play sound "sfx/voices_overlapping.mp3"  # Voces distorsionadas de amigos.
+    play ambient glx_laugh loop  # Risa descarada de Galaxia, en loop bajo.
+    with hpunch
+    "Las voces se superponen."
+    "Demasiado fuertes."
+    "Demasiado cerca."
+
+    g "Ja ja ja... ¿Ves? Tus 'amigos' te temen ahora. Son tan frágiles~"
+    "Tu visión parpadea."
+    "El vestíbulo parece inclinarse."
+    "Los bordes de la imágen se saturan."
+    "Los colores se intensifican hasta hacerse irreales."
+    "Como si el mundo no soportara la velocidad de sus pensamientos."
+
+    play sound heartbeat loop
+    "El pulso del castaño se dispara."
+    play sound heartbeat loop
+    "Algo empezó a empujar desde dentro."
+    play sound heartbeat loop
+    "Algo quiere salir."
+
+    a "Tal vez sea el estrés acumulado, pero esto no es normal."
+    c "Luz, esto es peligroso. Debemos irnos antes de que... algo peor pase."
+    l "¡Basta! Rodrigo ha pasado por mucho. Todos lo hemos hecho. Apóyenlo en vez de atacarlo."
+    l "¡No lo abandonaremos! Él nos necesita."
+
+    "La palabra 'abandonar' retumba."
+    "Se deforma."
+    "Se estira."
+    "Se convierte en eco."
+
+    hide screen screen_distortion_light
+    show screen screen_distortion_heavy
+
+    "La risa de Galaxia se vuelve más clara."
+    "Más cercana."
+    "Como si respirara tras del cuello de Rodrigo."
+
+    centered "Hazlo. Demuéstrales lo que eres."
+
+    centered "No."
+    centered "No quiero."
+    centered "No soy eso."
+
+    "Pero el miedo no suena humano."
+    "Suena como un gruñido bajo su pecho."
+
+    "La mirada de Rodrigo recorrió la de los demás."
+    "Nagi retrocede medio paso."
+    "Azura aprieta los labios."
+    "Cutipye calcula distancias."
+    "Luz... se acerca."
+
+    "Ellos tienen miedo."
+    "Por él."
+    "{b}De él.{/b}"
+
+    "La culpa cae como plomo en su estómago."
+    centered "¿En qué te estás convirtiendo?"
+    centered "¿Y si Galaxia tiene razón?"
+    centered "¿Y si ya cruzaste una línea invisible?"
+
+    "Su respiración se acelera."
+    "Demasiado rápido."
+    "Demasiado fuerte."
+
+    "El mundo comienza a ir más rápido que él."
+    "O él más rápido que el mundo."
+    "No lo sabe."
+
+    "Luz da un paso más."
+    "Extiende la mano con cuidado."
+    "Como si se acercara a un animal herido."
+
+    l "Rodrigo... tranquilo... estamos contigo."
+
+    "Su mano toca a Rodrigo por el hombro."
+
+    #play sound "sfx/violent_reaction.mp3"
+    play sound slash
+    stop music
+    with hpunch
+    "El contaxto quema."
+
+    r "¡N-no to-!"
+
+    "No ve a Luz."
+    "Ve una sombra acercarse."
+    "Una amenaza."
+    "Un ataque."
+
+    "El cuerpo de Rodrigo reaccionó antes que su mente."
+    "Un reflejo primitivo."
+    "Una embestida desesperada."
+
+    stop ambient fadeout 0.7  # Detiene la risa de Galaxia abruptamente.
+    play sound thud
+    hide screen screen_distortion_heavy
+
+    "El golpe resuena en el vestíbulo."
+    "Seco."
+    "Hueco."
+
+    # Reacciones horrorizadas de todos.
+    play music rodtheme fadein 1.5
+    c "¡Luz! ¡No!"
+    n "¡Dios mío!"
+    a "Qué... Has hecho..."
+
+    "La sangre comienza a extenderse bajo ella."
+    "Roja."
+    "Imposible de ignorar."
+
+    "El tiempo vuelve a su velocidad normal."
+    "Y con Rodrigo dentro."
+
+    r "(No...)"
+    r "(No no no no...)"
+
+    centered "Tus manos."
+    centered "{cps=10}{b}Tus malditas manos.{/b}{/cps}"
+
+    scene closeup_luz_dying with dissolve  # Close-up de Luz herida.
+    if afinidad_luz < 3:
+        l "Rodrigo... duele... ¿por qué?"  # Mínimo afecto: Confusión y dolor.
+    elif afinidad_luz == 4:
+        l "No... fue un accidente... lo sé..."  # Ligeramente más comprensiva.
+    elif afinidad_luz == 5:
+        l "Rodrigo, no te culpes... fuiste fuerte por nosotros."  # Empieza a mostrar apoyo.
+    elif afinidad_luz == 6:
+        l "Te... aprecio tanto... no dejes que esto te destruya."  # Afecto moderado, preocupación por él.
+    elif afinidad_luz == 7:
+        l "Rodri... Amor... siempre estaré contigo en espíritu."  # Alto afecto, conexión emocional.
+    elif afinidad_luz == 8:
+        l "Te quiero... Rodrigo. No olvides nuestros momentos... vive por mí."  # Máximo afecto: Amor y legado.
+
+    if afinidad_luz >= 6:
+        "Sus dedos buscan los de él."
+        "Incluso ahora."
+        "Incluso mientras la vida se le escapa."
+
+        pause 1
+
+        "Recuerda su risa en la escuela."
+        "Las tardes estudiando juntos."
+        "Las caminatas bajo la lluvia."
+        "Cómo fingía molestarse cuando la llamaba exagerada."
+        "Cómo lo miraba cuando creía que no la veía."
+
+        pause 1
+
+        "Ella fue quien integró a Rodrigo al grupo."
+        "Quien insistió en que era más que sus silencios."
+        "Quien creyó en él incluso cuando él no lo hacía."
+
+        pause 1
+
+        "Y ahora..."
+        "La está sosteniendo mientras su luz se apaga."
+
+    # Fin: Rodrigo llora sosteniéndola.
+    play sound "sfx/crying.mp3"
+    "Su peso se siente distinto."
+    "Más frágil."
+    "Más... Final..."
+    r "¡Luz! ¡Díme algo... por favor!"
+    r "¡No me dejes... no así...!"
+
+    "Las lágrimas de Rodrigo caían sobre el rostro de Luz."
+    "Pero ella ya no responde."
+
+    "La risa de Galaxia no vuelve."
+    "No hace falta."
+    "El silencio es peor."
+
+    pause 1
+
+    scene black with fade
+    stop music fadeout 2.0
+    stop ambient fadeout 2.0
+
+    call chapter_complete("Capítulo 8")
+    jump cap_10
+
+label cap_10:
     return

@@ -19,6 +19,8 @@ default tiempo_escape = 0
 default nombre_capitulo = ""
 default mostrar_hud = True
 default label_nagi = False
+default _distortion_active = False
+default _heavy_distortion_active = False
 
 style button_panic is button:
     background "#5a0000"
@@ -89,6 +91,24 @@ transform vjump:
     yoffset 0
     linear 0.08 yoffset -25
     linear 0.08 yoffset 0
+
+# Transforms para distorsión y efectos psicológicos
+transform distortion_light:
+    matrixcolor SaturationMatrix(0.4)  # Saturación incrementada
+    zoom 1.0
+    linear 0.08 zoom 1.02 xoffset -1 yoffset 1
+    linear 0.08 zoom 1.0 xoffset 1 yoffset -1
+    repeat
+
+transform distortion_heavy:
+    matrixcolor SaturationMatrix(0.8)  # Saturación muy incrementada
+    matrixcolor HueMatrix(5)  # Ligero cambio de tonalidad (glitch)
+    zoom 1.0
+    linear 0.05 zoom 1.03 xoffset -2 yoffset 2
+    linear 0.05 zoom 1.0 xoffset 2 yoffset -2
+    linear 0.05 zoom 1.02 xoffset -1 yoffset 1
+    linear 0.05 zoom 1.0 xoffset 1 yoffset -1
+    repeat
 
 ## Fondos
 image mainmenubg = "bg/main_menu.png"
@@ -181,6 +201,7 @@ image azura emocion = "images/sprites/Azura.png"
 image azura scared = "images/sprites/Azura.png"
 image azura worried = "images/sprites/Azura.png"
 image azura shocked = "images/sprites/Azura.png"
+image azura tired = "images/sprites/Azura.png"
 image azura casual_young = "images/sprites/Azura.png"
 image azura casual_young_smile = "images/sprites/Azura.png"
 
@@ -193,6 +214,7 @@ image cutipye serious = "images/sprites/Cutipye.png"
 image cutipye soft = "images/sprites/Cutipye.png"
 image cutipye scared = "images/sprites/Cutipye.png"
 image cutipye shocked = "images/sprites/Cutipye.png"
+image cutipye tired = "images/sprites/Cutipye.png"
 image cutipye disgust = "images/sprites/Cutipye.png"
 image cutipye casual_young = "images/sprites/Cutipye.png"
 image cutipye throw = "images/sprites/Cutipye.png"
@@ -220,11 +242,12 @@ image luz smile = "images/sprites/Luz.png"
 image luz scared = "images/sprites/Luz.png"
 image luz worry = "images/sprites/Luz.png"
 image luz sad = "images/sprites/Luz.png"
+image luz angry = "images/sprites/Luz.png"
 image luz neutral = "images/sprites/Luz.png"
 image luz serious = "images/sprites/Luz.png"
 image luz surprised = "images/sprites/Luz.png"
 image luz determined = "images/sprites/Luz.png"
-image luz aim = "images/sprites/Luz.png"
+image luz tired = "images/sprites/Luz.png"
 image luz pre_transition_shy = "images/sprites/Luz.png"
 image luz pre_transition_smile_tears = "images/sprites/Luz.png"
 
