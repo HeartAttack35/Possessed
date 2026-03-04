@@ -21,6 +21,7 @@ default mostrar_hud = True
 default label_nagi = False
 default _distortion_active = False
 default _heavy_distortion_active = False
+default nagi_dead = False
 
 style button_panic is button:
     background "#5a0000"

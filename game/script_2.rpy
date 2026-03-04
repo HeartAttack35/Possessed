@@ -887,9 +887,6 @@ label cap_7:
     pause 0.5
     play sound paper_flip
     show nagi surprised at centro_izquierda
-    n "Es Jeremías. Capítulo doce."
-    n "...Versículo nueve."
-    
     pause 0.5
 
     n '“¿Es mi heredad para mí como hiena manchada?'
@@ -1667,18 +1664,6 @@ label cap_8:
     call chapter_complete("Capítulo 8")
     jump cap_9
 
-# Capítulo 9: Confrontación y Tragedia
-
-# Asumiendo que las variables de afinidad ya están definidas en capítulos previos (afinidad_nagi, afinidad_azura, afinidad_cutipye, afinidad_luz).
-# El "farmeo" de afinidades se hace en el flashback mediante descripciones narrativas de interacciones en una fiesta, incrementando puntos de afinidad de forma implícita (sin diálogos directos, como solicitado).
-# Los incrementos son moderados, ya que es el "último" farmeo – por ejemplo, +1 o +2 por personaje, basado en escenas compartidas.
-# El flashback es un recuerdo colectivo, perhaps triggered post-fight para contextualizar sus lazos antes de la confrontación.
-# Después, volvemos al vestíbulo, con la confrontación.
-# Rodrigo escucha voces superpuestas (amigos + Galaxia riendo).
-# La reacción violenta es accidental, grave (implicando herida mortal o severa en Luz).
-# Palabras finales de Luz escalan en afecto con afinidad_luz (2-7).
-# Fin del capítulo con Rodrigo llorando.
-
 label cap_9:
 
     # Transición al flashback: Un recuerdo de una fiesta pasada para "farmear" afinidades.
@@ -1706,7 +1691,13 @@ label cap_9:
     # Fin del flashback: Desvanecimiento nostálgico.
     "Pero esos recuerdos ahora parecen lejanos, eclipsados por el horror del orfanato."
     stop music fadeout 2.0
-    scene vestibulo_post_fight with fade  # Escena del vestíbulo después de la pelea, con el mutante derrotado en el suelo.
+    scene vestibulo_dawn
+    show rodrigo frustrado at center
+    show luz worry at centro_derecha
+    show azura worried at right
+    show nagi serio at centro_izquierda
+    show cutipye serious at left
+    with fade  # Escena del vestíbulo después de la pelea, con el mutante derrotado en el suelo.
     #play music "bgm/tense_confrontation.mp3" fadein 1.0
     play music ambiental fadein 1.0
 
@@ -1927,8 +1918,512 @@ label cap_9:
     stop music fadeout 2.0
     stop ambient fadeout 2.0
 
-    call chapter_complete("Capítulo 8")
+    call chapter_complete("Capítulo 9")
     jump cap_10
 
 label cap_10:
+
+    # Fondo: pasillo derruido, luces parpadeando (deberías tener una imagen o varias para variación)
+    scene bg pasillo_derruido with fade
+    play music "audio/ambience/pasillo_tenso.ogg" fadein 2.0 loop   # música de fondo tensa opcional
+
+    "El pasillo administrativo está medio derrumbado. El techo cruje. Las luces parpadean con ese zumbido eléctrico insoportable."
+
+    "Rodrigo camina último."
+    "Sus pasos son más pesados que antes."
+    "Respira mal."
+    "Se detiene cada cierto tiempo, como si estuviera escuchando algo que los demás no oyen."
+
+    show azura worried at left with dissolve
+
+    a "Rodri… ¿estás bien?"
+
+    "Rodrigo tarda en responder. Su voz sale rasposa."
+
+    r "Sí. Solo… sigan caminando. No se separen."
+
+    "Se lleva una mano al pecho. Las uñas raspan la tela de su ropa sin que él lo note."
+
+    show cutipye at right with dissolve
+
+    c "(en voz baja) Está empeorando…"
+
+    "Nagi se detiene en seco."
+    "Se gira."
+    "Lo mira con una mezcla de miedo y rabia contenida."
+
+    # Aquí empieza la decisión clave
+    if afinidad_nagi < 3:
+        jump traicion_nagi
+    else:
+        # Ruta alternativa: Nagi se queja pero no abandona (o lo que decidas)
+        jump nagi_no_traiciona
+
+label traicion_nagi:
+
+    n "¿Sabes qué? Ya basta."
+
+    "El grupo se detiene."
+
+    a "¿Nagi…?"
+
+    n "(señalando a Rodrigo) Desde que esto empezó, todo gira en torno a él."
+    n "Sus ataques."
+    n "Sus cambios de humor."
+    n "Sus… cosas raras."
+
+    "Rodrigo baja la mirada."
+    "Intenta hablar, pero su mandíbula se tensa antes de que pueda articular bien."
+
+    r "No estoy… perdiendo el control."
+
+    "Pero incluso mientras lo dice, su pupila parece dilatarse un poco más."
+
+    "Da un paso al frente. Uno lento. Forzado."
+
+    r "Escuchen."
+    r "No me gusta esto tampoco."
+    r "No pedí… nada de esto."
+
+    "Traga saliva."
+    "Su voz suena más grave por momentos."
+
+    r "Pero si nos dividimos, estamos muertos."
+    r "Galaxia quiere eso."
+    r "Separarnos."
+
+    "Se apoya contra la pared."
+    "Respira profundo."
+
+    r "(casi suplicando) Yo puedo aguantar."
+    r "Solo… manténganse cerca."
+    r "Si pierdo el control… me detienen."
+    r "Pero no se vayan."
+
+    "Por un segundo, hay silencio."
+    "Azura lo mira con lágrimas contenidas."
+    "Cutipye también."
+    "Pero Nagi no."
+
+    "Nagi suelta una risa seca."
+
+    n "¿Aguantar?"
+    n "¿Eso dices desde hace horas?"
+
+    "Da un paso hacia Rodrigo."
+
+    n "Te tiemblan las manos."
+    n "Nos miras como si fuéramos comida."
+    n "Mataste a—"
+
+    "Se detiene antes de terminar la frase."
+    "Silencio pesado."
+
+    "Rodrigo baja la cabeza."
+
+    n "¿Sabes qué? Siempre has sido así."
+
+    "Todos lo miran, confundidos."
+
+    n "¿Recuerdan esa vez que se emborrachó hasta casi morirse?"
+
+    # Flashback breve
+    scene bg flashback_rodrigo_borracho with dissolve
+    "Rodrigo inconsciente. Vomitando."
+    "Luz llorando."
+    "Nagi sosteniéndolo para que no se ahogara."
+    scene bg pasillo_derruido with dissolve
+
+    n "(voz quebrada de rabia) ¡Debí dejar que te ahogaras en tu vómito, animal!"
+
+    "El golpe emocional es brutal."
+
+    a "¡Nagi!"
+
+    "Rodrigo no responde."
+    "No puede."
+    "Sus uñas ahora sí atraviesan la tela de su manga."
+
+    n "Siempre hay que salvarte."
+    n "Siempre hay que cuidarte."
+    n "Siempre hay que entenderte."
+
+    "Mira al resto."
+
+    n "¿Y quién nos salva a nosotros?"
+
+    "Silencio."
+    "Nadie responde."
+
+    n "(más bajo) Yo no voy a morir porque él no puede controlarse."
+
+    "Da media vuelta."
+
+    n "Si quieren seguir con este retrasado, bien."
+    n "¡Pero yo me voy!"
+
+    # Reacciones
+    r "(forzando la voz) ¡Nagi, espera!"
+
+    n "(sin girarse) ¡Cállate!"
+
+    a "(corriendo hacia él) ¡No hagas esto! ¡No ahora!"
+
+    "Lo sujeta del brazo."
+    "Nagi la aparta con brusquedad, pero sin violencia."
+
+    n "Luz… míralo."
+    n "No es él."
+
+    a "Podemos buscar otra ruta."
+    a "Podemos… atarlo si es necesario."
+    a "Pero no nos dejes."
+
+    "Nagi duda."
+    "Por un segundo, realmente duda."
+
+    c "Tiene razón."
+
+    "Todos la miran."
+    "Incluso Nagi."
+
+    c "Yo lo quiero…"
+    c "Pero también tengo miedo."
+
+    "Mira a Rodrigo."
+    "No con odio."
+    "Con tristeza."
+
+    c "No sé si podamos detenerlo si se transforma del todo."
+
+    "Ese comentario duele más que el grito de Nagi."
+    "Rodrigo lo sabe."
+
+    n "Gracias."
+
+    "Se suelta de Azura."   # corregí "Luz" por Azura según tu texto reciente
+
+    n "No voy a arrastrarlos conmigo."
+    n "Pero tampoco voy a quedarme esperando a que él termine lo que empezó esa cosa."
+
+    "Se adentra solo en el ala izquierda del pasillo."
+
+    scene bg pasillo_oscuro with dissolve
+
+    "Oscuridad."
+    "El sonido de sus pasos alejándose."
+
+    play sound "audio/sfx/pasos_lejanos_fade.ogg" fadeout 3.0
+
+    "Un silencio tenso."
+
+    "Rodrigo cierra los ojos."
+    "Algo no está bien."
+    "Demasiado silencio."
+
+    r "(susurrando) …No."
+
+    "Un grito corta el aire."
+
+    n "(a lo lejos) ¡¿Qué—?!"
+
+    play sound "audio/sfx/grito_nagi.ogg"
+
+    "Un golpe seco."
+    play sound "audio/sfx/golpe_pared.ogg"
+
+    "Algo arrastrándose."
+
+    a "¡Nagi!"
+
+    "Cutipye corre hacia el pasillo."
+    "Rodrigo la detiene con una mano temblorosa."
+
+    g "(fuera de escena, suave, casi divertida) Siempre se separan…"
+    g "Nunca aprenden."
+
+    play sound "audio/sfx/arrastre_humedo.ogg"
+
+    "Un sonido húmedo."
+    "Un arrastre."
+    "Y silencio."
+
+    "Luz cae de rodillas."
+    "Azura cubre su boca."
+    "Cutipye aprieta los puños."
+
+    "Rodrigo no dice nada."
+    "Pero algo dentro de él cruje."
+    "No como hueso."
+    "Como voluntad."
+
+    # Zoom dramático posible con ATL o simplemente narración
+    "La cámara podría cerrar en su ojo."
+    "Más oscuro que antes."
+
+    # Segunda parte: descubrimiento del cuerpo capturado
+    "El eco de los pasos de Nagi se pierde en el pasillo."
+    "Silencio."
+    "Demasiado silencio."
+
+    r "(susurrando) …No."
+
+    "Un grito desgarrador rompe el aire."
+
+    play sound "audio/sfx/grito_desgarrador_nagi.ogg"
+
+    n "(fuera de escena) ¡¿Qué—?! ¡Suélt—!"
+
+    play sound "audio/sfx/golpe_pared_fuerte.ogg"
+
+    "El sonido de algo arrastrándose."
+
+    "Luz se lleva la mano a la boca."
+    "Azura corre un paso adelante."
+    "Rodrigo ya está en movimiento."
+
+    r "(fuera de escena, juguetona) Siempre es el mismo error…"
+    r "Alejarse del rebaño."
+
+    play sound "audio/sfx/levantado_suelo_humedo.ogg"
+
+    "El grupo dobla la esquina del pasillo."
+
+    scene bg pasillo_intermitente with flash   # luz intermitente
+
+    "Al final, bajo una luz intermitente, la ven."
+    "Galaxia sostiene a Nagi del cuello, elevado apenas del suelo."
+    "Sus piernas patean en el aire."
+    "Nagi aún tiene rabia en los ojos."
+
+    n "(ahogado, desafiante) …Púdrete."
+
+    "Reúne saliva."
+    "Le escupe directo al rostro."
+
+    "El tiempo parece congelarse."
+
+    "Luz contiene el aliento."
+    "Azura aprieta los puños."
+    r "(ruge por lo bajo)"
+
+    "Galaxia parpadea."
+    "Se limpia la mejilla lentamente con los dedos."
+    "Luego sonríe."
+
+    g "(dulcemente burlona) Supongo que debo estar agradecida…"
+    g "Empezaba a tener hambre~"
+
+    "Inclina la cabeza."
+    "Sus ojos se tornan más oscuros."
+
+    g "Y tú te ofreciste solito."
+
+    "Nagi forcejea."
+
+    n "¡Rodrigo—!"
+
+    "Pero Galaxia lo arrastra hacia atrás, hacia una puerta metálica entreabierta."
+
+    # Guardián
+    play sound "audio/sfx/caida_techo_pesado.ogg"
+
+    "Antes de que el grupo pueda avanzar—"
+    "Algo cae del techo."
+
+    scene bg centinela_quitinoso with vpunch   # shake para impacto
+
+    "Un cuerpo enorme bloquea el pasillo."
+    "Mitad humano. Mitad cucaracha."
+    "Su espalda está cubierta por un caparazón grueso y brillante."
+    "Las patas traseras raspan el suelo con un sonido repugnante."
+    "Sus antenas vibran."
+    "Emite un chasquido seco."
+
+    play sound "audio/sfx/chasquido_antenas.ogg"
+
+    a "…No nos va a dejar pasar."
+
+    "Rodrigo da un paso al frente."
+    "Sus brazos se tensan."
+    "Las venas se marcan bajo la piel."
+
+    # Combate (puedes expandirlo con menús de elección si quieres interactividad)
+    "El infectado embiste primero."
+    "Rápido. Sorprendentemente rápido."
+
+    n "(fuera de escena) ¡Suéltenme! ¡Maldita—!"
+
+    play sound "audio/sfx/golpe_galaxia.ogg"
+
+    g "(regañando, como a un niño) ¡Deja de moverte!"
+
+    "El grupo vacila un segundo."
+    "Error."
+
+    play sound "audio/sfx/embestida_concreto.ogg"
+    with vpunch
+
+    "La bestia arremete contra Rodrigo, estrellándolo contra la pared."
+    "El impacto hace crujir el concreto."
+
+    # (continúa el combate con descripciones similares; para brevidad, salto al final)
+
+    # Final del combate
+    play sound "audio/sfx/puerta_metallica_cerrar.ogg"
+
+    "La puerta metálica al fondo se cierra de golpe."
+    "Silencio."
+
+    "No hay más gritos."
+    "No hay más voces."
+    "Solo el eco distante de pasos arrastrándose."
+
+    "Rodrigo queda de rodillas."
+    "Su transformación se retrae lentamente."
+    "Demasiado tarde."
+
+    a "(quebrada) …No lo logramos."
+
+    "Azura mira la puerta cerrada."
+
+    a "Nos estaban esperando."
+
+    "Cutipye no dice nada."
+    "Solo observa a Rodrigo."
+
+    "Rodrigo aprieta los puños hasta que sangran."
+    "No llora."
+    "Esta vez no."
+
+    r "(susurra, voz rota) Fue mi culpa."
+
+    "Y por primera vez, nadie lo contradice."
+
+    stop music fadeout 4.0
+
+    # Transición a siguiente label o fin de capítulo
+    $ nagi_dead = True
+    call chapter_complete("Capítulo 10")
+    jump cap_11
+
+label nagi_no_traiciona:
+
+    # Fondo y música similar
+    scene bg pasillo_derruido with dissolve
+    play music "audio/ambience/pasillo_tenso.ogg" fadein 2.0 loop
+
+    n "¿Sabes qué? Ya basta."
+
+    "El grupo se detiene."
+
+    a "¿Nagi…?"
+    
+    n "(señalando a Rodrigo) Desde que esto empezó, todo gira en torno a él."
+    n "Sus ataques."
+    n "Sus cambios de humor."
+    n "Sus… cosas raras."
+
+    "Rodrigo baja la mirada."
+    "Intenta hablar, pero su mandíbula se tensa antes de que pueda articular bien."
+
+    r "No estoy… perdiendo el control."
+
+    "Pero incluso mientras lo dice, su pupila parece dilatarse un poco más. La influencia de Galaxia se nota en el brillo antinatural de sus ojos, como si algo ajeno estuviera susurrando en su mente."
+
+    "Da un paso al frente. Uno lento. Forzado."
+
+    r "Escuchen."
+    r "No me gusta esto tampoco."
+    r "No pedí… nada de esto."
+
+    "Traga saliva."
+    "Su voz suena más grave por momentos, como si Galaxia estuviera tirando de hilos invisibles en su garganta."
+
+    r "Pero si nos dividimos, estamos muertos."
+    r "Galaxia quiere eso."
+    r "El Científico quería eso."
+    r "Separarnos."
+
+    "Se apoya contra la pared."
+    "Respira profundo, pero irregular, como si luchara contra una ola interna."
+
+    r "(casi suplicando) Yo puedo aguantar."
+    r "Solo… manténganse cerca."
+    r "Si pierdo el control… me detienen."
+    r "Pero no se vayan."
+
+    "Por un segundo, hay silencio."
+    "Azura lo mira con lágrimas contenidas."
+    "Cutipye también."
+    "Nagi cruza los brazos, pero no se mueve."
+
+    "Nagi suelta una risa seca, pero esta vez con un matiz de frustración compartida en vez de rechazo total."
+
+    n "¿Aguantar? ¿Eso dices desde hace horas? ¡Maldita sea, Rodri, pareces un zombie con esteroides!"
+
+    "Da un paso hacia Rodrigo, pero no agresivo —más como un amigo que quiere zarandearlo para despertarlo."
+
+    n "Te tiemblan las manos."
+    n "Nos miras como si fuéramos comida."
+    n "Casi matas a—"
+
+    "Se detiene antes de terminar la frase. Silencio pesado."
+
+    "Rodrigo baja la cabeza, y sus uñas raspan más fuerte la tela, dejando marcas visibles."
+
+    n "¿Sabes qué? Siempre has sido así, ¿eh? Recuerdan esa vez que se emborrachó hasta casi morirse?"
+
+    # Flashback breve
+    scene bg flashback_rodrigo_borracho with dissolve
+    "Rodrigo inconsciente. Vomitando."
+    "Azura y Cutipye preocupadas."
+    "Nagi sosteniéndolo para que no se ahogara."
+    scene bg pasillo_derruido with dissolve
+
+    n "(con rabia, pero ahora con un toque de nostalgia forzada) ¡Y ahí estaba yo, salvándote el trasero como siempre! ¡No voy a dejar que nos mates a todos ahora, pero tampoco voy a largarme solo!"
+
+    "El golpe emocional es fuerte, pero Nagi no lo remata con insultos. En cambio, mira al grupo."
+
+    a "(amable, interviniendo con cuidado) Nagi, por favor... Entiendo tu miedo. Todos lo sentimos. Rodri está luchando, y Galaxia lo está... cambiando. Pero separarnos no ayudará. ¿Y si hablamos de irnos cuanto antes? Encontrar una salida rápida, juntos."
+
+    "Azura pone una mano suave en el brazo de Nagi, su voz cuidadosa y empática, como una mediadora que prioriza la unión."
+
+    c "(con ligereza, intentando aligerar) Sí, ¡vamos! Como en esas películas donde todos corren y nadie se queda atrás. Rodri, si te transformas, te doy un beso para que vuelvas... o un golpe, lo que funcione primero. ¡Je!"
+
+    "Pero su risa es nerviosa, y mira a Rodrigo con una mezcla de cariño y temor real."
+
+    n "(extrovertido, respondiendo con energía) ¡Eso! ¡Irnos cuanto antes! No me quedo aquí esperando que Rodri se convierta en el monstruo principal. Pero solos, somos carnada fácil para esa loca de Galaxia. ¡Vamos, grupo! ¿Quién dice que corramos como si nos persiguiera el diablo?"
+
+    "Rodrigo levanta la mirada, sus pupilas aún dilatadas, pero asiente lentamente. La influencia de Galaxia hace que su voz suene un poco distorsionada."
+
+    r "De acuerdo... Irnos cuanto antes. No... no quiero lastimarlos."
+
+    a "(sonríe débilmente, cuidadosa como siempre) Entonces, sigamos. Juntos. Busquemos esa salida, pero con cuidado. Rodri, si sientes que empeora... avísanos."
+
+    c "(asiente, ligera pero solidaria) ¡Equipo invencible! O al menos... equipo que no se rinde."
+
+    "Nagi da una palmada en la espalda de Rodrigo —fuerte, extrovertida—."
+
+    n "¡Eso es! No te voy a dejar solo, idiota. Pero apúrate, o te cargo yo mismo."
+
+    "El grupo avanza, más unido por ahora, pero la tensión persiste. Rodrigo siente la influencia de Galaxia creciendo, un susurro en su mente que promete caos si no se apresuran."
+
+    pause 2.0  # Pausa dramática
+
+    "Un silencio tenso, pero no roto."
+    "Algo no está bien."
+    "Demasiado silencio."
+    "Pero esta vez, no hay grito. Solo el eco de sus pasos sincronizados, apresurados hacia la salida."
+
+    "La cámara cierra en el ojo de Rodrigo."
+    "Aún oscuro, pero resistiendo... por ahora."
+
+    stop music fadeout 4.0
+
+    call chapter_complete("Capítulo 10")
+    jump cap_11
+
+
+label cap_11:
     return
