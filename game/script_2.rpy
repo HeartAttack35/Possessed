@@ -1361,10 +1361,9 @@ label cap_8:
     stop music fadeout 2.0
 
     scene habitacion_abandonada_dawn with dissolve
-    #play ambient "sfx/morning_birds_distant.mp3" fadein 3.0 volume 0.4 # Pájaros lejanos, irónico
     play ambient forest fadein 3.0 volume 0.4
 
-    "El amanecer se filtró a través de las ventanas rotas como un velo gris."
+    "El amanecer se filtró a través de las ventanas rotas como un velo gris, cargado de partículas de polvo que bailaban en el aire estancado."
     "No traía calidez. Solo una luz fría que hacía las sombras más largas."
 
     "El grupo yacía disperso en el suelo polvoriento."
@@ -1404,20 +1403,13 @@ label cap_8:
 
     show rodrigo neutral at center with dissolve
 
-    "Rodrigo abrió los ojos lentamente."
-    "No se levantó de inmediato."
-    "Su mirada se clavó en las vigas del techo."
-    "No hacia la puerta. No hacia las ventanas."
-    "Hacia arriba."
-    "Hacia las alturas oscuras y expuestas."
+    "Rodrigo abrió los ojos. No hubo el parpadeo perezoso de quien despierta de un sueño, sino la apertura súbita de una lente."
+    "Su mirada no buscó a sus compañeros, ni la salida. Se clavó en las vigas del techo, donde la madera se astillaba hacia la oscuridad del ático."
 
-    r "(Demasiado expuesto…)"
-    r "(Necesito… ver mejor.)"
+    r "(Demasiado expuesto abajo…)"
+    r "(En el suelo eres vulnerable. En el suelo eres comida.)"
 
-    "El pensamiento llegó sin invitación."
-    "No era paranoia humana."
-    "Era instinto."
-    "De algo que vigila desde arriba."
+    "Sentía una extraña rigidez en la nuca, un impulso eléctrico que le recorría los omóplatos, como si sus músculos recordaran una anatomía que nunca habían tenido."
 
     $ estado_mental += 1
 
@@ -1445,7 +1437,7 @@ label cap_8:
     r "Vamos."
     r "Hay que moverse."
 
-    "Su voz era seca."
+    "Su voz era seca, carente de la inflexión de preocupación que solía tener."
     "Pero sus ojos seguían volviendo al techo."
     
     stop ambient fadeout 1
@@ -1471,7 +1463,6 @@ label cap_8:
     play sound "sfx/distant_scratch.mp3" volume 0.3
 
     r "…"
-
     l "¿Qué pasa?"
 
     if estado_mental < 4:  # Bajo: Racionaliza
@@ -1481,12 +1472,12 @@ label cap_8:
 
     elif estado_mental < 11:  # Medio: Sensación mixta
         r "Escuché algo."
-        r "Pero ya no."
+        r "Arriba."
         r "(Ligero… como si pudiera flotar sobre eso.)"
         $ estado_mental += 1
 
     else:  # Alto: Disfruta claridad
-        r "Pasos. Pequeños. Lejanos."
+        r "Está en las paredes. Se arrastra. Puedo oler el almizcle de su pelaje."
         r "(Puedo escuchar… todo.)"
         $ estado_mental += 2
 
@@ -1497,9 +1488,7 @@ label cap_8:
     "En un momento, ante una escalera derruida…"
 
     r "Subamos."
-
     n "¿Para qué? La salida está abajo."
-
     r "…"
 
     "Sintió un impulso."
@@ -1518,24 +1507,20 @@ label cap_8:
     scene vestibulo_dawn with fade
 
     "Llegaron al vestíbulo principal."
-    "Dos pisos de altura."
-    "Escaleras curvadas a los lados."
-    "Un vacío central que invitaba a mirar hacia arriba."
+    "Un espacio cavernoso donde el aire circulaba con un silbido gélido."
+    "Dos pisos de altura, escaleras curvadas a los lados."
+    "El vacío central del vestíbulo parecía llamar a Rodrigo. Sus ojos escaneaban las barandillas del piso superior con una precisión casi geométrica."
 
     show cutipye neutral at left
-
     c "Dividámonos para cubrir más—"
 
     hide rodrigo
     show rodrigo neutral at center with moveinright  # Ya se mueve
 
-    "Pero Rodrigo ya estaba caminando hacia la escalera."
-    "Sin dudar."
-    "Sin explicación."
+    "Pero Rodrigo no esperó. Sus pasos eran silenciosos, apoyando primero la punta del pie, como si evitara alertar a algo que todavía no veía."
 
     l "¿Rodri?"
-
-    r "Mejor vista."
+    r "Necesito altura. Mejor vista."
 
     "Simple. Seco. Funcional."
 
@@ -1544,10 +1529,8 @@ label cap_8:
 
     $ estado_mental += 1
 
-    "Subió al segundo piso sin mirar atrás."
-    "El grupo lo siguió, pero él ya estaba en la barandilla."
-    "Mirando abajo."
-    "Evaluando distancias."
+    "Subió al segundo piso. Sus manos rozaron la madera de la bandilla y sus dedos se curvaron, casi como garras buscando tracción."
+    "Mirando abajo, evaluando distancias."
 
     play sound "sfx/scratch_wood.mp3" volume 0.8
 
@@ -1558,13 +1541,11 @@ label cap_8:
     show rata_mutant at right with moveinbottom  # Emerge de las sombras
 
     "La criatura surgió de una puerta lateral."
-    "Hombros encorvados. Mandíbula desproporcionada."
-    "Ojos rojos y hundidos."
-    "Se movía como una rata gigante, pero con rostro humano distorsionado."
+    "No era una rata. No era un hombre. Era un monstruo de piel estirada y espinazos expuestos."
+    "Sus ojos, dos puntos de rubí podrido, se fijaron en [min_afinidad_personaje!c]."
+    "La criatura emitió un chirrido agudo, un sonido que vibró en los dientes de todos los presentes. Se agazapó, sus patas traseras -demasiado largas para su torso- se tensaron para el salto."
 
-    "Atacó directamente al más vulnerable."
     # Ataca al de menor afinidad
-
     if min_afinidad_personaje == "nagi":
         show rata_mutant at centro_izquierda with moveinright
         n "¡Mierda!"
@@ -1581,82 +1562,90 @@ label cap_8:
     stop music
     play music chase fadein 0.5
 
-    if estado_mental < 10:  # Bajo: Técnica humana
+    if estado_mental < 10:  # COMBATE HUMANO
         scene vestibulo_fight_normal with dissolve
         play sound "sfx/human_scream.mp3"
-        # Emesis Blue reference
-        r "¡Aléjate!"
-        "Rodrigo gritó humano."
-        "Sacó la daga con precisión."
-        "Atacó calculado."
-        "Golpe en el flanco."
-        "Miedo en sus ojos."
+        
+        "La criatura saltó. Rodrigo reaccionó con la torpeza del miedo, lanzándose desde el rellano hacia el cuerpo del mutante."
+        "Cayeron en un revoltijo de extremidades y polvo. Rodrigo forcejeaba, sintiendo el aliento fétido y caliente de la rata contra su cuello."
+        
+        r "¡Atrás! ¡Hijo de puta!"
+
+        "Enterró la daga en el hombro de la bestia. No fue un golpe limpio. Fue un tajo desesperado que apenas logró separarlos."
+        "Rodrigo retrocedió jadeando, la adrenalina quemándole las venas mientras veía a la criatura lamerse la herida con una lengua negra y bífida."
+        
         play sound "sfx/stab.mp3"
         with vpunch
-        r "Respira… respira…"
 
-    elif estado_mental < 15:  # Medio: Brusco, saturado
-        scene vestibulo_fight_saturated with dissolve  # Efecto visual saturado
+    elif estado_mental < 15:  # COMBATE SINTETIZADO (Crow vs Rat)
+        show layer master at distortion_light # ACTIVAR DISTORSIÓN LIGERA
+        scene vestibulo_fight_saturated with dissolve
         play sound "sfx/beast_growl.mp3"
-        # GOW Reference
-        r "¡Grrraaah!"
-        "Grito mixto."
-        "Movimiento brusco."
-        "Ataques menos medidos."
+
+        "El mundo se volvió más brillante, más nítido. Los colores de la sangre y el moho saltaron a la vista de Rodrigo con una intensidad violenta."
+        "La criatura se lanzó hacia [min_afinidad_personaje!c], pero Rodrigo ya estaba en el aire."
+
+        "No fue un salto humano. Fue un picado."
+        "Rodrigo aterrizó sobre la espalda del mutante, sus pies buscando instintivamente los puntos de apoyo en los omóplatos. La daga bajó como un pico, buscando los ojos, buscando la base del cráneo."
+
+        r "(Ciega al rastrero. Quiebra sus patas.)"
+
+        "El mutante chilló y se revolvió, pero Rodrigo se mantenía pegado a su espalda con una agilidad antinatural, girando la cabeza con movimientos rápidos y espasmódicos."
+        
         play sound "sfx/slash_rough.mp3"
         with shake
-        r "(Muévete.)"
 
-    else:  # Alto: Primal, glitch
-        scene vestibulo_fight_glitch with dissolve  # Fondo glitch, audio comprimido
-        play sound "sfx/primal_screech.mp3"  # Grito aviar/primal
-        # GOW 3 Reference
-        "No pensó."
-        "No habló."
-        "Solo saltó desde el segundo piso."
-        "Impacto brutal."
+    else:  # COMBATE BRUTAL / PREDADOR (The Raven's Feast)
+        show layer master at distortion_heavy # ACTIVAR DISTORSIÓN PESADA
+        scene vestibulo_fight_glitch with dissolve
+        play sound "sfx/primal_screech.mp3"
+
+        "La realidad se fracturó. La tonalidad del mundo viró hacia un espectro enfermo, donde el calor de la presa era lo único que importaba."
+        "Rodrigo no gritó. Emitió un chasquido seco desde el fondo de su garganta mientras se lanzaba desde la barandilla."
+
+        "El impacto contra el huésped-ratón fue brutal. El sonido de los huesos de la criatura rompiéndose bajo el peso de Rodrigo resonó en todo el vestíbulo."
+        "Fue una ejecución, no una pelea."
+
+        "Rodrigo sujetó la cabeza del mutante con una mano, forzándola hacia atrás para exponer el cuello, mientras su otra mano hundía la daga una, dos, tres veces. Movimientos cortos. Precisos. Despiadados."
+        "Como un cuervo destripando a una rata en un callejón, Rodrigo no se detuvo cuando la criatura dejó de luchar. Sus ojos estaban fijos, sin parpadear, reflejando una sed que no era suya."
+
         play sound "sfx/impact_heavy.mp3"
         with hpunch
-        "Apuñaló sin control."
         play sound "sfx/stab_repeated.mp3"
         with vpunch
 
-    # Final de la pelea
+    show layer master
     scene vestibulo_aftermath with fade
     stop music fadeout 2.0
     play ambient "sfx/heavy_breathing.mp3" loop
 
-    "El mutante yacía inmóvil."
-    "Daga incrustada en el cráneo."
-    "Sangre por todas partes."
+    "El silencio que siguió fue peor que el ruido de la pelea."
+    "La criatura era una masa irreconocible de carne y pelaje negro. La sangre se filtraba entre las tablas del suelo, goteando hacia el piso inferior."
 
     show rodrigo bloodied at center with dissolve
 
-    "Rodrigo jadeaba."
-    "Manos temblorosas."
-    "Cubiertas de icor."
+    "Rodrigo permanecía en cuclillas sobre el cadáver."
+    "Sus dedos goteaban icor. Sus pulmones trabajaban con un ritmo mecánico, pesado."
 
-    "El grupo lo miró."
-    "No como héroe."
+    "El grupo lo miró. Nadie se acercó."
 
     if min_afinidad_personaje == "nagi":
         show nagi shocked at centro_izquierda
-        n "Eso… no fue normal."
+        n "Rodri... eso no fue defenderse. Eso fue... carnicería."
     elif min_afinidad_personaje == "cutipye":
         show cutipye shocked at left
-        c "Rodri… ¿qué fue eso?"
+        c "Parecías... disfrutándolo. Tu cara..."
     elif min_afinidad_personaje == "azura":
         show azura shocked at right
-        "Azura, quien acababa de ser rescatada, retrocedió un paso."
+        "Azura se tapó la boca con la mano, sus ojos fijos en la forma en que Rodrigo inclinaba la cabeza, examinando los restos."
     elif min_afinidad_personaje == "luz":
         show luz shocked at centro_derecha
-        l "…Amor."
+        l "…¿Rodrigo? Por favor, mírame."
 
     "Rodrigo levantó la mirada."
-    "Por una fracción de segundo…"
-    "Sus pupilas estaban demasiado oscuras."
-    "Demasiado redondas."
-    "Demasiado… aviares."
+    "Por una fracción de segundo, la luz del amanecer incidió en sus pupilas, revelando un brillo aceitoso, negro, que devoraba cualquier rastro de humanidad."
+    
+    r "Está muerto. Es lo que importa."
 
     scene black with fade
     stop ambient fadeout 2.0
@@ -2424,6 +2413,181 @@ label nagi_no_traiciona:
     call chapter_complete("Capítulo 10")
     jump cap_11
 
-
 label cap_11:
+    if afinidad_cutipye < 4:
+        scene bg_enfermeria_abandonada with dissolve
+        
+        "El grupo descansa en una sala de enfermería abandonada. El ambiente es sofocante."
+        "El aire huele a metal y polvo."
+        
+        "Rodrigo está sentado en el suelo, espalda contra la pared. Sus hombros tiemblan levemente."
+        "Tiene las manos entrelazadas, como si estuviera tratando de impedir que crezcan."
+        
+        "Nadie habla. Hasta que—"
+
+        show cutipye media_sonrisa at right
+        c "Qué curioso… Las cosas siempre se salen de control aquí."
+        
+        "Silencio."
+
+        if not nagi_dead:
+            show nagi ceja_levantada at left
+            "Nagi levanta una ceja, observándola con cautela."
+        
+        c "Primero el orfanato. Después los monstruos. Después las mutaciones."
+        
+        show cutipye mirada_reojo
+        c "Algunas personas simplemente… no saben cuándo parar."
+        
+        "Rodrigo baja aún más la cabeza."
+        
+        r "No lo hago a propósito..."
+        
+        show cutipye sorpresa_fingida
+        c "¿Oh? ¿Entonces sí sabes lo que haces?"
+
+        if not nagi_dead:
+            n "Hey… bueno, nadie está en su mejor versión ahora mismo—"
+            show cutipye seria
+            c "No, no, déjalo. Me interesa escuchar esto."
+        else:
+            "El silencio de la sala hace que las palabras de Cutipye corten como cuchillas."
+
+        "Cutipye se pone de pie y camina lentamente frente a Rodrigo."
+        
+        c "¿Sabes qué es lo gracioso? Siempre tienes un comentario listo cuando alguien más mete la pata."
+        c "(Imitando a Rodrigo) 'Relájate.' 'No es para tanto.' 'Estás exagerando.'"
+        
+        show cutipye fria
+        c "Pero cuando eres tú el que pierde el control… tenemos que entenderte."
+        
+        "Rodrigo la mira. Sus ojos están brillosos. No de rabia, sino de contención."
+        
+        c "Te da miedo todo. Miedo el ruido. Miedo la oscuridad. Miedo convertirte en lo que ya eres."
+        
+        "Rodrigo traga saliva. Sus dedos se curvan como garras involuntarias."
+        
+        l "Cutipye…"
+        az "Basta."
+        
+        "Pero no suena a orden. Suena a ruego débil."
+        
+        r "Estoy intentando… ¡Estoy intentando no hacerles daño!"
+        
+        "Las plumas negras asoman sutilmente en su cuello antes de retraerse. Está luchando."
+        
+        c "Ese es el problema. Siempre estás intentando. Nunca estás logrando."
+        
+        "Rodrigo queda inmóvil, como si le hubieran vaciado el aire."
+        
+        c "¿Quieres que confiemos en ti? Ni tú confías en ti mismo."
+        c "Nos miras como si fueras a atacarnos… y luego lloras para que sintamos pena."
+
+        if not nagi_dead:
+            n "Bueno, técnicamente llorar es una respuesta emocional saludable, ¿no? O sea, peor sería que—"
+            c "No estoy bromeando."
+            "Nagi se calla de inmediato."
+
+        c "Eres un monstruo porque eliges comportarte como uno cuando tienes miedo."
+        
+        "Rodrigo ya no responde. Solo llora en silencio, sin defenderse."
+
+        show cutipye cansada
+        c "Necesito aire."
+        
+        hide cutipye with moveoutright
+    else:
+        # Placeholder para afinidad alta
+        "Luz mira hacia la puerta por donde salió Cutipye, pero Rodrigo le hace una señal para que se quede."
+        "A pesar de la tensión, la conexión del grupo con Cutipye es lo suficientemente fuerte como para no dejarla ir sola."
+        # label_placeholder_continuacion_normal
+        return
+        
+
+label escena_traicion_cutipye:
+    scene bg_pasillo_oscuro with dissolve
+    "Pasos alejándose. Oscuridad."
+    "Cutipye respira agitado mientras camina sola, apoyándose contra la pared."
+    
+    c "No soy así… no soy así…"
+    
+    "Una voz suave. Cercana. Demasiado cercana."
+    
+    voice_galaxia "Claro que no… Solo estás aprendiendo a ser honesta."
+    
+    "Cutipye abre los ojos. Demasiado tarde."
+    "Una mano la empuja contra la pared. Algo afilado roza su garganta."
+
+    # --- Corte paralelo ---
+    scene bg_enfermeria_abandonada with flash
+    "Rodrigo deja de llorar de golpe. Algo en su instinto lo alerta."
+    
+    r "…Cutipye."
+    
+    "Un grito ahogado resuena por el pasillo."
+    
+    l "¡Cutipye!"
+    
+    if not nagi_dead:
+        "Nagi maldice en voz baja mientras desenfunda su arma."
+
+    # --- Escena: La Habitación que No Envejece ---
+    scene bg_habitacion_limpia with dissolve
+    
+    "Cutipye cierra la puerta detrás de ella. Respira agitada."
+    "El lugar está intacto. Papel mural perfecto, juguetes ordenados. Un reloj que funciona."
+    
+    c "¿Qué es este lugar?"
+    
+    "El clic del seguro de la puerta resuena como un disparo."
+    
+    voice_galaxia "Pensé que vendrían todos juntos…"
+    
+    show galaxia sentada_sonriendo with dissolve
+    
+    g "¿Tú sabes dónde están mis juguetes?"
+    
+    "Cutipye, recordando el arma que le quitó a Rodrigo, apunta con manos temblorosas."
+    
+    c "Están lejos de ti."
+    
+    play sound "sfx_disparo"
+    "El balazo impacta en la pierna de Galaxia. La carne empieza a cerrarse ante sus ojos."
+    
+    g "Oh. Ahora entiendo lo que él intentaba decirles."
+    
+    play sound "sfx_disparo_repetido"
+    "Cutipye vacía el cargador. Hombro. Torso. Cuello. Galaxia retrocede, pero no cae."
+    "Las heridas se abren y se cierran en un ciclo grotesco."
+    
+    play sound "sfx_click_vacio"
+    "Click. Vacío. Silencio."
+    
+    g "Eso fue grosero. No tienes que mentirme."
+    
+    "Cutipye choca contra la pared. No hay más espacio."
+    
+    g "Si cooperas… prometo no romperlos tan rápido."
+    
+    "Galaxia toca la mejilla de Cutipye con suavidad. Y entonces— ríe."
+    "Una risa aguda, descompuesta, maniática."
+
+    # Final visual
+    scene black with dissolve
+    show siluetas_muerte_cutipye at center with blood_splash
+    
+    "Un grito ensordecedor atraviesa la escena."
+    "Una mancha oscura salpica la pared. Luego otra."
+    "El grito se corta abruptamente."
+    
+    "Silencio."
+    "El reloj sigue funcionando."
+    "Tic. Tic. Tic."
+
+    $ cutipye_dead = True
+
+    call chapter_complete("Capítulo 11")
+    jump cap_12
+
+label cap_12:
     return
