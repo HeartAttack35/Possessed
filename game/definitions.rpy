@@ -17,11 +17,16 @@ default afinidad_nagi = 0
 default estado_mental = 0
 default tiempo_escape = 0
 default nombre_capitulo = ""
+define slow_dissolve = Dissolve(3.0)
+default splashes = []
 default mostrar_hud = True
 default label_nagi = False
 default _distortion_active = False
 default _heavy_distortion_active = False
 default nagi_dead = False
+default cuty_dead = False
+default persistent.credits_seen = False
+default ending_type = "bad" # "bad1", "bad2", "neutral1", "neutral2", "good"
 
 style button_panic is button:
     background "#5a0000"
@@ -72,6 +77,14 @@ define shake = hpunch
 transform centro_izquierda:
     xalign 0.35
     yalign 1.0
+
+transform credit_sprite_left:
+    xalign 0.25
+    yalign 0.5
+
+transform credit_text_right:
+    xalign 0.75
+    yalign 0.5
 
 transform blanco_y_negro:
     matrixcolor SaturationMatrix(0.0)
@@ -135,6 +148,7 @@ image pasillo_intermedio = "bg/pasillo_corriendo.jpg"
 image pasillo_dawn = "bg/pasillo_corriendo.jpg"
 image habitacion_abandonada_dawn = "bg/habitacion_abandonada.jpg"
 image vestibulo_dawn = "bg/vestibulo.jpg"
+image ending = "bg/ending.jpeg"
 image pasillo_oscuridad:
     "images/bg/pasillo_corriendo.jpg"
     matrixcolor BrightnessMatrix(-0.5)
@@ -220,6 +234,9 @@ image cutipye disgust = "images/sprites/Cutipye.png"
 image cutipye casual_young = "images/sprites/Cutipye.png"
 image cutipye throw = "images/sprites/Cutipye.png"
 image cutipye worried = "images/sprites/Cutipye.png"
+image cutipye dead:
+    "images/sprites/Cutipye.png"
+    matrixcolor TintMatrix("#000000")
 
 # Nagi
 image nagi neutral = "images/sprites/Nagi.png"
@@ -237,6 +254,9 @@ image nagi scared = "images/sprites/Nagi.png"
 image nagi casual_young = "images/sprites/Nagi.png"
 image nagi casual_young_molesto = "images/sprites/Nagi.png"
 image nagi casual_young_shock = "images/sprites/Nagi.png"
+image nagi dead:
+    "images/sprites/Nagi.png"
+    matrixcolor TintMatrix("#000000")
 
 # Luz
 image luz smile = "images/sprites/Luz.png"
