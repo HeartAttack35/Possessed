@@ -26,7 +26,7 @@ default _heavy_distortion_active = False
 default nagi_dead = False
 default cuty_dead = False
 default persistent.credits_seen = False
-default ending_type = "bad" # "bad1", "bad2", "neutral1", "neutral2", "good"
+default ending_type = "bad1" # "bad1", "bad2", "neutral1", "neutral2", "good"
 
 style button_panic is button:
     background "#5a0000"
@@ -219,6 +219,9 @@ image azura shocked = "images/sprites/Azura.png"
 image azura tired = "images/sprites/Azura.png"
 image azura casual_young = "images/sprites/Azura.png"
 image azura casual_young_smile = "images/sprites/Azura.png"
+image cutipye dead:
+    "images/sprites/Azura.png"
+    matrixcolor TintMatrix("#000000")
 
 # Cutipye
 image cutipye neutral = "images/sprites/Cutipye.png"

@@ -33,13 +33,31 @@ label creditos:
             splashes.append(("cutipye smile", "Cutipye, aunque sobrevivió a la experiencia, no pudo superar el trauma. Se volvió una persona retraída y distante, y eventualmente se mudó a otra ciudad para alejarse de los recuerdos."))
 
         # Crédito 3
-        splashes.append("Ilustraciones:\nReFresh\nVins2099\nArtistas libres de derechos")
+        splashes.append("Ilustraciones:\nUraku\nVins2099\nArtistas libres de derechos")
 
         # Epílogo de Azura
-        if ending_type != "bad":
-            splashes.append(("azura smile", "Azura, incluso tras los sucesos del orfanato, logró mantener una actitud positiva. Con el apoyo de sus padres y amigos, pudo superar el trauma y seguir adelante con su vida."))
+        if ending_type == "bad1":
+            splashes.append(("azura dead",
+            "La noticia de la desaparición de Azura devastó a quienes la conocían.\n\n"
+            "Su familia y amigos intentaron seguir adelante con sus vidas, aferrándose a los recuerdos de su risa y su inagotable optimismo.\n\n"
+            "Pero la casa se volvió más silenciosa, y las reuniones entre amigos nunca volvieron a sentirse igual.\n\n"
+            "Azura siempre había sido una presencia tranquila, casi reconfortante.\n"
+            "Una paz amable que parecía contagiar a quienes la rodeaban.\n\n"
+            "Sin ella, algo en sus vidas quedó irremediablemente vacío."
+            ))
+
+        elif ending_type == "bad2":
+            splashes.append(("azura shocked",
+            "Azura, incluso tras los sucesos del orfanato, trató de mantener una actitud positiva. "
+            "Asiste a terapia regularmente, pero no ha logrado superar el trauma. "
+            "Actualmente usa el aplastante trauma como motor para su música."
+            ))
+
         else:
-            splashes.append(("azura shocked", "Azura, incluso tras los sucesos del orfanato, trató de mantener una actitud positiva. Asiste a terapia regularmente, pero no ha logrado superar el trauma. Actualmente usa el aplastante trauma como motor para su música."))
+            splashes.append(("azura smile",
+            "Azura, incluso tras los sucesos del orfanato, logró mantener una actitud positiva. "
+            "Con el apoyo de sus padres y amigos, pudo superar el trauma y seguir adelante con su vida."
+            ))
 
         # Crédito 4
         splashes.append("Efectos de sonido:\nRenegade Kid LLC\nHeartAttack51\nArtistas libres de derechos")
@@ -51,13 +69,12 @@ label creditos:
             splashes.append(("luz sad", "La familia de Luz inició una investigación, la cual sigue abierta para este momento. Los sobrevivientes asistieron a su funeral. Se sugiere que la relación distante de Rodrigo con Luz contribuyó a su trágico destino."))
 
         # Crédito 5
-        splashes.append("Personajes:\nAzura: AlliTati\nCutipye: ReFresh\nDr. Edgar: HeartAttack51\nGalaxia: HeartAttack51\nLuz: Michi_tamagotchi\nNagi: HeartAttack51\nRodrigo: HeartAttack51")
+        splashes.append("Personajes:\nAzura: AlliTati\nCutipye: Uraku\nDr. Edgar: HeartAttack51\nGalaxia: HeartAttack51\nLuz: Michi_tamagotchi\nNagi: HeartAttack51\nRodrigo: HeartAttack51")
 
         # Epílogo de Rodrigo
         splashes.append(("rodrigo neutral", "La familia de Rodrigo no inició una investigación. Su padre lo atribuye a una desaparición voluntaria, mientras que su madre se niega a hablar del tema. Sin embargo, sus amigos saben la verdad."))
 
         # --- INFO. RELEVANTE SOBRE LA PARTIDA (Estadísticas Dinámicas) ---
-        # Construimos el texto evaluando las variables aquí mismo
         texto_stats = "{size=+10}Resumen de la Partida{/size}\n\n"
         
         if afinidad_nagi >= 5:
@@ -88,15 +105,10 @@ label creditos:
             texto_stats += "Rodrigo sucumbió al estrés.\n\n"
 
         texto_stats += "Final obtenido: " + str(ending_type)
-
-        # Agregamos todo el bloque de texto construido a la lista
         splashes.append(texto_stats)
         # ----------------------------------------------------------------
 
-        # Agradecimientos
-        splashes.append("Agradecimientos:\nLa gente que fue parte del proyecto.\nCanela la perrita.\n\nA todos los que no atacaron a la primera criatura.")
-
-        # Epílogo general
+        # --- EPÍLOGO GENERAL (Movido aquí, antes de los agradecimientos) ---
         if ending_type == "bad1":
             splashes.append(
             "El incendio consumió el orfanato durante la madrugada.\n\n"
@@ -143,18 +155,24 @@ label creditos:
             "juran escuchar el eco de unas alas agitándose entre las llamas.\n\n"
             "Como si algo aún protegiera aquel lugar."
             )
+        else:
+            # ESTO TE AYUDARÁ A DETECTAR EL ERROR:
+            splashes.append("ERROR: No se encontró un epílogo para el ending_type: " + str(ending_type) + ". Por favor, revisa tus variables.")
 
+        # --- AGRADECIMIENTOS (Ahora va al final de la lista) ---
+        splashes.append("Agradecimientos:\nLa gente que fue parte del proyecto.\nCanela la perrita.\n\nA todos los que no atacaron a la primera criatura.")
+
+        # Recálculo de tiempo
         tiempo_por_splash = (172.0 / len(splashes))
         tiempo_espera = tiempo_por_splash - 1.0
 
-    # BUCLE ÚNICO CORREGIDO
+    # BUCLE DE VISUALIZACIÓN
     $ i = 0
     $ num_splashes = len(splashes)
 
     while i < num_splashes:
         $ current_info = splashes[i]
 
-        # Comprobamos si es un epílogo de personaje (tupla: sprite + texto)
         if isinstance(current_info, tuple):
             $ sprite = current_info[0]
             $ texto = current_info[1]
@@ -163,19 +181,16 @@ label creditos:
             show expression Text(texto, xmaximum=500, text_align=0.0) as credit_text:
                 xalign 0.75
                 yalign 0.5
-        # Si no es tupla, es texto plano (Créditos, Estadísticas o Epílogo General)
         else:
             show text "[current_info]" at truecenter
 
         with dissolve
 
-        # Pausa
         if not persistent.credits_seen:
             $ renpy.pause(tiempo_espera, hard=True)
         else:
             $ renpy.pause(tiempo_espera)
 
-        # Ocultamos según lo que hayamos mostrado para evitar que se queden en pantalla
         if isinstance(current_info, tuple):
             hide credit_sprite
             hide credit_text
