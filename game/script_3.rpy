@@ -18,61 +18,54 @@ label creditos:
         splashes.append("Historia y Dirección:\nHeartAttack51\n\nProgramación:\nHeartAttack51")
 
         # Epílogo de Nagi
-        if nagi_dead:
-            splashes.append(("nagi dead", "Luego de semanas, la familia de Nagi inició una búsqueda para encontrarlo. Sin embargo, nunca lograron dar con su paradero."))
+        if ending_type == "bad1":
+            splashes.append(("nagi dead", "La familia de Nagi gastó todos sus recursos en una búsqueda desesperada.\nSin cuerpo ni pistas, su habitación permanece intacta, esperando un regreso que nunca ocurrirá."))
+        elif nagi_dead:
+            splashes.append(("nagi dead", "Luego de semanas, la familia de Nagi inició una búsqueda para encontrarlo.\nSin embargo, nunca lograron dar con su paradero."))
         else:
-            splashes.append(("nagi smug", "Nagi Katashi sobrevivió a la experiencia, gracias a la ayuda de sus amigos. Sin embargo, nunca volvió a ser el mismo."))
+            splashes.append(("nagi smug", "Nagi Katashi sobrevivió a la experiencia, gracias a la ayuda de sus amigos.\nSin embargo, nunca volvió a ser el mismo."))
 
         # Crédito 2
-        splashes.append("Música:\nHuman Entertainment\nCapcom\nRenegade Kid LLC\n{a=https://youtube.com/@Jambus8550}@Jambus8550{/a}")
+        splashes.append("Música:\nHuman Entertainment\nCapcom\nRenegade Kid LLC\n{a=https://youtube.com/@Jambus8550}@Jambus8550{/a}\n{a=https://www.youtube.com/@ryukaiiee}ryuka{/a}")
 
         # Epílogo de Cutipye
-        if cuty_dead:
-            splashes.append(("cutipye dead", "El padre de Cutipye organizó un funeral privado, al que solo asistieron sus amigos más cercanos. Sin embargo, la familia de Cutipye se negó a hablar del tema con la prensa, y no se inició una investigación formal."))
+        if ending_type == "bad1":
+            splashes.append(("cutipye dead", "La desaparición de Cutipye fue tratada con absoluto hermetismo por su familia.\nSe mudaron de la ciudad poco después, dejando atrás un misterio sin resolver."))
+        elif cuty_dead:
+            splashes.append(("cutipye dead", "El padre de Cutipye organizó un funeral privado, al que solo asistieron sus familiares y amigos más cercanos.\nSin embargo, la familia de Cutipye se negó a hablar del tema con la prensa, y no se inició una investigación formal."))
         else:
-            splashes.append(("cutipye smile", "Cutipye, aunque sobrevivió a la experiencia, no pudo superar el trauma. Se volvió una persona retraída y distante, y eventualmente se mudó a otra ciudad para alejarse de los recuerdos."))
+            splashes.append(("cutipye smile", "Cutipye, aunque sobrevivió a la experiencia, no pudo superar el trauma.\nSe volvió una persona retraída y distante, y eventualmente se mudó a otra ciudad para alejarse de los recuerdos."))
 
         # Crédito 3
         splashes.append("Ilustraciones:\nUraku\nVins2099\nArtistas libres de derechos")
 
         # Epílogo de Azura
         if ending_type == "bad1":
-            splashes.append(("azura dead",
-            "La noticia de la desaparición de Azura devastó a quienes la conocían.\n\n"
-            "Su familia y amigos intentaron seguir adelante con sus vidas, aferrándose a los recuerdos de su risa y su inagotable optimismo.\n\n"
-            "Pero la casa se volvió más silenciosa, y las reuniones entre amigos nunca volvieron a sentirse igual.\n\n"
-            "Azura siempre había sido una presencia tranquila, casi reconfortante.\n"
-            "Una paz amable que parecía contagiar a quienes la rodeaban.\n\n"
-            "Sin ella, algo en sus vidas quedó irremediablemente vacío."
-            ))
-
+            splashes.append(("azura dead", "La desaparición de Azura dejó un vacío irremplazable.\nSu familia aún espera su regreso, aferrándose al recuerdo de su inagotable optimismo en una casa que ahora se siente demasiado silenciosa."))
         elif ending_type == "bad2":
-            splashes.append(("azura shocked",
-            "Azura, incluso tras los sucesos del orfanato, trató de mantener una actitud positiva. "
-            "Asiste a terapia regularmente, pero no ha logrado superar el trauma. "
-            "Actualmente usa el aplastante trauma como motor para su música."
-            ))
-
+            splashes.append(("azura shocked", "Azura trató de mantener una actitud positiva, pero asiste a terapia sin lograr superar el trauma.\nActualmente usa esa aplastante experiencia como motor para su música."))
         else:
-            splashes.append(("azura smile",
-            "Azura, incluso tras los sucesos del orfanato, logró mantener una actitud positiva. "
-            "Con el apoyo de sus padres y amigos, pudo superar el trauma y seguir adelante con su vida."
-            ))
+            splashes.append(("azura smile", "Azura logró mantener una actitud positiva tras los sucesos.\nCon el apoyo de sus padres y amigos, pudo superar el trauma y seguir adelante con su vida."))
 
         # Crédito 4
         splashes.append("Efectos de sonido:\nRenegade Kid LLC\nHeartAttack51\nArtistas libres de derechos")
 
         # Epílogo de Luz
-        if afinidad_luz >= 5:
-            splashes.append(("luz smile", "La familia de Luz inició una investigación, la cual sigue abierta para este momento. Los sobrevivientes asistieron a su funeral."))
+        if ending_type == "bad1":
+            splashes.append(("luz dead", "La desaparición de Luz sumió a su familia en la desesperación.\nLas autoridades cerraron el caso por falta de pruebas, dejándolos sin un cierre ni un lugar donde llorarla."))
+        elif afinidad_luz >= 5:
+            splashes.append(("luz smile", "La familia de Luz inició una investigación, la cual sigue abierta para este momento.\nLos sobrevivientes asistieron a su funeral."))
         else:
-            splashes.append(("luz sad", "La familia de Luz inició una investigación, la cual sigue abierta para este momento. Los sobrevivientes asistieron a su funeral. Se sugiere que la relación distante de Rodrigo con Luz contribuyó a su trágico destino."))
+            splashes.append(("luz sad", "La familia de Luz inició una investigación, la cual sigue abierta para este momento.\nLos sobrevivientes asistieron a su funeral.\nSe sugiere que la relación distante de Rodrigo con Luz contribuyó a su trágico destino."))
 
         # Crédito 5
         splashes.append("Personajes:\nAzura: AlliTati\nCutipye: Uraku\nDr. Edgar: HeartAttack51\nGalaxia: HeartAttack51\nLuz: Michi_tamagotchi\nNagi: HeartAttack51\nRodrigo: HeartAttack51")
 
         # Epílogo de Rodrigo
-        splashes.append(("rodrigo neutral", "La familia de Rodrigo no inició una investigación. Su padre lo atribuye a una desaparición voluntaria, mientras que su madre se niega a hablar del tema. Sin embargo, sus amigos saben la verdad."))
+        if ending_type == "bad1":
+            splashes.append(("rodrigo dead", "La familia de Rodrigo aceptó su desaparición en completo silencio.\nSu padre lo dio por fugado, su madre no volvió a mencionarlo, y nadie se molestó en buscarlo."))
+        else:
+            splashes.append(("rodrigo neutral", "La familia de Rodrigo no inició una investigación.\nSu padre lo atribuye a una desaparición voluntaria, mientras que su madre se niega a hablar del tema.\nSin embargo, sus amigos saben la verdad."))
 
         # --- INFO. RELEVANTE SOBRE LA PARTIDA (Estadísticas Dinámicas) ---
         texto_stats = "{size=+10}Resumen de la Partida{/size}\n\n"
@@ -106,9 +99,8 @@ label creditos:
 
         texto_stats += "Final obtenido: " + str(ending_type)
         splashes.append(texto_stats)
-        # ----------------------------------------------------------------
 
-        # --- EPÍLOGO GENERAL (Movido aquí, antes de los agradecimientos) ---
+        # --- EPÍLOGO GENERAL ---
         if ending_type == "bad1":
             splashes.append(
             "El incendio consumió el orfanato durante la madrugada.\n\n"
@@ -163,7 +155,7 @@ label creditos:
         splashes.append("Agradecimientos:\nLa gente que fue parte del proyecto.\nCanela la perrita.\n\nA todos los que no atacaron a la primera criatura.")
 
         # Recálculo de tiempo
-        tiempo_por_splash = (172.0 / len(splashes))
+        tiempo_por_splash = (168.0 / len(splashes))
         tiempo_espera = tiempo_por_splash - 1.0
 
     # BUCLE DE VISUALIZACIÓN

@@ -206,7 +206,9 @@ image rodrigo run_panic:
         linear 0.2 yoffset -12 xoffset -4
         linear 0.2 yoffset 0 xoffset 0
         repeat
-
+image rodrigo dead:
+    "images/sprites/Rodri.png"
+    matrixcolor TintMatrix("#000000")
 
 # Azura
 image azura neutral = "images/sprites/Azura.png"
@@ -219,7 +221,7 @@ image azura shocked = "images/sprites/Azura.png"
 image azura tired = "images/sprites/Azura.png"
 image azura casual_young = "images/sprites/Azura.png"
 image azura casual_young_smile = "images/sprites/Azura.png"
-image cutipye dead:
+image azura dead:
     "images/sprites/Azura.png"
     matrixcolor TintMatrix("#000000")
 
@@ -274,6 +276,9 @@ image luz determined = "images/sprites/Luz.png"
 image luz tired = "images/sprites/Luz.png"
 image luz pre_transition_shy = "images/sprites/Luz.png"
 image luz pre_transition_smile_tears = "images/sprites/Luz.png"
+image luz dead:
+    "images/sprites/Luz.png"
+    matrixcolor TintMatrix("#000000")
 
 # Galaxia
 image galaxia walk_creepy = "images/sprites/Galaxia.png"
