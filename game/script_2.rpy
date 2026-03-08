@@ -1655,31 +1655,334 @@ label cap_8:
 
 label cap_9:
 
-    # Transición al flashback: Un recuerdo de una fiesta pasada para "farmear" afinidades.
     scene black with fade
-    "Antes de todo esto, en tiempos más simples..."
-    scene fiesta_flashback with dissolve  # Imagen de una fiesta animada, perhaps en un salón o casa.
-    play music "bgm/nostalgic_party.mp3" fadein 1.0
+    "Antes de todo esto..."
+    "Antes del orfanato, antes del miedo constante..."
+    "Hubo tiempos más simples."
+    "Una noche cualquiera."
 
-    # Escena 1: Interacción con Nagi – Energía juguetona, incrementa afinidad.
-    "Nagi bailaba con energía, arrastrándote al centro de la pista. Su risa era contagiosa, y por un momento, olvidaste tus libros."
-    $ afinidad_nagi += 2  # Incremento: Refleja conexión divertida.
+    scene fiesta_flashback1 with dissolve  # Imagen de una fiesta animada, perhaps en un salón o casa.
+    show layer master at sepia_filter
+    play ambient "bgm/nostalgic_party.mp3" fadein 1.0
+    "Luces cálidas colgaban del techo del pequeño salón."
+    "La música rebotaba contra las paredes mientras grupos de jóvenes reían, gritaban y bailaban sin preocuparse demasiado por el mañana."
 
-    # Escena 2: Interacción con Azura – Conversación profunda, incrementa afinidad.
-    "Azura compartía un rincón tranquilo, hablando de estrellas y sueños. Sus palabras te hicieron sentir comprendido."
-    $ afinidad_azura += 1  # Incremento: Refleja empatía intelectual.
+    "Entre la multitud, Luz tiraba suavemente del brazo de Rodrigo, abriéndose paso entre la gente."
 
-    # Escena 3: Interacción con Cutipye – Ayuda práctica, incrementa afinidad.
-    "Cutipye te ayudó a preparar bebidas, su enfoque meticuloso complementaba tu torpeza. Fue un equipo silencioso pero efectivo."
-    $ afinidad_cutipye += 2  # Incremento: Refleja confianza práctica.
+    l "¡Anda, Rodri! ¡Apúrate!"
+    "Rodrigo avanzaba detrás de ella con visible incomodidad, mirando a su alrededor."
+    "Demasiadas caras desconocidas."
+    "Demasiado ruido."
+    "Demasiado... Todo."
+    l "¡Nagi organizó esto para todos, y me costó convencerlo de que te dejara ir!"
+    "Se gira hacia el con una sonrisa radiante."
+    l "¡Va a ser genial!"
 
-    # Escena 4: Interacción con Luz – Momento tierno, incrementa afinidad (más enfocado, ya que es clave).
-    "Luz te tomó de la mano durante un juego, su calidez te hizo sonreír. En esa fiesta, todo parecía posible."
-    $ afinidad_luz += 1  # Incremento moderado: Mantiene el rango 2-7 asumiendo progresión previa.
+    menu:
+        "Aceptar con entusiasmo":
+            $ afinidad_luz += 2
+            r "No soy muy de fiestas, pero si tú vas... No veo por qué no."
+            "Rodrigo se encoge de hombros con una leve sonrisa."
 
-    # Fin del flashback: Desvanecimiento nostálgico.
-    "Pero esos recuerdos ahora parecen lejanos, eclipsados por el horror del orfanato."
+            r "Hagámoslo."
+            l "¡Así me gusta!"
+
+            "Luz levanta el puño victoriosa."
+            l "¡Prometo que no te vas a arrepentir!"
+        "Aceptar a regañadientes":
+            $ afinidad_luz += 1
+            r "Sabes que no es lo mío, Luz..."
+
+            "Rodrigo observa el lugar con desconfianza."
+            r "...pero bueno, iré por tí."
+
+            "Luz suspira exageradamente."
+            l "Ay, ¡Qué amargado!"
+            
+            "Luego le da un pequeño empujón juguetón."
+            l "Pero gracias por hacer el esfuerzo"
+            l "De verdad."
+
+    scene fiesta_flashback2 with dissolve
+    "El interior de la casa estaba aún más lleno de lo que parecía desde afuera."
+    "La música vibraba en el suelo."
+    "El aire estaba cargado con olor a alcohol, perfume barato y calor humano."
+    "Rodrigo frunce ligeramente el ceño."
+    "Su instinto le decía que aquel lugar no era para él."
+    "Antes de que pudiera decir algo, dos figuras conocidas aparecieron entre la multitud."
+
+    show nagi smile at left
+    show cutipye smile at right
+    with dissolve
+
+    n "¡Pero miren quien llegó!" 
+    "Nagi levanta su vaso en señal de saludo."
+
+    n "El intelectual del grupo."
+    n "¡Suelta ese ceño fruncido, Rod!"
+    
+    c "Sí, relájate un poco."
+    "Cutipye le ofrece un vaso."
+    c "Un par de tragos no matan a nadie."
+    c "Ayúdanos a que el ambiente prenda."
+
+    "Rodrigo mira el vaso."
+    "Luego mira a Luz."
+
+    menu:
+        "Aceptar el trago sin dudar":
+            $ afinidad_nagi += 2
+            $ afinidad_cutipye += 2
+            r "Bueno..."
+            "Rodrigo giró el vaso entre sus dedos."
+
+            r "No creo que a Luz le moleste si bebo un par..."
+
+            pause 0.5
+            "Hace una pausa."
+            "Luego se encoge de hombros."
+            r "Bah, qué mierda."
+            r "¡Vamos por unos tragos!"
+
+            "Nagi soltó una carcajada como respuesta."
+            n "¡Ese es el espíritu!"
+
+            "El primer vaso desaparece rápido."
+            "Luego viene otro."
+            "Y otro más."
+
+        "Dudar, pero aceptar":
+            $ afinidad_nagi += 1
+            $ afinidad_cutipye += 1
+            r "{cps=20}Bieeen...{/cps}"
+            "Rodrigo suspiró."
+
+            r "Pero solo para entrar en calor."
+            n "¡Ese es el espíritu!"
+            n "Vas a ver que te vas a relajar, hermano."
+
+            "El vaso llega a su mano."
+            "Y la noche comienza a rodar."
+
+    scene fiesta_flashback3 with dissolve
+    "La música subía."
+    "Las risas se mezclaban con gritos y conversaciones superpuestas."
+    "Un vaso se convirtió en dos."
+    "Luego en tres."
+    "Y de alguna forma..."
+
+    "Rodrigo empezó a sentirse cómodo."
+    "Demasiado cómodo."
+
+    "Las conversaciones fluían."
+    "Las bromas salían solas."
+
+    "Por primera vez en mucho tiempo, Rodrigo no estaba pensando."
+
+    "Solo estaba... viviendo."
+
+    "En algún punto, incluso olvidó dónde estaba Luz."
+    "Olvidó a Azura."
+    "Olvidó todo."
+
+    show nagi smile at centro_izquierda with dissolve
+    "Nagi se acercó, sus ojos brillando de una forma distinta."
+    "Sacó algo fino de detrás de su oreja, acercandolo al inexperto chico."
+    
+    "Nagi reaparece a su lado."
+
+    "Sus ojos brillan con una energía distinta."
+
+    "Con un movimiento rápido, saca algo fino de detrás de su oreja."
+
+    n "Oye, Rodrigo..."
+    r "¿Hmm?"
+    n "¿Quieres probar algo más..."
+
+    "Nagi sonríe."
+
+    n "...elevado?"
+
+    "Rodrigo parpadea."
+
+    r "¿Fumar?"
+    n "Te enseñaré."
+    n "Es fácil."
+
+    menu:
+        "Seguirle el juego":
+            $ afinidad_nagi += 3
+            r "Nunca lo he hecho..."
+
+            "Rodrigo observó el porro improvisado."
+            r "Pero qué más da. Enséñame."
+
+            "Nagi ríe."
+
+            n "Así se habla."
+
+            "El primer intento es torpe."
+            "El humo le quema los pulmones."
+
+            "Rodrigo tose."
+            "Nagi se ríe."
+
+            "Pero después..."
+            "Algo cambia."
+            "El mundo empieza a sentirse... diferente."
+
+            $ riesgo_salud = True
+        "Aceptar por presión":
+            $ afinidad_nagi += 2
+            $ afinidad_cutipye += 1
+
+            r "No sé si sea buena idea..."
+            r "Pero no quiero ser el único aburrido aquí."
+
+            "Nagi sonríe como si hubiera ganado una apuesta."
+            "Rodrigo lo intenta."
+            "Tose."
+            "Nagi se burla."
+
+            n "¡Respira, hombre!"
+
+            "El humo llena su cabeza de estática."
+
+            $ riesgo_salud = False
+    
+    stop music fadeout 1.0
+    scene bg_fiesta_borrosa with flash
+    play sound heartbeat loop
+
+    "De pronto..."
+    "El mundo se inclinó."
+
+    "Las luces comenzaron a girar."
+    "La música ya no era música."
+    "Era ruido."
+    "Ruido aplastando su cabeza."
+
+    "La memoria de Rodrigo se volvió fragmentos sueltos."
+    "Imágenes inconexas."
+
+    "Risas."
+    "Luces."
+    "Sombras."
+
+    "Su corazón latía demasiado rápido."
+    "Demasiado fuerte."
+
+    r "{cps=20}C-Cuty...{/cps}"
+
+    "Rodrigo intenta ponerse de pie."
+    "Las piernas no responden."
+
+    r "{cps=20}Algo...{/cps}"
+
+    "El suelo se acerca peligrosamente."
+
+    r "{cps=20}Algo no está bien...{/cps}"
+
+    "El sabor ácido del vómito invade su boca."
+    "El mundo se apaga."
+    
+    stop sound
+    scene black with fade
+
+    "Silencio."
+    "Voces lejanas."
+    "Pasos."
+    "Agua corriendo."
+    "Órdenes."
+
+    show azura neutral at center with dissolve
+    "La voz de Azura llega desde el teléfono."
+    "Calmada."
+    "Firme."
+    "Como si nada pudiera sacarla de su centro."
+
+    a "Escuchen bien."
+    a "Nagi. Cutipye."
+    a "Dejen de entrar en pánico."
+
+    "Un breve silencio."
+
+    a "Denle té de manzanilla."
+    a "Y báñenlo ahora mismo con agua templada."
+    a "Necesitamos bajar su ritmo cardíaco."
+    a "Luz ya viene en camino."
+    a "Ella se encargará del resto."
+
+    pause 1.5
+
+    scene bg_habitacion_luz with dissolve
+    "La mañana llega demasiado pronto."
+
+    "La luz que entra por la ventana es un cuchillo en los ojos de Rodrigo."
+    "Su cabeza late."
+    "Su garganta está seca."
+    "Su cuerpo pesa toneladas."
+
+    "Lentamente abre los ojos."
+    "Mira alrededor."
+    "Una habitación que no reconoce."
+    "Mantas que no son suyas."
+    "Ropa que definitivamente no es suya."
+
+    "El olor a manzanilla flota en el aire."
+
+    scene bg_habitacion_luz1 with dissolve
+
+    "Antes de que pueda reaccionar..."
+    "Luz se lanza sobre él."
+
+    l "¡Rodrigo!"
+
+    "Sus brazos lo rodean con fuerza."
+
+    l "¡Dios mío, pensé que te perdía!"
+    l "¡No vuelvas a hacerme algo así!"
+
+    menu:
+        "Sarcasmo clásico":
+            $ afinidad_luz += 2
+
+            "Rodrigo parpadea."
+            "Todavía confundido."
+
+            r "Oye..."
+            r "¿Esta pijama es de tu papá?"
+
+            "Se mira la manga."
+            r "Me queda un poco ajustada de los hombros..."
+
+            "Luz se queda en silencio."
+            "Luego lo golpea suavemente."
+            l "¡Eres un idiota!"
+
+            "{i}Llora y ríe al mismo tiempo.{/i}"
+
+        "Sinceridad vulnerable":
+            $ afinidad_luz += 4
+            r "Perdóname, Luz..."
+
+            "Rodrigo evita su mirada."
+            r "Me pasé de la raya."
+            r "No debí dejarme llevar así."
+
+            "Luz lo abraza más fuerte."
+            "Como si todavía necesitara comprobar que está vivo."
+
+    scene black with fade
     stop music fadeout 2.0
+    "En aquel entonces..."
+    "Parecía solo una mala noche."
+    "Una anécdota vergonzosa."
+    "Un susto pasajero."
+    "Ahora..."
+    "Esos recuerdos se sienten como ecos de otro mundo."
+    "Uno donde todavía existía algo parecido a la normalidad."
+
     scene vestibulo_dawn
     show rodrigo frustrado at center
     show luz worry at centro_derecha
@@ -1725,9 +2028,9 @@ label cap_9:
 
     r "Yo... yo no-"
 
-    show screen screen_distortion_light   # (placeholder visual)
+    show screen screen_distortion_light
     play sound "sfx/voices_overlapping.mp3"  # Voces distorsionadas de amigos.
-    play ambient glx_laugh loop  # Risa descarada de Galaxia, en loop bajo.
+    play ambient glx_laugh loop
     with hpunch
     "Las voces se superponen."
     "Demasiado fuertes."
