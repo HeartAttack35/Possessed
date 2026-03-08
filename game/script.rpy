@@ -1,7 +1,3 @@
-# NOTA: Para activar/desactivar el contador HUD desde la consola (Shift+O):
-# - Escribe: mostrar_hud = True  (para mostrarlo)
-# - Escribe: mostrar_hud = False (para ocultarlo)
-
 label start:
     show screen hud_stats
 

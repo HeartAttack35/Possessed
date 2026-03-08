@@ -26,7 +26,7 @@ default _heavy_distortion_active = False
 default nagi_dead = False
 default cuty_dead = False
 default persistent.credits_seen = False
-default ending_type = "bad1" # "bad1", "bad2", "neutral1", "neutral2", "good"
+default ending_type = "good" # "bad1", "bad2", "neutral1", "neutral2", "good"
 
 style button_panic is button:
     background "#5a0000"
@@ -346,6 +346,10 @@ define audio.rodtheme = "music/rodtheme.mp3" #DEFINIR LOOP, CAMBIAR A OGG
 define audio.ambiental = "music/ambiental.mp3" #DEFINIR LOOP, CAMBIAR A OGG
 
 # Pantalla HUD de afinidades y estado mental
+# NOTA: Para activar/desactivar el contador HUD desde la consola (Shift+O):
+# - Escribe: mostrar_hud = True  (para mostrarlo)
+# - Escribe: mostrar_hud = False (para ocultarlo)
+
 screen hud_stats():
     if mostrar_hud:
         frame:
