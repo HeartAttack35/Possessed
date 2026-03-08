@@ -1934,6 +1934,7 @@ label cap_9:
     scene bg_habitacion_luz1 with dissolve
 
     "Antes de que pueda reaccionar..."
+    play music flashback fadein 1.5
     "Luz se lanza sobre él."
 
     l "¡Rodrigo!"
@@ -1974,11 +1975,12 @@ label cap_9:
             "Como si todavía necesitara comprobar que está vivo."
 
     scene black with fade
-    stop music fadeout 2.0
     "En aquel entonces..."
     "Parecía solo una mala noche."
     "Una anécdota vergonzosa."
     "Un susto pasajero."
+
+    stop music fadeout 2.0
     "Ahora..."
     "Esos recuerdos se sienten como ecos de otro mundo."
     "Uno donde todavía existía algo parecido a la normalidad."
@@ -2204,7 +2206,7 @@ label cap_9:
     "No hace falta."
     "El silencio es peor."
 
-    pause 1
+    pause 2
 
     scene black with fade
     stop music fadeout 2.0

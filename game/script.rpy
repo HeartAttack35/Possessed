@@ -1782,7 +1782,7 @@ label combate_ganado:
 
     scene avispa_dead with dissolve
     "La criatura cae, convulsionando una última vez antes de quedar inmóvil."
-    
+    stop ambient fadeout 2.0
     stop music fadeout 2.0
     
     "El silencio vuelve al pasillo, roto solo por los jadeos descompasados del grupo."
