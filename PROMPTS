@@ -1,0 +1,321 @@
+##############################
+##########PROMPT BASE##########
+##############################
+
+Quiero generar documentación canónica para Possessed.
+
+Reglas importantes:
+
+- Usa únicamente la información presente en el proyecto y en los archivos disponibles.
+- No inventes información para completar secciones.
+- Si una sección no tiene suficiente información, déjala vacía o marca "Pendiente".
+- Si encuentras información contradictoria entre distintos archivos, NO elijas una versión. Enumera las contradicciones.
+- Si una parte del proyecto es ambigua, realiza preguntas antes de generar el documento.
+- Diferencia claramente entre:
+    • información confirmada
+    • información inferida
+    • información pendiente
+- El documento será utilizado posteriormente en NotebookLM como una fuente oficial del proyecto.
+- Conserva el formato Markdown.
+
+Antes de responder:
+
+1. Enumera cualquier información ambigua que detectes.
+2. Si esa ambigüedad afecta al resultado final, detente y haz preguntas antes de continuar.
+3. Solo genera el documento cuando toda la información crítica esté resuelta o haya sido marcada como "Pendiente".
+4. Nunca rellenes huecos usando conocimiento general o suposiciones.
+
+##############################################
+########## PARA FICHAS DE PERSONAJE ##########
+##############################################
+
+Quiero crear la ficha canónica de un personaje para NotebookLM.
+
+Busca información en:
+
+- scripts de Ren'Py
+- comentarios del código
+- documentos del proyecto
+- nombres de sprites
+- escenas
+- diálogos
+- variables relacionadas
+
+No inventes información.
+
+Si un apartado no puede responderse con seguridad:
+
+- escribe "Pendiente"
+- o pregúntame antes de asumir algo.
+
+Si encuentras varias versiones de un mismo dato:
+
+- indícalas todas
+- especifica dónde aparece cada una.
+
+Utiliza exactamente este formato:
+
+# Identidad
+
+## Información básica
+
+...
+
+## Historia
+
+...
+
+## Personalidad
+
+...
+
+## Motivaciones
+
+...
+
+## Relaciones
+
+...
+
+## Habilidades
+
+...
+
+## Diseño
+
+...
+
+## Curiosidades
+
+...
+
+## Información pendiente
+
+...
+
+## Preguntas para el autor
+
+...
+
+
+##############################################
+########## PARA RESUMIR UN CAPÍTULO ##########
+##############################################
+
+Analiza este capítulo de Ren'Py.
+
+No reescribas los diálogos.
+
+Extrae únicamente la información narrativa.
+
+Organiza el resultado en:
+
+# Objetivo del capítulo
+
+# Resumen
+
+# Eventos importantes
+
+# Personajes
+
+# Revelaciones
+
+# Foreshadowing
+
+# Cambios emocionales
+
+# Variables modificadas
+
+# Consecuencias futuras
+
+# Preguntas abiertas
+
+Si alguna parte no puede determinarse con seguridad, indícalo.
+
+#####################################
+########## PARA CRONOLOGÍA ##########
+#####################################
+
+Analiza todos los capítulos disponibles.
+
+Construye una cronología única.
+
+No asumas fechas.
+
+Si un evento ocurre antes o después de otro pero no existe una fecha exacta, indícalo así.
+
+Marca claramente:
+
+Confirmado
+
+Inferido
+
+Desconocido
+
+Si encuentras contradicciones cronológicas, crea un apartado exclusivo llamado:
+
+# Conflictos temporales
+
+###############################
+########## PARA LORE ##########
+###############################
+
+Extrae toda la información relacionada con el universo.
+
+Incluye únicamente hechos.
+
+No incluyas teorías.
+
+Organiza el documento en:
+
+Historia del mundo
+
+Organizaciones
+
+Tecnología
+
+Sobrenatural
+
+Reglas del universo
+
+Eventos históricos
+
+Preguntas pendientes
+
+Contradicciones encontradas
+
+#####################################
+########## PARA ESCENARIOS ##########
+#####################################
+
+Analiza todas las escenas relacionadas con este escenario.
+
+Genera una ficha completa.
+
+Incluye:
+
+Historia
+
+Descripción
+
+Habitaciones
+
+Objetos
+
+Eventos
+
+Personajes relacionados
+
+Secretos
+
+Conexiones con otros mapas
+
+Cambios según el progreso del jugador
+
+Información pendiente
+
+Preguntas para el autor
+
+####################################
+########## PARA MECÁNICAS ##########
+####################################
+
+Extrae únicamente información relacionada con esta mecánica.
+
+No expliques cómo está programada.
+
+Explica cómo funciona para el jugador.
+
+Organiza:
+
+Objetivo
+
+Funcionamiento
+
+Reglas
+
+Variables
+
+Estados
+
+Interacciones
+
+Casos especiales
+
+Pendientes
+
+Preguntas para el autor
+
+########################################
+########## PARA BRAINSTORMING ##########
+########################################
+
+Usando únicamente el material existente del proyecto:
+
+Propón nuevas ideas compatibles con el lore.
+
+Cada idea debe indicar:
+
+Descripción
+
+Qué problema resuelve
+
+Ventajas
+
+Desventajas
+
+Posibles contradicciones
+
+Impacto en la historia
+
+Impacto en gameplay
+
+Nivel de compatibilidad:
+
+Alta
+
+Media
+
+Baja
+
+No modifiques el canon.
+
+###############################################
+########## PARA REVISAR CONSISTENCIA ##########
+###############################################
+
+Analiza toda la documentación disponible.
+
+Busca:
+
+Contradicciones
+
+Personajes que cambian de personalidad
+
+Poderes inconsistentes
+
+Errores temporales
+
+Eventos sin explicación
+
+Objetos que desaparecen
+
+Variables sin uso
+
+Cabos sueltos
+
+Clasifica cada problema según:
+
+Crítico
+
+Importante
+
+Menor
+
+Para cada uno:
+
+Explica por qué ocurre.
+
+Indica exactamente en qué archivos aparece.
+
+No propongas una solución todavía.

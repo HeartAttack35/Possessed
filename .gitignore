@@ -24,3 +24,7 @@
 /dialogue.tab
 /dialogue.txt
 /strings.json
+
+# IDE generated
+/game/.kiro
+/game/.vscode

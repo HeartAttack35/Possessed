@@ -2733,11 +2733,157 @@ label cap_11:
         
         hide cutipye with moveoutright
     else:
-        # Placeholder para afinidad alta
-        "Luz mira hacia la puerta por donde salió Cutipye, pero Rodrigo le hace una señal para que se quede."
-        "A pesar de la tensión, la conexión del grupo con Cutipye es lo suficientemente fuerte como para no dejarla ir sola."
-        # label_placeholder_continuacion_normal
-        return
+        # === CAP 11 — RUTA NORMAL (afinidad_cutipye >= 4) ===
+        # Cutipye no traiciona. Llega todavía intentando sostener al grupo.
+        # La caída emocional es genuina porque parte del humor, no del rencor.
+
+        scene bg_enfermeria_abandonada with dissolve
+        stop music fadeout 2.0
+        play music audio.story fadein 2.0
+
+        "El peso de los últimas horas había convertido el aire de la enfermería en algo denso, casi imposible de respirar."
+        "Nadie hablaba. El único sonido era la respiración entrecortada del grupo y el goteo distante de una tubería rota."
+
+        show cutipye smile_nervous at left with dissolve
+        "Cutipye entró la última. Hizo lo que siempre hacía: buscó algo en qué apoyarse para mantener al grupo en pie."
+
+        c "Bueno, miren el lado positivo: si esto fuera una película, ya estaríamos en el tercer acto. Casi llegamos, gente."
+
+        "El chiste no aterrizó."
+        "Silencio."
+
+        if not nagi_dead:
+            show nagi tired at right with dissolve
+            "Nagi, que normalmente habría respondido con algo sarcástico, solo bajó la mirada."
+
+        show azura tired at centro_derecha with dissolve
+        "Azura apretó los labios. Rodrigo no levantó la vista."
+
+        show cutipye worried
+        "Cutipye notó el silencio antes que el jugador. Lo midió. Entendió exactamente lo que significaba."
+
+        "Se quedó de pie en el centro de la habitación, sin saber muy bien adónde poner las manos."
+
+        # --- LA GRIETA ---
+        "Sus ojos recorrieron la enfermería, buscando algo en qué posarse."
+        "Se detuvieron en su propia mochila, tirada en el suelo junto a la pared."
+        "La abrió sin pensar demasiado. Por hacer algo con las manos."
+        "Y sacó el cuaderno."
+
+        show cutipye soft
+        "Lo sostuvo un momento sin decir nada, pasando los dedos sobre la tapa."
+
+        c "Yo dibujaba esto... antes de venir. El orfanato. Como referencia. Pensé que sería—"
+
+        "No terminó la frase."
+        "Era la primera vez en todo el capítulo que Cutipye no cerraba una idea. No la remató con un chiste. No la rescató."
+        "La dejó colgada en el aire."
+
+        "Rodrigo levantó la vista por primera vez."
+        if not nagi_dead:
+            "Nagi también."
+
+        # --- NEGACIÓN ---
+        show cutipye smile_nervous
+        c "Da igual. No es momento para nostalgia de arte."
+
+        "Intentó sonreír. Guardó el cuaderno."
+        "Nadie llenó el silencio por ella."
+        "Azura no dijo 'no, cuéntanos'. Rodrigo no cambió de tema para darle una salida. Nagi no hizo un chiste que la rescatara del momento."
+        "Solo el silencio. Quieto. Sin rescate social."
+
+        show cutipye tired
+        "Cutipye miró el cuaderno cerrado entre sus manos."
+
+        c "..."
+
+        # --- LA CONFESIÓN ---
+        "Cuando volvió a hablar, la voz le salió diferente. Sin control de escenario. Sin timing."
+
+        c "Fui yo."
+
+        "Pausa."
+
+        c "La idea del orfanato. La dije como si fuera una broma en el grupo de chat... 'busquemos algo emocionante para el finde'."
+        c "Ni siquiera lo pensé en serio."
+
+        show cutipye scared
+        "Tragó saliva."
+
+        c "Y ahora Luz no está."
+
+        if not nagi_dead:
+            c "Y Nagi casi no vuelve."
+        else:
+            c "Y Nagi... ya no está."
+
+        c "Y yo sigo haciendo chistes porque si me detengo un segundo, tengo que pensar en que esto es mi culpa."
+
+        "La última frase le salió más rápido que las demás, como si hubiera esperado demasiado para decirla y ya no pudiera frenarse."
+
+        "Silencio."
+
+        # --- REACCIÓN DEL GRUPO ---
+        show azura worried
+        "Azura fue la primera en moverse. No corrió hacia ella. Solo dio un paso al frente, despacio."
+
+        a "Eso no es cierto."
+        a "O sí lo es, pero no importa. Nadie te obligó a nadie a entrar."
+
+        show cutipye shocked
+        c "Pero yo—"
+
+        a "Lo sé. Pero la culpa no funciona así."
+
+        "Rodrigo no dijo nada largo. No era su estilo."
+        show rodrigo soft at right with dissolve
+        r "Yo también dije que sí."
+
+        "Dos frases. Nada más."
+        "Pero algo en la habitación cambió."
+
+        if not nagi_dead:
+            show nagi soft
+            "Nagi se limpió la cara con el dorso de la mano."
+            n "Yo también."
+            n "Todos dijimos que sí."
+            "Se encogió de hombros, con la voz un tono más baja que de costumbre."
+            n "Así que si quieres cargar la culpa, vas a tener que hacer fila."
+
+        "La culpa no desapareció. No era el tipo de cosa que desapareciera con dos frases."
+        "Pero el peso ya no lo llevaba solo uno."
+
+        # --- CIERRE: LA MÁSCARA VUELVE, YA DISTINTA ---
+        show cutipye tired
+        "Cutipye dejó escapar un largo suspiro por la nariz."
+        "Guardó el cuaderno en la mochila. Cerró el cierre."
+
+        c "...Bueno."
+
+        "Pausa corta."
+
+        c "Sigo pensando que la próxima vez, elijo el minigolf."
+
+        "Esta vez el grupo sí rió."
+        "Poco. Cansado. Pero real."
+        "La primera risa del capítulo había fallado. Esta no."
+
+        if not nagi_dead:
+            show nagi smile
+            n "El minigolf es aburrido."
+            c "¡Exactamente, ese es el punto!"
+
+        show azura smile
+        "Azura se tapó la boca con la mano, conteniendo algo entre la risa y las ganas de llorar."
+
+        hide cutipye
+        hide azura
+        if not nagi_dead:
+            hide nagi
+        hide rodrigo
+
+        call chapter_complete("Capítulo 11")
+        jump cap_12
         
 
 label escena_traicion_cutipye:
@@ -2826,4 +2972,723 @@ label escena_traicion_cutipye:
     jump cap_12
 
 label cap_12:
-    return
+    # === CAP 12 — "EL FINAL" ===
+    # Confrontación definitiva con Galaxia. Incendio. Endings.
+
+    scene bg_pasillo_primer_piso with dissolve
+    stop music fadeout 2.0
+    play music audio.story fadein 2.5
+
+    "La ruta de salida era visible por primera vez desde que entraron."
+    "Una puerta lateral, pesada, con el candado oxidado hasta el punto de partirse. La cerradura cedería con un golpe limpio."
+    "Estaban a veinte metros."
+
+    show rodrigo worried at left with dissolve
+    if not nagi_dead:
+        show nagi scared at centro_izquierda with dissolve
+    if not cuty_dead:
+        show cutipye scared at right with dissolve
+    show azura worried at centro_derecha with dissolve
+
+    r "Ahí. Esa es."
+
+    if not nagi_dead:
+        n "No hay criaturas. Está despejado."
+
+    if not cuty_dead:
+        c "No corran todavía. Esperen."
+
+    show azura shocked
+    a "...Rodrigo."
+
+    "El tono de Azura lo detuvo antes de que diera el primer paso."
+    "Al final del pasillo, bloqueando la puerta de salida, estaba Galaxia."
+    "No corría. No acechaba desde las sombras."
+    "Solo estaba parada ahí, con los brazos cruzados y la cabeza ladeada, como si llevara un rato esperándolos."
+
+    stop music fadeout 1.5
+    play music audio.chase1 fadein 0.5
+
+    show galaxia smile at center with dissolve
+
+    g "Pensé que les llevaría más tiempo."
+    g "¿Ya se quieren ir~? Pero si apenas llegaron."
+
+    hide rodrigo
+    hide azura
+    if not nagi_dead:
+        hide nagi
+    if not cuty_dead:
+        hide cutipye
+
+    # --- CONFRONTACIÓN ---
+    "Rodrigo buscó la pistola. Vacía. La había vaciado Cutipye en el Cap 11."
+    "Nagi apretó el bate. Los nudillos blancos."
+    "Azura no se movió. Sus ojos esmeralda recorrieron la habitación: las paredes, el techo, el suelo. Calculando."
+
+    if not cuty_dead:
+        show cutipye serious at left with dissolve
+        c "Las balas no funcionan. Ya lo sabemos."
+        c "Azura. El edificio."
+        show azura worried at right with dissolve
+        "Azura entendió al instante. Asintió sin decir nada."
+        a "Las paredes son de madera vieja. El piso también. Y el techo..."
+        a "Todo esto tiene más de cincuenta años."
+    else:
+        show azura worried at left with dissolve
+        a "Las balas no funcionan. Pero el fuego sí. Lo sabemos desde el Cap 4."
+        a "Este edificio tiene más de cincuenta años. Madera, pintura vieja, alfombra podrida..."
+        a "Solo necesitamos una chispa."
+
+    "Galaxia inclinó la cabeza al otro lado. Seguía sonriendo, pero algo en su postura cambió. Un instinto."
+
+    show galaxia half_smile
+    g "Oh. Oh, eso es... interesante."
+    g "Nunca habían llegado tan lejos. Normalmente para este punto ya estaban llorando en el suelo."
+
+    "El tiempo se comprimió."
+
+    # --- LA CHISPA ---
+    play sound break_wood
+    "Azura arrancó un trozo de madera podrida del marco de una ventana con un golpe seco."
+
+    if not cuty_dead:
+        play sound shock
+        "Cutipye encontró en el suelo un encendedor oxidado — probablemente de alguno de los visitantes anteriores que nunca salieron."
+        "Hizo clic una vez. Dos veces. A la tercera, la llama apareció."
+        c "¡Vámonos!"
+    else:
+        play sound shock
+        "Rodrigo sacó el encendedor que llevaba desde el principio. Lo usaba para ver en los cuartos sin linterna."
+        "Hizo clic. La llama apareció."
+        r "¡Vámonos!"
+
+    scene bg_enfermeria_abandonada with flash
+    play music audio.chase fadein 0.3
+
+    "El fuego prendió más rápido de lo que esperaban."
+    "La madera seca del suelo fue lo primero. Luego el papel tapiz de los pasillos adyacentes. Luego el techo."
+    "El humo empezó a descender."
+
+    show galaxia walk_creepy at center with dissolve
+    "Galaxia no huyó del fuego. Se quedó parada en el pasillo, observando cómo las llamas reptaban por las paredes."
+    "Los otros Huéspedes, en cambio, sí."
+
+    "Algo en el edificio cambió: crujidos en las paredes, un aullido lejano, el sonido pesado de algo grande que derribaba una puerta."
+    "Las criaturas no respondían a sus órdenes. Respondían al instinto de supervivencia."
+    "El control territorial de Galaxia se fracturaba."
+
+    play sound scream1
+    "Rodrigo escuchó la araña chillando a dos pisos de distancia."
+    "No venía hacia ellos. Iba hacia afuera."
+
+    # ============================================================
+    # PERSECUCIÓN FINAL — SECUENCIA DE QTEs CON LÍMITE DE TIEMPO
+    # ============================================================
+    # El timer global es de 90 segundos (1:30).
+    # Cada QTE tiene su propio timeout corto.
+    # Fallar un QTE resta tiempo y penaliza la posición del grupo.
+    # Si tiempo_escape llega a 0 → jump escape_tiempo_agotado → bad1.
+    # ============================================================
+
+    $ renpy.block_rollback()
+    $ tiempo_escape = 90
+
+    show screen timer_escape
+    with dissolve
+
+    jump persecucion_qte_inicio
+
+
+# ============================================================
+# LABEL DE ENTRADA — establece la escena antes del primer QTE
+# ============================================================
+label persecucion_qte_inicio:
+
+    scene pasillo_huida with flash
+    play sound run
+
+    "No había tiempo para pensar."
+    "El pasillo delante de ellos escupía humo desde el techo."
+    "Galaxia no perseguía — esperaba. Sabía que el edificio haría el trabajo por ella."
+
+    if not nagi_dead:
+        n "¡Por aquí, la escalera!"
+
+    if not cuty_dead:
+        c "¡No paren!"
+
+    jump persecucion_qte_1
+
+
+# ============================================================
+# QTE 1 — El suelo cede
+# ============================================================
+label persecucion_qte_1:
+
+    # Verificar timer antes de cada QTE
+    if tiempo_escape <= 0:
+        jump escape_tiempo_agotado
+
+    scene pasillo_huida with vpunch
+    play sound wood_creak
+
+    "Una sección del suelo cedió con un crujido sordo."
+    "El agujero se abrió en menos de un segundo — madera negra y llamas abajo."
+
+    # 4 segundos para responder
+    menu:
+        "[ SALTAR ]" if tiempo_escape > 0:
+            $ tiempo_escape = max(0, tiempo_escape - 2)
+            play sound land
+            "Rodrigo saltó el hueco sin detenerse a medir la distancia."
+            "El impacto le sacudió las rodillas, pero siguió corriendo."
+            jump persecucion_qte_2
+
+        "[ RODEAR ]" if tiempo_escape > 0:
+            $ tiempo_escape = max(0, tiempo_escape - 8)
+            play sound walk
+            "El rodeo costó segundos que no tenían."
+            "El humo ganó terreno."
+            if tiempo_escape <= 0:
+                jump escape_tiempo_agotado
+            jump persecucion_qte_2
+
+
+# ============================================================
+# QTE 2 — Una viga en llamas bloquea el pasillo
+# ============================================================
+label persecucion_qte_2:
+
+    if tiempo_escape <= 0:
+        jump escape_tiempo_agotado
+
+    scene escape_1 with vpunch
+    play sound crack
+
+    "Una viga del techo cayó delante de ellos, atravesando el pasillo en diagonal."
+    "Las llamas la recorrían de extremo a extremo."
+    "Había un metro libre en el lado izquierdo."
+
+    if not nagi_dead:
+        n "¡Izquierda! ¡Hay espacio!"
+
+    menu:
+        "[ PASAR POR LA IZQUIERDA ]" if tiempo_escape > 0:
+            $ tiempo_escape = max(0, tiempo_escape - 3)
+            play sound slash
+            "El calor les golpeó la cara al pasar."
+            "Rodrigo sintió el brazo rozar las llamas. Siguió corriendo."
+            jump persecucion_qte_3
+
+        "[ ROMPER LA VIGA ]" if tiempo_escape > 0:
+            $ tiempo_escape = max(0, tiempo_escape - 10)
+            play sound break_wood
+            "La viga no cedió como esperaban."
+            "Fueron diez segundos de golpes inútiles antes de encontrar el espacio."
+            if tiempo_escape <= 0:
+                jump escape_tiempo_agotado
+            jump persecucion_qte_3
+
+
+# ============================================================
+# QTE 3 — Galaxia aparece en el cruce
+# ============================================================
+label persecucion_qte_3:
+
+    if tiempo_escape <= 0:
+        jump escape_tiempo_agotado
+
+    scene escape_1 with flash
+    stop music fadeout 0.3
+    play sound glx_laugh
+
+    show galaxia walk_creepy at center with dissolve
+
+    "En el cruce del pasillo central, Galaxia."
+    "No corría. Solo estaba ahí, en el centro del corredor, con las manos abiertas."
+    "Las llamas detrás de ella la silueteaban."
+
+    g "¿A dónde van con tanta prisa~?"
+
+    play music audio.chase1 fadein 0.2
+
+    menu:
+        "[ ESQUIVAR — IR POR LA DERECHA ]" if tiempo_escape > 0:
+            $ tiempo_escape = max(0, tiempo_escape - 4)
+            play sound run
+            "Rodrigo giró sin frenar."
+            "Galaxia extendió una garra — rozó el aire donde estaba su cabeza un instante antes."
+            hide galaxia
+            jump persecucion_qte_4
+
+        "[ ENFRENTARLA — EMPUJARLA ]" if tiempo_escape > 0:
+            $ tiempo_escape = max(0, tiempo_escape - 6)
+            play sound thud
+            "Rodrigo la golpeó con el hombro con todo lo que tenía."
+            "Galaxia retrocedió tres pasos — sorprendida, no herida."
+            play sound shock
+            "El impacto le costó el equilibrio. Azura lo agarró del brazo."
+            if not nagi_dead:
+                n "¡Muévete!"
+            hide galaxia
+            if tiempo_escape <= 0:
+                jump escape_tiempo_agotado
+            jump persecucion_qte_4
+
+
+# ============================================================
+# QTE 4 — Escalera con peldaños quemados
+# ============================================================
+label persecucion_qte_4:
+
+    if tiempo_escape <= 0:
+        jump escape_tiempo_agotado
+
+    scene pasillo_huida with dissolve
+    play sound wood_creak
+
+    "La escalera hacia la salida tenía los primeros tres peldaños en llamas."
+    "El cuarto aguantaba. El quinto también."
+    "Había que calcular bien el primer salto."
+
+    if not cuty_dead:
+        c "¡El cuarto escalón! ¡Directamente al cuarto!"
+
+    menu:
+        "[ SALTAR AL CUARTO PELDAÑO ]" if tiempo_escape > 0:
+            $ tiempo_escape = max(0, tiempo_escape - 3)
+            play sound land
+            "El peldaño aguantó."
+            "Subieron los últimos metros en segundos."
+            jump persecucion_qte_5
+
+        "[ BUSCAR OTRO CAMINO ]" if tiempo_escape > 0:
+            $ tiempo_escape = max(0, tiempo_escape - 12)
+            play sound walk
+            "El rodeo por el ala este costó casi quince segundos."
+            "El techo allí ya crujía."
+            if tiempo_escape <= 0:
+                jump escape_tiempo_agotado
+            jump persecucion_qte_5
+
+
+# ============================================================
+# QTE 5 — La puerta de salida
+# ============================================================
+label persecucion_qte_5:
+
+    if tiempo_escape <= 0:
+        jump escape_tiempo_agotado
+
+    scene bg_pasillo_primer_piso with vpunch
+    play sound thud
+
+    "La puerta de salida estaba a tres metros."
+    "El candado. Oxidado. Rodrigo lo recordaba desde el principio del capítulo."
+
+    "El humo ya tapaba el techo. Quedaban segundos antes de que el pasillo fuera irrespirable."
+
+    play sound door_slam
+
+    menu:
+        "[ GOLPEAR EL CANDADO ]" if tiempo_escape > 0:
+            $ tiempo_escape = max(0, tiempo_escape - 4)
+            play sound break_glass
+            play sound door_break
+            "El candado cedió al tercer golpe."
+            "La puerta se abrió hacia fuera."
+            "El aire frío de la noche golpeó sus caras."
+            hide screen timer_escape
+            jump persecucion_exitosa
+
+        "[ PATEAR LA PUERTA ]" if tiempo_escape > 0:
+            $ tiempo_escape = max(0, tiempo_escape - 6)
+            play sound door_break
+            "La puerta cedió hacia afuera con el segundo golpe."
+            "Salieron tropezando."
+            hide screen timer_escape
+            jump persecucion_exitosa
+
+
+# ============================================================
+# PERSECUCIÓN EXITOSA — bifurca según estado_mental
+# ============================================================
+label persecucion_exitosa:
+
+    $ renpy.block_rollback()
+    scene black with flash
+    stop music fadeout 0.5
+
+    "Afuera."
+    "El aire frío."
+    "El cielo aún oscuro."
+
+    # Bifurcación final según estado_mental
+    if estado_mental >= 16:
+        jump ending_bad1_rodrigo
+    elif estado_mental >= 11:
+        jump ending_neutral_rodrigo
+    else:
+        jump ending_good_rodrigo
+
+
+# ============================================================
+# TIEMPO AGOTADO — no escaparon a tiempo
+# ============================================================
+label escape_tiempo_agotado:
+
+    $ renpy.block_rollback()
+    hide screen timer_escape
+    $ ending_type = "bad1"
+
+    scene black with slow_dissolve
+    stop music fadeout 2.0
+
+    pause 1.5
+
+    "El fuego llegó antes que ellos."
+    pause 0.8
+    "El pasillo de salida colapsó. El techo. Las paredes."
+    pause 0.8
+    "No había otro camino."
+    pause 1.0
+
+    "{cps=15}No escaparon a tiempo.{/cps}"
+
+    pause 1.5
+    jump creditos
+
+
+# --- ENDING GOOD: Rodrigo resiste, retiene a Galaxia ---
+label ending_good_rodrigo:
+
+    stop music fadeout 1.0
+
+    show galaxia walk_creepy at left with dissolve
+    show rodrigo worried at right with dissolve
+
+    "Galaxia se giró hacia Rodrigo."
+    "El resto del grupo ya estaba moviéndose hacia la salida. Solo Rodrigo no se había movido."
+
+    g "¿Por qué no corres~?"
+
+    show rodrigo serio
+    "Rodrigo no respondió con palabras."
+    "Sus pies ya no eran del todo suyos. La transformación avanzaba desde que el humo empezó a llenar sus pulmones."
+    "Pero todavía era él quien decidía adónde ir."
+
+    r "Porque si no te retengo, llegas a la salida antes que ellos."
+
+    show galaxia half_smile
+    g "Oh. Eso es lo más interesante que has dicho en toda la noche."
+
+    "Se lanzó hacia él."
+
+    play sound slash
+    scene black with flash
+
+    "Rodrigo no esquivó."
+    "La golpeó de frente, usó su peso y el impulso de ella para estamparla contra la pared opuesta."
+    "Las garras le abrieron el costado. No lo soltó."
+
+    play sound thud
+    "El humo descendía. El calor subía."
+
+    "En la puerta, Azura se detuvo. Miró hacia atrás."
+    if not nagi_dead:
+        "Nagi la alcanzó por el brazo."
+        n "¡Azura! ¡No podemos—!"
+    if not cuty_dead:
+        "Cutipye vio la silueta de Rodrigo a través del humo."
+        c "...Rodri."
+
+    "Rodrigo no miró hacia atrás."
+    "Oyó sus pasos alejarse."
+
+    play music audio.rodtheme fadein 2.0
+
+    "La transformación terminó de cerrarse en sus dedos, en sus hombros, en su espina dorsal."
+    "Pero sus brazos seguían apretando."
+    "Galaxia dejó de reír."
+
+    show galaxia regen
+    g "...Shio."
+
+    "Una palabra. La primera vez que pronunció ese nombre en quince años."
+    "No para Rodrigo. Para ella misma."
+
+    "El techo cedió a tres metros de ellos."
+    "Las llamas lo cubrieron todo."
+
+    scene black with slow_dissolve
+    stop music fadeout 3.0
+
+    $ ending_type = "good"
+    jump epilogo_exterior
+
+
+
+
+# --- ENDING BAD1: Rodrigo sucumbe, ataca a los suyos — QTEs de combate ---
+label ending_bad1_rodrigo:
+
+    $ renpy.block_rollback()
+    play music audio.chase1 fadein 0.3
+
+    "El humo negro del incendio llenó los pulmones de Rodrigo."
+    "No fue el calor lo que lo quebró. Fue el instinto."
+    "Un susurro que ya no era de Galaxia — era de él mismo."
+
+    show rodrigo shocked at center with dissolve
+
+    "Rodrigo sintió cómo su cuerpo dejaba de pedir permiso para actuar."
+    "Se giró hacia el grupo."
+    "Ya no los reconoció."
+
+    # -----------------------------------------------
+    # QTE DE COMBATE 1 — Rodrigo ataca a Nagi
+    # -----------------------------------------------
+    if not nagi_dead:
+        show nagi scared at left with dissolve
+        n "Rodrigo. Rodrigo, míranos. Estamos aquí."
+
+        show rodrigo molesto
+        "Los ojos de Rodrigo se posaron en Nagi."
+        "No lo vio como su amigo."
+        "Lo vio como una amenaza."
+
+        # Los sobrevivientes intentan esquivar / defenderse
+        "Nagi levantó el bate. Manos temblorosas."
+
+        menu:
+            "[ ESQUIVAR EL GOLPE — Nagi se aparta ]":
+                play sound slash
+                play sound thud
+                scene black with flash
+                n "¡RODRIGO, PARA!"
+                "Nagi esquivó el primer golpe."
+                "Pero el segundo llegó antes de que pudiera reaccionar."
+                scene pasillo_huida with flash
+                show nagi scared at left
+                "El bate cayó al suelo."
+                "Nagi no."
+
+            "[ AGUANTAR — Nagi intenta sujetarlo ]":
+                play sound slash
+                play sound thud
+                scene black with flash
+                "Nagi no pudo sujetarlo."
+                "Rodrigo era demasiado rápido."
+                scene pasillo_huida with flash
+                "El bate cayó al suelo."
+
+        $ nagi_dead = True
+
+    # -----------------------------------------------
+    # QTE DE COMBATE 2 — Rodrigo ataca a Cutipye
+    # -----------------------------------------------
+    if not cuty_dead:
+        show cutipye scared at right with dissolve
+        c "¡Azura, corre! ¡No lo mires!"
+
+        "Cutipye no corrió."
+        "Se quedó entre Rodrigo y Azura."
+
+        menu:
+            "[ AZURA DISTRAE A RODRIGO ]":
+                show azura shocked at centro_izquierda with dissolve
+                a "¡Rodrigo! ¡Soy yo! ¡Soy Azura!"
+                play sound shock
+                "Rodrigo vaciló — un segundo, solo un segundo."
+                "Fue suficiente para que Cutipye empujara a Azura hacia la puerta."
+                play sound slash
+                scene black with flash
+                "Rodrigo no la siguió a ella."
+
+                $ cuty_dead = True
+                scene pasillo_huida with flash
+
+            "[ CUTIPYE CORRE ]":
+                #CAMBIAR - Cutipye sobrevive
+                play sound run
+                play sound slash
+                scene black with flash
+                "No fue suficientemente rápida."
+                scene pasillo_huida with flash
+
+    # -----------------------------------------------
+    # QTE DE COMBATE 3 — Rodrigo y Azura, solo una sale
+    # -----------------------------------------------
+    show azura shocked at center with dissolve
+
+    "Azura era la única que quedaba entre él y la salida."
+    "No tenía arma. No tenía plan."
+    "Solo tenía el nombre de él."
+
+    a "Rodrigo."
+
+    "Sin grito. Sin pánico. Solo su nombre, dicho en voz baja."
+    "Como aquella primera vez en Historia, cuando lo integró al grupo."
+
+    show rodrigo shocked
+    "Rodrigo se detuvo."
+    "Un segundo."
+    "Dos."
+
+    menu:
+        "[ RODRIGO AVANZA — Azura esquiva y corre ]":
+            play sound run
+            "Azura no esperó el tercero."
+            "Se lanzó hacia la puerta lateral mientras Rodrigo avanzaba hacia donde ella había estado."
+            "El humo la cubrió."
+            play sound door_break
+            "La puerta cedió."
+            "Azura salió."
+
+        "[ RODRIGO BLOQUEA LA SALIDA ]":
+            play sound slash
+            scene black with flash
+            "Azura no llegó a la puerta."
+            pause 0.5
+            "..."
+            pause 0.5
+            "Pero el fuego sí llegó a Rodrigo."
+            pause 0.5
+            "Y Azura encontró otra salida."
+            scene pasillo_huida with flash
+
+    "Azura fue la única que llegó a la noche."
+    "No miró hacia atrás."
+    "El incendio la siguió de cerca, pero la noche la tragó antes de que el edificio colapsara."
+
+    scene black with slow_dissolve
+    stop music fadeout 3.0
+
+    $ ending_type = "bad1"
+    jump epilogo_exterior
+
+
+# --- ENDING NEUTRAL: Rodrigo desaparece durante la huida ---
+label ending_neutral_rodrigo:
+
+    play music audio.curse fadein 1.0
+
+    "Rodrigo mantuvo el paso con el grupo hasta el pasillo final."
+    "Luego no lo mantuvieron."
+
+    show rodrigo nervioso at left with dissolve
+    if not cuty_dead:
+        show cutipye scared at right with dissolve
+    show azura worried at centro_derecha with dissolve
+
+    "Una pared de humo cortó el pasillo."
+    "El grupo corrió."
+
+    if not cuty_dead:
+        c "¡Rodrigo, por aquí!"
+
+    "Rodrigo giró en la dirección equivocada."
+    "No por accidente."
+
+    show rodrigo shocked
+    "Había algo al fondo del pasillo. No Galaxia. No una criatura."
+    "Solo sus propias manos, a contraluz de las llamas."
+    "No reconoció lo que vio."
+
+    scene black with dissolve
+    stop music fadeout 2.0
+    "Azura lo llamó dos veces más desde el otro lado del humo."
+    "No hubo respuesta."
+
+    # Determinar cuántos sobrevivientes hay para asignar el ending correcto
+    python:
+        sobrevivientes = 0
+        if not nagi_dead:
+            sobrevivientes += 1
+        if not cuty_dead:
+            sobrevivientes += 1
+        # Azura siempre sobrevive en la ruta neutral si llegó a este punto
+        sobrevivientes += 1
+
+        if sobrevivientes >= 3:
+            ending_type = "neutral1"
+        else:
+            ending_type = "neutral2"
+
+    jump epilogo_exterior
+
+
+# === EPÍLOGO — EXTERIOR DEL ORFANATO (COMPARTIDO) ===
+label epilogo_exterior:
+
+    scene bg_bosque_exterior with slow_dissolve
+    stop music fadeout 3.0
+
+    "El orfanato ardía desde el interior."
+    "Las ventanas del segundo piso soltaban columnas de humo negro. El fuego ya había alcanzado el tejado."
+
+    # Quién está presente varía según el ending
+    if ending_type == "good":
+        show azura shocked at left with dissolve
+        if not nagi_dead:
+            show nagi soft at centro_izquierda with dissolve
+        if not cuty_dead:
+            show cutipye tired at right with dissolve
+
+        "Nadie habló."
+        "Las sirenas empezaban a sonar lejos, en la carretera."
+
+        if not cuty_dead:
+            show cutipye scared
+            "Cutipye se abrazó a sí misma. El mecanismo del humor había dejado de funcionar del todo."
+            "No lloró en voz alta. Solo temblaba, mirando las llamas."
+
+        if not nagi_dead:
+            show nagi soft
+            "Nagi se colocó a su lado, sin decir nada. Le puso una mano en el hombro."
+            "No era gesto de él. Era uno nuevo."
+            "Pero era suyo."
+
+        show azura shocked
+        "Azura tenía los ojos fijos en el edificio."
+        "En algún punto dejó de buscar la silueta de Rodrigo entre las ventanas."
+
+        play sound "sfx/crack-and-crunch.mp3"
+        "El tejado cedió con un crujido que se oyó desde el bosque."
+
+        scene black with slow_dissolve
+        stop music
+
+    elif ending_type == "bad1":
+        scene black with slow_dissolve
+        "El incendio consumió el orfanato durante la madrugada."
+        "Cuando las autoridades llegaron, no encontraron sobrevivientes."
+
+    elif ending_type == "bad2":
+        show azura shocked at center with dissolve
+        "Azura salió sola."
+        "Se sentó en el borde del camino de tierra y esperó. No sabía qué más hacer."
+        "El edificio ardía a su espalda."
+        "Se preguntó, con una claridad extraña para ese momento, si realmente había escapado."
+        "O si una parte de ella seguía en algún pasillo, corriendo sin llegar nunca a ningún lado."
+        scene black with slow_dissolve
+
+    elif ending_type == "neutral1" or ending_type == "neutral2":
+        show azura tired at left with dissolve
+        if not nagi_dead:
+            show nagi tired at centro_izquierda with dissolve
+        if not cuty_dead:
+            show cutipye tired at right with dissolve
+
+        "Desde la distancia, observaron cómo el fuego devoraba el edificio."
+        "Nadie dijo una palabra."
+        "No hacía falta."
+
+        "Cuando finalmente llegaron las sirenas, los sobrevivientes ya se habían marchado."
+
+        scene black with slow_dissolve
+
+    # --- TRANSICIÓN A CRÉDITOS ---
+    pause 2.0
+    jump creditos

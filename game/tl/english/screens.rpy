@@ -1,6 +1,6 @@
-﻿# TODO: Translation updated at 2026-03-08 02:05
+# TODO: Translation placeholder - english
 
-translate espanol strings:
+translate english strings:
 
     # Quick menu — desktop
     old "Atrás"

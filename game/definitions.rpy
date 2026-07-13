@@ -289,6 +289,7 @@ image galaxia laugh = "images/sprites/Galaxia.png"
 image galaxia regen = "images/sprites/Galaxia.png"
 image galaxia healed = "images/sprites/Galaxia.png"
 image galaxia headshot = "images/sprites/Galaxia.png"
+image galaxia sentada_sonriendo = "images/sprites/Galaxia.png"
 
 
 # Otros
