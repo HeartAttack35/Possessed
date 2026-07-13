@@ -1,5 +1,7 @@
 # Personajes
-define r = Character("Rodrigo", color="#0c0472")
+# El nombre se asigna en label pedir_nombre (antes de label start).
+# nombre_jugador se inicializa en "Rodrigo" como valor por defecto.
+define r = Character("[nombre_jugador]", color="#0c0472")
 define l = Character("Luz", color="#fd5353")
 define c = Character("Cutipye", color="#2dff5a")
 define a = Character("Azura", color="#0f8028")
@@ -9,6 +11,13 @@ define sujeto = Character("Sujeto")
 define ln = Character("Lucien", color="#fd5353")
 
 # Variables y definiciones
+
+default nombre_jugador = "Rodrigo"
+# apodo_jugador: forma afectiva que los otros personajes usan al llamar al protagonista.
+# Se asigna en label intro junto con nombre_jugador.
+# Por defecto son las 3 primeras letras del nombre + "i" (ej. "Rod" → "Rodi"),
+# pero el jugador puede elegir uno libre o pulsar "No me importa" para el automático.
+default apodo_jugador = "Rodri"
 
 default afinidad_luz = 0
 default afinidad_azura = 0
@@ -25,6 +34,7 @@ default _distortion_active = False
 default _heavy_distortion_active = False
 default nagi_dead = False
 default cuty_dead = False
+default ruta_anterior = "nagi"
 default persistent.credits_seen = False
 default ending_type = "good" # "bad1", "bad2", "neutral1", "neutral2", "good"
 
@@ -126,6 +136,86 @@ transform distortion_heavy:
 
 ## Fondos
 image mainmenubg = "bg/main_menu.png"
+
+# Fondos con prefijo bg_ (usados en script_2.rpy caps 6-12)
+image bg_bodega_pan = "bg/bg_bodega_pan.jpg"
+image bg_almacen_medico = "bg/bg_almacen_medico.jpg"
+image bg_casa_cutipye_dia = "bg/sala_espera_abandonada.jpg"
+image bg_casa_cutipye_dia_interior = "bg/sala_espera_abandonada.jpg"
+image bg_pasillo_derruido = "bg/pasillo_corriendo.jpg"
+image bg_pasillo_oscuro = "bg/pasillo_oscuro.jpg"
+image bg_enfermeria_abandonada = "bg/habitacion_abandonada.jpg"
+image bg_habitacion_limpia = "bg/habitacion_intacta.png"
+image bg_habitacion_luz = "bg/habitacion_abandonada.jpg"
+image bg_habitacion_luz1 = "bg/habitacion_abandonada.jpg"
+image bg_fiesta_borrosa:
+    "bg/vestibulo.jpg"
+    blur 4.0
+image bg_pasillo_primer_piso = "bg/pasillo_abandonado.jpg"
+image bg_bosque_exterior = "bg/orfanato_exterior1.png"
+image pasillo_corriendo = "bg/pasillo_corriendo.jpg"
+
+# Imágenes caps 8-9: combate en el vestíbulo y flashbacks
+image vestibulo_fight_normal = "bg/vestibulo.jpg"
+image vestibulo_fight_saturated:
+    "bg/vestibulo.jpg"
+    matrixcolor SaturationMatrix(2.0)
+image vestibulo_fight_glitch:
+    "bg/vestibulo.jpg"
+    matrixcolor HueMatrix(30)
+image vestibulo_aftermath = "bg/vestibulo.jpg"
+image fiesta_flashback1 = "bg/sala_espera_abandonada.jpg"
+image fiesta_flashback2 = "bg/sala_espera_abandonada.jpg"
+image fiesta_flashback3 = "bg/sala_espera_abandonada.jpg"
+image lavanderia_abandonada = "bg/habitacion_abandonada.jpg"
+image oficina_admin = "bg/bg_almacen_medico.jpg"
+image habitacion_abandonada = "bg/habitacion_abandonada.jpg"
+image bodega_gal_shadow = "bg/bodega_gal_shadow.jpg"
+image rodrigo_cig_balcony = "bg/rodrigo_cig_balcony.png"
+image rodrigo_cig_balcony_2 = "bg/rodrigo_cig_balcony_2.png"
+image balcon_abandonado_night = "bg/balcon_abandonado_night.png"
+image luz_hug_rodrigo = "bg/luz_hug_rodrigo.png"
+image closeup_luz_dying = "bg/closeup_luz_dying.png"
+image sotano_inicial = "bg/sotano_inicial.jpg"
+image escalera_mano_1 = "bg/escalera_mano_1.png"
+image escalera_mano_2 = "bg/escalera_mano_2.png"
+
+# Sprite: rata mutante (placeholder con avispa hasta tener asset propio)
+image rata_mutant = "images/sprites/avispa_zangano.png"
+
+# Variante de Rodrigo ensangrentado (placeholder)
+image rodrigo bloodied = "images/sprites/Rodri.png"
+
+# Sonidos faltantes (redirigen al sfx más cercano disponible)
+define distant_scratch = "sfx/claw_drag_concrete.mp3"
+define scratch_wood = "sfx/wood-creak.mp3"
+define human_scream = "sfx/scream-echo.mp3"
+define stab = "sfx/slash.mp3"
+define beast_growl = "sfx/larvae_cry.mp3"
+define slash_rough = "sfx/slash.mp3"
+define primal_screech = "sfx/scream-echo.mp3"
+define impact_heavy = "sfx/heavy_bang.mp3"
+define stab_repeated = "sfx/slash.mp3"
+define heavy_breathing = "sfx/hover.mp3"
+
+# Imágenes usadas con "scene bg NOMBRE" (capa bg) en caps 9-10
+image pasillo_derruido = "bg/pasillo_corriendo.jpg"
+image flashback_rodrigo_borracho = "bg/habitacion_abandonada.jpg"
+image pasillo_oscuro = "bg/pasillo_oscuro.jpg"
+image pasillo_intermitente:
+    "bg/pasillo_oscuro.jpg"
+    linear 0.1 alpha 0.4
+    linear 0.1 alpha 1.0
+    repeat
+image centinela_quitinoso = "bg/pasillo_oscuro.jpg"
+
+# Screens de distorsión visual para las escenas de transformación (cap 9)
+screen screen_distortion_light():
+    add "#00000000"  # transparente; el efecto real está en show layer master at distortion_light
+
+screen screen_distortion_heavy():
+    add "#00000000"  # transparente; el efecto real está en show layer master at distortion_heavy
+
 image gameover_screen = "bg/game_over.jpg"
 image foreboding_1 = "bg/pasillo_oscuro.jpg"
 image escape_1 = "bg/pasillo_corriendo.jpg"
@@ -346,6 +436,20 @@ define audio.credits = "music/creditos.mp3"
 define audio.rodtheme = "music/rodtheme.mp3" #DEFINIR LOOP, CAMBIAR A OGG
 define audio.ambiental = "music/ambiental.mp3" #DEFINIR LOOP, CAMBIAR A OGG
 
+# Pantalla de temporizador para la secuencia de escape del Cap 12
+screen timer_escape():
+    frame:
+        xalign 0.98
+        yalign 0.05
+        background Frame("gui/frame.png", 10, 10)
+        padding (16, 10)
+
+        hbox:
+            spacing 8
+            yalign 0.5
+            text "⏱ TIEMPO:" size 22 bold True color "#ff4444"
+            text "[tiempo_escape]s" size 26 bold True color "#ffdd00" outlines [(2, "#000000", 0, 0)]
+
 # Pantalla HUD de afinidades y estado mental
 # NOTA: Para activar/desactivar el contador HUD desde la consola (Shift+O):
 # - Escribe: mostrar_hud = True  (para mostrarlo)
@@ -393,6 +497,95 @@ screen hud_stats():
                     text "Estado Mental:" align (0.0, 0.5)
                     text "[estado_mental]" color "#ffaa00" align (0.9, 0.5)
 
+# Pantalla de entrada de nombre y apodo del protagonista.
+# Se muestra sobre fondo negro justo después de label intro.
+# Flujo: paso 1 → nombre completo; paso 2 → apodo.
+# "No me importa" en paso 1 asigna "Rodrigo"/"Rodri".
+# "No me importa" en paso 2 calcula el apodo automáticamente
+# a partir de las 3 primeras letras del nombre elegido.
+
+screen nombre_input():
+    modal True
+
+    # Variables de pantalla para los dos pasos
+    default nombre_temp = ""
+    default apodo_temp = ""
+    default paso = 1  # 1 = nombre, 2 = apodo
+
+    frame:
+        xalign 0.5
+        yalign 0.45
+        xpadding 60
+        ypadding 50
+        background Frame("gui/frame.png", 10, 10)
+
+        vbox:
+            spacing 30
+            xalign 0.5
+
+            if paso == 1:
+                text "¿Cómo quieres llamarte?" size 34 xalign 0.5 color "#ffffff" outlines [(2, "#000000", 0, 0)]
+
+                input:
+                    id "nombre_field"
+                    value ScreenVariableInputValue("nombre_temp")
+                    length 20
+                    allow "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ áéíóúÁÉÍÓÚñÑüÜ"
+                    xalign 0.5
+                    size 30
+                    color "#0c0472"
+                    xsize 400
+
+                hbox:
+                    spacing 20
+                    xalign 0.5
+
+                    textbutton "Confirmar":
+                        # Si vacío, asigna "Rodrigo" y salta al paso 2
+                        action [
+                            If(nombre_temp.strip() == "",
+                               SetScreenVariable("nombre_temp", "Rodrigo")),
+                            SetScreenVariable("paso", 2)
+                        ]
+                        text_size 26
+
+                    textbutton "No me importa":
+                        # Asigna Rodrigo/Rodri directamente y cierra
+                        action Return(("Rodrigo", "Rodri"))
+                        text_size 26
+
+            else:  # paso == 2
+                text "¿Y tu apodo?" size 34 xalign 0.5 color "#ffffff" outlines [(2, "#000000", 0, 0)]
+                text "(El nombre corto con el que te llaman tus amigos)" size 20 xalign 0.5 color "#aaaaaa"
+
+                input:
+                    id "apodo_field"
+                    value ScreenVariableInputValue("apodo_temp")
+                    length 15
+                    allow "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ áéíóúÁÉÍÓÚñÑüÜ"
+                    xalign 0.5
+                    size 30
+                    color "#0c0472"
+                    xsize 400
+
+                hbox:
+                    spacing 20
+                    xalign 0.5
+
+                    textbutton "Confirmar":
+                        # Si vacío, usa las 3 primeras letras del nombre como fallback
+                        action Return((
+                            nombre_temp,
+                            apodo_temp.strip() if apodo_temp.strip() != ""
+                            else nombre_temp[:3]
+                        ))
+                        text_size 26
+
+                    textbutton "No me importa":
+                        # Calcula apodo automático: primeras 3 letras del nombre
+                        action Return((nombre_temp, nombre_temp[:3]))
+                        text_size 26
+
 label splashscreen:
     scene mainmenubg at blanco_y_negro
     with dissolve
@@ -420,6 +613,15 @@ label intro:
     pause 1
     play sound door_close
     pause 2
+
+    # Muestra la pantalla de nombre y apodo.
+    # La screen retorna una tupla (nombre, apodo).
+    # "No me importa" en paso 1 → ("Rodrigo", "Rodri")
+    # "No me importa" en paso 2 → (nombre, primeras 3 letras del nombre)
+    $ _resultado_nombre = renpy.call_screen("nombre_input")
+    $ nombre_jugador = _resultado_nombre[0]
+    $ apodo_jugador  = _resultado_nombre[1]
+
     jump start
 
 label chapter_complete(nombre):

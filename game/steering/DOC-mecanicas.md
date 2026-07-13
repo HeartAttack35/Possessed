@@ -379,7 +379,63 @@ El guardado puede ocurrir de dos formas: automático en momentos clave del scrip
 
 ---
 
-## 9. HUD de Estadísticas
+## 9. Nombre y Apodo Personalizable del Protagonista
+
+### Objetivo
+Permitir al jugador asignar un nombre propio al protagonista y un apodo afectivo con el que los demás personajes lo llaman, reemplazando "Rodrigo" y "Rodri"/"Rod" en todos los textos visibles durante la partida.
+
+### Funcionamiento
+Justo después del `label intro` (antes de que comience la historia), el juego muestra una pantalla sobre fondo negro con dos pasos consecutivos:
+
+**Paso 1 — Nombre completo**
+- Campo de texto libre (hasta 20 caracteres, acepta tildes y ñ).
+- "Confirmar" con campo vacío asigna "Rodrigo" y avanza al paso 2.
+- "No me importa" asigna `("Rodrigo", "Rodri")` directamente y cierra sin mostrar el paso 2.
+
+**Paso 2 — Apodo**
+- Campo de texto libre (hasta 15 caracteres).
+- "Confirmar" con campo vacío usa las 3 primeras letras del nombre como apodo.
+- "No me importa" usa las 3 primeras letras del nombre como apodo.
+
+### Variables
+
+| Variable | Valor inicial | Descripción |
+|---|---|---|
+| `nombre_jugador` | `"Rodrigo"` | Nombre completo, mostrado en el cuadro del personaje `r`. |
+| `apodo_jugador` | `"Rodri"` | Apodo afectivo, usado por los demás personajes en sus diálogos. |
+
+**[CONFIRMADA]**
+
+### Pantalla
+
+La pantalla `nombre_input` (definida en `definitions.rpy`) es de dos pasos, ambos sobre fondo negro:
+
+| Paso | Campo | Fallback vacío | Botón "No me importa" |
+|---|---|---|---|
+| 1 | Nombre completo (20 chars) | Asigna `"Rodrigo"`, avanza al paso 2 | Asigna `("Rodrigo", "Rodri")`, cierra |
+| 2 | Apodo (15 chars) | Usa las 3 primeras letras del nombre | Usa las 3 primeras letras del nombre |
+
+### Reglas
+- El nombre afecta el cuadro de diálogo del personaje `r` (evaluado en tiempo de renderizado con `[nombre_jugador]`).
+- El apodo reemplaza todas las instancias de "Rodri" y "Rod" (palabra completa) en los diálogos y narraciones de `script.rpy`, `script_2.rpy` y `script_3.rpy`.
+- Los identificadores de sprites y assets Ren'Py (`show rodrigo`, `hide rodrigo`, etc.) **no** son texto visible y no se modificaron.
+- Si el jugador carga una partida anterior a esta implementación, los valores por defecto (`"Rodrigo"` / `"Rodri"`) se aplican gracias a los `default`.
+- La pantalla es modal; no se puede avanzar sin completar o descartar.
+
+### Implementación técnica
+- `definitions.rpy`: `default apodo_jugador = "Rodri"` — valor por defecto para cargas antiguas.
+- `definitions.rpy` (`screen nombre_input`): pantalla de dos pasos con `default paso = 1`. Retorna una tupla `(nombre, apodo)` mediante `Return(...)`.
+- `definitions.rpy` (`label intro`):
+  ```renpy
+  $ _resultado_nombre = renpy.call_screen("nombre_input")
+  $ nombre_jugador = _resultado_nombre[0]
+  $ apodo_jugador  = _resultado_nombre[1]
+  ```
+- `script.rpy`, `script_2.rpy`, `script_3.rpy`: 37 instancias de `Rodri`/`Rod` (palabra completa) reemplazadas por `[apodo_jugador]`.
+
+---
+
+## 10. HUD de Estadísticas
 
 ### Objetivo
 Herramienta de desarrollo. Muestra en tiempo real los valores de las variables de juego durante las pruebas.

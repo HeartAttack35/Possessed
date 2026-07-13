@@ -105,7 +105,7 @@ label creditos:
             splashes.append(
             "El incendio consumió el orfanato durante la madrugada.\n\n"
             "Cuando las autoridades llegaron, no encontraron sobrevivientes.\n\n"
-            "Los nombres de Rodrigo y sus amigos fueron añadidos a la lista de personas desaparecidas.\n\n"
+            "Los nombres de [nombre_jugador!c] y sus amigos fueron añadidos a la lista de personas desaparecidas.\n\n"
             "El lugar donde alguna vez se alzó el orfanato quedó reducido a cenizas.\n\n"
             "Pero algunos vecinos aseguran que, en las noches más silenciosas,\n"
             "aún pueden oír algo moviéndose entre los restos calcinados."

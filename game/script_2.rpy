@@ -50,7 +50,7 @@ label cap_6:
 
     "Detrás de ella, una sombra poco familiar."
     "Cabello desordenado, hombros encogidos, manos en los bolsillos como si quisiera esconderlas."
-    "Rodrigo. El chico callado del fondo del salón."
+    "[nombre_jugador!c]. El chico callado del fondo del salón."
 
     # La tensión social
     show nagi casual_young_molesto
@@ -61,9 +61,9 @@ label cap_6:
 
     c "¡Nagi! Cierra la boca."
     
-    "Cutipye le dio un codazo nada sutil a Nagi antes de sonreírle a Rodrigo, aunque con un toque de duda en sus ojos."
+    "Cutipye le dio un codazo nada sutil a Nagi antes de sonreírle a [nombre_jugador!c], aunque con un toque de duda en sus ojos."
     
-    c "Ignóralo, Rodri. Bienvenido. Aunque... ¿Lucien te invitó?"
+    c "Ignóralo, [apodo_jugador]. Bienvenido. Aunque... ¿Lucien te invitó?"
 
     r "Sí... Lucien me dijo que tenía que estar aquí a esta hora."
     r "Dijo que era importante."
@@ -74,7 +74,7 @@ label cap_6:
     show azura casual_young_smile at centro_derecha with moveinleft
     "Azura dio un paso al frente, con esa sonrisa que podía desarmar cualquier tensión."
     
-    a "Hola, Rodrigo. Soy Azura. Nos sentamos a dos bancos de distancia en Historia."
+    a "Hola, [nombre_jugador!c]. Soy Azura. Nos sentamos a dos bancos de distancia en Historia."
     a "Si Lucien te pidió venir, eres bienvenido."
 
     r "Gracias..."
@@ -123,7 +123,7 @@ label cap_6:
     show rodrigo casual_young_blush at right
     show nagi casual_young_shock
     
-    "Todas las miradas se dispararon hacia Rodrigo."
+    "Todas las miradas se dispararon hacia [nombre_jugador!c]."
     "Él no parecía sorprendido por la ropa de Luz. Solo... le sonrió. Una sonrisa pequeña, privada y llena de orgullo."
     
     r "Te ves hermosa, Luz."
@@ -141,9 +141,9 @@ label cap_6:
     "El recuerdo se disipó, reemplazado por el olor a sangre y aceite."
     "Luz seguía abrazándolo, temblando, pero ya no era aquella chica tímida con vestido pastel."
     
-    l "Te tengo, Rodri... Estoy aquí."
+    l "Te tengo, [apodo_jugador]... Estoy aquí."
 
-    "Rodrigo trató de contestar, pero su respiración era más pesada de lo que recordaba."
+    "[nombre_jugador!c] trató de contestar, pero su respiración era más pesada de lo que recordaba."
     "Había un sabor extraño en su boca."
     "{cps=15}Dulce. Metálico.{/cps}"
 
@@ -166,7 +166,7 @@ label cap_6:
     centered "{cps=15}{color=#390169}{i}Casi... casi mía...{/i}{/color}{/cps}"
     stop ambient fadeout 0.5
 
-    "Rodrigo parpadeó con fuerza."
+    "[nombre_jugador!c] parpadeó con fuerza."
 
     r "¿Escucharon eso...?"
 
@@ -183,7 +183,7 @@ label cap_6:
         "Los otros se inclinaron hacia él como si esperaran una explicación, sus rostros marcados por la preocupación y el desconcierto."
         "Algo en su voz —tensa y quebrada— les hizo pensar que había más que un simple golpe; parecía un estado de shock."
         n "¿Te acuerdas de quién... o qué dijiste?"
-        c "Respira, Rodri. Estamos acá."
+        c "Respira, [apodo_jugador]. Estamos acá."
 
     else:
         show luz worry at centro_derecha with move
@@ -200,7 +200,7 @@ label cap_6:
 
     "Luz lo miró con preocupación, sin soltarlo."
 
-    l "Rodri... estás frío."
+    l "[apodo_jugador]... estás frío."
 
     "Al apoyar la mano en el suelo para incorporarse, notó pequeñas motas oscuras pegadas a sus dedos."
     "Parecían ceniza… o algo peor."
@@ -242,7 +242,7 @@ label cap_6:
     c "O podemos irnos y vivir otro día. Yo prefiero no 'arriesgar ventaja'."
 
     show rodrigo nervioso at center
-    "Rodrigo notó la discusión."
+    "[nombre_jugador!c] notó la discusión."
     "El sonido de sus voces le parecía lejano, como si viniera desde el fondo de un túnel."
 
     "Su pecho apretó nuevamente."
@@ -321,7 +321,7 @@ label ir_administracion:
     with dissolve
 
     "Nagi caminaba al frente, sí... Pero no volteaba a hacer chistes."
-    "No miraba a Rodrigo para lanzarle uno de sus típicos:"
+    "No miraba a [nombre_jugador!c] para lanzarle uno de sus típicos:"
     "{cps=20}\"Vamos, ermitaño, muévete o te cargo.\"{/cps}"
 
     "Ese era el guión de siempre."
@@ -355,11 +355,11 @@ label ir_administracion:
     "Solo una frase corta."
     "Directa."
 
-    "Rodrigo sintió esa ausencia más que cualquier grito."
+    "[nombre_jugador!c] sintió esa ausencia más que cualquier grito."
 
     "Mientras los demás revisaban cajones, Nagi se acercó al mapa."
     show nagi serio at centro_izquierda with move
-    "Y luego, sin decir nada, se colocó al lado de Rodrigo."
+    "Y luego, sin decir nada, se colocó al lado de [nombre_jugador!c]."
 
     show nagi worried at centro_izquierda with dissolve
     
@@ -375,7 +375,7 @@ label ir_administracion:
 
     "Demasiado suave."
 
-    "Rodrigo evitó mirarlo."
+    "[nombre_jugador!c] evitó mirarlo."
     "El sabor dulce volvió a su lengua."
 
     n "Te conozco."
@@ -412,7 +412,7 @@ label ir_administracion:
     "Instintivamente, como siempre hacía cuando estaba por hacer una broma."
     "Pero esta vez no dijo nada gracioso."
 
-    "Sus ojos recorrían el rostro de Rodrigo."
+    "Sus ojos recorrían el rostro de [nombre_jugador!c]."
     "Analizando."
     "Buscando algo que no sabía nombrar."
 
@@ -420,7 +420,7 @@ label ir_administracion:
 
     "La pregunta quedó suspendida en el aire."
 
-    "Rodrigo apoyó la mano en el borde del mapa para no tambalearse."
+    "[nombre_jugador!c] apoyó la mano en el borde del mapa para no tambalearse."
 
     show rodrigo shocked at vjump
 
@@ -445,7 +445,7 @@ label ir_administracion:
     n "¿Sí?"
 
     "No era el tono del líder empujando al grupo."
-    "Era el tono de alguien que, por primera vez, no estaba intentando sacar a Rodrigo al mundo…"
+    "Era el tono de alguien que, por primera vez, no estaba intentando sacar a [nombre_jugador!c] al mundo…"
     "Sino impedir que algo se lo llevara."
 
     $ afinidad_nagi += 1
@@ -453,7 +453,7 @@ label ir_administracion:
     "Revisaron archivadores y encontraron planos parciales del edificio."
     "Suficientes para trazar una ruta tentativa de salida."
 
-    "Pero cuando Rodrigo miró el mapa otra vez…"
+    "Pero cuando [nombre_jugador!c] miró el mapa otra vez…"
     "Por una fracción de segundo, las líneas parecieron moverse."
 
     "Parpadeó."
@@ -479,7 +479,7 @@ label volver_afuera:
     "El grupo retrocedió hacia la lavandería por donde habían entrado."
     "El aire parecía más frío en esa dirección, como si el edificio exhalara detrás de ellos."
 
-    "Rodrigo caminaba en silencio."
+    "[nombre_jugador!c] caminaba en silencio."
     "El sabor dulce volvió a su lengua."
     "{cps=15}Dulce. Metálico.{/cps}"
 
@@ -498,7 +498,7 @@ label volver_afuera:
 
     c "...¿No?"
     c "¿Nada?"
-    c "¿Ni una sonrisa irónica, Rodrigo? Eso sí que me preocupa."
+    c "¿Ni una sonrisa irónica, [nombre_jugador!c]? Eso sí que me preocupa."
 
     "Soltó una pequeña risa."
     "Fue corta."
@@ -515,7 +515,7 @@ label volver_afuera:
     "Esta vez más baja."
     "Más quebrada."
 
-    "Rodrigo notó cómo sus manos estaban tensas."
+    "[nombre_jugador!c] notó cómo sus manos estaban tensas."
     "Cómo sus dedos temblaban apenas."
     "Cómo cada vez que hacía un chiste, miraba de reojo las sombras del pasillo."
 
@@ -551,7 +551,7 @@ label volver_afuera:
     show cutipye serious at left
     with dissolve
 
-    "Rodrigo sintió un pequeño zumbido en la punta de los dedos."
+    "[nombre_jugador!c] sintió un pequeño zumbido en la punta de los dedos."
     "Un impulso extraño."
     "Un deseo breve de… empujar los escombros con una fuerza que sabía que no tenía."
 
@@ -571,7 +571,7 @@ label volver_afuera:
 
     c "Que cuando te quedas más callado de lo normal… es muy obvio."
 
-    "Rodrigo desvió la mirada."
+    "[nombre_jugador!c] desvió la mirada."
 
     c "No me mires así."
     c "No estoy haciendo un discurso motivacional."
@@ -593,7 +593,7 @@ label volver_afuera:
             c "Lo sé."
             c "Pero no te toca cargar con todo."
             c "No eres el guardaespaldas oficial del grupo."
-            c "Eres Rodrigo."
+            c "Eres [nombre_jugador!c]."
             c "Y eso ya es suficiente."
 
         "Tengo miedo, Cutipye.":
@@ -611,7 +611,7 @@ label volver_afuera:
 
     "Durante un segundo, el pasillo dejó de sentirse tan estrecho."
 
-    "Rodrigo apoyó la mano contra la pared para estabilizarse."
+    "[nombre_jugador!c] apoyó la mano contra la pared para estabilizarse."
 
     show rodrigo shocked at vjump
 
@@ -658,7 +658,7 @@ label volver_afuera:
 
     "El olor a detergente viejo y humedad les golpeó de frente."
 
-    "Rodrigo sintió algo extraño al cruzar el umbral."
+    "[nombre_jugador!c] sintió algo extraño al cruzar el umbral."
     "Como si una parte de él no quisiera salir."
 
     "Parpadeó."
@@ -730,7 +730,7 @@ label cap_7:
 
     "Las luces se apagaron."
 
-    l "¿Rodri?"
+    l "¿[apodo_jugador]?"
 
     pause 1.0
     play music ambiental fadein 1.0 volume 0.6
@@ -741,7 +741,7 @@ label cap_7:
     show rodrigo shock_state at center
     with dissolve
 
-    "{cps=10}{color=#390169}{i}Rodrigo…{/i}{/color}{/cps}"
+    "{cps=10}{color=#390169}{i}[nombre_jugador!c]…{/i}{/color}{/cps}"
 
     pause 0.5
 
@@ -758,7 +758,7 @@ label cap_7:
     show rodrigo shock_state at center
     with flash
 
-    l "Rodri, ¿estás bien?"
+    l "[apodo_jugador], ¿estás bien?"
 
     menu:
         "La escuché otra vez.":
@@ -874,7 +874,7 @@ label cap_7:
 
     show rodrigo neutral at center
 
-    "Rodrigo observó la Biblia en las manos de Nagi."
+    "[nombre_jugador!c] observó la Biblia en las manos de Nagi."
 
     "Varias páginas estaban gastadas."
     "Marcadas."
@@ -899,7 +899,7 @@ label cap_7:
 
     pause 0.5
 
-    "{cps=12}{color=#390169}{i}¿Lo ves ahora, Rodrigo?{/i}{/color}{/cps}"
+    "{cps=12}{color=#390169}{i}¿Lo ves ahora, [nombre_jugador!c]?{/i}{/color}{/cps}"
     "{cps=12}{color=#390169}{i}Siempre estuvo escrito.{/i}{/color}{/cps}"
 
     r "(No.)"
@@ -909,7 +909,7 @@ label cap_7:
     "{cps=12}{color=#390169}{i}Pero Él me convirtió en la hiena.{/i}{/color}{/cps}"
 
     "El aire de la habitación se volvió pesado."
-    "Rodrigo apartó la mirada del texto."
+    "[nombre_jugador!c] apartó la mirada del texto."
 
     r "(Es solo un versículo.)"
     r "(No significa nada.)"
@@ -930,7 +930,7 @@ label cap_7:
 
     scene rodrigo_cig_balcony with dissolve
 
-    "Rodrigo se acercó al balcón oxidado."
+    "[nombre_jugador!c] se acercó al balcón oxidado."
     "El metal crujió bajo su peso, pero aguantó."
 
     "Afuera, la noche era absoluta."
@@ -974,7 +974,7 @@ label cap_7:
             r "(Si lo digo en voz alta, se vuelve real.)"
             r "(Y no voy a darles una razón para que me miren como a los otros.)"
 
-            "Rodrigo dió una fuerte calada a su cigarrillo, esperando que el tabaco calmara la presión en su pecho."
+            "[nombre_jugador!c] dió una fuerte calada a su cigarrillo, esperando que el tabaco calmara la presión en su pecho."
             "El latido dentro de su pecho se desaceleró."
             "O tal vez solo se acostumbró a él por un momento."
             jump ocultar_influencia
@@ -1003,7 +1003,7 @@ label confesion_rodrigo:
 
     "Silencio."
 
-    l "Rodri…"
+    l "[apodo_jugador]…"
 
     r "No estoy alucinando."
     r "O… quizás sí."
@@ -1014,7 +1014,7 @@ label confesion_rodrigo:
 
     c "¿Qué sientes exactamente?"
 
-    "Rodrigo dudó."
+    "[nombre_jugador!c] dudó."
     "Buscó las palabras."
 
     r "Como si… alguien respirara dentro de mi caja torácica."
@@ -1080,7 +1080,7 @@ label ocultar_influencia:
     "Nagi lo observó unos segundos más."
     "Como si esperara que dijera algo adicional."
 
-    "Rodrigo sostuvo la mirada."
+    "[nombre_jugador!c] sostuvo la mirada."
     "No parpadeó."
 
     "El latido volvió."
@@ -1097,7 +1097,7 @@ label ocultar_influencia:
     n "O una salida trasera que no esté bloqueada."
     l "Tenemos que movernos antes del amanecer."
 
-    "Rodrigo apenas escuchaba."
+    "[nombre_jugador!c] apenas escuchaba."
 
     "La conversación se sentía lejana."
     "Como si estuviera ocurriendo al final de un túnel."
@@ -1118,7 +1118,7 @@ label escena_luz_balcon_confesion:
 
     "Más tarde."
 
-    "Rodrigo seguía en el balcón."
+    "[nombre_jugador!c] seguía en el balcón."
     "Luz se sentó a su lado, hombro con hombro."
 
     show luz sad at centro_izquierda
@@ -1131,7 +1131,7 @@ label escena_luz_balcon_confesion:
     l "Entonces no mires hacia otro lado cuando me mires a mí."
     l "Mírame ahora."
 
-    "Rodrigo giró la cabeza con lentitud."
+    "[nombre_jugador!c] giró la cabeza con lentitud."
 
     "Los ojos de Luz brillaban bajo la luz mortecina."
     "No había miedo en ellos."
@@ -1140,7 +1140,7 @@ label escena_luz_balcon_confesion:
     l "Sea lo que sea que esté intentando meterse en ti…"
     l "Va a tener que pasar por encima de mí primero."
 
-    "Rodrigo dejó escapar una risa rota."
+    "[nombre_jugador!c] dejó escapar una risa rota."
 
     r "Eres terrible mintiendo."
 
@@ -1155,7 +1155,7 @@ label escena_luz_balcon_confesion:
     play sound "sfx/drip_distant.mp3"
 
     "Una gota cayó desde el techo del balcón."
-    "Aterrizó en el dorso de la mano de Rodrigo."
+    "Aterrizó en el dorso de la mano de [nombre_jugador!c]."
 
     "No era agua."
 
@@ -1177,7 +1177,7 @@ label escena_luz_balcon_confesion:
     "Y desapareció bajo la piel."
     "Sin dejar marca."
 
-    "Rodrigo cerró los ojos con fuerza."
+    "[nombre_jugador!c] cerró los ojos con fuerza."
 
     "{cps=9}{color=#390169}{i}Shhh…{/i}{/color}{/cps}"
     "{cps=9}{color=#390169}{i}Ya casi estamos en casa…{/i}{/color}{/cps}"
@@ -1206,14 +1206,14 @@ label escena_luz_balcon_oculta:
 
     "Más tarde."
 
-    "Rodrigo seguía en el balcón."
+    "[nombre_jugador!c] seguía en el balcón."
     "Tenía los brazos apoyados en la baranda, rígido."
     "Demasiado quieto."
 
     show luz serious at centro_izquierda
     with moveinleft
 
-    l "Rodri."
+    l "[apodo_jugador]."
 
     "Él no respondió."
 
@@ -1231,7 +1231,7 @@ label escena_luz_balcon_oculta:
     l "Estás funcionando."
     l "Que no es lo mismo."
 
-    "Rodrigo apretó la mandíbula."
+    "[nombre_jugador!c] apretó la mandíbula."
 
     r "No hay nada que decir."
 
@@ -1263,7 +1263,7 @@ label escena_luz_balcon_oculta:
 
     "Latido."
 
-    "Rodrigo cerró los ojos un segundo de más."
+    "[nombre_jugador!c] cerró los ojos un segundo de más."
 
     "{cps=9}{color=#390169}{i}Díselo.{/i}{/color}{/cps}"
 
@@ -1277,7 +1277,7 @@ label escena_luz_balcon_oculta:
 
     "Luz dio un paso más cerca."
 
-    l "Rodrigo."
+    l "[nombre_jugador!c]."
     l "Si te estás quebrando por dentro, prefiero saberlo."
     l "Prefiero sostenerte ahora que recoger los pedazos después."
 
@@ -1287,7 +1287,7 @@ label escena_luz_balcon_oculta:
     l "No me excluyas."
     l "No me castigues con silencio."
 
-    "Rodrigo la miró."
+    "[nombre_jugador!c] la miró."
     "Por un momento pareció que iba a hablar."
 
     pause 1.0
@@ -1302,11 +1302,11 @@ label escena_luz_balcon_oculta:
     play sound "sfx/drip_distant.mp3"
 
     "Una gota cayó desde el techo del balcón."
-    "Aterrizó en el dorso de la mano de Rodrigo."
+    "Aterrizó en el dorso de la mano de [nombre_jugador!c]."
 
     show rodrigo scared
 
-    l "…Rodri."
+    l "…[apodo_jugador]."
 
     "La sustancia era negra."
     "Y se movía."
@@ -1320,7 +1320,7 @@ label escena_luz_balcon_oculta:
 
     stop sound fadeout 1.0
 
-    "Rodrigo contuvo el aliento."
+    "[nombre_jugador!c] contuvo el aliento."
 
     "{cps=9}{color=#390169}{i}¿Ves?{/i}{/color}{/cps}"
     "{cps=9}{color=#390169}{i}Ni siquiera ahora puedes decírselo todo…{/i}{/color}{/cps}"
@@ -1335,7 +1335,7 @@ label escena_luz_balcon_oculta:
 
     "Otra vez."
 
-    "La mano de Rodrigo temblaba."
+    "La mano de [nombre_jugador!c] temblaba."
 
     r "No sé si…"
     r "No sé si soy solo yo aquí dentro."
@@ -1346,7 +1346,7 @@ label escena_luz_balcon_oculta:
 
     "Pero esta vez…"
 
-    "Rodrigo no estaba seguro de si eso seguía siendo verdad."
+    "[nombre_jugador!c] no estaba seguro de si eso seguía siendo verdad."
 
     scene black with fade
     stop music fadeout 4.0
@@ -1396,14 +1396,14 @@ label cap_8:
     "Nagi estiró los brazos con un gruñido."
     "Cutipye se sentó, revisando su mochila instintivamente."
 
-    "Pero Rodrigo y [min_afinidad_personaje!c]…"
+    "Pero [nombre_jugador!c] y [min_afinidad_personaje!c]…"
 
     "Aún no se movían."
     "Como si el sueño los hubiera retenido un poco más."
 
     show rodrigo neutral at center with dissolve
 
-    "Rodrigo abrió los ojos. No hubo el parpadeo perezoso de quien despierta de un sueño, sino la apertura súbita de una lente."
+    "[nombre_jugador!c] abrió los ojos. No hubo el parpadeo perezoso de quien despierta de un sueño, sino la apertura súbita de una lente."
     "Su mirada no buscó a sus compañeros, ni la salida. Se clavó en las vigas del techo, donde la madera se astillaba hacia la oscuridad del ático."
 
     r "(Demasiado expuesto abajo…)"
@@ -1427,10 +1427,10 @@ label cap_8:
         a "Tuve un sueño horrible."
     elif min_afinidad_personaje == "luz":
         show luz tired at centro_derecha with dissolve
-        l "Rodri…"
+        l "[apodo_jugador]…"
         l "¿Dormiste algo?"
 
-    "Rodrigo no respondió de inmediato."
+    "[nombre_jugador!c] no respondió de inmediato."
     "Solo se levantó con un movimiento fluido."
     "Demasiado fluido para alguien que acababa de caer de un derrumbe el día anterior."
 
@@ -1456,7 +1456,7 @@ label cap_8:
     show cutipye neutral at left
     with dissolve
 
-    "Rodrigo caminaba al frente, pero sus pasos eran irregulares."
+    "[nombre_jugador!c] caminaba al frente, pero sus pasos eran irregulares."
     "Se detenía de pronto, inclinando la cabeza ligeramente."
     "Como si escuchara algo que nadie más percibía."
 
@@ -1482,7 +1482,7 @@ label cap_8:
         $ estado_mental += 2
 
     "Continuaron."
-    "Rodrigo parpadeaba menos."
+    "[nombre_jugador!c] parpadeaba menos."
     "Sus ojos se fijaban en detalles altos: grietas en el techo, lámparas colgantes."
 
     "En un momento, ante una escalera derruida…"
@@ -1509,7 +1509,7 @@ label cap_8:
     "Llegaron al vestíbulo principal."
     "Un espacio cavernoso donde el aire circulaba con un silbido gélido."
     "Dos pisos de altura, escaleras curvadas a los lados."
-    "El vacío central del vestíbulo parecía llamar a Rodrigo. Sus ojos escaneaban las barandillas del piso superior con una precisión casi geométrica."
+    "El vacío central del vestíbulo parecía llamar a [nombre_jugador!c]. Sus ojos escaneaban las barandillas del piso superior con una precisión casi geométrica."
 
     show cutipye neutral at left
     c "Dividámonos para cubrir más—"
@@ -1517,9 +1517,9 @@ label cap_8:
     hide rodrigo
     show rodrigo neutral at center with moveinright  # Ya se mueve
 
-    "Pero Rodrigo no esperó. Sus pasos eran silenciosos, apoyando primero la punta del pie, como si evitara alertar a algo que todavía no veía."
+    "Pero [nombre_jugador!c] no esperó. Sus pasos eran silenciosos, apoyando primero la punta del pie, como si evitara alertar a algo que todavía no veía."
 
-    l "¿Rodri?"
+    l "¿[apodo_jugador]?"
     r "Necesito altura. Mejor vista."
 
     "Simple. Seco. Funcional."
@@ -1557,7 +1557,7 @@ label cap_8:
         a "¡No!"
     elif min_afinidad_personaje == "luz":
         show rata_mutant at centro_derecha with moveinright
-        l "¡Rodri!"
+        l "¡[apodo_jugador]!"
 
     stop music
     play music chase fadein 0.5
@@ -1566,13 +1566,13 @@ label cap_8:
         scene vestibulo_fight_normal with dissolve
         play sound "sfx/human_scream.mp3"
         
-        "La criatura saltó. Rodrigo reaccionó con la torpeza del miedo, lanzándose desde el rellano hacia el cuerpo del mutante."
-        "Cayeron en un revoltijo de extremidades y polvo. Rodrigo forcejeaba, sintiendo el aliento fétido y caliente de la rata contra su cuello."
+        "La criatura saltó. [nombre_jugador!c] reaccionó con la torpeza del miedo, lanzándose desde el rellano hacia el cuerpo del mutante."
+        "Cayeron en un revoltijo de extremidades y polvo. [nombre_jugador!c] forcejeaba, sintiendo el aliento fétido y caliente de la rata contra su cuello."
         
         r "¡Atrás! ¡Hijo de puta!"
 
         "Enterró la daga en el hombro de la bestia. No fue un golpe limpio. Fue un tajo desesperado que apenas logró separarlos."
-        "Rodrigo retrocedió jadeando, la adrenalina quemándole las venas mientras veía a la criatura lamerse la herida con una lengua negra y bífida."
+        "[nombre_jugador!c] retrocedió jadeando, la adrenalina quemándole las venas mientras veía a la criatura lamerse la herida con una lengua negra y bífida."
         
         play sound "sfx/stab.mp3"
         with vpunch
@@ -1582,15 +1582,15 @@ label cap_8:
         scene vestibulo_fight_saturated with dissolve
         play sound "sfx/beast_growl.mp3"
 
-        "El mundo se volvió más brillante, más nítido. Los colores de la sangre y el moho saltaron a la vista de Rodrigo con una intensidad violenta."
-        "La criatura se lanzó hacia [min_afinidad_personaje!c], pero Rodrigo ya estaba en el aire."
+        "El mundo se volvió más brillante, más nítido. Los colores de la sangre y el moho saltaron a la vista de [nombre_jugador!c] con una intensidad violenta."
+        "La criatura se lanzó hacia [min_afinidad_personaje!c], pero [nombre_jugador!c] ya estaba en el aire."
 
         "No fue un salto humano. Fue un picado."
-        "Rodrigo aterrizó sobre la espalda del mutante, sus pies buscando instintivamente los puntos de apoyo en los omóplatos. La daga bajó como un pico, buscando los ojos, buscando la base del cráneo."
+        "[nombre_jugador!c] aterrizó sobre la espalda del mutante, sus pies buscando instintivamente los puntos de apoyo en los omóplatos. La daga bajó como un pico, buscando los ojos, buscando la base del cráneo."
 
         r "(Ciega al rastrero. Quiebra sus patas.)"
 
-        "El mutante chilló y se revolvió, pero Rodrigo se mantenía pegado a su espalda con una agilidad antinatural, girando la cabeza con movimientos rápidos y espasmódicos."
+        "El mutante chilló y se revolvió, pero [nombre_jugador!c] se mantenía pegado a su espalda con una agilidad antinatural, girando la cabeza con movimientos rápidos y espasmódicos."
         
         play sound "sfx/slash_rough.mp3"
         with shake
@@ -1601,13 +1601,13 @@ label cap_8:
         play sound "sfx/primal_screech.mp3"
 
         "La realidad se fracturó. La tonalidad del mundo viró hacia un espectro enfermo, donde el calor de la presa era lo único que importaba."
-        "Rodrigo no gritó. Emitió un chasquido seco desde el fondo de su garganta mientras se lanzaba desde la barandilla."
+        "[nombre_jugador!c] no gritó. Emitió un chasquido seco desde el fondo de su garganta mientras se lanzaba desde la barandilla."
 
-        "El impacto contra el huésped-ratón fue brutal. El sonido de los huesos de la criatura rompiéndose bajo el peso de Rodrigo resonó en todo el vestíbulo."
+        "El impacto contra el huésped-ratón fue brutal. El sonido de los huesos de la criatura rompiéndose bajo el peso de [nombre_jugador!c] resonó en todo el vestíbulo."
         "Fue una ejecución, no una pelea."
 
-        "Rodrigo sujetó la cabeza del mutante con una mano, forzándola hacia atrás para exponer el cuello, mientras su otra mano hundía la daga una, dos, tres veces. Movimientos cortos. Precisos. Despiadados."
-        "Como un cuervo destripando a una rata en un callejón, Rodrigo no se detuvo cuando la criatura dejó de luchar. Sus ojos estaban fijos, sin parpadear, reflejando una sed que no era suya."
+        "[nombre_jugador!c] sujetó la cabeza del mutante con una mano, forzándola hacia atrás para exponer el cuello, mientras su otra mano hundía la daga una, dos, tres veces. Movimientos cortos. Precisos. Despiadados."
+        "Como un cuervo destripando a una rata en un callejón, [nombre_jugador!c] no se detuvo cuando la criatura dejó de luchar. Sus ojos estaban fijos, sin parpadear, reflejando una sed que no era suya."
 
         play sound "sfx/impact_heavy.mp3"
         with hpunch
@@ -1624,25 +1624,25 @@ label cap_8:
 
     show rodrigo bloodied at center with dissolve
 
-    "Rodrigo permanecía en cuclillas sobre el cadáver."
+    "[nombre_jugador!c] permanecía en cuclillas sobre el cadáver."
     "Sus dedos goteaban icor. Sus pulmones trabajaban con un ritmo mecánico, pesado."
 
     "El grupo lo miró. Nadie se acercó."
 
     if min_afinidad_personaje == "nagi":
         show nagi shocked at centro_izquierda
-        n "Rodri... eso no fue defenderse. Eso fue... carnicería."
+        n "[apodo_jugador]... eso no fue defenderse. Eso fue... carnicería."
     elif min_afinidad_personaje == "cutipye":
         show cutipye shocked at left
         c "Parecías... disfrutándolo. Tu cara..."
     elif min_afinidad_personaje == "azura":
         show azura shocked at right
-        "Azura se tapó la boca con la mano, sus ojos fijos en la forma en que Rodrigo inclinaba la cabeza, examinando los restos."
+        "Azura se tapó la boca con la mano, sus ojos fijos en la forma en que [nombre_jugador!c] inclinaba la cabeza, examinando los restos."
     elif min_afinidad_personaje == "luz":
         show luz shocked at centro_derecha
-        l "…¿Rodrigo? Por favor, mírame."
+        l "…¿[nombre_jugador!c]? Por favor, mírame."
 
-    "Rodrigo levantó la mirada."
+    "[nombre_jugador!c] levantó la mirada."
     "Por una fracción de segundo, la luz del amanecer incidió en sus pupilas, revelando un brillo aceitoso, negro, que devoraba cualquier rastro de humanidad."
     
     r "Está muerto. Es lo que importa."
@@ -1667,10 +1667,10 @@ label cap_9:
     "Luces cálidas colgaban del techo del pequeño salón."
     "La música rebotaba contra las paredes mientras grupos de jóvenes reían, gritaban y bailaban sin preocuparse demasiado por el mañana."
 
-    "Entre la multitud, Luz tiraba suavemente del brazo de Rodrigo, abriéndose paso entre la gente."
+    "Entre la multitud, Luz tiraba suavemente del brazo de [nombre_jugador!c], abriéndose paso entre la gente."
 
-    l "¡Anda, Rodri! ¡Apúrate!"
-    "Rodrigo avanzaba detrás de ella con visible incomodidad, mirando a su alrededor."
+    l "¡Anda, [apodo_jugador]! ¡Apúrate!"
+    "[nombre_jugador!c] avanzaba detrás de ella con visible incomodidad, mirando a su alrededor."
     "Demasiadas caras desconocidas."
     "Demasiado ruido."
     "Demasiado... Todo."
@@ -1682,7 +1682,7 @@ label cap_9:
         "Aceptar con entusiasmo":
             $ afinidad_luz += 2
             r "No soy muy de fiestas, pero si tú vas... No veo por qué no."
-            "Rodrigo se encoge de hombros con una leve sonrisa."
+            "[nombre_jugador!c] se encoge de hombros con una leve sonrisa."
 
             r "Hagámoslo."
             l "¡Así me gusta!"
@@ -1693,7 +1693,7 @@ label cap_9:
             $ afinidad_luz += 1
             r "Sabes que no es lo mío, Luz..."
 
-            "Rodrigo observa el lugar con desconfianza."
+            "[nombre_jugador!c] observa el lugar con desconfianza."
             r "...pero bueno, iré por tí."
 
             "Luz suspira exageradamente."
@@ -1707,7 +1707,7 @@ label cap_9:
     "El interior de la casa estaba aún más lleno de lo que parecía desde afuera."
     "La música vibraba en el suelo."
     "El aire estaba cargado con olor a alcohol, perfume barato y calor humano."
-    "Rodrigo frunce ligeramente el ceño."
+    "[nombre_jugador!c] frunce ligeramente el ceño."
     "Su instinto le decía que aquel lugar no era para él."
     "Antes de que pudiera decir algo, dos figuras conocidas aparecieron entre la multitud."
 
@@ -1719,14 +1719,14 @@ label cap_9:
     "Nagi levanta su vaso en señal de saludo."
 
     n "El intelectual del grupo."
-    n "¡Suelta ese ceño fruncido, Rod!"
+    n "¡Suelta ese ceño fruncido, [apodo_jugador]!"
     
     c "Sí, relájate un poco."
     "Cutipye le ofrece un vaso."
     c "Un par de tragos no matan a nadie."
     c "Ayúdanos a que el ambiente prenda."
 
-    "Rodrigo mira el vaso."
+    "[nombre_jugador!c] mira el vaso."
     "Luego mira a Luz."
 
     menu:
@@ -1734,7 +1734,7 @@ label cap_9:
             $ afinidad_nagi += 2
             $ afinidad_cutipye += 2
             r "Bueno..."
-            "Rodrigo giró el vaso entre sus dedos."
+            "[nombre_jugador!c] giró el vaso entre sus dedos."
 
             r "No creo que a Luz le moleste si bebo un par..."
 
@@ -1755,7 +1755,7 @@ label cap_9:
             $ afinidad_nagi += 1
             $ afinidad_cutipye += 1
             r "{cps=20}Bieeen...{/cps}"
-            "Rodrigo suspiró."
+            "[nombre_jugador!c] suspiró."
 
             r "Pero solo para entrar en calor."
             n "¡Ese es el espíritu!"
@@ -1771,13 +1771,13 @@ label cap_9:
     "Luego en tres."
     "Y de alguna forma..."
 
-    "Rodrigo empezó a sentirse cómodo."
+    "[nombre_jugador!c] empezó a sentirse cómodo."
     "Demasiado cómodo."
 
     "Las conversaciones fluían."
     "Las bromas salían solas."
 
-    "Por primera vez en mucho tiempo, Rodrigo no estaba pensando."
+    "Por primera vez en mucho tiempo, [nombre_jugador!c] no estaba pensando."
 
     "Solo estaba... viviendo."
 
@@ -1795,7 +1795,7 @@ label cap_9:
 
     "Con un movimiento rápido, saca algo fino de detrás de su oreja."
 
-    n "Oye, Rodrigo..."
+    n "Oye, [nombre_jugador!c]..."
     r "¿Hmm?"
     n "¿Quieres probar algo más..."
 
@@ -1803,7 +1803,7 @@ label cap_9:
 
     n "...elevado?"
 
-    "Rodrigo parpadea."
+    "[nombre_jugador!c] parpadea."
 
     r "¿Fumar?"
     n "Te enseñaré."
@@ -1814,7 +1814,7 @@ label cap_9:
             $ afinidad_nagi += 3
             r "Nunca lo he hecho..."
 
-            "Rodrigo observó el porro improvisado."
+            "[nombre_jugador!c] observó el porro improvisado."
             r "Pero qué más da. Enséñame."
 
             "Nagi ríe."
@@ -1824,7 +1824,7 @@ label cap_9:
             "El primer intento es torpe."
             "El humo le quema los pulmones."
 
-            "Rodrigo tose."
+            "[nombre_jugador!c] tose."
             "Nagi se ríe."
 
             "Pero después..."
@@ -1840,7 +1840,7 @@ label cap_9:
             r "Pero no quiero ser el único aburrido aquí."
 
             "Nagi sonríe como si hubiera ganado una apuesta."
-            "Rodrigo lo intenta."
+            "[nombre_jugador!c] lo intenta."
             "Tose."
             "Nagi se burla."
 
@@ -1862,7 +1862,7 @@ label cap_9:
     "Era ruido."
     "Ruido aplastando su cabeza."
 
-    "La memoria de Rodrigo se volvió fragmentos sueltos."
+    "La memoria de [nombre_jugador!c] se volvió fragmentos sueltos."
     "Imágenes inconexas."
 
     "Risas."
@@ -1874,7 +1874,7 @@ label cap_9:
 
     r "{cps=20}C-Cuty...{/cps}"
 
-    "Rodrigo intenta ponerse de pie."
+    "[nombre_jugador!c] intenta ponerse de pie."
     "Las piernas no responden."
 
     r "{cps=20}Algo...{/cps}"
@@ -1918,7 +1918,7 @@ label cap_9:
     scene bg_habitacion_luz with dissolve
     "La mañana llega demasiado pronto."
 
-    "La luz que entra por la ventana es un cuchillo en los ojos de Rodrigo."
+    "La luz que entra por la ventana es un cuchillo en los ojos de [nombre_jugador!c]."
     "Su cabeza late."
     "Su garganta está seca."
     "Su cuerpo pesa toneladas."
@@ -1937,7 +1937,7 @@ label cap_9:
     play music flashback fadein 1.5
     "Luz se lanza sobre él."
 
-    l "¡Rodrigo!"
+    l "¡[nombre_jugador!c]!"
 
     "Sus brazos lo rodean con fuerza."
 
@@ -1948,7 +1948,7 @@ label cap_9:
         "Sarcasmo clásico":
             $ afinidad_luz += 2
 
-            "Rodrigo parpadea."
+            "[nombre_jugador!c] parpadea."
             "Todavía confundido."
 
             r "Oye..."
@@ -1967,7 +1967,7 @@ label cap_9:
             $ afinidad_luz += 4
             r "Perdóname, Luz..."
 
-            "Rodrigo evita su mirada."
+            "[nombre_jugador!c] evita su mirada."
             r "Me pasé de la raya."
             r "No debí dejarme llevar así."
 
@@ -1999,12 +1999,12 @@ label cap_9:
     "El cuerpo de la criatura yace a unos metros. Demasiado destrozado."
     "{cps=15}Demasiado... Irreconocible...{/cps}"
 
-    "Las manos de Rodrigo todavía tiemblan."
+    "Las manos de [nombre_jugador!c] todavía tiemblan."
     "No sabía bien si era por el esfuerzo..."
     "...o por lo que disfrutó durante un segundo."
 
     n "¡¿Qué ha sido eso?! ¡El ratón de biblioteca que conozco no hubiera acabado con esa bestia ni con la adrenalina de la muerte encima, mucho menos dejar su cráneo como queso suizo!"
-    "Nagi señala el cadáver. Evita mirar directamente a Rodrigo."
+    "Nagi señala el cadáver. Evita mirar directamente a [nombre_jugador!c]."
 
     a "¿No creen que tras lo que haya pasado tenga sentido que empiece a decir que 'escucha voces'? O sea, dudo que le esté dando lo mismo que a las bestias del orfanato, podría ser solo la adrenalina o el pánico."
 
@@ -2012,19 +2012,19 @@ label cap_9:
 
     pause 1.0
 
-    c "Miren, ya no tiene tanto caso el decir si Rodrigo tenía razón o no, venir a este orfanato fue una idea estúpida y debemos irnos cuanto antes."
+    c "Miren, ya no tiene tanto caso el decir si [nombre_jugador!c] tenía razón o no, venir a este orfanato fue una idea estúpida y debemos irnos cuanto antes."
 
     "No se acercan a él."
     "Forman un semicírculo."
     "Como si fuera el siguiente peligro."
 
-    l "¡Esperen! Rodrigo no es así... él solo nos protegió. No lo juzguen tan rápido."
+    l "¡Esperen! [nombre_jugador!c] no es así... él solo nos protegió. No lo juzguen tan rápido."
     n "¡Pero míralo, Luz! Está cubierto de sangre, como un animal!"
     l "¡No! Es nuestro amigo, y lo que hizo fue por nosotros. Denle una oportunidad de explicarse."
 
     pause 1.5
 
-    "Rodrigo trató de hablar."
+    "[nombre_jugador!c] trató de hablar."
     pause 0.7
     "Su garganta arde."
 
@@ -2054,7 +2054,7 @@ label cap_9:
 
     a "Tal vez sea el estrés acumulado, pero esto no es normal."
     c "Luz, esto es peligroso. Debemos irnos antes de que... algo peor pase."
-    l "¡Basta! Rodrigo ha pasado por mucho. Todos lo hemos hecho. Apóyenlo en vez de atacarlo."
+    l "¡Basta! [nombre_jugador!c] ha pasado por mucho. Todos lo hemos hecho. Apóyenlo en vez de atacarlo."
     l "¡No lo abandonaremos! Él nos necesita."
 
     "La palabra 'abandonar' retumba."
@@ -2067,7 +2067,7 @@ label cap_9:
 
     "La risa de Galaxia se vuelve más clara."
     "Más cercana."
-    "Como si respirara tras del cuello de Rodrigo."
+    "Como si respirara tras del cuello de [nombre_jugador!c]."
 
     centered "Hazlo. Demuéstrales lo que eres."
 
@@ -2078,7 +2078,7 @@ label cap_9:
     "Pero el miedo no suena humano."
     "Suena como un gruñido bajo su pecho."
 
-    "La mirada de Rodrigo recorrió la de los demás."
+    "La mirada de [nombre_jugador!c] recorrió la de los demás."
     "Nagi retrocede medio paso."
     "Azura aprieta los labios."
     "Cutipye calcula distancias."
@@ -2105,9 +2105,9 @@ label cap_9:
     "Extiende la mano con cuidado."
     "Como si se acercara a un animal herido."
 
-    l "Rodrigo... tranquilo... estamos contigo."
+    l "[nombre_jugador!c]... tranquilo... estamos contigo."
 
-    "Su mano toca a Rodrigo por el hombro."
+    "Su mano toca a [nombre_jugador!c] por el hombro."
 
     #play sound "sfx/violent_reaction.mp3"
     play sound slash
@@ -2122,7 +2122,7 @@ label cap_9:
     "Una amenaza."
     "Un ataque."
 
-    "El cuerpo de Rodrigo reaccionó antes que su mente."
+    "El cuerpo de [nombre_jugador!c] reaccionó antes que su mente."
     "Un reflejo primitivo."
     "Una embestida desesperada."
 
@@ -2145,7 +2145,7 @@ label cap_9:
     "Imposible de ignorar."
 
     "El tiempo vuelve a su velocidad normal."
-    "Y con Rodrigo dentro."
+    "Y con [nombre_jugador!c] dentro."
 
     r "(No...)"
     r "(No no no no...)"
@@ -2155,17 +2155,17 @@ label cap_9:
 
     scene closeup_luz_dying with dissolve  # Close-up de Luz herida.
     if afinidad_luz < 3:
-        l "Rodrigo... duele... ¿por qué?"  # Mínimo afecto: Confusión y dolor.
+        l "[nombre_jugador!c]... duele... ¿por qué?"  # Mínimo afecto: Confusión y dolor.
     elif afinidad_luz == 4:
         l "No... fue un accidente... lo sé..."  # Ligeramente más comprensiva.
     elif afinidad_luz == 5:
-        l "Rodrigo, no te culpes... fuiste fuerte por nosotros."  # Empieza a mostrar apoyo.
+        l "[nombre_jugador!c], no te culpes... fuiste fuerte por nosotros."  # Empieza a mostrar apoyo.
     elif afinidad_luz == 6:
         l "Te... aprecio tanto... no dejes que esto te destruya."  # Afecto moderado, preocupación por él.
     elif afinidad_luz == 7:
-        l "Rodri... Amor... siempre estaré contigo en espíritu."  # Alto afecto, conexión emocional.
+        l "[apodo_jugador]... Amor... siempre estaré contigo en espíritu."  # Alto afecto, conexión emocional.
     elif afinidad_luz == 8:
-        l "Te quiero... Rodrigo. No olvides nuestros momentos... vive por mí."  # Máximo afecto: Amor y legado.
+        l "Te quiero... [nombre_jugador!c]. No olvides nuestros momentos... vive por mí."  # Máximo afecto: Amor y legado.
 
     if afinidad_luz >= 6:
         "Sus dedos buscan los de él."
@@ -2182,7 +2182,7 @@ label cap_9:
 
         pause 1
 
-        "Ella fue quien integró a Rodrigo al grupo."
+        "Ella fue quien integró a [nombre_jugador!c] al grupo."
         "Quien insistió en que era más que sus silencios."
         "Quien creyó en él incluso cuando él no lo hacía."
 
@@ -2199,7 +2199,7 @@ label cap_9:
     r "¡Luz! ¡Díme algo... por favor!"
     r "¡No me dejes... no así...!"
 
-    "Las lágrimas de Rodrigo caían sobre el rostro de Luz."
+    "Las lágrimas de [nombre_jugador!c] caían sobre el rostro de Luz."
     "Pero ella ya no responde."
 
     "La risa de Galaxia no vuelve."
@@ -2222,7 +2222,7 @@ label cap_10:
 
     "El pasillo administrativo está medio derrumbado. El techo cruje. Las luces parpadean con ese zumbido eléctrico insoportable."
 
-    "Rodrigo camina último."
+    "[nombre_jugador!c] camina último."
     "Sus pasos son más pesados que antes."
     "Respira mal."
     "Se detiene cada cierto tiempo, como si estuviera escuchando algo que los demás no oyen."
@@ -2230,9 +2230,9 @@ label cap_10:
     show azura worried at left with dissolve
 
     "Azura se volvió hacia él con miedo reflejado en sus ojos esmeralda."
-    a "Rodri… Dime que estás bien. Por favor."
+    a "[apodo_jugador]… Dime que estás bien. Por favor."
 
-    "Rodrigo tarda en responder. Su voz sale rasposa."
+    "[nombre_jugador!c] tarda en responder. Su voz sale rasposa."
     "Cuando lo hizo, su voz salió con la espereza del papel de lija."
     r "Sí. Solo… sigan caminando. No se separen."
 
@@ -2243,7 +2243,7 @@ label cap_10:
     c "(en voz baja) Está empeorando… Lo ves en sus ojos, ¿Verdad?"
 
     "Nagi se detiene en seco, sus botas rechinando contra el suelo sucio."
-    "Se giró con una violencia repentina, enfrentando a Rodrigo con una mezcla de pavor y furia contenida."
+    "Se giró con una violencia repentina, enfrentando a [nombre_jugador!c] con una mezcla de pavor y furia contenida."
 
     if afinidad_nagi < 3:
         jump traicion_nagi
@@ -2258,13 +2258,13 @@ label traicion_nagi:
     "El grupo se congeló en el sitio. La tensión era casi sólida."
     a "¿Nagi…?"
 
-    "Él señaló a Rodrigo con un dedo tembloroso, acusándolo frente a todos."
+    "Él señaló a [nombre_jugador!c] con un dedo tembloroso, acusándolo frente a todos."
     n "Desde que entramos en este jodido lugar, todo gira en torno a él."
     n "Sus ataques."
     n "Sus cambios de humor."
     n "Sus… Malditas cosas raras."
 
-    "Rodrigo baja la mirada, incapaz de sostenerle el juicio."
+    "[nombre_jugador!c] baja la mirada, incapaz de sostenerle el juicio."
     "Intenta hablar, pero su mandíbula se tensa antes de que pueda articular bien."
 
     r "No estoy… perdiendo el control, Nagi. No todavía."
@@ -2289,7 +2289,7 @@ label traicion_nagi:
     n "¿Aguantar?"
     n "Llevas diciendo eso horas mientras te transformas en un monstruo frente a todos."
 
-    "Da un paso hacia Rodrigo."
+    "Da un paso hacia [nombre_jugador!c]."
 
     n "Te tiemblan las manos."
     n "Nos miras como si fuéramos comida."
@@ -2298,14 +2298,14 @@ label traicion_nagi:
     "Se detiene antes de terminar la frase."
     "Silencio pesado."
 
-    "Rodrigo hundió la cabeza entre los hombros."
+    "[nombre_jugador!c] hundió la cabeza entre los hombros."
 
     n "¿Sabes qué? Siempre has sido así."
     n "Un pozo sin fondo de problemas."
 
     # Flashback breve
     scene bg flashback_rodrigo_borracho with dissolve
-    "Rodrigo inconsciente. Vomitando."
+    "[nombre_jugador!c] inconsciente. Vomitando."
     "Luz llorando."
     "Nagi sosteniéndolo para que no se ahogara."
     scene bg pasillo_derruido with dissolve
@@ -2317,7 +2317,7 @@ label traicion_nagi:
 
     a "¡Nagi!"
 
-    "Rodrigo no responde."
+    "[nombre_jugador!c] no responde."
     "No puede."
     "Sus uñas atraviesan la piel de su brazo, dibujando hilos rojos sobre la manga."
 
@@ -2363,14 +2363,14 @@ label traicion_nagi:
     c "Yo lo quiero…"
     c "Pero también tengo miedo."
 
-    "Mira a Rodrigo."
+    "Mira a [nombre_jugador!c]."
     "No con odio."
     "Con tristeza."
 
     c "No sé si podamos detenerlo si se transforma del todo."
 
     "Ese comentario duele más que el grito de Nagi."
-    "Rodrigo lo sabe."
+    "[nombre_jugador!c] lo sabe."
     pause 1.0
 
     "Nagi asintió, dándole la espalda al grupo definitivamente."
@@ -2387,7 +2387,7 @@ label traicion_nagi:
 
     "Un silencio tenso."
 
-    "Rodrigo cerró los ojos. El aire a su alrededor parecía vibrar con una premonición funesta."
+    "[nombre_jugador!c] cerró los ojos. El aire a su alrededor parecía vibrar con una premonición funesta."
     r "...No."
     r "...Esto no puede terminar así."
 
@@ -2400,7 +2400,7 @@ label traicion_nagi:
 
     a "¡NAGI!"
 
-    "Cutipye intentó correr hacia el origen del ruido, pero Rodrigo la frenó con una mano que ardía de fiebre."
+    "Cutipye intentó correr hacia el origen del ruido, pero [nombre_jugador!c] la frenó con una mano que ardía de fiebre."
     "Desde el vacío, la voz de Galaxia llegó como un susurro juguetón."
 
     g "Siempre se separan…"
@@ -2411,7 +2411,7 @@ label traicion_nagi:
 
     "Un sonido viscoso dominó el ambiente antes de que el silencio volviera a reclamar el pasillo."
     "Azura se cubrió la boca para no gritar. Cutipye apretó los puños hasta que sus nudillos blanquearon."
-    "Rodrigo no dijo nada, pero algo dentro de él crujó. No fue un hueso; fue su última pizca de voluntad humana rompiéndose."
+    "[nombre_jugador!c] no dijo nada, pero algo dentro de él crujó. No fue un hueso; fue su última pizca de voluntad humana rompiéndose."
 
     # Zoom dramático posible con ATL o simplemente narración
     "La cámara podría cerrar en su ojo."
@@ -2437,7 +2437,7 @@ label traicion_nagi:
 
     "Luz se lleva la mano a la boca."
     "Azura corre un paso adelante."
-    "Rodrigo ya está en movimiento."
+    "[nombre_jugador!c] ya está en movimiento."
 
     g "(fuera de escena, juguetona) Siempre es el mismo error…"
     g "Alejarse del rebaño."
@@ -2478,7 +2478,7 @@ label traicion_nagi:
 
     "Nagi forcejea."
 
-    n "¡Rodrigo—!"
+    n "¡[nombre_jugador!c]—!"
 
     "Pero Galaxia lo arrastra hacia atrás, hacia una puerta metálica entreabierta."
 
@@ -2501,7 +2501,7 @@ label traicion_nagi:
 
     a "…No nos va a dejar pasar."
 
-    "Rodrigo da un paso al frente."
+    "[nombre_jugador!c] da un paso al frente."
     "Sus brazos se tensan."
     "Las venas se marcan bajo la piel."
 
@@ -2521,7 +2521,7 @@ label traicion_nagi:
     play sound "audio/sfx/embestida_concreto.ogg"
     with vpunch
 
-    "La bestia arremete contra Rodrigo, estrellándolo contra la pared."
+    "La bestia arremete contra [nombre_jugador!c], estrellándolo contra la pared."
     "El impacto hace crujir el concreto."
 
     # (continúa el combate con descripciones similares; para brevidad, salto al final)
@@ -2537,7 +2537,7 @@ label traicion_nagi:
     "No hay más voces."
     "Solo el eco distante de pasos arrastrándose."
 
-    "Rodrigo queda de rodillas."
+    "[nombre_jugador!c] queda de rodillas."
     "Su transformación se retrae lentamente."
     "Demasiado tarde."
 
@@ -2548,9 +2548,9 @@ label traicion_nagi:
     a "Nos estaban esperando."
 
     "Cutipye no dice nada."
-    "Solo observa a Rodrigo."
+    "Solo observa a [nombre_jugador!c]."
 
-    "Rodrigo aprieta los puños hasta que sangran."
+    "[nombre_jugador!c] aprieta los puños hasta que sangran."
     "No llora."
     "Esta vez no."
 
@@ -2569,9 +2569,9 @@ label nagi_no_traiciona:
     n "¡Ya basta! ¡Esto es ridículo!"
     a "Nagi, por favor, no empieces..."
     n "¡Míralo! Desde que entramos, el mundo gira en torno a sus crisis."
-    n "¡Maldita sea, Rodri, pareces un zombi con esteroides!"
+    n "¡Maldita sea, [apodo_jugador], pareces un zombi con esteroides!"
 
-    "Rodrigo agachó la cabeza. La influencia de Galaxia era evidente en el brillo antinatural de su mirada."
+    "[nombre_jugador!c] agachó la cabeza. La influencia de Galaxia era evidente en el brillo antinatural de su mirada."
     r "No estoy… perdiendo el control. Todavía no."
 
     "Avanzó un paso, luchando contra una marea interna que amenazaba con devorarlo."
@@ -2604,14 +2604,14 @@ label nagi_no_traiciona:
 
     "Se detiene antes de terminar la frase. Silencio pesado."
     pause 0.5
-    "Da un paso hacia Rodrigo, pero no agresivo —más como un amigo que quiere zarandearlo para despertarlo."
-    "Rodrigo baja la cabeza, y sus uñas raspan más fuerte la tela, dejando marcas visibles."
+    "Da un paso hacia [nombre_jugador!c], pero no agresivo —más como un amigo que quiere zarandearlo para despertarlo."
+    "[nombre_jugador!c] baja la cabeza, y sus uñas raspan más fuerte la tela, dejando marcas visibles."
 
     n "¿Sabes qué? Siempre has sido así, ¿eh? Recuerdan esa vez que se emborrachó hasta casi morirse?"
 
     # Flashback breve
     scene bg flashback_rodrigo_borracho with dissolve
-    "Rodrigo inconsciente. Vomitando."
+    "[nombre_jugador!c] inconsciente. Vomitando."
     "Azura y Cutipye preocupadas."
     "Nagi sosteniéndolo para que no se ahogara."
     scene bg pasillo_derruido with dissolve
@@ -2620,27 +2620,27 @@ label nagi_no_traiciona:
 
     "El golpe emocional es fuerte, pero Nagi no lo remata con insultos. En cambio, mira al grupo."
 
-    a "(amable, interviniendo con cuidado) Nagi, por favor... Entiendo tu miedo. Todos lo sentimos. Rodri está luchando, y Galaxia lo está... cambiando. Pero separarnos no ayudará. ¿Y si hablamos de irnos cuanto antes? Encontrar una salida rápida, juntos."
+    a "(amable, interviniendo con cuidado) Nagi, por favor... Entiendo tu miedo. Todos lo sentimos. [apodo_jugador] está luchando, y Galaxia lo está... cambiando. Pero separarnos no ayudará. ¿Y si hablamos de irnos cuanto antes? Encontrar una salida rápida, juntos."
 
     "Azura pone una mano suave en el brazo de Nagi, su voz cuidadosa y empática, como una mediadora que prioriza la unión."
 
-    c "(con ligereza, intentando aligerar) Sí, ¡vamos! Como en esas películas donde todos corren y nadie se queda atrás. Rodri, si te transformas, te doy un beso para que vuelvas... o un golpe, lo que funcione primero. ¡Je!"
+    c "(con ligereza, intentando aligerar) Sí, ¡vamos! Como en esas películas donde todos corren y nadie se queda atrás. [apodo_jugador], si te transformas, te doy un beso para que vuelvas... o un golpe, lo que funcione primero. ¡Je!"
 
-    "Pero su risa es nerviosa, y mira a Rodrigo con una mezcla de cariño y temor real."
+    "Pero su risa es nerviosa, y mira a [nombre_jugador!c] con una mezcla de cariño y temor real."
 
-    n "(extrovertido, respondiendo con energía) ¡Eso! ¡Irnos cuanto antes! No me quedo aquí esperando que Rodri se convierta en el monstruo principal. Pero solos, somos carnada fácil para esa loca de Galaxia. ¡Vamos, grupo! ¿Quién dice que corramos como si nos persiguiera el diablo?"
+    n "(extrovertido, respondiendo con energía) ¡Eso! ¡Irnos cuanto antes! No me quedo aquí esperando que [apodo_jugador] se convierta en el monstruo principal. Pero solos, somos carnada fácil para esa loca de Galaxia. ¡Vamos, grupo! ¿Quién dice que corramos como si nos persiguiera el diablo?"
 
-    "Rodrigo levanta la mirada, sus pupilas aún dilatadas, pero asiente lentamente. La influencia de Galaxia hace que su voz suene un poco distorsionada."
+    "[nombre_jugador!c] levanta la mirada, sus pupilas aún dilatadas, pero asiente lentamente. La influencia de Galaxia hace que su voz suene un poco distorsionada."
 
     r "De acuerdo... Irnos cuanto antes. No... no quiero lastimarlos."
-    a "(sonríe débilmente, cuidadosa como siempre) Entonces, sigamos. Juntos. Busquemos esa salida, pero con cuidado. Rodri, si sientes que empeora... avísanos."
+    a "(sonríe débilmente, cuidadosa como siempre) Entonces, sigamos. Juntos. Busquemos esa salida, pero con cuidado. [apodo_jugador], si sientes que empeora... avísanos."
     c "(asiente, ligera pero solidaria) ¡Equipo invencible! O al menos... equipo que no se rinde."
 
-    "Nagi da una palmada en la espalda de Rodrigo —fuerte, extrovertida—."
+    "Nagi da una palmada en la espalda de [nombre_jugador!c] —fuerte, extrovertida—."
 
     n "¡Eso es! No te voy a dejar solo, idiota. Pero apúrate, o te cargo yo mismo."
 
-    "El grupo avanza, más unido por ahora, pero la tensión persiste. Rodrigo siente la influencia de Galaxia creciendo, un susurro en su mente que promete caos si no se apresuran."
+    "El grupo avanza, más unido por ahora, pero la tensión persiste. [nombre_jugador!c] siente la influencia de Galaxia creciendo, un susurro en su mente que promete caos si no se apresuran."
 
     pause 2.0
 
@@ -2649,7 +2649,7 @@ label nagi_no_traiciona:
     "Demasiado silencio."
     "Pero esta vez, no hay grito. Solo el eco de sus pasos sincronizados, apresurados hacia la salida."
 
-    "La cámara cierra en el ojo de Rodrigo."
+    "La cámara cierra en el ojo de [nombre_jugador!c]."
     "Aún oscuro, pero resistiendo... por ahora."
 
     stop music fadeout 4.0
@@ -2662,7 +2662,7 @@ label cap_11:
         scene bg_enfermeria_abandonada with dissolve
         
         "El descanso en la enfermería abandonada no trajo alivio. El aire estaba cargado de un olor metálico a sangre vieja y medicamentos podridos."
-        "Rodrigo se hundió en el suelo, pegando la espalda a la pared fría. Sus hombros sufrían espasmos y entrelazaba sus dedos con fuerza, como si tratara de evitar que sus manos se convirtieran en algo más."
+        "[nombre_jugador!c] se hundió en el suelo, pegando la espalda a la pared fría. Sus hombros sufrían espasmos y entrelazaba sus dedos con fuerza, como si tratara de evitar que sus manos se convirtieran en algo más."
         "El silencio era una losa, hasta que Cutipye lo rompió con un tono afilado."
 
         show cutipye media_sonrisa at right
@@ -2677,7 +2677,7 @@ label cap_11:
         show cutipye mirada_reojo
         c "Algunas personas simplemente… no saben cuándo parar."
         
-        "Rodrigo hundió la barbilla en el pecho, su voz apenas un hilo de voz."
+        "[nombre_jugador!c] hundió la barbilla en el pecho, su voz apenas un hilo de voz."
         r "Cuty… no estoy haciendo esto a propósito."
         
         show cutipye sorpresa_fingida
@@ -2690,19 +2690,19 @@ label cap_11:
         else:
             "El silencio de la sala hace que las palabras de Cutipye corten como cuchillas."
 
-        "Cutipye se pone de pie y camina lentamente frente a Rodrigo."
+        "Cutipye se pone de pie y camina lentamente frente a [nombre_jugador!c]."
         
         c "Siempre tienes el consejo perfecto para los demás. 'Relájate', dices. 'Estás exagerando', dices."
         
         show cutipye fria
         c "Pero ahora que tú eres el que tiene un monstruo en las tripas… todos tenemos que ser comprensivos contigo."
         
-        "Rodrigo la mira. Sus ojos están brillosos. No de rabia, sino de contención."
+        "[nombre_jugador!c] la mira. Sus ojos están brillosos. No de rabia, sino de contención."
         
         c "Te da miedo todo. Miedo el ruido. Miedo la oscuridad..."
         c "{cps=15}Te da miedo convertirte en lo que siempre has sido en el fondo.{/cps}"
         
-        "Los dedos de Rodrigo se curvaron, transformándose involuntariamente en garras por un segundo antes de que él volviera a apretar los puños."
+        "Los dedos de [nombre_jugador!c] se curvaron, transformándose involuntariamente en garras por un segundo antes de que él volviera a apretar los puños."
         
         a "Cutipye…"
         a "Basta."
@@ -2713,7 +2713,7 @@ label cap_11:
         
         "Unas plumas negras brotaron sutilmente en su cuello antes de retraerse. La lucha interna era feroz."
         
-        c "Ese es tu problema, Rodri. Siempre estás 'intentando', pero nunca logras nada. Solo das lástima."
+        c "Ese es tu problema, [apodo_jugador]. Siempre estás 'intentando', pero nunca logras nada. Solo das lástima."
         
         "Él se quedó inmóvil, como si le hubieran arrancado el alma de un golpe."
         c "¿Quieres que confiemos en ti? Ni tú mismo lo haces. Nos miras como si fuéramos presas y luego lloras para que te perdonemos."
@@ -2726,7 +2726,7 @@ label cap_11:
 
         c "Eres un monstruo porque eliges comportarte como uno cuando tienes miedo."
         
-        "Rodrigo ya no responde. Solo llora en silencio, sin defenderse."
+        "[nombre_jugador!c] ya no responde. Solo llora en silencio, sin defenderse."
 
         show cutipye cansada
         c "No puedo más. Necesito aire antes de que yo también me vuelva loca."
@@ -2757,7 +2757,7 @@ label cap_11:
             "Nagi, que normalmente habría respondido con algo sarcástico, solo bajó la mirada."
 
         show azura tired at centro_derecha with dissolve
-        "Azura apretó los labios. Rodrigo no levantó la vista."
+        "Azura apretó los labios. [nombre_jugador!c] no levantó la vista."
 
         show cutipye worried
         "Cutipye notó el silencio antes que el jugador. Lo midió. Entendió exactamente lo que significaba."
@@ -2779,7 +2779,7 @@ label cap_11:
         "Era la primera vez en todo el capítulo que Cutipye no cerraba una idea. No la remató con un chiste. No la rescató."
         "La dejó colgada en el aire."
 
-        "Rodrigo levantó la vista por primera vez."
+        "[nombre_jugador!c] levantó la vista por primera vez."
         if not nagi_dead:
             "Nagi también."
 
@@ -2789,7 +2789,7 @@ label cap_11:
 
         "Intentó sonreír. Guardó el cuaderno."
         "Nadie llenó el silencio por ella."
-        "Azura no dijo 'no, cuéntanos'. Rodrigo no cambió de tema para darle una salida. Nagi no hizo un chiste que la rescatara del momento."
+        "Azura no dijo 'no, cuéntanos'. [nombre_jugador!c] no cambió de tema para darle una salida. Nagi no hizo un chiste que la rescatara del momento."
         "Solo el silencio. Quieto. Sin rescate social."
 
         show cutipye tired
@@ -2835,7 +2835,7 @@ label cap_11:
 
         a "Lo sé. Pero la culpa no funciona así."
 
-        "Rodrigo no dijo nada largo. No era su estilo."
+        "[nombre_jugador!c] no dijo nada largo. No era su estilo."
         show rodrigo soft at right with dissolve
         r "Yo también dije que sí."
 
@@ -2903,7 +2903,7 @@ label escena_traicion_cutipye:
     "Una mano fría la empujó contra la pared y algo afilado acarició su yugular."
 
     scene bg_enfermeria_abandonada with flash
-    "En la enfermería, Rodrigo se tensó de golpe. Sus instintos de depredador le enviaron una señal de alarma que le heló la sangre."
+    "En la enfermería, [nombre_jugador!c] se tensó de golpe. Sus instintos de depredador le enviaron una señal de alarma que le heló la sangre."
     r "…Cutipye. Algo va mal."
     
     "Un grito ahogado rerebota por las paredes del pasillo."
@@ -2928,20 +2928,20 @@ label escena_traicion_cutipye:
     "Galaxia estaba sentada en una pequeña silla de mimbre, balanceando las piernas con inocencia macabra."
     g "¿Tú sabes dónde están los demás?"
     
-    "Cutipye sacó el arma que le había quitado a Rodrigo, apuntando con manos que no dejaban de temblar."
+    "Cutipye sacó el arma que le había quitado a [nombre_jugador!c], apuntando con manos que no dejaban de temblar."
     c "Están lejos de ti."
     
     play sound gunshot
     "El disparo retumbó en la habitación. La bala impactó en la pierna de Galaxia, pero la herida comenzó a supurar un humo negro y a cerrarse antes de que la sangre tocara el suelo."
     
-    g "Oh. Vaya. Ahora entiendo por qué Rodrigo estaba tan asustado."
+    g "Oh. Vaya. Ahora entiendo por qué [nombre_jugador!c] estaba tan asustado."
     
     play sound gunshot
     queue sound gunshot
     queue sound gunshot
     "Cutipye disparó una, dos, tres veces. Hombro, torso, cuello. Galaxia se tambaleaba con cada impacto, pero seguía sonriendo."
     
-    play sound "sfx_click_vacio"
+    play sound "sfx/gunshot.mp3"
     pause 0.6
     "El cargador estaba vacío. El silencio que siguió fue aterrador."
     
@@ -2999,7 +2999,7 @@ label cap_12:
         c "No corran todavía. Esperen."
 
     show azura shocked
-    a "...Rodrigo."
+    a "...[nombre_jugador!c]."
 
     "El tono de Azura lo detuvo antes de que diera el primer paso."
     "Al final del pasillo, bloqueando la puerta de salida, estaba Galaxia."
@@ -3022,7 +3022,7 @@ label cap_12:
         hide cutipye
 
     # --- CONFRONTACIÓN ---
-    "Rodrigo buscó la pistola. Vacía. La había vaciado Cutipye en el Cap 11."
+    "[nombre_jugador!c] buscó la pistola. Vacía. La había vaciado Cutipye en el Cap 11."
     "Nagi apretó el bate. Los nudillos blancos."
     "Azura no se movió. Sus ojos esmeralda recorrieron la habitación: las paredes, el techo, el suelo. Calculando."
 
@@ -3059,7 +3059,7 @@ label cap_12:
         c "¡Vámonos!"
     else:
         play sound shock
-        "Rodrigo sacó el encendedor que llevaba desde el principio. Lo usaba para ver en los cuartos sin linterna."
+        "[nombre_jugador!c] sacó el encendedor que llevaba desde el principio. Lo usaba para ver en los cuartos sin linterna."
         "Hizo clic. La llama apareció."
         r "¡Vámonos!"
 
@@ -3079,7 +3079,7 @@ label cap_12:
     "El control territorial de Galaxia se fracturaba."
 
     play sound scream1
-    "Rodrigo escuchó la araña chillando a dos pisos de distancia."
+    "[nombre_jugador!c] escuchó la araña chillando a dos pisos de distancia."
     "No venía hacia ellos. Iba hacia afuera."
 
     # ============================================================
@@ -3138,14 +3138,14 @@ label persecucion_qte_1:
 
     # 4 segundos para responder
     menu:
-        "[ SALTAR ]" if tiempo_escape > 0:
+        "[[ SALTAR ]]" if tiempo_escape > 0:
             $ tiempo_escape = max(0, tiempo_escape - 2)
             play sound land
-            "Rodrigo saltó el hueco sin detenerse a medir la distancia."
+            "[nombre_jugador!c] saltó el hueco sin detenerse a medir la distancia."
             "El impacto le sacudió las rodillas, pero siguió corriendo."
             jump persecucion_qte_2
 
-        "[ RODEAR ]" if tiempo_escape > 0:
+        "[[ RODEAR ]]" if tiempo_escape > 0:
             $ tiempo_escape = max(0, tiempo_escape - 8)
             play sound walk
             "El rodeo costó segundos que no tenían."
@@ -3174,14 +3174,14 @@ label persecucion_qte_2:
         n "¡Izquierda! ¡Hay espacio!"
 
     menu:
-        "[ PASAR POR LA IZQUIERDA ]" if tiempo_escape > 0:
+        "[[ PASAR POR LA IZQUIERDA ]]" if tiempo_escape > 0:
             $ tiempo_escape = max(0, tiempo_escape - 3)
             play sound slash
             "El calor les golpeó la cara al pasar."
-            "Rodrigo sintió el brazo rozar las llamas. Siguió corriendo."
+            "[nombre_jugador!c] sintió el brazo rozar las llamas. Siguió corriendo."
             jump persecucion_qte_3
 
-        "[ ROMPER LA VIGA ]" if tiempo_escape > 0:
+        "[[ ROMPER LA VIGA ]]" if tiempo_escape > 0:
             $ tiempo_escape = max(0, tiempo_escape - 10)
             play sound break_wood
             "La viga no cedió como esperaban."
@@ -3214,18 +3214,18 @@ label persecucion_qte_3:
     play music audio.chase1 fadein 0.2
 
     menu:
-        "[ ESQUIVAR — IR POR LA DERECHA ]" if tiempo_escape > 0:
+        "[[ ESQUIVAR — IR POR LA DERECHA ]]" if tiempo_escape > 0:
             $ tiempo_escape = max(0, tiempo_escape - 4)
             play sound run
-            "Rodrigo giró sin frenar."
+            "[nombre_jugador!c] giró sin frenar."
             "Galaxia extendió una garra — rozó el aire donde estaba su cabeza un instante antes."
             hide galaxia
             jump persecucion_qte_4
 
-        "[ ENFRENTARLA — EMPUJARLA ]" if tiempo_escape > 0:
+        "[[ ENFRENTARLA — EMPUJARLA ]]" if tiempo_escape > 0:
             $ tiempo_escape = max(0, tiempo_escape - 6)
             play sound thud
-            "Rodrigo la golpeó con el hombro con todo lo que tenía."
+            "[nombre_jugador!c] la golpeó con el hombro con todo lo que tenía."
             "Galaxia retrocedió tres pasos — sorprendida, no herida."
             play sound shock
             "El impacto le costó el equilibrio. Azura lo agarró del brazo."
@@ -3256,14 +3256,14 @@ label persecucion_qte_4:
         c "¡El cuarto escalón! ¡Directamente al cuarto!"
 
     menu:
-        "[ SALTAR AL CUARTO PELDAÑO ]" if tiempo_escape > 0:
+        "[[ SALTAR AL CUARTO PELDAÑO ]]" if tiempo_escape > 0:
             $ tiempo_escape = max(0, tiempo_escape - 3)
             play sound land
             "El peldaño aguantó."
             "Subieron los últimos metros en segundos."
             jump persecucion_qte_5
 
-        "[ BUSCAR OTRO CAMINO ]" if tiempo_escape > 0:
+        "[[ BUSCAR OTRO CAMINO ]]" if tiempo_escape > 0:
             $ tiempo_escape = max(0, tiempo_escape - 12)
             play sound walk
             "El rodeo por el ala este costó casi quince segundos."
@@ -3285,14 +3285,14 @@ label persecucion_qte_5:
     play sound thud
 
     "La puerta de salida estaba a tres metros."
-    "El candado. Oxidado. Rodrigo lo recordaba desde el principio del capítulo."
+    "El candado. Oxidado. [nombre_jugador!c] lo recordaba desde el principio del capítulo."
 
     "El humo ya tapaba el techo. Quedaban segundos antes de que el pasillo fuera irrespirable."
 
     play sound door_slam
 
     menu:
-        "[ GOLPEAR EL CANDADO ]" if tiempo_escape > 0:
+        "[[ GOLPEAR EL CANDADO ]]" if tiempo_escape > 0:
             $ tiempo_escape = max(0, tiempo_escape - 4)
             play sound break_glass
             play sound door_break
@@ -3302,7 +3302,7 @@ label persecucion_qte_5:
             hide screen timer_escape
             jump persecucion_exitosa
 
-        "[ PATEAR LA PUERTA ]" if tiempo_escape > 0:
+        "[[ PATEAR LA PUERTA ]]" if tiempo_escape > 0:
             $ tiempo_escape = max(0, tiempo_escape - 6)
             play sound door_break
             "La puerta cedió hacia afuera con el segundo golpe."
@@ -3368,13 +3368,13 @@ label ending_good_rodrigo:
     show galaxia walk_creepy at left with dissolve
     show rodrigo worried at right with dissolve
 
-    "Galaxia se giró hacia Rodrigo."
-    "El resto del grupo ya estaba moviéndose hacia la salida. Solo Rodrigo no se había movido."
+    "Galaxia se giró hacia [nombre_jugador!c]."
+    "El resto del grupo ya estaba moviéndose hacia la salida. Solo [nombre_jugador!c] no se había movido."
 
     g "¿Por qué no corres~?"
 
     show rodrigo serio
-    "Rodrigo no respondió con palabras."
+    "[nombre_jugador!c] no respondió con palabras."
     "Sus pies ya no eran del todo suyos. La transformación avanzaba desde que el humo empezó a llenar sus pulmones."
     "Pero todavía era él quien decidía adónde ir."
 
@@ -3388,7 +3388,7 @@ label ending_good_rodrigo:
     play sound slash
     scene black with flash
 
-    "Rodrigo no esquivó."
+    "[nombre_jugador!c] no esquivó."
     "La golpeó de frente, usó su peso y el impulso de ella para estamparla contra la pared opuesta."
     "Las garras le abrieron el costado. No lo soltó."
 
@@ -3400,10 +3400,10 @@ label ending_good_rodrigo:
         "Nagi la alcanzó por el brazo."
         n "¡Azura! ¡No podemos—!"
     if not cuty_dead:
-        "Cutipye vio la silueta de Rodrigo a través del humo."
-        c "...Rodri."
+        "Cutipye vio la silueta de [nombre_jugador!c] a través del humo."
+        c "...[apodo_jugador]."
 
-    "Rodrigo no miró hacia atrás."
+    "[nombre_jugador!c] no miró hacia atrás."
     "Oyó sus pasos alejarse."
 
     play music audio.rodtheme fadein 2.0
@@ -3416,7 +3416,7 @@ label ending_good_rodrigo:
     g "...Shio."
 
     "Una palabra. La primera vez que pronunció ese nombre en quince años."
-    "No para Rodrigo. Para ella misma."
+    "No para [nombre_jugador!c]. Para ella misma."
 
     "El techo cedió a tres metros de ellos."
     "Las llamas lo cubrieron todo."
@@ -3436,13 +3436,13 @@ label ending_bad1_rodrigo:
     $ renpy.block_rollback()
     play music audio.chase1 fadein 0.3
 
-    "El humo negro del incendio llenó los pulmones de Rodrigo."
+    "El humo negro del incendio llenó los pulmones de [nombre_jugador!c]."
     "No fue el calor lo que lo quebró. Fue el instinto."
     "Un susurro que ya no era de Galaxia — era de él mismo."
 
     show rodrigo shocked at center with dissolve
 
-    "Rodrigo sintió cómo su cuerpo dejaba de pedir permiso para actuar."
+    "[nombre_jugador!c] sintió cómo su cuerpo dejaba de pedir permiso para actuar."
     "Se giró hacia el grupo."
     "Ya no los reconoció."
 
@@ -3451,10 +3451,10 @@ label ending_bad1_rodrigo:
     # -----------------------------------------------
     if not nagi_dead:
         show nagi scared at left with dissolve
-        n "Rodrigo. Rodrigo, míranos. Estamos aquí."
+        n "[nombre_jugador!c]. [nombre_jugador!c], míranos. Estamos aquí."
 
         show rodrigo molesto
-        "Los ojos de Rodrigo se posaron en Nagi."
+        "Los ojos de [nombre_jugador!c] se posaron en Nagi."
         "No lo vio como su amigo."
         "Lo vio como una amenaza."
 
@@ -3462,7 +3462,7 @@ label ending_bad1_rodrigo:
         "Nagi levantó el bate. Manos temblorosas."
 
         menu:
-            "[ ESQUIVAR EL GOLPE — Nagi se aparta ]":
+            "[[ ESQUIVAR EL GOLPE — Nagi se aparta ]]":
                 play sound slash
                 play sound thud
                 scene black with flash
@@ -3474,12 +3474,12 @@ label ending_bad1_rodrigo:
                 "El bate cayó al suelo."
                 "Nagi no."
 
-            "[ AGUANTAR — Nagi intenta sujetarlo ]":
+            "[[ AGUANTAR — Nagi intenta sujetarlo ]]":
                 play sound slash
                 play sound thud
                 scene black with flash
                 "Nagi no pudo sujetarlo."
-                "Rodrigo era demasiado rápido."
+                "[nombre_jugador!c] era demasiado rápido."
                 scene pasillo_huida with flash
                 "El bate cayó al suelo."
 
@@ -3493,23 +3493,23 @@ label ending_bad1_rodrigo:
         c "¡Azura, corre! ¡No lo mires!"
 
         "Cutipye no corrió."
-        "Se quedó entre Rodrigo y Azura."
+        "Se quedó entre [nombre_jugador!c] y Azura."
 
         menu:
-            "[ AZURA DISTRAE A RODRIGO ]":
+            "[[ AZURA DISTRAE A RODRIGO ]]":
                 show azura shocked at centro_izquierda with dissolve
-                a "¡Rodrigo! ¡Soy yo! ¡Soy Azura!"
+                a "¡[nombre_jugador!c]! ¡Soy yo! ¡Soy Azura!"
                 play sound shock
-                "Rodrigo vaciló — un segundo, solo un segundo."
+                "[nombre_jugador!c] vaciló — un segundo, solo un segundo."
                 "Fue suficiente para que Cutipye empujara a Azura hacia la puerta."
                 play sound slash
                 scene black with flash
-                "Rodrigo no la siguió a ella."
+                "[nombre_jugador!c] no la siguió a ella."
 
                 $ cuty_dead = True
                 scene pasillo_huida with flash
 
-            "[ CUTIPYE CORRE ]":
+            "[[ CUTIPYE CORRE ]]":
                 #CAMBIAR - Cutipye sobrevive
                 play sound run
                 play sound slash
@@ -3526,34 +3526,34 @@ label ending_bad1_rodrigo:
     "No tenía arma. No tenía plan."
     "Solo tenía el nombre de él."
 
-    a "Rodrigo."
+    a "[nombre_jugador!c]."
 
     "Sin grito. Sin pánico. Solo su nombre, dicho en voz baja."
     "Como aquella primera vez en Historia, cuando lo integró al grupo."
 
     show rodrigo shocked
-    "Rodrigo se detuvo."
+    "[nombre_jugador!c] se detuvo."
     "Un segundo."
     "Dos."
 
     menu:
-        "[ RODRIGO AVANZA — Azura esquiva y corre ]":
+        "[[ RODRIGO AVANZA — Azura esquiva y corre ]]":
             play sound run
             "Azura no esperó el tercero."
-            "Se lanzó hacia la puerta lateral mientras Rodrigo avanzaba hacia donde ella había estado."
+            "Se lanzó hacia la puerta lateral mientras [nombre_jugador!c] avanzaba hacia donde ella había estado."
             "El humo la cubrió."
             play sound door_break
             "La puerta cedió."
             "Azura salió."
 
-        "[ RODRIGO BLOQUEA LA SALIDA ]":
+        "[[ RODRIGO BLOQUEA LA SALIDA ]]":
             play sound slash
             scene black with flash
             "Azura no llegó a la puerta."
             pause 0.5
             "..."
             pause 0.5
-            "Pero el fuego sí llegó a Rodrigo."
+            "Pero el fuego sí llegó a [nombre_jugador!c]."
             pause 0.5
             "Y Azura encontró otra salida."
             scene pasillo_huida with flash
@@ -3574,7 +3574,7 @@ label ending_neutral_rodrigo:
 
     play music audio.curse fadein 1.0
 
-    "Rodrigo mantuvo el paso con el grupo hasta el pasillo final."
+    "[nombre_jugador!c] mantuvo el paso con el grupo hasta el pasillo final."
     "Luego no lo mantuvieron."
 
     show rodrigo nervioso at left with dissolve
@@ -3586,9 +3586,9 @@ label ending_neutral_rodrigo:
     "El grupo corrió."
 
     if not cuty_dead:
-        c "¡Rodrigo, por aquí!"
+        c "¡[nombre_jugador!c], por aquí!"
 
-    "Rodrigo giró en la dirección equivocada."
+    "[nombre_jugador!c] giró en la dirección equivocada."
     "No por accidente."
 
     show rodrigo shocked
@@ -3652,7 +3652,7 @@ label epilogo_exterior:
 
         show azura shocked
         "Azura tenía los ojos fijos en el edificio."
-        "En algún punto dejó de buscar la silueta de Rodrigo entre las ventanas."
+        "En algún punto dejó de buscar la silueta de [nombre_jugador!c] entre las ventanas."
 
         play sound "sfx/crack-and-crunch.mp3"
         "El tejado cedió con un crujido que se oyó desde el bosque."
