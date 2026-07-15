@@ -1657,17 +1657,25 @@ screen screen_distortion_heavy():
 screen timer_escape():
     zorder 50
 
+    # Calcular formato MM:SS y color según tiempo restante
+    python:
+        _minutos = tiempo_escape // 60
+        _segundos = tiempo_escape % 60
+        _tiempo_fmt = "{:01d}:{:02d}".format(_minutos, _segundos)
+        _timer_color = "#ff2222" if tiempo_escape <= 10 else "#ffffff"
+        _timer_bg = "#3a0000" if tiempo_escape <= 10 else "#1a0000"
+
     # Fondo del timer — arriba a la derecha
     frame:
         xalign 0.98
         yalign 0.02
         padding (16, 10, 16, 10)
-        background Frame(Solid("#1a0000"), 6, 6)
+        background Frame(Solid(_timer_bg), 6, 6)
 
         hbox:
             spacing 8
-            text "⏱" size 28 color "#ff4444"
-            text "[tiempo_escape]s" size 28 bold True color "#ff4444" id "timer_text"
+            text "⏱" size 28 color _timer_color
+            text "[_tiempo_fmt]" size 28 bold True color _timer_color id "timer_text"
 
     # Timer que descuenta cada segundo
     timer 1.0 repeat True action [

@@ -544,7 +544,7 @@ screen nombre_input():
                         # Si vacío, asigna "Rodrigo" y salta al paso 2
                         action [
                             If(nombre_temp.strip() == "",
-                               SetScreenVariable("nombre_temp", "Rodrigo")),
+                                SetScreenVariable("nombre_temp", "Rodrigo")),
                             SetScreenVariable("paso", 2)
                         ]
                         text_size 26
