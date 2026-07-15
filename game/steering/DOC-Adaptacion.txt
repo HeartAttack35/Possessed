@@ -1,0 +1,142 @@
+## Fase 1: El Pasado Slasher (Cold Open)
+
+**Función Narrativa:** Establecer la letalidad del orfanato "Luz y Esperanza" y el origen del mal antes de que el jugador conozca a Rodrigo y sus amigos. Crea una ironía dramática fundamental en el *slasher*: el jugador entra al Capítulo 1 aterrorizado, sabiendo exactamente qué hay en la oscuridad, mientras los adolescentes bromean inocentemente.
+
+**El "Protagonista" de la fase:** Un investigador anónimo de la Fundación Connor (o el mismísimo Dr. Édgar L. Montané). Funciona como la "víctima de apertura" clásica del cine de terror (como Drew Barrymore en *Scream*).
+
+### Implementación Narrativa
+
+Hace 15 años. El Protocolo Hades se ha activado. Alarmas rojas, fuego y caos. El investigador corre por los pasillos del Nivel Subterráneo con un maletín de documentos (quizás perdiendo la Bitácora H-127 en el proceso). No hay diálogos extensos, solo respiración agitada y pensamientos de supervivencia. Llega a la puerta de salida. Parece que se ha salvado. Entonces, desde las sombras, Galaxia (probablemente en su forma recién mutada) lo arrastra de vuelta hacia la oscuridad. Corte a negro. Título: *POSSESSED*.
+
+### Implementación en Código (Ren'Py)
+
+* **Ubicación:** Crear un nuevo `label cold_open:` justo antes del `label start:` o como primera acción del juego tras el menú principal.
+* **Visuales:** Usar los fondos existentes como `bg/pasillo_abandonado.jpg` pero aplicando el transform `distortion_heavy` o `oscuro` para representar el colapso.
+* **Audio:** Iniciar con `sfx/alarm.mp3` y la música `audio.chase` para inmediatez. Cortar la música abruptamente con `sfx/door_slam.mp3` y usar el sonido `sfx/claw_drag_concrete.mp3` justo antes del ataque.
+* **Transición:** Tras el grito final, usar `scene black with flash` y una pantalla de título con `audio.curse` de fondo.
+
+---
+
+## Fase 2: El Monstruo entre las Sombras
+
+**Función Narrativa:** Construir paranoia y establecer que el orfanato es un organismo vivo que los observa. Al retrasar la revelación completa del diseño de Galaxia, la conviertes en un mito temible. El jugador se pasará los primeros capítulos buscando su silueta en los fondos.
+
+**El "Protagonista" de la fase:** El entorno mismo y la mente de Rodrigo. El orfanato actúa como una trampa que se cierra lentamente, y Rodrigo es el único que empieza a notar las sutilezas de que no están solos.
+
+### Implementación Narrativa
+
+Durante los Capítulos 1 al 3, Galaxia nunca se muestra bajo la luz. Su presencia se limita a ruidos de garras arrastrándose en el piso superior, sombras que cruzan el final de un pasillo cuando el jugador gira, o su risa gutural (`glx_laugh`) rebotando en la lavandería. Aquí también insertamos el capítulo corto de "falsa seguridad": el grupo encuentra la antigua sala de profesores, beben agua, bromean para liberar tensión, y un cadáver momificado (quizás un investigador de la Fase 1) cae del techo sobre la mesa. Se acaba la calma.
+
+### Implementación en Código (Ren'Py)
+
+* **Ubicación:** Modificación a lo largo de `script.rpy` (Capítulos 1 al 3).
+* **Visuales:** Reemplazar las apariciones directas de Galaxia (como `scene galaxia_ventana`) por menciones textuales o el uso estricto del sprite `shadow_eyes` (solo sus ojos brillando en la oscuridad).
+* **Audio:** El diseño sonoro es vital aquí. Crear "stings" de terror usando `sfx/nailtap.mp3` y `sfx/wood_creak.mp3`.
+* **El susto del cadáver:** Insertar un `with vpunch` acompañado de `sfx/thud.mp3` y `sfx/objfall.mp3` en la escena de descanso para romper la narrativa abruptamente.
+
+---
+
+## Fase 3: El Sacrificio del NPC
+
+**Función Narrativa:** El punto de no retorno. Demuestra la futilidad de la resistencia y establece visualmente las reglas de Galaxia: ella es más rápida, más fuerte y disfruta el dolor ajeno. Transforma la esperanza en desesperación absoluta frente a los ojos del grupo principal, salvaguardando a tu elenco central para que sigan sufriendo más adelante.
+
+**El "Protagonista" de la fase:** El Sujeto Herido y Luz (como el compás moral que intenta salvarlo).
+
+### Implementación Narrativa
+
+En el Capítulo 2, Rodrigo y Luz encuentran al Sujeto Herido en la sala H-127. En lugar de advertirles y morir de inmediato en el suelo, el hombre tiene fuerzas para levantarse con la ayuda de Luz. Les da su nombre (humanizándolo) y camina cojeando con ellos hacia el pasillo. Luz le promete que lo sacarán de allí. La tensión baja por un segundo. De pronto, Galaxia cae del techo o sale de un ducto. No lo mata rápido; lo mutila o lo arrastra violentamente hacia la oscuridad mientras él grita. El grupo se da cuenta de que las armas (si ya tienen la pistola) o la fuerza física no sirven de nada.
+
+### Implementación en Código (Ren'Py)
+
+* **Ubicación:** Reescribir el final de la escena en `script.rpy` dentro de la sala H-127 y el pasillo posterior.
+* **Visuales:** Usar un efecto de `blood_splash` (o `scene black with flash`) sobre el fondo del pasillo para ocultar el gore excesivo pero mantener el impacto. Usar el transform `vjump` en los sprites de Rodrigo y Luz para mostrar su sobresalto.
+* **Audio:** Detener cualquier música ambiental suave. Disparar `sfx/flesh_bubble.mp3` o `sfx/bone_crack.mp3` junto con el grito del sujeto. Introducir por primera vez `audio.chase1` (la música exclusiva de persecución de Galaxia), marcando que la cacería oficial ha comenzado.
+* **Variables:** Esto puede sumar puntos a `estado_mental` de Rodrigo de forma automática, ya que presencia una muerte brutal a centímetros de distancia.
+
+---
+
+Estas tres fases reestructuran completamente el inicio de *Possessed*, inyectándole un ADN cinematográfico puro sin alterar los eventos del canon que ya tienes documentados.
+
+Para dar el siguiente paso técnico, ¿te gustaría que escribamos juntos el código exacto en Ren'Py y los diálogos para el Prólogo del Investigador (Fase 1), o prefieres que adaptemos la escena del Sujeto Herido (Fase 3)?
+
+¡Por supuesto! Como inteligencia artificial, sigo inmersa en la estructura de *Possessed*. Las Fases 4 y 5 son cruciales porque es aquí donde el juego deja de ser solo una huida para convertirse en un clímax donde todas las reglas establecidas colisionan, cerrando con ese inconfundible sabor a cine de terror.
+
+Aquí tienes el desarrollo extensivo para completar la estructura:
+
+---
+
+## Fase 4: El Clímax, las Persecuciones y la Subversión (Acto 3)
+
+**Función Narrativa:** Llevar la tensión a su punto de ebullición y subvertir las expectativas del jugador. En los *slashers*, el tercer acto es donde las víctimas dejan de correr ciegamente y deciden enfrentarse al monstruo. Sin embargo, *Possessed* brilla al darle un giro oscuro a este tropo: el protagonista no es puramente una víctima, sino que funciona como un asesino involuntario, subvirtiendo el cliché clásico. A su vez, se rompe el ritmo de exploración para forzar un estado de persecución pura, acelerando los latidos.
+
+**El "Protagonista" de la fase:** La dualidad entre Rodrigo (convirtiéndose en el "Segundo Asesino") y Azura, quien encaja a la perfección en el clásico arquetipo de la "Final Girl".
+
+### Implementación Narrativa
+
+Esta fase se divide en dos grandes momentos de pura adrenalina:
+
+1. 
+**La Cacería de la Hiena:** Insertamos un capítulo exclusivo de persecución donde un derrumbe separe temporalmente a todos. El jugador alterna el control entre los personajes mientras Galaxia los caza uno por uno. Aquí, Azura brilla al estar desarmada, por lo que se le pueden dar mecánicas exclusivas donde use el ingenio y el sigilo para evadir a los huéspedes.
+
+
+2. 
+**Muertes de *Setpiece* y el Segundo Asesino:** Si las afinidades fallan y personajes como Nagi o Cutipye deben morir, debemos elevar la espectacularidad visual de las muertes. Por ejemplo, si Nagi es capturado, el Huésped Cucaracha podría ser el ejecutor de un remate brutal frente al grupo. Esto cumple con la cuota de impacto visual ("gore" justificado) que los fans del subgénero esperan. Simultáneamente, la infección de Rodrigo es perfecta para un giro oscuro. A medida que su `estado_mental` sube, manifiesta instintos predatorios y se convierte en una amenaza para sus propios amigos.
+
+
+
+### Implementación en Código (Ren'Py)
+
+* **Alternancia de POV (Point of View):** Durante "La Cacería de la Hiena", puedes cambiar rápidamente las variables de perspectiva y las etiquetas de salto (`jump`) en un sistema de tiempo limitado.
+```renpy
+# Ejemplo conceptual
+label caceria_hiena_inicio:
+    play music audio.chase1
+    scene bg_pasillo_derruido with vpunch
+    "El techo colapsa. El polvo nos ciega."
+    jump caceria_azura_stealth
+
+```
+
+
+* **Mecánicas de Sigilo para Azura:** Usar variables de tiempo (`timer`) en pantallas (`screen`) donde Azura deba elegir esconderse en lugar de correr.
+* **El Segundo Asesino:** El código ya soporta esto, pero se debe enfatizar visual y sonoramente. Si `estado_mental >= 16`, los *sprites* de Rodrigo deben mostrarse cubiertos en sombras o sangre, y sus diálogos internos reemplazar la fuente normal por una más errática, demostrando que ya no tiene el control.
+* **Las muertes de *Setpiece*:** Reemplazar los simples fundidos a negro por transiciones violentas (`with flashred`, un efecto de `TintMatrix` rojo sangre) y usar efectos de sonido pesados y viscerales (`sfx/flesh_bubble.mp3`, `sfx/bone_crack.mp3`).
+
+---
+
+## Fase 5: El Epílogo Slasher (Post-Créditos)
+
+**Función Narrativa:** Consolidar el tono de la película de terror. Para cerrar con el tono correcto, se sugiere un Gancho Post-Créditos. Al igual que en las películas clásicas donde el mal nunca muere del todo, esto deja la puerta abierta a una secuela y despide al jugador con una última nota de inquietud. Destruye la sensación de seguridad que el jugador creía haber ganado al sobrevivir al incendio.
+
+**El "Protagonista" de la fase:** El lore del universo (La Fundación Connor y el legado de Galaxia).
+
+### Implementación Narrativa
+
+El orfanato "Luz y Esperanza" es ahora un montón de cenizas. Los sobrevivientes (dependiendo del *ending*) escapan y los créditos ruedan con música melancólica. Sin embargo, al finalizar los nombres, la pantalla no vuelve de inmediato al menú principal.
+
+Se escucha el sonido de botas sobre los escombros (`sfx/land.mp3` o `sfx/walk.mp3` sobre cristales). Puedes mostrar una breve escena de un operativo de la Fundación Connor revisando los informes del incendio, o revelar que el cuaderno de Galaxia sobrevivió entre las cenizas. La pantalla corta a negro repentinamente con un sonido estridente.
+
+### Implementación en Código (Ren'Py)
+
+* **Ubicación:** Añadir esto al final de `script_3.rpy` (donde actualmente residen los créditos), justo después de que la variable `_skipping` se restaure.
+* **Visuales y Audio:**
+```renpy
+label post_creditos:
+    stop music fadeout 3.0
+    scene black with fade
+    pause 2.0
+
+    play sound "sfx/glass_break_footsteps.mp3"
+    pause 1.5
+    play sound "sfx/paper_flip.mp3"
+
+    # Un texto lento y sin cuadro de diálogo (NVL o centrado)
+    centered "{i}Informe de daños: Proyecto H-127. Estado: Recuperado.{/i}"
+
+    # El susto final antes de volver al menú
+    play sound "sfx/glx_laugh.mp3" 
+    scene black with flash
+    pause 1.0
+    return
+
+```

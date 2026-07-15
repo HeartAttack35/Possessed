@@ -1,9 +1,113 @@
+################
+#   ACTO 0
+################
+
 label start:
+    # Configuración inicial: Transición a negro para preparar la inmersión
     show screen hud_stats
+    stop music fadeout 1.0
+    scene black with fade
+    pause 1.0
+
+    # Texto en pantalla para ubicar al jugador temporalmente
+    centered "{i}Hace 15 años...\nCentro de Investigación Subterráneo H-127{/i}" with fade
+    pause 1.5
+
+    # Inicio de la acción: Alarmas, luces distorsionadas y música frenética
+    scene pasillo_abandonado at oscuro, distortion_heavy with hpunch
+    play ambient "sfx/alarm.mp3" loop volume 0.7
+    play music chase fadein 1.0
+
+    "La luz roja de emergencia bañaba los pasillos de concreto del Nivel Subterráneo."
+    "El Protocolo Hades había sido activado."
+    "Fuego. Caos. Y sangre. Demasiada sangre."
+
+    play sound run loop
+    "Un investigador de la Fundación Connor corría hacia la salida, tropezando con sus propios pies."
+    "En sus manos apretaba un maletín metálico con los últimos registros de las pruebas."
+
+    # Conexión con la Dictadura (Lore)
+    "Los archivos eran su único seguro de vida. Si el Régimen se enteraba de que el proyecto estrella de la dictadura había fracasado, no habría exilio que lo salvara."
+    "El Ministerio les había entregado a los huérfanos 'prescindibles' en completo secreto. Ahora, esos mismos niños eran monstruos sueltos por los pasillos."
+
+    stop sound # Detiene el sonido de pasos corriendo momentáneamente
+    play sound "sfx/heavy_breathing.mp3" loop
+
+    investigador "Tengo que salir... El General no puede culparme a mí... Yo solo seguía órdenes del Dr. Montané..."
+    
+    "Atrás, en los niveles inferiores, los gritos de los demás científicos y militares ya habían cesado. Ese era el peor indicador de todos."
+    "No miró atrás. La regla de oro del proyecto H-127 era clara: si los especímenes se liberan, nunca mires atrás."
+
+    play sound run loop
+    "Dobló la última esquina. La pesada puerta metálica de la salida de emergencia apareció a unos metros."
+    "El aire helado del exterior se filtraba por las rendijas. La libertad."
+
+    investigador "Casi... ya casi..."
+    "Alcanzó la manija. El frío del metal bajo sus dedos sudorosos se sintió como la salvación absoluta."
+
+    # El clímax del prólogo y subversión
+    stop music
+    stop sound
+    play sound "sfx/door_slam.mp3"
+    with vpunch
+    
+    "De repente, la pesada puerta se cerró de golpe frente a él, empujada por una fuerza invisible."
+    "El investigador retrocedió, temblando. La luz roja parpadeó... y el pasillo quedó en penumbra absoluta."
+
+    scene pasillo_abandonado at oscuro with fade
+    pause 0.5
+
+    # El ícono auditivo de Galaxia
+    play sound "sfx/claw_drag_concrete.mp3"
+    "Un sonido metálico rasgó el silencio. Eran garras arrastrándose lentamente sobre el hormigón."
+    "Venía desde las sombras. Justo detrás de él."
+
+    investigador "¿Q-Quién...?"
+
+    play music curse fadein 0.5
+    
+    # Presencia de Galaxia usando el sprite sugerido
+    show shadow_eyes at center with dissolve
+
+    "No hubo respuesta. Solo el brillo de dos ojos antinaturales, heterocromáticos, y la silueta de una sonrisa afilada en la oscuridad."
+
+    play sound "sfx/laugh.mp3"
+    "Una risa infantil y gutural rebotó en las paredes."
+
+    # Galaxia habla usando su fuente exclusiva (HelpMe.ttf)
+    "{color=#390169}{font=fonts/HelpMe.ttf}Jugaremos para siempre...{/font}{/color}"
+
+    "Unas manos frías y sobrenaturalmente fuertes lo sujetaron por los hombros, levantándolo del suelo con una facilidad humillante."
+
+    # Efectos viscerales de muerte
+    stop ambient
+    play sound "sfx/slash.mp3"
+    scene black with flashred
+    play sound "sfx/flesh_bubble.mp3"
+    play sound "sfx/bone_crack.mp3"
+
+    investigador "¡AAAAAHHH!"
+    "Fue arrastrado violentamente de regreso hacia la profundidad del laboratorio."
+
+    # Transición final al título del juego
+    scene black with flash
+    pause 1.0
+
+    # Pantalla de título 
+    centered "{size=80}{color=#fd5353}{font=fonts/HelpMe.ttf}POSSESSED{/font}{/color}{/size}" with fade
+    pause 3.0
+    
+    scene black with fade
+    stop music fadeout 2.0
+    pause 1.0
+
+    # Inicia el Capítulo 1 
+    jump cap_1
 
 ################
 #    ACTO 1
 ################
+label cap_1:
 
     scene bosque_tarde with fade
     play music forest fadein 2
@@ -11,8 +115,28 @@ label start:
     "Una fría tarde de otoño, el grupo de amigos se encontraba caminando en medio del bosque, kilómetros más allá de la autopista."
     "Los árboles a su alrededor danzaban al suave ritmo del viento. A medida que se abrían paso a través del sendero, la conversación inevitablemente retornó al motivo de aquella junta."
 
+    # Nagi lideraba la marcha, golpeando los troncos con su bate de béisbol
+    show nagi smug at center with dissolve
+    "El viento otoñal cortaba como navaja, pero a Nagi no parecía importarle."
+    "Caminaba marcando el paso, golpeando los troncos con su bate de béisbol."
+
+    show azura smile at right with dissolve
+    a "Deberíamos volver... Dicen que este lugar no solo era un orfanato."
+
+    show cutipye smile at left with dissolve
+    c "Oh, genial. ¿Fantasmas huérfanos y militares muertos? Nagi, elegiste el mejor lugar para un viernes."
+
+    show nagi smug at center
+    n "Tonterías. Son puros cuentos para asustar a los niños de secundaria."
+    n "Es solo un edificio abandonado, Zu-chan."
+
+    hide nagi
+    hide azura
+    hide cutipye
+    with dissolve
+
     show rodrigo neutral at center with dissolve
-    "[nombre_jugador!c] ajustó la navaja oculta en su cinturón. Esperaba no tener que usarla, pero la paranoia era un viejo hábito difícil de romper."
+    "[nombre_jugador!c] se mantuvo en silencio, la mano rozando instintivamente la daga oculta en su cinturón."
     r "¿Están seguras de que quieren hacer esto...? Hay formas menos estúpidas de ser buscados por la policía..."
 
     show cutipye smile at right
@@ -124,13 +248,64 @@ label start:
     show rodrigo neutral
 
     "El grupo comenzó a explorar aquel lugar, encendiendo sus linternas."
+    hide rodrigo with dissolve
+    scene pasillo_oscuro with wipeleft
+
+    "A unos pasillos de distancia..."
+
+    show cutipye neutral at centro_derecha with dissolve
+    c "Nagi es un idiota... Ni siquiera hay buena señal aquí para subir nada."
+    "Cutipye ajustó las correas de su mochila, iluminando un suelo atestado de escombros, cristales rotos, y un polvo denso que bailaba en la luz."
+    "De pronto, un sonido la hizo detenerse en seco."
+
+    play sound nailtap
+    "No eran los pasos de Nagi. Era un repiqueteo seco."
+    "Garras. Arañando el linóleo."
+    show cutipye worried
+    c "¿Azura? ¿Eres tú intentando asustarme?"
+
+    play sound "sfx/claw_drag_concrete.mp3"
+    "El sonido no venía de atrás. El eco rebotaba de una forma extraña... {cps=20}Venía desde arriba.{/cps}"
+
+    show cutipye scared at centro_derecha, vjump
+    "Cutipye alzó la linterna con pulso tembloroso hacia el techo."
+
+    #play sound larvcry volume 0.7
+    "Un enorme bulto desgarbado se desprendió de las sobras y se alzó frente a ella de forma lenta."
+
+    #agregar scene de Cutipye iluminando asustada.
+    "La luz temblorosa iluminó una aberración: Un torso de piel estirada al límite, espinazos expuestos rompiendo la carne y extremidades demasiados largas para su cuerpo."
+    "Pero lo peor eran sus ojos. Dos orbes que la miraban fijamente, brillando en la oscuridad como rubíes podridos."
+
+    show cutipye scared at center, vjump
+    c "¡D-Dios mío!"
+
+    "La criatura se abalanzó con un chillido ensordecedor."
+    play sound slash
+    with shake
+    "Cutipye giró bruscamente por puro instinto, pero una garra rasgó el costado de su brazo y se enganchó profundamente en las correas de su mochila."
+    "El dolor fue agudo. Ardiente."
+
+    play sound objfall
+    "Con un tirón desesperado impulsado por la adrenalina, Cutipye consiguió zafarse."
+    "La mochila cayó pesadamente al suelo, salpicada con las primeras gotas de su propia sangre."
+
+    play sound run
+    c "¡NAGI! ¡AYUDA!"
+
+    hide cutipye with moveoutleft
+    "Corrió ciegamente, perdiéndose en la negrura del pasillo mientras la criatura se distraía un segundo vital desgarrando la tela ensangrentada de la mochila."
 
     scene pasillo_oscuro with dissolve
-    play sound walk
-    "[nombre_jugador!c], por su lado, se adentró en una de las habitaciones en el pasillo..."
-    "En el suelo, algunas muñecas antiguas y deshechas. A pesar de parecer aleatorias, algo no cuadraba."
+    "[nombre_jugador!c], ajeno al grito que se había ahogado al otro lado del edificio, se adentró en una de las habitaciones en el pasillo..."
 
-    show rodrigo neutral
+    show rodrigo neutral with dissolve
+    play sound walk
+    "El suelo crujía bajo sus zapatillas con cada paso cauteloso."
+    "Al enfocar su linterna en una esquina cubierta de moho, encontró un montón de muñecas antiguas y deshechas."
+    
+    "A pesar de parecer un simple montón de basura olvidada, algo no cuadraba. Faltaban piezas. Estaban... desmembradas metódicamente."
+    show rodrigo alert
     r "¿...?"
 
     play music melody

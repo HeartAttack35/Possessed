@@ -8,6 +8,7 @@ define a = Character("Azura", color="#0f8028")
 define n = Character("Nagi", color="#7b2cbf")
 define g = Character("Galaxia", what_font="fonts/HelpMe.ttf", color="#390169")
 define sujeto = Character("Sujeto")
+define investigador = Character("Investigador", color ="#a3a3a3")
 define ln = Character("Lucien", color="#fd5353")
 
 # Variables y definiciones
@@ -81,6 +82,7 @@ transform slight_zoom:
     zoom 1.05
 
 define flash = Fade(.25, 0.0, .75, color="#fff")
+define flashred = Fade(.25, 0.0, .75, color="#ff0000")
 
 define shake = hpunch
 
