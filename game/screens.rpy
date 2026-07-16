@@ -1684,3 +1684,18 @@ screen timer_escape():
             Jump("escape_tiempo_agotado")
         )
     ]
+
+
+################################################################################
+## Pantalla de título — Prólogo
+################################################################################
+
+## Pantalla de título no-interactiva para la secuencia del prólogo.
+## Se muestra con `show screen title_card` y se oculta con
+## `hide screen title_card`. El avance lo controla `pause 3.0` en script.rpy.
+screen title_card():
+    zorder 10
+    add Solid("#000000")
+    text "{size=80}{color=#fd5353}{font=fonts/HelpMe.ttf}POSSESSED{/font}{/color}{/size}":
+        xalign 0.5
+        yalign 0.5

@@ -67,7 +67,7 @@ label start:
     play music curse fadein 0.5
     
     # Presencia de Galaxia usando el sprite sugerido
-    show shadow_eyes at center with dissolve
+    show galaxia shadow_eyes at center with dissolve
 
     "No hubo respuesta. Solo el brillo de dos ojos antinaturales, heterocromáticos, y la silueta de una sonrisa afilada en la oscuridad."
 
@@ -93,10 +93,10 @@ label start:
     scene black with flash
     pause 1.0
 
-    # Pantalla de título 
-    centered "{size=80}{color=#fd5353}{font=fonts/HelpMe.ttf}POSSESSED{/font}{/color}{/size}" with fade
+    # Pantalla de título — no interactiva, avanza sola tras 3 segundos
+    show screen title_card with fade
     pause 3.0
-    
+    hide screen title_card with fade
     scene black with fade
     stop music fadeout 2.0
     pause 1.0
@@ -249,7 +249,7 @@ label cap_1:
 
     "El grupo comenzó a explorar aquel lugar, encendiendo sus linternas."
     hide rodrigo with dissolve
-    scene pasillo_oscuro with wipeleft
+    scene pasillo_abandonado with wipeleft
 
     "A unos pasillos de distancia..."
 
@@ -271,9 +271,12 @@ label cap_1:
     "Cutipye alzó la linterna con pulso tembloroso hacia el techo."
 
     #play sound larvcry volume 0.7
-    "Un enorme bulto desgarbado se desprendió de las sobras y se alzó frente a ella de forma lenta."
+    "Un enorme bulto desgarbado se desprendió de las sombras y se alzó frente a ella de forma lenta."
 
     #agregar scene de Cutipye iluminando asustada.
+    #AÑADIR IMÁGEN DE CUTIPYE ILUMINANDO HACIA LA PANTALLA
+    pause 0.7
+    play sound shock
     "La luz temblorosa iluminó una aberración: Un torso de piel estirada al límite, espinazos expuestos rompiendo la carne y extremidades demasiados largas para su cuerpo."
     "Pero lo peor eran sus ojos. Dos orbes que la miraban fijamente, brillando en la oscuridad como rubíes podridos."
 
@@ -577,171 +580,171 @@ label escapar_araña:
 
 label cap_2:
 
-    scene sotano_inicial with fade
-    play sound wood_creak loop volume 0.5
-    "Los escalones crujían bajo sus pies con cada paso que daban. Una humedad densa impregnaba el aire; y el frío del sótano era diferente: no era solo temperatura... era abandono."
+    # ============================================================
+    # CAPÍTULO 2: EL SACRIFICIO Y EL MONSTRUO ENTRE LAS SOMBRAS
+    # ============================================================
+
+    scene puerta_abierta_sotano with fade
+    play music ambiental fadein 1.0
+
+    "[nombre_jugador!c] y Luz bajaron por unos escalones de concreto que crujían bajo su peso."
+    "El frío del sótano no era solo temperatura... era abandono."
+
+    scene pasillo_lab with wipeleft
+
+    "Llegaron a un pasillo revestido de azulejos blancos manchados. Había puertas metálicas pesadas con números borrosos."
 
     show rodrigo linterna at left
     show luz worry at right
     with dissolve
 
-    "La linterna de [nombre_jugador!c] iluminaba paredes de concreto agrietado, cables expuestos, y manchas que no sabían si eran óxido o sangre vieja."
+    l "[nombre_jugador!c]... esto no es un sótano normal. Parece un laboratorio."
 
-    stop sound fadeout 1
-    l "¿Qué es este lugar...? No parece parte del orfanato."
-    r "Un laboratorio... O eso parece."
-
-    scene pasillo_lab with dissolve
-    play sound walk
-    window hide
-    scene pasillo_lab with flash
-    pause 0.1
-    scene pasillo_lab with flash
-    window show
-    show rodrigo linterna at left
-    show luz neutral at right
-    
-    "Frente a ellos, un pasillo estrecho con varias salas numeradas."
-    "Mientras se abrían paso, las miradas de [nombre_jugador!c] y Luz se tornaban hacia sus alrededores, observando detenidamente las puertas metálicas."
-    "A medida que avanzaban, lentamente se apegaban el uno al otro sin decir una sola palabra, instintivamente buscando la compañía del otro."
+    "Mientras se abrían paso, las miradas de ambos recorrían las paredes, los cables colgantes, las manchas oscuras sobre el azulejo."
+    "A medida que avanzaban, lentamente se apegaban el uno al otro sin decir una sola palabra."
 
     r "Jamás pensé que terminaríamos perdidos en un lugar así..."
     show luz smile at right
     l "Siendo honesta... Si me hubieran dicho que terminaría en una casita de terror con el callado del salón... Tampoco me lo hubiera creído."
     $ afinidad_luz += 1
-    
-    scene sala_proyector with fade
-    "Dentro, viejos escritorios, archivos húmedos, y en la esquina, un proyector cubierto de polvo. En las paredes, fotografías clínicas de niños con la piel... Incorrecta."
-    "Sobre uno de los escritorios, una hoja de cuaderno intacto dentro de una caja metálica sellada, con el símbolo de una organización desconocida."
+
+    # -- Descubrimiento de la bitácora --
+    "Entraron a la sala contigua."
+    "Sobre un escritorio metálico, una caja fuerte abierta revelaba un cuaderno polvoriento."
 
     show cuaderno_bitacora at center with dissolve
     play sound paper_flip
     play music story
-    "[nombre_jugador!c] abre el cuaderno."
+    "[nombre_jugador!c] lo abrió. El encabezado era claro:"
 
     """
     {cps=20}{b}Bitácora del proyecto H-127: SUJETOS HUÉSPEDES{/b}{/cps}\n
-    
-    {cps=20}Responsable: Dr. Édgar L. Montané{/cps}\n
-    
+
+    {cps=20}Director: Dr. Édgar L. Montané{/cps}\n
+
     {cps=20}Ubicación: Centro de Investigación Subterráneo del Orfanato "Luz y Esperanza"{/cps}\n
     """
-    
+
     play sound paper_flip
-    
+
     """
     {cps=20}{b}Entrada 01 – Día 0{/b}{/cps}
     \n
     {cps=20}Los niños refugiados, sin lazos familiares, han sido seleccionados para la integración del Patógeno H-127.
     Sus historiales clínicos los hacen... prescindibles{/cps}.
     """
-    
+
     play sound paper_flip
-    
+
     """
     {cps=20}{b}Objetivo:{/b} Inducir una simbiosis controlada.
     Los resultados preliminares son...{/cps}
     \n\n
     {cps=10}{color=#f00}...{b}esperanzadores.{/b}{/color}{/cps}
     """
-    
+
     hide cuaderno_bitacora with dissolve
     hide text
-    
+
     show luz worry at right
     show rodrigo frustrado at left
     pause (2)
-    
-    r "..."
-    
+
+    r "Estaban usando a los huérfanos... los llamaban 'sujetos prescindibles'."
 
     pause (1)
-    
-    r "Usaron a los niños como ratas de laboratorio..."
+
     l "Entonces..."
-    
-    pause 1
-    
     l "Esa cosa que vimos... ¿Era uno de ellos?"
     "[nombre_jugador!c] cerró el cuaderno de golpe, con los nudillos blancos por la ira."
-    
+
+    # -- El hombre herido --
     stop music fadeout 3
-    scene puerta_h127 with dissolve
-    "Una puerta entreabierta. Un letrero corroído: {b}H-127{/b}."
-    
-    l "¿No es ese el número que decía en la bitácora?"
-    "[nombre_jugador!c] asintió."
-    r "Vamos."
+    "Antes de que pudieran procesar el horror del descubrimiento, un quejido ahogado provino del fondo de la sala."
 
-    play sound door_open
-    scene sala_h127
-    show sujeto_herido at right
-    with fade
+    scene sala_h127_1 with dissolve
 
-    "El olor golpeó primero. Agrio. Metálico. Animal."
+    "Un hombre yacía apoyado contra unos archivadores. Estaba cubierto de sangre, pero aún respiraba."
+
+    show sujeto_herido at right with dissolve
+    show rodrigo alert at centro_izquierda with moveinleft
+
+    l "¡Dios mío! ¡Señor, aguante!"
+
     show luz surprised at left
-    show rodrigo alert at centro_izquierda
-    with moveinleft
+    "Luz corrió hacia él, ignorando las protestas de [nombre_jugador!c]. Se arrodilló y pasó el brazo del hombre sobre sus hombros, ayudándolo a levantarse."
 
-    l "¿E... Está vivo?"
-    
-    "El hombre alzó una mano con esfuezo, sus dedos manchados de sangre temblaban sin control."
-    sujeto "N-no... No deberían... Estar aquí..."
-    
-    r "¿Quién eres? ¿Quién te hizo esto?"
-    
-    "El hombre soltó una risa húmeda, ahogándose en su propia saliva."
+    sujeto "No... no hagan ruido... ella los escuchará..."
+    l "Tranquilo. Lo sacaremos de aquí. ¿Quién le hizo esto?"
     sujeto "Ella... Ella no es como los otros... Ella lo disfruta..."
-    
+
     pause 1
-    "La pareja intercambió una mirada, sus corazones acelerándose ante aquella declaración."
-    
+    "La pareja intercambió una mirada, sus corazones acelerándose."
+
     l "¿Ella...? ¿Te refieres a una de las criaturas?"
-    scene sala_h127_1
-    show sujeto_herido at center
-    with dissolve
+
     pause (1)
     sujeto "Galaxia... su nombre... es Galaxia..."
     pause (1)
-    "Silencio."
-    sujeto "Por favor... Huyan... Ella no quiere que se vayan..."
-    sujeto "No..."
-    sujeto "No deja que nadie se vaya..."
+
+    "El hombre tosió sangre, pero con la ayuda de Luz, logró dar unos pasos hacia el pasillo."
+
+    l "[nombre_jugador!c], ayúdame. Aún podemos salvarlo."
+
+    "[nombre_jugador!c] asintió, tomando el otro brazo del hombre. Por un segundo, hubo una falsa sensación de esperanza."
+    "Quizás no todo estaba perdido."
+    "Quizás podían salir de allí."
+
+    # ============================================================
+    # EL SACRIFICIO DEL NPC (Ruptura Slasher)
+    # ============================================================
 
     stop music
-    
-    sujeto "{size=+10}{cps=5}Galaxia.{/cps}{/size}"
-    
-    "El nombre flotó en el aire como una maldición."
-    
-    play sound door_close
-    scene puerta_cerrandose with shake
-    r "¿¡Quién anda ahí!?"
 
-    centered "{cps=15}{color=#390169}Jueguen mientras puedan...{/color}{/cps}"
-    
-    "[nombre_jugador!c] sujetó firmemente la mano de Luz."
-    r "Tenemos que irnos. Ya."
-    
-    play sound run fadeout 1.5
-    scene sala_h127 with fade
-    show sujeto_herido at center
-    sujeto "No se puede huir de ella..."
-    pause (0.5)
-    sujeto "No se puede huir de ella..."
-    pause (0.5)
-    sujeto "No se puede huir de ella..."
+    play sound wood_creak
+    "Un crujido sobre sus cabezas los congeló."
 
+    sujeto "No... no..."
+
+    "El hombre miró hacia el techo, sus ojos inyectados en terror absoluto. Sus últimas palabras salieron como un rezo ahogado:"
+    sujeto "No se puede huir de ella."
+
+    play sound "sfx/flesh_bubble.mp3"
+    play music chase fadein 0.5
+    show luz scared at vjump
+    show rodrigo shock_state at vjump
+
+    "Desde el ducto de ventilación, una figura encorvada cayó directamente sobre el hombre."
+    "No hubo tiempo de reaccionar. Las garras se hundieron en su clavícula, arrancándolo de los brazos de Luz con una fuerza sobrehumana."
+
+    play sound "sfx/bone_crack.mp3"
+    with hpunch
+    scene black with flashred
+
+    sujeto "¡AAAAAAAH!"
+
+    $ estado_mental += 2
+
+    "El grito fue silenciado por un crujido húmedo. La sangre salpicó el rostro de [nombre_jugador!c]."
+
+    g "Jueguen mientras puedan..."
+
+    "La figura arrastró el cuerpo inerte hacia la oscuridad del pasillo, desapareciendo entre las sombras con una risa gutural."
+    play sound glx_laugh
+
+    r "¡CORRE! ¡LUZ, CORRE!"
+
+    # -- Huida --
     scene pasillo_huida with fade
     play sound run
     play music melody
 
     "Corrieron. El pasillo parecía estirarse."
-    
+
     scene escombros_bloqueo with dissolve
     stop sound
     "¡Bloqueado!"
-    
+
     play sound door_slam
     with shake
     r "¡Mierda!"
@@ -749,21 +752,39 @@ label cap_2:
     l "No tenemos tiempo, [apodo_jugador]."
     l "¡Separémonos! ¡Grita si ves una salida!"
     "Fue una mala idea. [nombre_jugador!c] lo sabía. Pero el pánico decidía por ellos."
-    
+
     stop music fadeout 2
     scene foreboding_2 with fade
     stop sound
     $ renpy.save("1-1", "Encuentro 2")
-    show rodrigo neutral at center
-    "[nombre_jugador!c] entró en una habitación de literas oxidadas. Su linterna parpadeó."
+    show rodrigo nervioso at center
+    "[nombre_jugador!c] entró tropezando en una antigua habitación de literas y cerró la puerta a sus espaldas, intentando no hacer ruido."
+    "Se apoyó contra la madera fría, con el pecho subiendo y bajando bruscamente. Estaba solo."
+
+    "Tragó saliva y encendió su linterna con manos temblorosas para inspeccionar el lugar, buscando otra salida."
+    "Sobre una de las camas bajas, la luz iluminó un pequeño zapato escolar desgastado. Un recordatorio de quienes solían dormir aquí antes de los experimentos."
+
+    r "Cálmate... Respira... Tienes que encontrar una salida y decirle a Luz."
+
+    "Dio un paso hacia el armario para revisar si había algo útil, pero de repente, la bombilla de su linterna parpadeó."
+    "Una, dos veces... y murió por completo, sumiéndolo en una penumbra opresiva."
 
     play sound nailtap
     show rodrigo alert at vjump
-    "Clic. Clic. Clic."
-    "Garras sobre el linóleo."
+    play sound "sfx/wood_creak.mp3"
+    "Algo pesado pisó las tablas del pasillo, justo afuera de su puerta."
     
-    play music chase
-    "[nombre_jugador!c] notó que algo olfateaba cerca del suelo, buscando bajo los muebles..."
+    play sound "sfx/door_open.mp3"
+    "La manija giró lentamente. La puerta crujió al abrirse de par en par."
+    "Clic. Clic. Clic."
+    "Eran garras largas y afiladas golpeando rítmicamente el linóleo."
+    
+    play music chase fadein 1.0
+    show rodrigo scared
+    "En la penumbra, [nombre_jugador!c] pudo distinguir dos hojas afiladas donde debían estar los brazos. Sobre su cabeza deforme, un par de antenas temblaban histéricamente, escaneando el aire de la habitación."
+    
+    "Estaba olfateando el terror."
+    "La mantis dio un paso hacia el interior. Se agachó, buscando cerca del suelo y arrastrando sus cuchillas bajo los muebles..."
     
     menu:
         "Te acercas a comprobar":
@@ -774,7 +795,7 @@ label cap_2:
             jump escape_mnts
     
 label escape_mnts:
-    "[nombre_jugador!c] apagó la linterna y se pegó a la pared, tras el armario, conteniendo el aliento hasta que le dolieron los pulmones."
+    "[nombre_jugador!c] apagó la linterna y se pegó a la pared, tras el viejo armario metálico, conteniendo el aliento hasta que le dolieron los pulmones."
 
     scene foreboding_2 with dissolve
     play sound "sfx/claw_drag_concrete.mp3"
@@ -787,16 +808,13 @@ label escape_mnts:
     centered "{cps=10}La criatura te está buscando.{/cps}"
     
     "La Mantis entró. Sus antenas vibraban, captando el miedo en el aire."
-    
     "Se acercó muy lentamente."
-    
     "Un brazo se alza, una hoja afilada..."
     
     "Una."
-    
     "Dos veces."
     
-    "[nombre_jugador!c] sostuvo el aire, un solo movimiento en falso y era hombre muerto."
+    "[nombre_jugador!c] sostuvo el aire, cerrando sus ojos y preparándose para lo peor. Un solo movimiento en falso y era hombre muerto."
     
     "La Mantis pasó de largo frente a las camas, ignorando el armario alto."
     pause (2.5)
@@ -804,7 +822,7 @@ label escape_mnts:
     play sound alarm volume 0.2 loop
     "¡BEEEEEP! ¡BEEEEEP!"
     
-    "Una alarma lejana distrajo a la bestia. Con un chillido, la criatura salió disparada."
+    "La criatura giró bruscamente y salió de la habitación, atraída por el nuevo ruido."
     stop sound fadeout 2.0
     scene foreboding_2
     show rodrigo scared at center
@@ -858,9 +876,13 @@ label escape_mnts:
             $ afinidad_luz += 2
             $ estado_mental -= 1
             "El alivio le ganó al orgullo."
-            "Antes de poder analizarlo, [nombre_jugador!c] avanzó y la rodeó con los brazos con más fuerza de la que pretendía."
             
-            l "¿R-[apodo_jugador]?"
+            show rodrigo soft at center
+            show luz surprised
+            with moveinleft
+            pause 0.85
+            l "¿[apodo_jugador[0]]-[apodo_jugador]?"
+            "Antes de poder analizarlo, [nombre_jugador!c] avanzó y la rodeó con los brazos con más fuerza de la que pretendía."
             
             "Su cuerpo estaba tibio. Real. No había rigidez antinatural. No había trampa."
             
@@ -874,6 +896,9 @@ label escape_mnts:
             l "...Estoy aquí."
             
             "Sus manos se apoyaron en su espalda, suaves. Firmes."
+
+            pause 0.75
+            show luz at right with moveinleft
             
             "Después de unos segundos, fue ella quien se separó primero, mirándolo con una mezcla de ternura y preocupación."
             
@@ -883,6 +908,10 @@ label escape_mnts:
         "Comprobar si está bien":
             $ afinidad_luz += 1
             $ estado_mental += 1
+            show rodrigo at center
+            show luz surprised
+            with moveinleft
+
             "[nombre_jugador!c] se acercó sin decir nada."
             "Sus manos se alzaron y sostuvieron el rostro de Luz entre sus dedos, examinando cada rasgo con intensidad."
             
@@ -899,6 +928,9 @@ label escape_mnts:
             "La piel estaba limpia. Demasiado limpia."
             "Entonces, como si recién recordara lo extraño de su actitud, [nombre_jugador!c] inclinó el rostro y dejó un beso breve en sus labios."
             
+            show rodrigo at centro_izquierda
+            with moveinright
+
             r "...Solo quería asegurarme."
             
             "Luz parpadeó, confundida, pero sonrió."
@@ -928,6 +960,8 @@ label escape_mnts:
             l "Tuvimos suerte. No nos encontró."
             l "Y si no sonrío, me pongo a temblar."
             
+            show luz at center
+            with moveinright
             "Antes de que él pudiera responder, ella dio un paso al frente y lo abrazó."
             "Esta vez fue ella quien lo sostuvo con fuerza."
             
@@ -938,6 +972,9 @@ label escape_mnts:
             r "...Estoy bien."
             
             "Mentía."
+
+            show luz at centro_derecha
+            with moveinleft
             "Luz se separó con suavidad, pero su mirada permaneció atenta."
     
     l "Ven, quiero mostrarte esto."
@@ -961,7 +998,7 @@ label escape_mnts:
 label game_over_mnts_1:
     "[nombre_jugador!c] avanzó con cautela, su linterna apagada, guiado solamente por instinto."
     scene black with fade
-    "Pero no había tiempo para dudar."
+    "Pero no había tiempo para dudar. La criatura detectó su pulso acelerado."
     
     play sound "sfx/claw_drag_concrete.mp3"
     "Una figura se abalanzó desde las sombras, dos hojas brillantes descendieron."
@@ -972,7 +1009,7 @@ label game_over_mnts_1:
     scene death_mnts_2 with shake
     play sound slash
     pause 3
-    "{cps=20}.{/cps}"
+    "{cps=20}Un corte limpio y rápido le atravesó el pecho. Ni siquiera sintió dolor antes de caer.{/cps}"
     pause 2
     scene gameover_screen with dissolve
     pause(2)
@@ -1014,9 +1051,12 @@ label game_over_mnts_2:
 
 
 label cap_3:
+    scene black
+    "El eco de sus propios pasos en el pasadizo lo transportó a otro tiempo. A un lugar donde el único monstruo era la soledad."
+
     scene expression Solid((255,255,255)) with fade
-    
     centered "{i}{color=#000000}...Estático. Luz cálida. Voces infantiles a lo lejos...{/color}{/i}"
+
     play music flashback fadein 2
     scene luzdrigo_fb_1 with dissolve
     show layer master at sepia_filter
@@ -1029,9 +1069,7 @@ label cap_3:
     "[nombre_jugador!c]."
     
     "Su uniforme estaba limpio, pero arrugado. En el suelo junto a él había un cuaderno con garabatos oscuros, de formas extrañas y sin nombre. Dibujos de criaturas, de ojos tristes, de árboles secos."
-    
     "No hablaba. No miraba. Solo esperaba que el recreo acabara."
-
     "Hasta que oyó pasos. Lentos, ligeros. Y una sombra diferente a las demás cubrió parte de su cuaderno."
     
     scene luzdrigo_fb_3 with dissolve
@@ -1042,34 +1080,50 @@ label cap_3:
 
     '?' "{i}No está feo. Da miedo, pero es bonito.{/i}"
 
-    "[nombre_jugador!c] no respondió. Volvió a mirar el cuaderno."
+    "[nombre_jugador!c] no respondió. Volvió a mirar el cuaderno, esperando que el niño se aburriera y se marchara."
+    "Eso es lo que todos hacían."
 
     scene luzdrigo_fb_4 with dissolve
     show layer master at sepia_filter
-    "El niño se sentó a su lado sin invitación."
+    "Pero no se fue."
+    "El niño se sentó a su lado sin invitación, cruzando las piernas sobre el suelo sucio."
 
     ln "{i}Yo soy Lucien. Tú eres el que no habla, ¿cierto?{/i}"
 
     "Silencio."
-
     "El se encogió de hombros."
 
     ln "{i}Está bien. No tienes que hablar. Puedo hablar yo.{/i}"
 
     "Y así lo hizo."
+    "Sin pedir permiso, comenzó a llenar el vacío."
 
-    "Le habló de su perro. De cómo su abuela hacía sopa extraña. De lo feos que eran los recreos a veces, porque los niños grandes gritaban mucho."
+    ln "{i}Ayer mi perro se comió uno de mis calcetines. Es muy tonto, pero lo quiero mucho. Mi mamá casi lo regaña, pero yo lo escondí debajo de mi cama.{/i}"
+    r "..."
+
+    ln "{i}Oh, y mi abuela hizo sopa ayer. Sopa verde. Dice que te hace fuerte, pero...{/i} "
+    "Lucien arrugó la nariz con disgusto."
+    ln "{i}Sabe a pasto hervido.{/i}"
+
+    "[nombre_jugador!c] parpadeó, mirándolo de reojo. Era la primera vez que alguien le hablaba de cosas tan normales. Tan aburridas. Tan... cálidas."
+
+    ln "{i}Me gusta más estar aquí.{/i} "
+    "Lucien señaló hacia el centro del patio con su manzana."
+    ln "{i}Los niños grandes gritan mucho allá. Juegan a la pelota y siempre te empujan si no te quitas. Aquí es más tranquilo. Además, tú dibujas cosas geniales.{/i}"
     
-    "Le ofreció un trozo de su manzana. [nombre_jugador!c] la tomó con torpeza, sorprendido de que alguien se quedara tanto rato con él."
+    "Lucien partió un trozo de su manzana con las manos. Se lo tendió."
+
+    ln "{i}¿Quieres? Mi mamá siempre me manda mucha comida. Y la manzana sabe mejor que la sopa verde.{/i}"
+    
+    "[nombre_jugador!c] dudó. Sus ojos fueron de la manzana a la sonrisa de Lucien. Finalmente, la tomó con torpeza, sorprendido de que alguien se quedara tanto rato con él."
 
     scene luzdrigo_fb_5 with fade
     show layer master at sepia_filter
     pause 1
     "Pasaron semanas."
 
-    "Y cada día, Lucien encontraba una excusa para buscarlo. A veces dibujaban juntos. A veces solo se sentaban."
-
-    "Y un día, cuando la campana sonó, [nombre_jugador!c] habló por primera vez:"
+    "Y cada día, Lucien encontraba una excusa para buscarlo. A veces dibujaban juntos; Lucien le prestaba sus lápices de colores para que las criaturas no fueran solo oscuras. A veces solo se sentaban a comer en silencio."
+    "Y un día, cuando la campana sonó anunciando el fin del recreo, [nombre_jugador!c] guardó su cuaderno, miró a su acompañante, y habló por primera vez:"
 
     scene luzdrigo_fb_6 with dissolve
     show layer master at sepia_filter
@@ -1078,7 +1132,7 @@ label cap_3:
 
     scene luzdrigo_fb_6 with dissolve
     show layer master at sepia_filter
-    "Lucien lo miró con una sonrisa que iluminó más que el sol."
+    "Lucien no pareció sorprendido. Lo miró con una sonrisa que iluminó más que el sol."
 
     ln "{i}Ya lo sabía. Pero me alegra oírlo de ti.{/i}"
 
@@ -1250,18 +1304,20 @@ label cap_3:
     show azura neutral at right
     with dissolve
 
-    "En el fondo, en un perchero, cuelga un abrigo viejo. Un olor a humedad y tinta seca impregna el ambiente."
+    "Por primera vez desde que entraron al orfanato, el aire no olía a podredumbre."
+    "En el fondo, en un perchero, cuelga un abrigo viejo. Un olor a humedad y tinta seca impregna el ambiente, pero era un espacio extrañamente pacífico."
 
     a "Es raro... Alguien cuidaba este lugar.."
 
-    "Sus ojos esmeralda se dirigen a los cuadros mientras da un par de pasos hacia ellos."
+    "Sus ojos esmeralda se dirigen a los cuadros mientras da un par de pasos hacia ellos, bajando los hombros visiblemente."
+    "Era el espejismo de un refugio. Una falsa sensación de seguridad que todos necesitaban desesperadamente."
 
     show luz smile with dissolve
-    "Luz revisaba los cajones de un escritorio en busca de información útil."
+    "Luz, aprovechando la pausa, revisaba los cajones de un escritorio en busca de información útil."
 
     l "¡[apodo_jugador]! ¡Mira esto!"
 
-    "Luz sacó un pañuelo de un cajón. Dentro, el metal frío brilló bajo la linterna."
+    "Luz sacó un bulto envuelto en un pañuelo de un cajón. Dentro, el metal frío brilló bajo la linterna."
     
     hide rodrigo
     hide azura
@@ -1280,7 +1336,6 @@ label cap_3:
     r "Esperemos no tener que averiguarlo."
     
     "Luego, [nombre_jugador!c] se dirigió al pequeño librero."
-
     "Entre papeles sueltos y libros de cuidado infantil, encuentra una nota amarillenta doblada cuidadosamente."
 
     play sound paper_flip
@@ -1292,44 +1347,65 @@ label cap_3:
     "{cps=20}{b}Entrada 04 – Día 11{/b}{/cps}"
 
     "{cps=20}El {b}60%%{/b} de los primeros sujetos han fallecido. El proceso de mutación resultó inestable; los tejidos colapsan, los huesos se expanden sin orden y los sistemas vitales no resisten.{/cps}"
-    
     "{cps=20}Los cuerpos se deforman en masas amorfas, aún respirando en algunos casos por horas. Las cámaras frías están saturadas. Se incrementó la dosis de estabilizadores para los próximos voluntarios.{/cps}"
 
     l "¿Y? ¿Qué encontraste?"
 
-    "[nombre_jugador!c] arrugó la nota antes de guardarla en su bolsillo."
+    "[nombre_jugador!c] arrugó la nota antes de guardarla en su bolsillo, tragándose el nudo de horror moral que se le formó en la garganta."
     
     r "Nada útil... Solo... Basura vieja..."
     
     show luz neutral
     l "¿Seguro? Te vi la cara."
-
     l "¿No será algo importante?"
 
     r "No nos sirve. Vamos."
 
     "Incluso si no quería admitirlo, [nombre_jugador!c] se estremeció por lo que leyó."
-
     "La sola idea le revolvía el estómago."
 
+    pause 0.5
     a "Chicos... ¿Creen que alguien dormía aquí... sabiendo todo lo que pasaba?"
 
     pause 1.0
     stop music fadeout 1.5
+    stop ambient fadeout 1.0
     "El silencio reinó unos segundos."
+    "Demasiados."
 
-    "Luz aún sostiene la pistola con cautela, Azura se aparta del cuadro, y [nombre_jugador!c] da unos pasos hacia la puerta, cada músculo tenso."
+    play sound "sfx/wood_creak.mp3"
+    "Un crujido seco sobre sus cabbezas los hizo congelarse."
+
+    play sound thud
+    play sound objfall
+    with vpunch
+
+    "¡CRASH!"
+
+    show azura shocked at right, vjump
+    show luz scared at left, vjump
+    show rodrigo alert at center, vjump
+
+    "Las baldosas del falso techo cedieron de golpe. Un bulto pesado cayó en picada y se estrelló violentamente contra la mesa central, levantando una nube de polvo gris."
+    "No era un monstruo."
+    "Era un cadáver momificado. Vestía una bata de laboratorio podrida, probablemente un investigador atrapado desde la caída del Proyecto H-127."
+    "Su rostro estaba congelado en una mueca de terror absoluto, con la mandíbula desencajada."
+
+    a "¡Dios mío!"
+
+    "Luz alzó la pistola con las manos temblorosas, apuntando instintivamente hacia el hueco oscuro en el techo."
+    "Pero no había nada allí. Solo el eco del impacto desvaneciéndose."
+    
+    "[nombre_jugador!c] da unos pasos hacia la puerta, cada músculo tenso. El espejismo de refugio se había hecho pedazos."
 
     $ renpy.save("1-1", "Encuentro 3")
     "[nombre_jugador!c] se detiene. Su mirada se dirige hacia la ventana."
 
-    r "(Algo está mal... Demasiado silencio...)"
-
+    r "(Algo está mal... Todo se quedó en silencio de nuevo...)"
     l "¿[apodo_jugador]...?"
-
     r "No se muevan."
 
-    "Extiende su mano hacia Luz sin apartar la vista."
+    "Extiende su mano hacia Luz sin apartar la vista del cristal sucio."
     
     play music melody
 
@@ -1343,7 +1419,7 @@ label cap_3:
 
     scene galaxia_ventana with dissolve
     
-    "En la ventana. Una silueta con orejas de gato y una sonrisa demasiado ancha."
+    "Allí estaba. Una silueta oscura recortada contra la noche, con orejas de gato y una sonrisa demasiado ancha."
     
     g "¿Ya juegan al escondite? Me encanta ese juego..."
 
@@ -1364,10 +1440,8 @@ label cap_3:
     "Cuando finalmente abandonan la habitación y cierran la puerta con suavidad, el grupo suelta el aire contenido."
 
     show rodrigo alert
-    "[nombre_jugador!c], aún en tensión, no mira atrás. Solo camina al frente."
-
-    "Pero por un momento... su sombra parece temblar."
-
+    "[nombre_jugador!c], aún en tensión, no mira atrás. Solo camina al frente, guiándolas."
+    "Pero por un momento... su sombra proyectada en la pared parece temblar."
     "Como si algo dentro de él empezara a agitar"
     
     scene pasillo_abandonado
@@ -1377,7 +1451,6 @@ label cap_3:
     with fade
     play sound walk loop
     stop music fadeout 1.5
-    play ambient wood_creak
 
     "Los tres avanzaban con pasos medidos. La linterna de [nombre_jugador!c] barre el pasillo, revelando capas de polvo, trozos de pintura descascarada, y puertas cerradas con placas oxidadas."
     "A cada paso, el crujido del suelo de madera hace eco, forzándolos a contener la respiración."

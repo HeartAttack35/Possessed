@@ -373,6 +373,7 @@ image luz dead:
     matrixcolor TintMatrix("#000000")
 
 # Galaxia
+image galaxia shadow_eyes = "images/sprites/Galaxia.png"
 image galaxia walk_creepy = "images/sprites/Galaxia.png"
 image galaxia smile = "images/sprites/Galaxia.png"
 image galaxia half_smile = "images/sprites/Galaxia.png"
