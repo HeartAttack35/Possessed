@@ -12,84 +12,148 @@ label start:
     # Texto en pantalla para ubicar al jugador temporalmente
     centered "{i}Hace 15 años...\nCentro de Investigación Subterráneo H-127{/i}" with fade
     pause 1.5
+    scene black with fade
+    pause 0.4
 
-    # Inicio de la acción: Alarmas, luces distorsionadas y música frenética
     scene pasillo_abandonado at oscuro, distortion_heavy with hpunch
     play ambient "sfx/alarm.mp3" loop volume 0.7
     play music chase fadein 1.0
 
-    "La luz roja de emergencia bañaba los pasillos de concreto del Nivel Subterráneo."
-    "El Protocolo Hades había sido activado."
-    "Fuego. Caos. Y sangre. Demasiada sangre."
+    "Luz roja. Intermitente."
+    "Un pitido metálico, el mismo, una y otra vez."
 
+    play sound "sfx/heavy_breathing.mp3" loop volume 0.9
+    "Un hombre corría. No hacia ningún lugar en particular."
+    "Solo lejos."
+
+    play sound objfall
+    "Algo metálico cayó de sus manos. No se detuvo a recogerlo."
+
+    play sound "sfx/keycard_fail.mp3" volume 0.5
+    "{color=#999999}{i}[[ALTAVOZ] Protocolo Hades activado. Personal no autorizado, evacúe el nivel de inmediato.{/i}{/color}"
+
+    investigador "{cps=25}No, no, no—{/cps}"
+
+    pause 0.3
+    "{color=#999999}{i}[[ALTAVOZ] Esto no es un simulacro.{/i}{/color}"
+
+    "Una carpeta abierta en el suelo. Un sello a medio borrar."
+    "{cps=15}{b}CONFIDENCIAL{/b}{/cps}"
+    "Una palabra tachada a mitad, ilegible salvo por una esquina: {i}...cindibles.{/i}"
+    "No se detuvo a leerla completa."
+
+    play sound "sfx/radio_static.mp3" volume 0.6
+    "Estática. Una voz partida, casi irreconocible, en su radio."
+    "{cps=25}—perdimos el nivel tres, repito, perdimos el—{/cps}"
+
+    play sound scream2 volume 0.5
+    "Un grito. Después, nada."
+    "No era la primera vez que un canal se apagaba así esa noche."
+
+    stop sound
     play sound run loop
-    "Un investigador de la Fundación Connor corría hacia la salida, tropezando con sus propios pies."
-    "En sus manos apretaba un maletín metálico con los últimos registros de las pruebas."
 
-    # Conexión con la Dictadura (Lore)
-    "Los archivos eran su único seguro de vida. Si el Régimen se enteraba de que el proyecto estrella de la dictadura había fracasado, no habría exilio que lo salvara."
-    "El Ministerio les había entregado a los huérfanos 'prescindibles' en completo secreto. Ahora, esos mismos niños eran monstruos sueltos por los pasillos."
+    scene pasillo_abandonado at oscuro with dissolve
+    "Dobló una esquina. Una mancha oscura en la pared, todavía brillante."
+    "No se detuvo a preguntarse de quién era."
 
-    stop sound # Detiene el sonido de pasos corriendo momentáneamente
-    play sound "sfx/heavy_breathing.mp3" loop
+    scene pasillo_abandonado at oscuro
+    "Las luces rojas parpadearon... y por un segundo, se quedaron fijas."
+    "Silencio."
 
-    investigador "Tengo que salir... El General no puede culparme a mí... Yo solo seguía órdenes del Dr. Montané..."
+    stop sound fadeout 0.4
+    play sound "sfx/heavy_breathing.mp3" loop volume 0.5
+
+    investigador "{cps=20}...¿Ya está? ¿Ya pasó?{/cps}"
+
+    pause 1.2
+
+    # La falsa calma se rompe
+    play sound crack
+    with vpunch
+    "Un crujido lejano. Algo, en algún nivel inferior, terminó de ceder."
+
+    "Las luces volvieron a fallar. Rojo. Negro. Rojo."
+
+    stop sound
+    play sound run loop
+
+    # --- ACERCAMIENTO: solo sonido, nunca confirmación visual ---
+    play sound "sfx/claw_drag_concrete.mp3" volume 0.4
+    "Algo, detrás de él, arrastraba algo metálico contra el hormigón."
+    "No se giró a comprobarlo."
+
+    "Los gritos de los niveles inferiores se habían apagado uno por uno."
+    "Ese silencio pesaba más que cualquier alarma."
+
+    # --- ÚLTIMA CORRIDA ---
+    scene escape_1 at oscuro with vpunch
+    play sound land
+
+    "La puerta de emergencia. Al final del pasillo."
+    "El aire frío se filtraba por los bordes oxidados del marco."
+
+    investigador "{cps=20}Casi... ya casi...{/cps}"
+
+    "Sus dedos rozaron la manija."
+    "Fría. Real."
+
+    play sound door_open
+    "Empujó una puerta metálica. No cedió."
     
-    "Atrás, en los niveles inferiores, los gritos de los demás científicos y militares ya habían cesado. Ese era el peor indicador de todos."
-    "No miró atrás. La regla de oro del proyecto H-127 era clara: si los especímenes se liberan, nunca mires atrás."
-
-    play sound run loop
-    "Dobló la última esquina. La pesada puerta metálica de la salida de emergencia apareció a unos metros."
-    "El aire helado del exterior se filtraba por las rendijas. La libertad."
-
-    investigador "Casi... ya casi..."
-    "Alcanzó la manija. El frío del metal bajo sus dedos sudorosos se sintió como la salvación absoluta."
-
-    # El clímax del prólogo y subversión
     stop music
     stop sound
     play sound "sfx/door_slam.mp3"
     with vpunch
     
-    "De repente, la pesada puerta se cerró de golpe frente a él, empujada por una fuerza invisible."
-    "El investigador retrocedió, temblando. La luz roja parpadeó... y el pasillo quedó en penumbra absoluta."
+    "La puerta se cerró de golpe."
+    "Nadie la tocó."
+
+    "El hombre retrocedió un paso, tropezando con sus propios pies."
 
     scene pasillo_abandonado at oscuro with fade
-    pause 0.5
+    pause 0.7
 
-    # El ícono auditivo de Galaxia
     play sound "sfx/claw_drag_concrete.mp3"
-    "Un sonido metálico rasgó el silencio. Eran garras arrastrándose lentamente sobre el hormigón."
-    "Venía desde las sombras. Justo detrás de él."
+    "Un chirrido lento. Deliberado."
+    "Cada vez más cerca."
 
-    investigador "¿Q-Quién...?"
+    investigador "{cps=15}¿Q-quién anda ahí?{/cps}"
 
     play music curse fadein 0.5
-    
-    # Presencia de Galaxia usando el sprite sugerido
     show galaxia shadow_eyes at center with dissolve
 
-    "No hubo respuesta. Solo el brillo de dos ojos antinaturales, heterocromáticos, y la silueta de una sonrisa afilada en la oscuridad."
+    "Dos puntos de luz en la oscuridad."
+    "Y, debajo de ellos, algo que podría haber sido una sonrisa."
 
-    play sound "sfx/laugh.mp3"
-    "Una risa infantil y gutural rebotó en las paredes."
+    play sound glx_laugh
+    "Una risa. Aguda. Casi infantil."
 
-    # Galaxia habla usando su fuente exclusiva (HelpMe.ttf)
-    "{color=#390169}{font=fonts/HelpMe.ttf}Jugaremos para siempre...{/font}{/color}"
+    "{color=#390169}{font=fonts/HelpMe.ttf}{cps=20}Shhh... No hace falta gritar todavía~{/cps}{/font}{/color}"
 
-    "Unas manos frías y sobrenaturalmente fuertes lo sujetaron por los hombros, levantándolo del suelo con una facilidad humillante."
+    investigador "P-por favor... yo solo... yo solo hacía mi trabajo—"
 
-    # Efectos viscerales de muerte
+    "{color=#390169}{font=fonts/HelpMe.ttf}{cps=20}Todos dicen eso.{/cps}{/font}{/color}"
+
+    pause 0.4
+
+    "{color=#390169}{font=fonts/HelpMe.ttf}{cps=15}Jugaremos para siempre...{/cps}{/font}{/color}"
+
     stop ambient
-    play sound "sfx/slash.mp3"
+    play sound thud
+    with hpunch
+    "Algo lo levantó del suelo con una facilidad que no debería ser posible."
+
+    play sound slash
     scene black with flashred
+
     play sound "sfx/flesh_bubble.mp3"
     play sound "sfx/bone_crack.mp3"
-
     investigador "¡AAAAAHHH!"
-    "Fue arrastrado violentamente de regreso hacia la profundidad del laboratorio."
 
-    # Transición final al título del juego
+    "El sonido se cortó de golpe."
+    "Después, solo el eco de algo siendo arrastrado hacia la oscuridad."
+
     scene black with flash
     pause 1.0
 
@@ -671,7 +735,8 @@ label cap_2:
 
     l "¡Dios mío! ¡Señor, aguante!"
 
-    show luz surprised at left
+    show rodrigo at vjump
+    show luz surprised at centro_derecha with moveinleft
     "Luz corrió hacia él, ignorando las protestas de [nombre_jugador!c]. Se arrodilló y pasó el brazo del hombre sobre sus hombros, ayudándolo a levantarse."
 
     sujeto "No... no hagan ruido... ella los escuchará..."
@@ -727,7 +792,7 @@ label cap_2:
 
     "El grito fue silenciado por un crujido húmedo. La sangre salpicó el rostro de [nombre_jugador!c]."
 
-    g "Jueguen mientras puedan..."
+    "{color=#390169}{font=fonts/HelpMe.ttf}{cps=20}Jueguen mientras puedan...{/cps}{/font}{/color}"
 
     "La figura arrastró el cuerpo inerte hacia la oscuridad del pasillo, desapareciendo entre las sombras con una risa gutural."
     play sound glx_laugh
@@ -757,7 +822,8 @@ label cap_2:
     scene foreboding_2 with fade
     stop sound
     $ renpy.save("1-1", "Encuentro 2")
-    show rodrigo nervioso at center
+    show rodrigo nervioso at center with moveinright
+    play sound door_close
     "[nombre_jugador!c] entró tropezando en una antigua habitación de literas y cerró la puerta a sus espaldas, intentando no hacer ruido."
     "Se apoyó contra la madera fría, con el pecho subiendo y bajando bruscamente. Estaba solo."
 
@@ -784,7 +850,7 @@ label cap_2:
     "En la penumbra, [nombre_jugador!c] pudo distinguir dos hojas afiladas donde debían estar los brazos. Sobre su cabeza deforme, un par de antenas temblaban histéricamente, escaneando el aire de la habitación."
     
     "Estaba olfateando el terror."
-    "La mantis dio un paso hacia el interior. Se agachó, buscando cerca del suelo y arrastrando sus cuchillas bajo los muebles..."
+    "La bestia dio un paso hacia el interior. Se agachó, buscando cerca del suelo y arrastrando sus cuchillas bajo los muebles..."
     
     menu:
         "Te acercas a comprobar":

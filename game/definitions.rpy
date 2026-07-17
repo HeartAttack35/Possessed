@@ -373,11 +373,12 @@ image luz dead:
     matrixcolor TintMatrix("#000000")
 
 # Galaxia
-image galaxia shadow_eyes = "images/sprites/Galaxia.png"
+image galaxia shadow_eyes:
+    "images/sprites/Galaxia.png"
+    matrixcolor TintMatrix("#000000")
 image galaxia walk_creepy = "images/sprites/Galaxia.png"
 image galaxia smile = "images/sprites/Galaxia.png"
 image galaxia half_smile = "images/sprites/Galaxia.png"
-image galaxia shadow_eyes = "images/sprites/Galaxia.png"
 image galaxia laugh = "images/sprites/Galaxia.png"
 image galaxia regen = "images/sprites/Galaxia.png"
 image galaxia healed = "images/sprites/Galaxia.png"
@@ -414,6 +415,7 @@ define door_slam = "sfx/door-slam.mp3"
 define thud = "sfx/thud.mp3"
 define door_open = "sfx/door-open.mp3"
 define door_close = "sfx/door-close.mp3"
+define scream2 = "sfx/scream-echo.mp3"
 define scream1 = "sfx/scream-echo.mp3"
 define chptr_cmplt ="sfx/chapter-clear.mp3"
 define glx_laugh = "sfx/laugh.mp3"
