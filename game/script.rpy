@@ -665,10 +665,15 @@ label cap_2:
     l "[nombre_jugador!c]... esto no es un sótano normal. Parece un laboratorio."
 
     "Mientras se abrían paso, las miradas de ambos recorrían las paredes, los cables colgantes, las manchas oscuras sobre el azulejo."
+
+    show rodrigo at centro_izquierda
+    show luz at centro_derecha
+    with moveinleft
+
     "A medida que avanzaban, lentamente se apegaban el uno al otro sin decir una sola palabra."
 
     r "Jamás pensé que terminaríamos perdidos en un lugar así..."
-    show luz smile at right
+    show luz smile with dissolve
     l "Siendo honesta... Si me hubieran dicho que terminaría en una casita de terror con el callado del salón... Tampoco me lo hubiera creído."
     $ afinidad_luz += 1
 
@@ -1440,7 +1445,7 @@ label cap_3:
     "Demasiados."
 
     play sound "sfx/wood_creak.mp3"
-    "Un crujido seco sobre sus cabbezas los hizo congelarse."
+    "Un crujido seco sobre sus cabezas los hizo congelarse."
 
     play sound thud
     play sound objfall
@@ -1557,7 +1562,11 @@ label cap_3:
     "Azura y Luz logran aferrarse a los bordes, gritando al hacerlo, pero [nombre_jugador!c] —el más cercano al centro— desaparece en la penumbra, tragado por el derrumbe."
 
     #show luz scared at right
-    l "¡RODRIGOOOO!"
+    $ _nombre_upper = nombre_jugador.upper()
+    $ _ultima_vocal = next((c for c in reversed(_nombre_upper) if c in "AEIOUÁÉÍÓÚÜ"), _nombre_upper[-1])
+    $ _idx_vocal = len(_nombre_upper) - 1 - next(i for i, c in enumerate(reversed(_nombre_upper)) if c in "AEIOUÁÉÍÓÚÜ")
+    $ grito_nombre = _nombre_upper[:_idx_vocal] + _ultima_vocal * 5 + _nombre_upper[_idx_vocal + 1:]
+    l "¡[grito_nombre]!"
 
     #show azura scared at left
     a "¡No... no, no, no!"
