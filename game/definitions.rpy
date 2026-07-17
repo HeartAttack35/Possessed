@@ -137,56 +137,56 @@ transform distortion_heavy:
     repeat
 
 ## Fondos
-image mainmenubg = "bg/main_menu.png"
+image mainmenubg = "images/bg/main_menu.png"
 
 # Fondos con prefijo bg_ (usados en script_2.rpy caps 6-12)
-image bg_bodega_pan = "bg/bg_bodega_pan.jpg"
-image bg_almacen_medico = "bg/bg_almacen_medico.jpg"
-image bg_casa_cutipye_dia = "bg/sala_espera_abandonada.jpg"
-image bg_casa_cutipye_dia_interior = "bg/sala_espera_abandonada.jpg"
-image bg_pasillo_derruido = "bg/pasillo_corriendo.jpg"
-image bg_pasillo_oscuro = "bg/pasillo_oscuro.jpg"
-image bg_enfermeria_abandonada = "bg/habitacion_abandonada.jpg"
-image bg_habitacion_limpia = "bg/habitacion_intacta.png"
-image bg_habitacion_luz = "bg/habitacion_abandonada.jpg"
-image bg_habitacion_luz1 = "bg/habitacion_abandonada.jpg"
+image bg_bodega_pan = "images/bg/bg_bodega_pan.jpg"
+image bg_almacen_medico = "images/bg/bg_almacen_medico.jpg"
+image bg_casa_cutipye_dia = "images/bg/sala_espera_abandonada.jpg"
+image bg_casa_cutipye_dia_interior = "images/bg/sala_espera_abandonada.jpg"
+image bg_pasillo_derruido = "images/bg/pasillo_corriendo.jpg"
+image bg_pasillo_oscuro = "images/bg/pasillo_oscuro.jpg"
+image bg_enfermeria_abandonada = "images/bg/habitacion_abandonada.jpg"
+image bg_habitacion_limpia = "images/bg/habitacion_intacta.png"
+image bg_habitacion_luz = "images/bg/habitacion_abandonada.jpg"
+image bg_habitacion_luz1 = "images/bg/habitacion_abandonada.jpg"
 image bg_fiesta_borrosa:
-    "bg/vestibulo.jpg"
+    "images/bg/vestibulo.jpg"
     blur 4.0
-image bg_pasillo_primer_piso = "bg/pasillo_abandonado.jpg"
-image bg_bosque_exterior = "bg/orfanato_exterior1.png"
-image pasillo_corriendo = "bg/pasillo_corriendo.jpg"
+image bg_pasillo_primer_piso = "images/bg/pasillo_abandonado.jpg"
+image bg_bosque_exterior = "images/bg/orfanato_exterior1.png"
+image pasillo_corriendo = "images/bg/pasillo_corriendo.jpg"
 
 # Imágenes caps 8-9: combate en el vestíbulo y flashbacks
-image vestibulo_fight_normal = "bg/vestibulo.jpg"
+image vestibulo_fight_normal = "images/bg/vestibulo.jpg"
 image vestibulo_fight_saturated:
-    "bg/vestibulo.jpg"
+    "images/bg/vestibulo.jpg"
     matrixcolor SaturationMatrix(2.0)
 image vestibulo_fight_glitch:
-    "bg/vestibulo.jpg"
+    "images/bg/vestibulo.jpg"
     matrixcolor HueMatrix(30)
-image vestibulo_aftermath = "bg/vestibulo.jpg"
-image fiesta_flashback1 = "bg/sala_espera_abandonada.jpg"
-image fiesta_flashback2 = "bg/sala_espera_abandonada.jpg"
-image fiesta_flashback3 = "bg/sala_espera_abandonada.jpg"
-image lavanderia_abandonada = "bg/habitacion_abandonada.jpg"
-image oficina_admin = "bg/bg_almacen_medico.jpg"
-image habitacion_abandonada = "bg/habitacion_abandonada.jpg"
-image bodega_gal_shadow = "bg/bodega_gal_shadow.jpg"
-image rodrigo_cig_balcony = "bg/rodrigo_cig_balcony.png"
-image rodrigo_cig_balcony_2 = "bg/rodrigo_cig_balcony_2.png"
-image balcon_abandonado_night = "bg/balcon_abandonado_night.png"
-image luz_hug_rodrigo = "bg/luz_hug_rodrigo.png"
-image closeup_luz_dying = "bg/closeup_luz_dying.png"
-image sotano_inicial = "bg/sotano_inicial.jpg"
-image escalera_mano_1 = "bg/escalera_mano_1.png"
-image escalera_mano_2 = "bg/escalera_mano_2.png"
+image vestibulo_aftermath = "images/bg/vestibulo.jpg"
+image fiesta_flashback1 = "images/bg/sala_espera_abandonada.jpg"
+image fiesta_flashback2 = "images/bg/sala_espera_abandonada.jpg"
+image fiesta_flashback3 = "images/bg/sala_espera_abandonada.jpg"
+image lavanderia_abandonada = "images/bg/lavanderia_abandonada.png"
+image oficina_admin = "images/bg/oficina_admin.jpg"
+image habitacion_abandonada = "images/bg/habitacion_abandonada.jpg"
+image bodega_gal_shadow = "images/bg/bodega_gal_shadow.jpg"
+image rodrigo_cig_balcony = "images/bg/rodrigo_cig_balcony.png"
+image rodrigo_cig_balcony_2 = "images/bg/rodrigo_cig_balcony_2.png"
+image balcon_abandonado_night = "images/bg/balcon_abandonado_night.png"
+image luz_hug_rodrigo = "images/bg/luz_hug_rodrigo.png"
+image closeup_luz_dying = "images/bg/closeup_luz_dying.png"
+image sotano_inicial = "images/bg/sotano_inicial.jpg"
+image escalera_mano_1 = "images/bg/escalera_mano_1.png"
+image escalera_mano_2 = "images/bg/escalera_mano_2.png"
 
 # Sprite: rata mutante (placeholder con avispa hasta tener asset propio)
 image rata_mutant = "images/sprites/avispa_zangano.png"
 
 # Variante de Rodrigo ensangrentado (placeholder)
-image rodrigo bloodied = "images/sprites/Rodri.png"
+image rodrigo bloodied = "images/sprites/MC/Rodri.png"
 
 # Sonidos faltantes (redirigen al sfx más cercano disponible)
 define distant_scratch = "sfx/claw_drag_concrete.mp3"
@@ -201,15 +201,15 @@ define stab_repeated = "sfx/slash.mp3"
 define heavy_breathing = "sfx/hover.mp3"
 
 # Imágenes usadas con "scene bg NOMBRE" (capa bg) en caps 9-10
-image pasillo_derruido = "bg/pasillo_corriendo.jpg"
-image flashback_rodrigo_borracho = "bg/habitacion_abandonada.jpg"
-image pasillo_oscuro = "bg/pasillo_oscuro.jpg"
+image pasillo_derruido = "images/bg/pasillo_corriendo.jpg"
+image flashback_rodrigo_borracho = "images/bg/habitacion_abandonada.jpg"
+image pasillo_oscuro = "images/bg/pasillo_oscuro.jpg"
 image pasillo_intermitente:
-    "bg/pasillo_oscuro.jpg"
+    "images/bg/pasillo_oscuro.jpg"
     linear 0.1 alpha 0.4
     linear 0.1 alpha 1.0
     repeat
-image centinela_quitinoso = "bg/pasillo_oscuro.jpg"
+image centinela_quitinoso = "images/bg/pasillo_oscuro.jpg"
 
 # Screens de distorsión visual para las escenas de transformación (cap 9)
 screen screen_distortion_light():
@@ -218,64 +218,64 @@ screen screen_distortion_light():
 screen screen_distortion_heavy():
     add "#00000000"  # transparente; el efecto real está en show layer master at distortion_heavy
 
-image gameover_screen = "bg/game_over.jpg"
-image foreboding_1 = "bg/pasillo_oscuro.jpg"
-image escape_1 = "bg/pasillo_corriendo.jpg"
-image puerta_abierta_sotano = "bg/puerta_oxidada.png"
-image pasillo_lab = "bg/pasillo_abandonado.jpg"
-image sala_h127_1 = "bg/sala_h127.jpg"
-image puerta_cerrandose = "bg/puerta_h127.jpg"
-image pasillo_huida = "bg/pasillo_corriendo.jpg"
-image corredor_amplio = "bg/pasillo_corriendo.jpg"
-image chase1_1 = "bg/bg_bodega_pan.jpg"
-image bg_pasillo_escombros = "bg/pasillo_corriendo.jpg"
-image bg_cuarto_maquinas = "bg/puerta_oxidada.png"
-image pasillo_servicio = "bg/pasillo_oscuro.jpg"
-image cocina_puerta = "bg/puerta_oxidada.png"
-image cuarto_maquinas_puerta = "bg/bg_bodega_pan.jpg"
-image pistola_primer_plano = "objects/obj-gun.png"
-image pasillo_servicio_lucha = "bg/pasillo_oscuro.jpg"
-image pasillo_lab_close = "bg/pasillo_corriendo.jpg"
-image pasillo_intermedio = "bg/pasillo_corriendo.jpg"
-image pasillo_dawn = "bg/pasillo_corriendo.jpg"
-image habitacion_abandonada_dawn = "bg/habitacion_abandonada.jpg"
-image vestibulo_dawn = "bg/vestibulo.jpg"
-image ending = "bg/ending.jpeg"
+image gameover_screen = "images/bg/game_over.jpg"
+image foreboding_1 = "images/bg/pasillo_oscuro.jpg"
+image escape_1 = "images/bg/pasillo_corriendo.jpg"
+image puerta_abierta_sotano = "images/bg/puerta_oxidada.png"
+image pasillo_lab = "images/bg/pasillo_abandonado.jpg"
+image sala_h127_1 = "images/bg/sala_h127.jpg"
+image puerta_cerrandose = "images/bg/puerta_h127.jpg"
+image pasillo_huida = "images/bg/pasillo_corriendo.jpg"
+image corredor_amplio = "images/bg/pasillo_corriendo.jpg"
+image chase1_1 = "images/bg/bg_bodega_pan.jpg"
+image bg_pasillo_escombros = "images/bg/pasillo_corriendo.jpg"
+image bg_cuarto_maquinas = "images/bg/puerta_oxidada.png"
+image pasillo_servicio = "images/bg/pasillo_oscuro.jpg"
+image cocina_puerta = "images/bg/puerta_oxidada.png"
+image cuarto_maquinas_puerta = "images/bg/bg_bodega_pan.jpg"
+image pistola_primer_plano = "images/objects/obj-gun.png"
+image pasillo_servicio_lucha = "images/bg/pasillo_oscuro.jpg"
+image pasillo_lab_close = "images/bg/pasillo_corriendo.jpg"
+image pasillo_intermedio = "images/bg/pasillo_corriendo.jpg"
+image pasillo_dawn = "images/bg/pasillo_corriendo.jpg"
+image habitacion_abandonada_dawn = "images/bg/habitacion_abandonada.jpg"
+image vestibulo_dawn = "images/bg/vestibulo.jpg"
+image ending = "images/bg/ending.jpeg"
 image pasillo_oscuridad:
     "images/bg/pasillo_corriendo.jpg"
     matrixcolor BrightnessMatrix(-0.5)
 # Muertes
-image spdr1 = "game_over/death_spdr_1.png"
+image spdr1 = "images/game_over/death_spdr_1.png"
 
 ## Escenarios
 ### image bg clase = "escenarios/sala_clases.jpg"
 image bg_pasillo_scroll:
-    "bg/pasillo.png"
+    "images/bg/pasillo_abandonado.jpg"
     linear 5.0 xpos -500
 
 ## Sprites
 # Rodrigo
-image rodrigo neutral = "images/sprites/Rodri.png" 
-image rodrigo soft = "images/sprites/Rodri.png"
-image rodrigo molesto = "images/sprites/Rodri.png"
-image rodrigo serio = "images/sprites/Rodri.png"
-image rodrigo frustrado = "images/sprites/Rodri.png"
-image rodrigo nervioso = "images/sprites/Rodri.png"
-image rodrigo sorprendido = "images/sprites/Rodri.png"
-image rodrigo pain = "images/sprites/Rodri.png"
-image rodrigo scared = "images/sprites/Rodri.png"
-image rodrigo worried = "images/sprites/Rodri.png"
-image rodrigo alert = "images/sprites/Rodri.png"
-image rodrigo linterna = "images/sprites/Rodri.png"
-image rodrigo shocked = "images/sprites/Rodri.png"
-image rodrigo aim_gun = "images/sprites/Rodri.png"
-image rodrigo injured = "images/sprites/Rodri.png" # herido
-image rodrigo shock_state = "images/sprites/Rodri.png"
-image rodrigo bleeding_wall = "images/sprites/Rodri.png" # sangrando en la pared
-image rodrigo casual_young_shy = "images/sprites/Rodri.png"
-image rodrigo casual_young_blush = "images/sprites/Rodri.png"
+image rodrigo neutral = "images/sprites/MC/Rodri.png" 
+image rodrigo soft = "images/sprites/MC/Rodri.png"
+image rodrigo molesto = "images/sprites/MC/Rodri.png"
+image rodrigo serio = "images/sprites/MC/Rodri.png"
+image rodrigo frustrado = "images/sprites/MC/Rodri.png"
+image rodrigo nervioso = "images/sprites/MC/Rodri.png"
+image rodrigo sorprendido = "images/sprites/MC/Rodri.png"
+image rodrigo pain = "images/sprites/MC/Rodri.png"
+image rodrigo scared = "images/sprites/MC/Rodri.png"
+image rodrigo worried = "images/sprites/MC/Rodri.png"
+image rodrigo alert = "images/sprites/MC/Rodri.png"
+image rodrigo linterna = "images/sprites/MC/Rodri.png"
+image rodrigo shocked = "images/sprites/MC/Rodri.png"
+image rodrigo aim_gun = "images/sprites/MC/Rodri.png"
+image rodrigo injured = "images/sprites/MC/Rodri.png" # herido
+image rodrigo shock_state = "images/sprites/MC/Rodri.png"
+image rodrigo bleeding_wall = "images/sprites/MC/Rodri.png" # sangrando en la pared
+image rodrigo casual_young_shy = "images/sprites/MC/Rodri.png"
+image rodrigo casual_young_blush = "images/sprites/MC/Rodri.png"
 image rodrigo move_slow:
-    "images/sprites/Rodri.png"
+    "images/sprites/MC/Rodri.png"
 
     yoffset 0
     xoffset 0
@@ -287,7 +287,7 @@ image rodrigo move_slow:
         linear 0.6 yoffset 0 xoffset 0
         repeat
 image rodrigo run_panic:
-    "images/sprites/Rodri.png"
+    "images/sprites/MC/Rodri.png"
 
     yoffset 0
     xoffset 0
@@ -299,97 +299,104 @@ image rodrigo run_panic:
         linear 0.2 yoffset 0 xoffset 0
         repeat
 image rodrigo dead:
-    "images/sprites/Rodri.png"
+    "images/sprites/MC/Rodri.png"
     matrixcolor TintMatrix("#000000")
 
 # Azura
-image azura neutral = "images/sprites/Azura.png"
-image azura smile = "images/sprites/Azura.png"
-image azura temblor = "images/sprites/Azura.png"
-image azura emocion = "images/sprites/Azura.png"
-image azura scared = "images/sprites/Azura.png"
-image azura worried = "images/sprites/Azura.png"
-image azura shocked = "images/sprites/Azura.png"
-image azura tired = "images/sprites/Azura.png"
-image azura casual_young = "images/sprites/Azura.png"
-image azura casual_young_smile = "images/sprites/Azura.png"
+image azura neutral = "images/sprites/Azura/Azura.png"
+image azura smile = "images/sprites/Azura/Azura.png"
+image azura temblor = "images/sprites/Azura/Azura.png"
+image azura emocion = "images/sprites/Azura/Azura.png"
+image azura scared = "images/sprites/Azura/Azura.png"
+image azura worried = "images/sprites/Azura/Azura.png"
+image azura shocked = "images/sprites/Azura/Azura.png"
+image azura tired = "images/sprites/Azura/Azura.png"
+image azura casual_young = "images/sprites/Azura/Azura.png"
+image azura casual_young_smile = "images/sprites/Azura/Azura.png"
 image azura dead:
-    "images/sprites/Azura.png"
+    "images/sprites/Azura/Azura.png"
     matrixcolor TintMatrix("#000000")
 
 # Cutipye
-image cutipye neutral = "images/sprites/Cutipye.png"
-image cutipye smile = "images/sprites/Cutipye.png"
-image cutipye smile_nervous = "images/sprites/Cutipye.png"
-image cutipye determined = "images/sprites/Cutipye.png"
-image cutipye serious = "images/sprites/Cutipye.png"
-image cutipye soft = "images/sprites/Cutipye.png"
-image cutipye scared = "images/sprites/Cutipye.png"
-image cutipye shocked = "images/sprites/Cutipye.png"
-image cutipye tired = "images/sprites/Cutipye.png"
-image cutipye disgust = "images/sprites/Cutipye.png"
-image cutipye casual_young = "images/sprites/Cutipye.png"
-image cutipye throw = "images/sprites/Cutipye.png"
-image cutipye worried = "images/sprites/Cutipye.png"
+image cutipye neutral = "images/sprites/Cutipye/Cutipye.png"
+image cutipye smile = "images/sprites/Cutipye/Cutipye.png"
+image cutipye smile_nervous = "images/sprites/Cutipye/Cutipye.png"
+image cutipye determined = "images/sprites/Cutipye/Cutipye.png"
+image cutipye serious = "images/sprites/Cutipye/Cutipye.png"
+image cutipye soft = "images/sprites/Cutipye/Cutipye.png"
+image cutipye scared = "images/sprites/Cutipye/Cutipye.png"
+image cutipye shocked = "images/sprites/Cutipye/Cutipye.png"
+image cutipye tired = "images/sprites/Cutipye/Cutipye.png"
+image cutipye disgust = "images/sprites/Cutipye/Cutipye.png"
+image cutipye casual_young = "images/sprites/Cutipye/Cutipye.png"
+image cutipye throw = "images/sprites/Cutipye/Cutipye.png"
+image cutipye worried = "images/sprites/Cutipye/Cutipye.png"
 image cutipye dead:
-    "images/sprites/Cutipye.png"
+    "images/sprites/Cutipye/Cutipye.png"
     matrixcolor TintMatrix("#000000")
 
 # Nagi
-image nagi neutral = "images/sprites/Nagi.png"
-image nagi smug = "images/sprites/Nagi.png"
-image nagi smile = "images/sprites/Nagi.png"
-image nagi serio = "images/sprites/Nagi.png"
-image nagi soft = "images/sprites/Nagi.png"
-image nagi tired = "images/sprites/Nagi.png"
-image nagi angry = "images/sprites/Nagi.png"
-image nagi annoyed = "images/sprites/Nagi.png"
-image nagi worried = "images/sprites/Nagi.png"
-image nagi shocked = "images/sprites/Nagi.png"
-image nagi surprised = "images/sprites/Nagi.png"
-image nagi scared = "images/sprites/Nagi.png"
-image nagi casual_young = "images/sprites/Nagi.png"
-image nagi casual_young_molesto = "images/sprites/Nagi.png"
-image nagi casual_young_shock = "images/sprites/Nagi.png"
+image nagi neutral = "images/sprites/Nagi/Nagi.png"
+image nagi smug = "images/sprites/Nagi/Nagi.png"
+image nagi smile = "images/sprites/Nagi/Nagi.png"
+image nagi serio = "images/sprites/Nagi/Nagi.png"
+image nagi soft = "images/sprites/Nagi/Nagi.png"
+image nagi tired = "images/sprites/Nagi/Nagi.png"
+image nagi angry = "images/sprites/Nagi/Nagi.png"
+image nagi annoyed = "images/sprites/Nagi/Nagi.png"
+image nagi worried = "images/sprites/Nagi/Nagi.png"
+image nagi shocked = "images/sprites/Nagi/Nagi.png"
+image nagi surprised = "images/sprites/Nagi/Nagi.png"
+image nagi scared = "images/sprites/Nagi/Nagi.png"
+image nagi casual_young = "images/sprites/Nagi/Nagi.png"
+image nagi casual_young_molesto = "images/sprites/Nagi/Nagi.png"
+image nagi casual_young_shock = "images/sprites/Nagi/Nagi.png"
 image nagi dead:
-    "images/sprites/Nagi.png"
+    "images/sprites/Nagi/Nagi.png"
     matrixcolor TintMatrix("#000000")
 
 # Luz
-image luz smile = "images/sprites/Luz.png"
-image luz scared = "images/sprites/Luz.png"
-image luz worry = "images/sprites/Luz.png"
-image luz sad = "images/sprites/Luz.png"
-image luz angry = "images/sprites/Luz.png"
-image luz neutral = "images/sprites/Luz.png"
-image luz serious = "images/sprites/Luz.png"
-image luz surprised = "images/sprites/Luz.png"
-image luz determined = "images/sprites/Luz.png"
-image luz tired = "images/sprites/Luz.png"
-image luz pre_transition_shy = "images/sprites/Luz.png"
-image luz pre_transition_smile_tears = "images/sprites/Luz.png"
+image luz smile = "images/sprites/Luz/Luz.png"
+image luz scared = "images/sprites/Luz/Luz.png"
+image luz worry = "images/sprites/Luz/Luz.png"
+image luz sad = "images/sprites/Luz/Luz.png"
+image luz angry = "images/sprites/Luz/Luz.png"
+image luz neutral = "images/sprites/Luz/Luz.png"
+image luz serious = "images/sprites/Luz/Luz.png"
+image luz surprised = "images/sprites/Luz/Luz.png"
+image luz determined = "images/sprites/Luz/Luz.png"
+image luz tired = "images/sprites/Luz/Luz.png"
+image luz pre_transition_shy = "images/sprites/Luz/Luz.png"
+image luz pre_transition_smile_tears = "images/sprites/Luz/Luz.png"
 image luz dead:
-    "images/sprites/Luz.png"
+    "images/sprites/Luz/Luz.png"
     matrixcolor TintMatrix("#000000")
 
 # Galaxia
-image galaxia shadow_eyes:
-    "images/sprites/Galaxia.png"
-    matrixcolor TintMatrix("#000000")
-image galaxia walk_creepy = "images/sprites/Galaxia.png"
-image galaxia smile = "images/sprites/Galaxia.png"
-image galaxia half_smile = "images/sprites/Galaxia.png"
-image galaxia laugh = "images/sprites/Galaxia.png"
-image galaxia regen = "images/sprites/Galaxia.png"
-image galaxia healed = "images/sprites/Galaxia.png"
-image galaxia headshot = "images/sprites/Galaxia.png"
-image galaxia sentada_sonriendo = "images/sprites/Galaxia.png"
+image galaxia shadow_eyes = Composite(
+    (600, 600),
+    # Sprite base completamente negro
+    (0, 0), im.MatrixColor(
+        "images/sprites/Galaxia/Galaxia.png",
+        im.matrix.brightness(-1.0)
+    ),
+    # Ojos encima
+    (0, 0), "images/sprites/Galaxia/Galaxia Shadow Eyes.png"
+)
+image galaxia walk_creepy = "images/sprites/Galaxia/Galaxia.png"
+image galaxia smile = "images/sprites/Galaxia/Galaxia.png"
+image galaxia half_smile = "images/sprites/Galaxia/Galaxia.png"
+image galaxia laugh = "images/sprites/Galaxia/Galaxia.png"
+image galaxia regen = "images/sprites/Galaxia/Galaxia.png"
+image galaxia healed = "images/sprites/Galaxia/Galaxia.png"
+image galaxia headshot = "images/sprites/Galaxia/Galaxia.png"
+image galaxia sentada_sonriendo = "images/sprites/Galaxia/Galaxia.png"
 
 
 # Otros
 #image sujeto_herido = "images/sprites/Sujeto_Herido.png"
 image sujeto_herido:
-    "images/sprites/Nagi.png"
+    "images/sprites/Nagi/Nagi.png"
     matrixcolor TintMatrix("#000000")
 image avispa_zangano = "images/sprites/avispa_zangano.png"
 image avispa_zangano attack = "images/sprites/avispa_zangano.png"

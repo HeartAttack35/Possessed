@@ -1516,9 +1516,9 @@ label cap_3:
     "Como si algo dentro de él empezara a agitar"
     
     scene pasillo_abandonado
-    show rodrigo serio
+    show rodrigo serio at centro_izquierda
     show luz neutral at left
-    show azura worried at right
+    show azura worried at centro_derecha
     with fade
     play sound walk loop
     stop music fadeout 1.5
@@ -1530,6 +1530,10 @@ label cap_3:
     a "No es solo viejo... Está a punto de ceder..."
     r "Entonces vayamos más lento... Por las orillas si es posible."
 
+    show luz at centro_derecha
+    show azura at right
+    show rodrigo at center
+    with moveinleft
     "Se acomodan, caminando en fila, pegados a la pared. Sus sombras oscilan con la luz, proyectándose deformadas."
     "La tensión se siente con cada movimiento."
 
@@ -1537,7 +1541,7 @@ label cap_3:
     "De pronto, al fondo del pasillo, dos siluetas cruzan brevemente el marco de una puerta abierta."
     "Una de ellas voltea, mostrando el rostro de Cutipye, quien parece decir algo antes de entrar. Nagi le sigue, como si lo que encontraron fuera importante."
 
-    show luz surprised
+    show luz surprised at vjump
     l "¡Hey! ¡Cuty! ¡Nagi!"
 
     "Ellos voltearon. Nagi abrió la boca para gritar algo, pero el sonido fue otro."
@@ -1549,6 +1553,8 @@ label cap_3:
 
     r "¡No se muevan!"
 
+    play sound crack
+    pause 0.5
     play music shock noloop
     pause 0.2
     scene derrumbe with vpunch
@@ -1590,43 +1596,46 @@ label cap_3:
 label cap_4:
     scene black with fade
     play music melody fadein 2
+    play ambient "sfx/drop_distant.mp3" loop
+    play sound "sfx/heavy_breathing.ogg" loop volume 0.8
     pause 1
 
     "Oscuridad."
     "El polvo desciende como ceniza."
-    "El aire es espeso, y el único sonido es el lento jadeo de [nombre_jugador!c]."
-
-    play sound "sfx/heavy_breathing.ogg" loop volume 0.8
+    "La boca de [nombre_jugador!c] se llenó de un sabor a sangre y tierra."
+    "El aire es espeso, y el único sonido es el lento jadeo del castaño."
     r "Estoy vivo... Creo que eso cuenta para algo..."
 
-    scene bodega_dark
+    scene bodega_dark with fade
     show rodrigo injured at center
-    with fade
+    with dissolve
 
+    "Se sentó con dificultad, tosiendo. Su linterna parpadeó, iluminando escombros y vigas rotas."
     "El aire en el subsuelo era denso, una mezcla rancia de humedad, moho y sangre seca."
-    "[nombre_jugador!c] se sacudió el polvo, tosiendo. Le dolían las costillas, pero la adrenalina silenciaba el dolor con pánico frío."
 
     show item_gun at left with dissolve
-    "A su lado, entre el polvo, algo metálico reluce."
+    "A unos metros, reflejando la escasa luz, algo metálico relucía entre el polvo."
     "La pistola."
     hide item_gun
 
     scene rodrigo_grab_pistol with dissolve
-    "[nombre_jugador!c] la toma con la mano temblorosa, recordando brevemente el rostro de Luz al encontrarla."
-    "Apretando los dientes, la asegura en su cinturón improvisado."
+    "[nombre_jugador!c] se arrastró hasta ella y la tomó con la mano temblorosa, recordando brevemente el rostro de Luz al encontrarla."
+    "Apretando los dientes, la aseguró en su cinturón improvisado."
+
+    scene bodega_dark
+    show rodrigo alert at center
+    with dissolve
 
     r "Perfecto... Un sótano oscuro en un orfanato abandonado."
     r "Solo falta una niña en triciclo y tengo el bingo del terror completo."
 
     scene bg_bodega_pan with dissolve
+    stop sound fadeout 1.5
+    "Silencio. Solo el lejano goteo de agua."
     "Observa a su alrededor."
     "Estanterías corroídas, cajas desechas, frascos vacíos y algunos envases sellados con etiquetas ilegibles."
     "El lugar parece una bodega metálica olvidada, húmeda y colapsada en varias secciones."
 
-    "Silencio."
-    "Solo el lejano goteo de agua."
-
-    # scene bg_bodega_walk with dissolve
     show rodrigo move_slow with dissolve
     play sound walk loop
     "[nombre_jugador!c] da unos pasos con lentitud, examinando la habitación. Se apoya contra una pared y para mantener el equilibrio."
@@ -1659,20 +1668,20 @@ label cap_4:
 
     scene bodega_gal_shadow with dissolve
     pause 0.7
-    show galaxia shadow_eyes at center with dissolve # Solo ojos brillando
+    show galaxia shadow_eyes at center with dissolve
     
-    g "Hueles a miedo... y a sudor frío. Me encanta."
+    g "Tan frágil... Hueles a miedo... y a sudor frío. Me encanta."
 
     r "¡Déjame en paz, maldita sea!"
     
-    #scene bg_pasillo_scroll with vpunch
+    play sound "sfx/monster_parkour.ogg"
+    "La criatura se abalanzó, rebotando desde la pared hacia él con una agilidad inhumana."
+
     scene pasillo_corriendo with vpunch
     play sound run
     show rodrigo run_panic at center
     
-    "[nombre_jugador!c] giró y corrió por el pasillo de la izquierda."
-    
-    play sound "sfx/monster_parkour.ogg" # Sonido de rebotes
+    "[nombre_jugador!c] giró y corrió por el pasillo de la izquierda, más rápido de lo que jamás había corrido en su vida."
     "Detrás de él, no había pasos humanos. Había una bestia cazando."
     "Clic-clic-clic."
     "Impactos pesados contra las paredes y el techo."
@@ -1690,15 +1699,13 @@ label cap_4:
     "Llegó al final. Puerta metálica. Cerrada."
     r "¡Mierda!"
     
-    stop sound
-    
     "El sonido de las garras se detuvo."
     "El silencio fue peor."
 
     show rodrigo aim_gun at left with dissolve
     "[nombre_jugador!c] se giró lentamente, espalda contra la puerta fría."
 
-    show galaxia walk_creepy at right with dissolve
+    show galaxia walk_creepy at right with moveinright
     "De las sombras surgió ella."
     "Caminaba erguida, pero con la postura encorvada de una hiena. Ojos luminiscentes. Dientes afilados."
 
@@ -1719,10 +1726,10 @@ label cap_4:
     
     play sound "sfx/thud.mp3"
     scene gal_dead_floor with vpunch
-    "El impacto fue brutal. Un tiro limpio en la frente."
+    "El disparo fue ensordecedor en el espacio cerrado. El retroceso casi le disloca la muñeca."
+    "El impacto fue brutal. Un agujero perfecto perforaba el centro de su frente."
     
     play sound "sfx/body_fall_glass.mp3"
-    
     "El cuerpo cayó pesadamente entre los cristales."
     
     scene bg_almacen_medico
@@ -1737,17 +1744,15 @@ label cap_4:
     with fade
     "Se giró para buscar otra salida, dándole la espalda al cuerpo."
     
-    play sound "sfx/wet_whisper.mp3" volume 2.0 # Sonido fuerte y cercano
-    g "{size=+10}{cps=5}Oye...{/cps}{/size}"
-
+    play sound "sfx/wet_whisper.mp3" volume 2.0
     show rodrigo scared at vjump
+    g "{size=+10}{cps=5}Oye...{/cps}{/size}"
     "[nombre_jugador!c] tropezó hacia atrás."
 
-    play music chase1 volume 1.0 # Música frenética
+    play music chase1 volume 1.0
     scene chase1_reprise with fade
     "Estaba de pie."
     "El lado izquierdo de su rostro era una ruina sanguinolenta y humeante."
-    
     "Pero el lado derecho... sonreía. Coqueta. Viva."
 
     g "{b}{cps=15}Las balas no funcionan, [apodo_jugador]~{/cps}{/b}"
@@ -1767,9 +1772,9 @@ label cap_4:
     show galaxia regen with dissolve 
     pause 0.5
     show galaxia healed with dissolve
-    
-    g "Vas a tener que esforzarte más si quieres romperme el corazón."
 
+    "Frente a sus ojos, el cráneo destrozado se reacomodó. La piel se tejió sobre le agujero de bala."
+    g "Vas a tener que esforzarte más si quieres romperme el corazón."
     r "¡NO!"
     
     scene bg_pasillo_escombros
@@ -1777,11 +1782,10 @@ label cap_4:
     with vpunch
     
     g "¡CORRE, CORRE, CORRE!"
-    
     "Ya no había coquetería. Solo hambre."
     
     play sound "sfx/heavy_bang.mp3"
-    "[nombre_jugador!c] volcó un archivador."
+    "[nombre_jugador!c] volcó un viejo archivador metálico para ganar tiempo."
     
     "No sirvió. Ella saltó sobre él, rebotando en las paredes."
     
@@ -1789,26 +1793,25 @@ label cap_4:
     play sound "sfx/brick_throw.mp3"
     "Lanzó un ladrillo. Ella ni se inmutó."
     
-    # QTE (Quick Time Event)
-    "Una escotilla elevada al final del pasillo. Su única oportunidad."
+    "Al final del pasillo, un resquicio de luz iluminaba su única salvación: una vieja escalera de mano oxidada que subía hacia una escotilla."
+    "Estaba a cinco pasos. Pero el sonido de las garras estaba, literalmente, sobre su cuello."
     
     call screen qte_escalera
 
 label continue_escape_ladder:
     scene escalera_mano_1 with fade
     
-    "[nombre_jugador!c] puso un pie en el peldaño."
+    "[nombre_jugador!c] saltó y se aferró al primer peldaño de metal, impulsándose hacia arriba con desesperación."
     
     scene escalera_mano_2 with shake
     play sound slash
     r "¡¡AAAGH!!"
     
-    "Garras en su costado. Ardor lacerante."
-    "Lo estampó contra la pared. Rostro regenerado a centímetros del suyo."
+    "Antes de que sus pies despegaran del todo, unas garras como cuchillas le atravesaron el costado. Ardor lacerante."
+    "El dolor fue cegador. La criatura lo estampó contra la pared de concreto mientras él seguía colgado de la escalera, intentando arrastrarlo hacia abajo."
+    "En ese instante, a través de las garras hundidas en su carne, [nombre_jugador!c] sintió algo antinatural. Un latido ajeno filtrándose en sus venas."
     
     g "Te tengo."
-    
-    #show rodrigo gun_point_blank
     r "¡Suéltame!"
     
     play sound gunshot
