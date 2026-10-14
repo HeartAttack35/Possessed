@@ -1596,6 +1596,7 @@ label cap_3:
 
     stop sound
     play sound crack
+    show rodrigo scared at vjump
     "CRRRK…"
     "El piso bajo los pies del trío se agrieta. Se oye un crujido largo, siniestro."
 
@@ -1610,9 +1611,7 @@ label cap_3:
     pause 0.5
     
     "Demasiado tarde."
-
     "El suelo desapareció."
-
     "Azura y Luz logran aferrarse a los bordes, gritando al hacerlo, pero [nombre_jugador!c] —el más cercano al centro— desaparece en la penumbra, tragado por el derrumbe."
 
     #show luz scared at right
@@ -1626,10 +1625,10 @@ label cap_3:
     a "¡No... no, no, no!"
 
     scene pasillo_abandonado
-    show luz at centro_derecha
-    show azura at right
-    show nagi at centro_izquierda
-    show cutipye at left
+    show luz scared at centro_derecha
+    show azura scared at right
+    show nagi worry at centro_izquierda
+    show cutipye scared at left
     with dissolve
     "El polvo cubre todo. Desde el piso superior sólo se ve el vacío, y el eco lejano del cuerpo de [nombre_jugador!c] golpeando estructuras al caer."
 

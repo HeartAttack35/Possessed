@@ -377,6 +377,7 @@ image cutipye dead:
 
 # Nagi
 image nagi neutral = "images/sprites/Nagi/nagi_neutral.png"
+image nagi worry = "images/sprites/Nagi/nagi_neutral.png"
 image nagi smug = "images/sprites/Nagi/nagi_smug.png"
 image nagi smile = "images/sprites/Nagi/nagi_smile.png"
 image nagi serio = "images/sprites/Nagi/Nagi.png"
