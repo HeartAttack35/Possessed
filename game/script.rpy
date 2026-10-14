@@ -773,10 +773,6 @@ label cap_2:
     "Quizás no todo estaba perdido."
     "Quizás podían salir de allí."
 
-    # ============================================================
-    # EL SACRIFICIO DEL NPC (Ruptura Slasher)
-    # ============================================================
-
     stop music
 
     play sound wood_creak
@@ -790,7 +786,7 @@ label cap_2:
     play sound "sfx/flesh_bubble.mp3"
     play music chase fadein 0.5
     show luz scared at vjump
-    show rodrigo shock_state at vjump
+    show rodrigo sorprendido at vjump
 
     "Desde el ducto de ventilación, una figura encorvada cayó directamente sobre el hombre."
     "No hubo tiempo de reaccionar. Las garras se hundieron en su clavícula, arrancándolo de los brazos de Luz con una fuerza sobrehumana."
@@ -839,34 +835,78 @@ label cap_2:
     show rodrigo nervioso at center with moveinright
     play sound door_close
     "[nombre_jugador!c] entró tropezando en una antigua habitación de literas y cerró la puerta a sus espaldas, intentando no hacer ruido."
-    "Se apoyó contra la madera fría, con el pecho subiendo y bajando bruscamente. Estaba solo."
+    "Se apoyó contra la madera fría. Su pecho subía y bajaba con violencia; el eco de su propia respiración le parecía demasiado fuerte para un cuarto tan quieto."
+    "Estaba solo. Eso quería creer."
 
-    "Tragó saliva y encendió su linterna con manos temblorosas para inspeccionar el lugar, buscando otra salida."
-    "Sobre una de las camas bajas, la luz iluminó un pequeño zapato escolar desgastado. Un recordatorio de quienes solían dormir aquí antes de los experimentos."
+    "Encendió la linterna con manos temblorosas."
+    "El haz recorrió filas de literas oxidadas, colchones hundidos y un armario alto con la puerta entornada."
+    "No había ventanas. El aire era viejo y seco, con un fondo de metal frío y hierba muerta que no supo ubicar."
 
-    r "Cálmate... Respira... Tienes que encontrar una salida y decirle a Luz."
+    "Sobre una de las camas bajas, la luz encontró un pequeño zapato escolar, gastado en la punta."
+    "Solo uno."
 
-    "Dio un paso hacia el armario para revisar si había algo útil, pero de repente, la bombilla de su linterna parpadeó."
-    "Una, dos veces... y murió por completo, sumiéndolo en una penumbra opresiva."
+    r "Cálmate... Respira... Busca una salida. Avisa a Luz."
 
-    play sound nailtap
+    "Dio un paso hacia el armario..."
+    "...y la linterna parpadeó."
+    "Una vez."
+    "Dos."
+    "Luego se apagó, y la oscuridad cayó sobre la habitación como una tela gruesa."
+
+    pause 1.5
+    "Silencio."
+    "No la ausencia de ruido, sino un silencio con forma. El de algo que también contiene el aliento."
+    "Su propio pulso le martillaba los oídos."
+
+    play sound wood_creak volume 0.6
+    "Afuera, en el pasillo, una tabla cedió bajo un peso."
+    pause 1.2
+    play sound wood_creak volume 0.6
+    "Otra."
+    "Lentas. Medidas. No tenían prisa."
+    "Pero había algo mal en el ritmo. Demasiados apoyos. Ninguno donde debía estar."
+
+    pause 1.0
+    "Los pasos se detuvieron frente a la puerta."
+    pause 1.5
+    "Del otro lado, algo respiraba."
+    "No con pulmones. Era un aliento seco y entrecortado, como el roce de páginas muy viejas pasando una tras otra."
+    "El olor a hierba muerta se coló bajo la puerta."
+
     show rodrigo alert at vjump
-    play sound "sfx/wood_creak.mp3"
-    "Algo pesado pisó las tablas del pasillo, justo afuera de su puerta."
-    
+    "La manija giró."
+    "Despacio. Con una paciencia que no encajaba con nada de lo demás."
+
     play sound door_open
-    "La manija giró lentamente. La puerta crujió al abrirse de par en par."
+    "La puerta se abrió sin prisa, arrastrando un quejido largo contra el marco."
+    "Nadie entró."
+    pause 1.5
+    "[nombre_jugador!c] no veía nada. Solo un rectángulo de negro apenas más denso que el negro de la habitación."
+
     play sound nailtap
-    "Clic. Clic. Clic."
-    "Eran garras largas y afiladas golpeando rítmicamente el linóleo."
-    
+    "Clic."
+    pause 0.8
+    "Clic."
+    pause 0.8
+    "Clic."
+    "Algo duro golpeaba el linóleo. Con ritmo. Como un metrónomo sin música."
+
     play music chase fadein 1.0
     show rodrigo scared
-    "En la penumbra, [nombre_jugador!c] pudo distinguir dos hojas afiladas donde debían estar los brazos. Sobre su cabeza deforme, un par de antenas temblaban histéricamente, escaneando el aire de la habitación."
-    
-    "Estaba olfateando el terror."
-    "La bestia dio un paso hacia el interior. Se agachó, buscando cerca del suelo y arrastrando sus cuchillas bajo los muebles..."
-    
+    "Nunca lo oyó cruzar el umbral."
+    "Pero el sonido ya no venía de la puerta."
+
+    play sound "sfx/claw_drag_concrete.mp3" volume 0.5
+    "Un chasquido metálico, suave y seco. Después otro. Metal contra metal, como quien afila algo sin prisa."
+
+    "Y bajo eso, un olfateo húmedo y largo. Muy cerca del suelo."
+    "Se detuvo junto a las literas del fondo. Junto a la cama del zapato."
+    "Un segundo. Dos."
+    "Como si algo allí le resultara... familiar."
+
+    "Luego siguió. El roce de algo duro arrastrándose bajo los somieres, centímetro a centímetro."
+    "No buscaba a ciegas. Lo estaba rastreando."
+    "Y [nombre_jugador!c] no lograba dejar de temblar."
     menu:
         "Te acercas a comprobar":
             jump game_over_mnts_1
@@ -990,7 +1030,7 @@ label escape_mnts:
         "Comprobar si está bien":
             $ afinidad_luz += 1
             $ estado_mental += 1
-            show rodrigo at center
+            show rodrigo neutral at center
             show luz surprised
             with moveinleft
 
@@ -1010,11 +1050,11 @@ label escape_mnts:
             "La piel estaba limpia. Demasiado limpia."
             "Entonces, como si recién recordara lo extraño de su actitud, [nombre_jugador!c] inclinó el rostro y dejó un beso breve en sus labios."
             
-            show rodrigo at centro_izquierda
-            with moveinright
+            show rodrigo incomodo at centro_izquierda with moveinright
 
             r "...Solo quería asegurarme."
             
+            show luz smile with dissolve
             "Luz parpadeó, confundida, pero sonrió."
             
             l "Podías haber empezado por ahí, paranoico."
@@ -1193,13 +1233,13 @@ label cap_3:
     "Lucien señaló hacia el centro del patio con su manzana."
     ln "{i}Los niños grandes gritan mucho allá. Juegan a la pelota y siempre te empujan si no te quitas. Aquí es más tranquilo. Además, tú dibujas cosas geniales.{/i}"
     
+    scene luzdrigo_fb_5 with dissolve
+    show layer master at sepia_filter
     "Lucien partió un trozo de su manzana con las manos. Se lo tendió."
-
     ln "{i}¿Quieres? Mi mamá siempre me manda mucha comida. Y la manzana sabe mejor que la sopa verde.{/i}"
-    
     "[nombre_jugador!c] dudó. Sus ojos fueron de la manzana a la sonrisa de Lucien. Finalmente, la tomó con torpeza, sorprendido de que alguien se quedara tanto rato con él."
 
-    scene luzdrigo_fb_5 with fade
+    scene luzdrigo_fb_6 with fade
     show layer master at sepia_filter
     pause 1
     "Pasaron semanas."
@@ -1207,13 +1247,10 @@ label cap_3:
     "Y cada día, Lucien encontraba una excusa para buscarlo. A veces dibujaban juntos; Lucien le prestaba sus lápices de colores para que las criaturas no fueran solo oscuras. A veces solo se sentaban a comer en silencio."
     "Y un día, cuando la campana sonó anunciando el fin del recreo, [nombre_jugador!c] guardó su cuaderno, miró a su acompañante, y habló por primera vez:"
 
-    scene luzdrigo_fb_6 with dissolve
+    scene luzdrigo_fb_7 with dissolve
     show layer master at sepia_filter
     pause 1
     r "{i}Me llamo [nombre_jugador!c].{/i}"
-
-    scene luzdrigo_fb_6 with dissolve
-    show layer master at sepia_filter
     "Lucien no pareció sorprendido. Lo miró con una sonrisa que iluminó más que el sol."
 
     ln "{i}Ya lo sabía. Pero me alegra oírlo de ti.{/i}"
@@ -1238,7 +1275,7 @@ label cap_3:
     play music menu fadein 1.5
     "Una figura se apoya contra la pared. Tiembla."
 
-    show luz neutral at center with moveinright
+    show luz surprised at center with moveinright
     l "¡Azura!"
 
     show azura emocion
@@ -1251,7 +1288,7 @@ label cap_3:
             $ afinidad_azura += 2
 
             show rodrigo serio at centro_izquierda
-            show luz neutral at centro_derecha
+            show luz at centro_derecha
             with move
             "[nombre_jugador!c] acorta la distancia en dos pasos firmes."
 

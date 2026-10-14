@@ -243,6 +243,7 @@ image pasillo_intermedio = "images/bg/bg_pasillo_corriendo.jpg"
 image pasillo_dawn = "images/bg/bg_pasillo_corriendo.jpg"
 image habitacion_abandonada_dawn = "images/bg/bg_habitacion_abandonada.jpg"
 image vestibulo_dawn = "images/bg/bg_vestibulo.jpg"
+image vestibulo = "images/bg/bg_vestibulo.jpg"
 image ending = "images/bg/bg_ending.jpeg"
 image pasillo_oscuridad:
     "images/bg/bg_pasillo_corriendo.jpg"
@@ -253,6 +254,16 @@ image pasillo_exploration1 = "images/scn/scn_pasillo_exploration.jpeg"
 image pasillo_exploration2 = "images/scn/scn_pasillo_exploration2.jpeg"
 image pasillo_exploration3 = "images/scn/scn_pasillo_exploration3.jpeg"
 image pasillo_exploration4 = "images/scn/scn_pasillo_exploration4.jpeg"
+
+##Escenas dinámicas
+image luzdrigo_fb_1 = "images/scn/scn_luzdrigo_fb_1.jpeg"
+image luzdrigo_fb_2 = "images/scn/scn_luzdrigo_fb_2.jpeg"
+image luzdrigo_fb_3 = "images/scn/scn_luzdrigo_fb_3.jpeg"
+image luzdrigo_fb_4 = "images/scn/scn_luzdrigo_fb_4.jpeg"
+image luzdrigo_fb_5 = "images/scn/scn_luzdrigo_fb_5.jpeg"
+image luzdrigo_fb_5 = "images/scn/scn_luzdrigo_fb_5.jpeg"
+image luzdrigo_fb_6 = "images/scn/scn_luzdrigo_fb_6.jpeg"
+image luzdrigo_fb_7 = "images/scn/scn_luzdrigo_fb_7.jpeg"
 
 # Muertes
 image spdr1 = "images/game_over/death_spdr_1.png"
