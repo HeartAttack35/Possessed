@@ -202,9 +202,7 @@ label cap_1:
     "[nombre_jugador!c] se mantuvo en silencio, la mano rozando instintivamente la daga oculta en su cinturón."
     r "¿Están seguras de que quieren hacer esto...? Hay formas menos estúpidas de ser buscados por la policía..."
 
-    show cutipye smile at right
-    show rodrigo at left
-    with moveinright
+    show cutipye smile
     c "Vamos, [apodo_jugador], no seas tan agüafiestas. Además, solo está a unos diez minutos de aquí."
 
     menu:
@@ -214,7 +212,7 @@ label cap_1:
             r "Tch, estoy seguro de que solo encontraremos insectos y poco más..."
             r "Solo es un orfanato abandonado. ¿Qué es tan especial sobre este lugar?"
             
-            show azura smile with dissolve
+            show azura smile at centro_derecha with dissolve
             a "No es solamente un orfanato abandonado, [apodo_jugador]."
 
         "Aceptas de mala gana":
@@ -222,7 +220,7 @@ label cap_1:
             show rodrigo molesto with dissolve
             r "Está bien... Pero si nos arrestan, no pienso correr."
             
-            show azura smile with dissolve
+            show azura smile at centro_derecha with dissolve
             a "No creo que debas preocuparte por eso, el lugar fue desalojado hace mucho tiempo."
             a "Es más."
 
@@ -230,7 +228,7 @@ label cap_1:
             show rodrigo molesto with dissolve
             "[nombre_jugador!c] simplemente suspira, resignado."
             pause 1
-            show azura smile with dissolve
+            show azura smile at centro_derecha with dissolve
             a "Si sirve de algo..."
     
     a "Hay rumores de que en la época de la dictadura fue usado como centro de tortura."
@@ -274,22 +272,21 @@ label cap_1:
     with dissolve
     "Como respuesta, Nagi simplemente extendió su sonrisa y se adelantó unos cuantos pasos..."
 
-    scene orfanato_exterior1 at center with fade
+    scene orfanato_exterior at center with fade
     play sound walk
     "Al cabo de unos diez minutos, el grupo fue capaz de entrar al orfanato a través de una brecha en la enorme cerca de acero."
     
     scene orfanato_exterior2 with fade
-    show rodrigo neutral
+    show rodrigo neutral with moveinleft
     stop sound
     r "Bien, llegamos... Entonces tomamos unas cuantas fotos y nos vamos."
 
-    show nagi smile at right with dissolve
+    show nagi smile at right with moveinleft
     n "No creas que te escaparás tan fácil, cobarde."
-
     "Acto seguido, Nagi se quitó la mochila para sujetar su apenas escondido bate de béisbol."
     
+    show nagi smug with dissolve
     n  "De aquí no te irás sin acompañarnos."
-    show nagi smug
     n "Y nos quedaremos un buen rato."
     
     hide rodrigo
@@ -552,14 +549,14 @@ label escapar_araña:
     "[nombre_jugador!c] y Luz siguieron corriendo durante un rato, hasta que finalmente encontraron un lugar que parecía ser seguro."
     
     scene sala_espera_abandonada with dissolve
+    show luz scared at left
+    show rodrigo nervioso at centro_derecha
+    with moveinright
     play music "ambiente_tenso.ogg" fadein 2.0
     stop sound fadeout 1.5
 
     "Ambos se sentaron en unas viejas sillas de madera, tratando de recuperar el aliento."
 
-    show luz scared at left
-    show rodrigo nervioso at right
-    with dissolve
     r "Oh mierda, oh mierda, oh mierda..."
     r "Sabía que era una pésima idea..."
     

@@ -130,50 +130,54 @@ transform distortion_heavy:
     repeat
 
 ## Fondos
-image mainmenubg = "images/bg/main_menu.png"
+image mainmenubg = "images/bg/bg_main_menu.png"
 
 # Fondos con prefijo bg_ (usados en script_2.rpy caps 6-12)
+image bosque_tarde = "images/bg/bg_bosque_tarde.jpg"
 image bg_bodega_pan = "images/bg/bg_bodega_pan.jpg"
 image bg_almacen_medico = "images/bg/bg_almacen_medico.jpg"
-image bg_casa_cutipye_dia = "images/bg/sala_espera_abandonada.jpg"
-image bg_casa_cutipye_dia_interior = "images/bg/sala_espera_abandonada.jpg"
-image bg_pasillo_derruido = "images/bg/pasillo_corriendo.jpg"
-image bg_pasillo_oscuro = "images/bg/pasillo_oscuro.jpg"
-image bg_enfermeria_abandonada = "images/bg/habitacion_abandonada.jpg"
-image bg_habitacion_limpia = "images/bg/habitacion_intacta.png"
-image bg_habitacion_luz = "images/bg/habitacion_abandonada.jpg"
-image bg_habitacion_luz1 = "images/bg/habitacion_abandonada.jpg"
+image bg_casa_cutipye_dia = "images/bg/bg_sala_espera_abandonada.jpg"
+image bg_casa_cutipye_dia_interior = "images/bg/bg_sala_espera_abandonada.jpg"
+image bg_pasillo_derruido = "images/bg/bg_pasillo_corriendo.jpg"
+image bg_pasillo_oscuro = "images/bg/bg_pasillo_oscuro.jpg"
+image bg_enfermeria_abandonada = "images/bg/bg_habitacion_abandonada.jpg"
+image bg_habitacion_limpia = "images/bg/bg_habitacion_intacta.png"
+image bg_habitacion_luz = "images/bg/bg_habitacion_abandonada.jpg"
+image bg_habitacion_luz1 = "images/bg/bg_habitacion_abandonada.jpg"
 image bg_fiesta_borrosa:
-    "images/bg/vestibulo.jpg"
+    "images/bg/bg_vestibulo.jpg"
     blur 4.0
-image bg_pasillo_primer_piso = "images/bg/pasillo_abandonado.jpg"
-image bg_bosque_exterior = "images/bg/orfanato_exterior1.png"
-image pasillo_corriendo = "images/bg/pasillo_corriendo.jpg"
+image bg_pasillo_primer_piso = "images/bg/bg_pasillo_abandonado.jpg"
+image orfanato_exterior = "images/bg/bg_orfanato_exterior1.png"
+image orfanato_exterior2 = "images/bg/bg_orfanato_exterior2.jpg"
+image bg_bosque_exterior = "images/bg/bg_orfanato_exterior1.png"
+image pasillo_corriendo = "images/bg/bg_pasillo_corriendo.jpg"
+image sala_espera_abandonada = "images/bg/bg_sala_espera_abandonada.jpg"
 
 # Imágenes caps 8-9: combate en el vestíbulo y flashbacks
-image vestibulo_fight_normal = "images/bg/vestibulo.jpg"
+image vestibulo_fight_normal = "images/bg/bg_vestibulo.jpg"
 image vestibulo_fight_saturated:
-    "images/bg/vestibulo.jpg"
+    "images/bg/bg_vestibulo.jpg"
     matrixcolor SaturationMatrix(2.0)
 image vestibulo_fight_glitch:
-    "images/bg/vestibulo.jpg"
+    "images/bg/bg_vestibulo.jpg"
     matrixcolor HueMatrix(30)
-image vestibulo_aftermath = "images/bg/vestibulo.jpg"
-image fiesta_flashback1 = "images/bg/sala_espera_abandonada.jpg"
-image fiesta_flashback2 = "images/bg/sala_espera_abandonada.jpg"
-image fiesta_flashback3 = "images/bg/sala_espera_abandonada.jpg"
-image lavanderia_abandonada = "images/bg/lavanderia_abandonada.png"
-image oficina_admin = "images/bg/oficina_admin.jpg"
-image habitacion_abandonada = "images/bg/habitacion_abandonada.jpg"
-image bodega_gal_shadow = "images/bg/bodega_gal_shadow.jpg"
-image rodrigo_cig_balcony = "images/bg/rodrigo_cig_balcony.png"
-image rodrigo_cig_balcony_2 = "images/bg/rodrigo_cig_balcony_2.png"
-image balcon_abandonado_night = "images/bg/balcon_abandonado_night.png"
-image luz_hug_rodrigo = "images/bg/luz_hug_rodrigo.png"
-image closeup_luz_dying = "images/bg/closeup_luz_dying.png"
-image sotano_inicial = "images/bg/sotano_inicial.jpg"
-image escalera_mano_1 = "images/bg/escalera_mano_1.png"
-image escalera_mano_2 = "images/bg/escalera_mano_2.png"
+image vestibulo_aftermath = "images/bg/bg_vestibulo.jpg"
+image fiesta_flashback1 = "images/bg/bg_sala_espera_abandonada.jpg"
+image fiesta_flashback2 = "images/bg/bg_sala_espera_abandonada.jpg"
+image fiesta_flashback3 = "images/bg/bg_sala_espera_abandonada.jpg"
+image lavanderia_abandonada = "images/bg/bg_lavanderia_abandonada.png"
+image oficina_admin = "images/bg/bg_oficina_admin.jpg"
+image habitacion_abandonada = "images/bg/bg_habitacion_abandonada.jpg"
+image bodega_gal_shadow = "images/bg/bg_bodega_gal_shadow.jpg"
+image rodrigo_cig_balcony = "images/scn/scn_rodrigo_cig_balcony.png"
+image rodrigo_cig_balcony_2 = "images/scn/scn_rodrigo_cig_balcony_2.png"
+image balcon_abandonado_night = "images/bg/bg_balcon_abandonado_night.png"
+image luz_hug_rodrigo = "images/scn/scn_luz_hug_rodrigo.png"
+image closeup_luz_dying = "images/scn/scn_closeup_luz_dying.png"
+image sotano_inicial = "images/bg/bg_sotano_inicial.jpg"
+image escalera_mano_1 = "images/scn/scn_escalera_mano_1.png"
+image escalera_mano_2 = "images/scn/scn_escalera_mano_2.png"
 
 # Sprite: rata mutante (placeholder con avispa hasta tener asset propio)
 image rata_mutant = "images/sprites/avispa_zangano.png"
@@ -194,15 +198,15 @@ define stab_repeated = "sfx/slash.mp3"
 define heavy_breathing = "sfx/hover.mp3"
 
 # Imágenes usadas con "scene bg NOMBRE" (capa bg) en caps 9-10
-image pasillo_derruido = "images/bg/pasillo_corriendo.jpg"
-image flashback_rodrigo_borracho = "images/bg/habitacion_abandonada.jpg"
-image pasillo_oscuro = "images/bg/pasillo_oscuro.jpg"
+image pasillo_derruido = "images/bg/bg_pasillo_corriendo.jpg"
+image flashback_rodrigo_borracho = "images/bg/bg_habitacion_abandonada.jpg"
+image pasillo_oscuro = "images/bg/bg_pasillo_oscuro.jpg"
 image pasillo_intermitente:
-    "images/bg/pasillo_oscuro.jpg"
+    "images/bg/bg_pasillo_oscuro.jpg"
     linear 0.1 alpha 0.4
     linear 0.1 alpha 1.0
     repeat
-image centinela_quitinoso = "images/bg/pasillo_oscuro.jpg"
+image centinela_quitinoso = "images/bg/bg_pasillo_oscuro.jpg"
 
 # Screens de distorsión visual para las escenas de transformación (cap 9)
 screen screen_distortion_light():
@@ -211,48 +215,65 @@ screen screen_distortion_light():
 screen screen_distortion_heavy():
     add "#00000000"  # transparente; el efecto real está en show layer master at distortion_heavy
 
-image gameover_screen = "images/bg/game_over.jpg"
-image foreboding_1 = "images/bg/pasillo_oscuro.jpg"
-image escape_1 = "images/bg/pasillo_corriendo.jpg"
-image puerta_abierta_sotano = "images/bg/puerta_oxidada.png"
-image pasillo_lab = "images/bg/pasillo_abandonado.jpg"
-image sala_h127_1 = "images/bg/sala_h127.jpg"
-image puerta_cerrandose = "images/bg/puerta_h127.jpg"
-image pasillo_huida = "images/bg/pasillo_corriendo.jpg"
-image corredor_amplio = "images/bg/pasillo_corriendo.jpg"
+image gameover_screen = "images/bg/bg_game_over.jpg"
+image foreboding_1 = "images/bg/bg_pasillo_oscuro.jpg"
+image escape_1 = "images/bg/bg_pasillo_corriendo.jpg"
+image puerta_abierta_sotano = "images/bg/bg_puerta_oxidada.png"
+image pasillo_lab = "images/bg/bg_pasillo_abandonado.jpg"
+image sala_h127_1 = "images/bg/bg_sala_h127.jpg"
+image puerta_cerrandose = "images/bg/bg_puerta_h127.jpg"
+image pasillo_huida = "images/bg/bg_pasillo_corriendo.jpg"
+image corredor_amplio = "images/bg/bg_pasillo_corriendo.jpg"
 image chase1_1 = "images/bg/bg_bodega_pan.jpg"
-image bg_pasillo_escombros = "images/bg/pasillo_corriendo.jpg"
-image bg_cuarto_maquinas = "images/bg/puerta_oxidada.png"
-image pasillo_servicio = "images/bg/pasillo_oscuro.jpg"
-image cocina_puerta = "images/bg/puerta_oxidada.png"
+image bg_pasillo_escombros = "images/bg/bg_pasillo_corriendo.jpg"
+image bg_cuarto_maquinas = "images/bg/bg_puerta_oxidada.png"
+image pasillo_servicio = "images/bg/bg_pasillo_oscuro.jpg"
+image cocina_puerta = "images/bg/bg_puerta_oxidada.png"
 image cuarto_maquinas_puerta = "images/bg/bg_bodega_pan.jpg"
 image pistola_primer_plano = "images/objects/obj-gun.png"
-image pasillo_servicio_lucha = "images/bg/pasillo_oscuro.jpg"
-image pasillo_lab_close = "images/bg/pasillo_corriendo.jpg"
-image pasillo_intermedio = "images/bg/pasillo_corriendo.jpg"
-image pasillo_dawn = "images/bg/pasillo_corriendo.jpg"
-image habitacion_abandonada_dawn = "images/bg/habitacion_abandonada.jpg"
-image vestibulo_dawn = "images/bg/vestibulo.jpg"
-image ending = "images/bg/ending.jpeg"
+image pasillo_servicio_lucha = "images/bg/bg_pasillo_oscuro.jpg"
+image pasillo_lab_close = "images/bg/bg_pasillo_corriendo.jpg"
+image pasillo_intermedio = "images/bg/bg_pasillo_corriendo.jpg"
+image pasillo_dawn = "images/bg/bg_pasillo_corriendo.jpg"
+image habitacion_abandonada_dawn = "images/bg/bg_habitacion_abandonada.jpg"
+image vestibulo_dawn = "images/bg/bg_vestibulo.jpg"
+image ending = "images/bg/bg_ending.jpeg"
 image pasillo_oscuridad:
-    "images/bg/pasillo_corriendo.jpg"
+    "images/bg/bg_pasillo_corriendo.jpg"
     matrixcolor BrightnessMatrix(-0.5)
-image rat_shadow = "images/bg/rat_shadow.jpeg"
-image rat_slash = "images/bg/rat_slash.jpeg"
-image pasillo_exploration1 = "images/bg/pasillo_exploration.jpeg"
-image pasillo_exploration2 = "images/bg/pasillo_exploration2.jpeg"
-image pasillo_exploration3 = "images/bg/pasillo_exploration3.jpeg"
-image pasillo_exploration4 = "images/bg/pasillo_exploration4.jpeg"
+image rat_shadow = "images/scn/scn_rat_shadow.jpeg"
+image rat_slash = "images/scn/scn_rat_slash.jpeg"
+image pasillo_exploration1 = "images/scn/scn_pasillo_exploration.jpeg"
+image pasillo_exploration2 = "images/scn/scn_pasillo_exploration2.jpeg"
+image pasillo_exploration3 = "images/scn/scn_pasillo_exploration3.jpeg"
+image pasillo_exploration4 = "images/scn/scn_pasillo_exploration4.jpeg"
 
 # Muertes
 image spdr1 = "images/game_over/death_spdr_1.png"
 
 ## Escenarios
 ### image bg clase = "escenarios/sala_clases.jpg"
-image bg_dolls = "images/bg/pasillo_dolls.jpeg"
+image pasillo_abandonado = "images/bg/bg_pasillo_abandonado.jpg"
+image bg_dolls = "images/scn/scn_pasillo_dolls.jpeg"
 image bg_pasillo_scroll:
-    "images/bg/pasillo_abandonado.jpg"
+    "images/bg/bg_pasillo_abandonado.jpg"
     linear 5.0 xpos -500
+
+# Escenas dinámicas (imágenes en images/scn/)
+image habitacion_cadaver = "images/scn/scn_habitacion_cadaver.png"
+image scene_spdr = "images/scn/scn_scene_spdr.png"
+image escombros_bloqueo = "images/scn/scn_escombros_bloqueo.png"
+image habitacion_mantis = "images/scn/scn_habitacion_mantis.png"
+image pasaje_secreto = "images/scn/scn_pasaje_secreto.png"
+image galaxia_ventana = "images/scn/scn_galaxia_ventana.png"
+image gal_dead_floor = "images/scn/scn_gal_dead_floor.jpg"
+image derrumbe = "images/scn/scn_derrumbe.png"
+image avispa_guardia = "images/scn/scn_avispa_guardia.png"
+image avispa_dead = "images/scn/scn_avispa_dead.jpg"
+image rodrigo_grab_pistol = "images/scn/scn_rodrigo_grab_pistol.png"
+image chase1_reprise = "images/scn/scn_chase1_reprise.jpg"
+image cocina_puerta2 = "images/scn/scn_cocina_puerta2.png"
+image death_cutipye = "images/scn/scn_death_cutipye.png"
 
 ## Sprites
 # Rodrigo

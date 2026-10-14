@@ -386,7 +386,7 @@ style main_menu_frame:
     xsize 420
     yfill True
 
-    background "bg/main_menu.png"
+    background "images/bg/bg_main_menu.png"
 
 style main_menu_vbox:
     xalign 1.0
@@ -930,7 +930,7 @@ screen history():
 ## This determines what tags are allowed to be displayed on the history screen.
 
 define gui.history_allow_tags = { "alt", "noalt", "rt", "rb", "art" }
-define gui.main_menu_background = "bg/main_menu.png"
+define gui.main_menu_background = "images/bg/bg_main_menu.png"
 
 
 style history_window is empty
