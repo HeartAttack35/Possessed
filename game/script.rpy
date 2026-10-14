@@ -293,7 +293,7 @@ label cap_1:
     hide nagi
     pause 1
 
-    play sound break_glass volume 0.7
+    play sound break_glass
     scene orfanato_exterior2 at shake
     "Nagi alzó su bate y lo estrelló contra una ventanilla, destrozando el vidrio antes de bajar."
 
@@ -663,20 +663,20 @@ label cap_2:
 
     "Llegaron a un pasillo revestido de azulejos blancos manchados. Había puertas metálicas pesadas con números borrosos."
 
-    show rodrigo linterna at left
+    show rodrigo alert at left
     show luz worry at right
     with dissolve
 
     l "[nombre_jugador!c]... esto no es un sótano normal. Parece un laboratorio."
-
     "Mientras se abrían paso, las miradas de ambos recorrían las paredes, los cables colgantes, las manchas oscuras sobre el azulejo."
 
     show rodrigo at centro_izquierda
-    show luz at centro_derecha
+    show luz worry at centro_derecha
     with moveinleft
 
     "A medida que avanzaban, lentamente se apegaban el uno al otro sin decir una sola palabra."
 
+    show rodrigo incomodo with dissolve
     r "Jamás pensé que terminaríamos perdidos en un lugar así..."
     show luz smile with dissolve
     l "Siendo honesta... Si me hubieran dicho que terminaría en una casita de terror con el callado del salón... Tampoco me lo hubiera creído."
@@ -684,9 +684,11 @@ label cap_2:
 
     # -- Descubrimiento de la bitácora --
     "Entraron a la sala contigua."
+
+    scene lab1 with dissolve
     "Sobre un escritorio metálico, una caja fuerte abierta revelaba un cuaderno polvoriento."
 
-    show cuaderno_bitacora at center with dissolve
+    scene lab2 with dissolve
     play sound paper_flip
     play music story
     "[nombre_jugador!c] lo abrió. El encabezado era claro:"
@@ -717,11 +719,8 @@ label cap_2:
     {cps=10}{color=#f00}...{b}esperanzadores.{/b}{/color}{/cps}
     """
 
-    hide cuaderno_bitacora with dissolve
     hide text
-
-    show luz worry at right
-    show rodrigo frustrado at left
+    scene lab3 with dissolve
     pause (2)
 
     r "Estaban usando a los huérfanos... los llamaban 'sujetos prescindibles'."
@@ -730,6 +729,9 @@ label cap_2:
 
     l "Entonces..."
     l "Esa cosa que vimos... ¿Era uno de ellos?"
+    scene lab4
+    play sound door_slam
+    with hpunch
     "[nombre_jugador!c] cerró el cuaderno de golpe, con los nudillos blancos por la ira."
 
     # -- El hombre herido --
@@ -756,6 +758,7 @@ label cap_2:
     pause 1
     "La pareja intercambió una mirada, sus corazones acelerándose."
 
+    show luz worry with dissolve
     l "¿Ella...? ¿Te refieres a una de las criaturas?"
 
     pause (1)
@@ -793,6 +796,7 @@ label cap_2:
     "No hubo tiempo de reaccionar. Las garras se hundieron en su clavícula, arrancándolo de los brazos de Luz con una fuerza sobrehumana."
 
     play sound "sfx/bone_crack.mp3"
+    play sound slash
     with hpunch
     scene black with flashred
 
@@ -850,8 +854,9 @@ label cap_2:
     play sound "sfx/wood_creak.mp3"
     "Algo pesado pisó las tablas del pasillo, justo afuera de su puerta."
     
-    play sound "sfx/door_open.mp3"
+    play sound door_open
     "La manija giró lentamente. La puerta crujió al abrirse de par en par."
+    play sound nailtap
     "Clic. Clic. Clic."
     "Eran garras largas y afiladas golpeando rítmicamente el linóleo."
     
@@ -905,7 +910,9 @@ label escape_mnts:
     with dissolve
     
     $ estado_mental += 1
+    play sound thud
     "[nombre_jugador!c] cayó al suelo, temblando. Había estado a centímetros."
+    show rodrigo nervioso with dissolve
     pause (1)
     "Finalmente respira."
     
@@ -969,15 +976,14 @@ label escape_mnts:
             
             "Luz, todavía sorprendida por lo inusualmente físico del gesto —porque [nombre_jugador!c] rara vez iniciaba contacto así—, dudó apenas un segundo antes de corresponder."
             
+            show luz smile with dissolve
             l "...Estoy aquí."
-            
             "Sus manos se apoyaron en su espalda, suaves. Firmes."
 
             pause 0.75
-            show luz at right with moveinleft
+            show luz neutral at right with moveinleft
             
             "Después de unos segundos, fue ella quien se separó primero, mirándolo con una mezcla de ternura y preocupación."
-            
             l "Debió ser horrible."
 
 
