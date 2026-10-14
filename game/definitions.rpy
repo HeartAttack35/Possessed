@@ -1,6 +1,4 @@
 # Personajes
-# El nombre se asigna en label pedir_nombre (antes de label start).
-# nombre_jugador se inicializa en "Rodrigo" como valor por defecto.
 define r = Character("[nombre_jugador]", color="#0c0472")
 define l = Character("Luz", color="#fd5353")
 define c = Character("Cutipye", color="#2dff5a")
@@ -14,12 +12,7 @@ define ln = Character("Lucien", color="#fd5353")
 # Variables y definiciones
 
 default nombre_jugador = "Rodrigo"
-# apodo_jugador: forma afectiva que los otros personajes usan al llamar al protagonista.
-# Se asigna en label intro junto con nombre_jugador.
-# Por defecto son las 3 primeras letras del nombre + "i" (ej. "Rod" → "Rodi"),
-# pero el jugador puede elegir uno libre o pulsar "No me importa" para el automático.
 default apodo_jugador = "Rodri"
-
 default afinidad_luz = 0
 default afinidad_azura = 0
 default afinidad_cutipye = 0
@@ -244,11 +237,19 @@ image ending = "images/bg/ending.jpeg"
 image pasillo_oscuridad:
     "images/bg/pasillo_corriendo.jpg"
     matrixcolor BrightnessMatrix(-0.5)
+image rat_shadow = "images/bg/rat_shadow.jpeg"
+image rat_slash = "images/bg/rat_slash.jpeg"
+image pasillo_exploration1 = "images/bg/pasillo_exploration.jpeg"
+image pasillo_exploration2 = "images/bg/pasillo_exploration2.jpeg"
+image pasillo_exploration3 = "images/bg/pasillo_exploration3.jpeg"
+image pasillo_exploration4 = "images/bg/pasillo_exploration4.jpeg"
+
 # Muertes
 image spdr1 = "images/game_over/death_spdr_1.png"
 
 ## Escenarios
 ### image bg clase = "escenarios/sala_clases.jpg"
+image bg_dolls = "images/bg/pasillo_dolls.jpeg"
 image bg_pasillo_scroll:
     "images/bg/pasillo_abandonado.jpg"
     linear 5.0 xpos -500
@@ -256,16 +257,17 @@ image bg_pasillo_scroll:
 ## Sprites
 # Rodrigo
 image rodrigo neutral = "images/sprites/MC/Rodri.png" 
-image rodrigo soft = "images/sprites/MC/Rodri.png"
-image rodrigo molesto = "images/sprites/MC/Rodri.png"
-image rodrigo serio = "images/sprites/MC/Rodri.png"
+image rodrigo soft = "images/sprites/MC/rodrigo_soft.png"
+image rodrigo molesto = "images/sprites/MC/rodrigo_molesto.png"
+image rodrigo incomodo = "images/sprites/MC/rodrigo_awkward.png"
+image rodrigo serio = "images/sprites/MC/rodrigo_serio.png"
 image rodrigo frustrado = "images/sprites/MC/Rodri.png"
-image rodrigo nervioso = "images/sprites/MC/Rodri.png"
-image rodrigo sorprendido = "images/sprites/MC/Rodri.png"
+image rodrigo nervioso = "images/sprites/MC/rodrigo_nervioso.png"
+image rodrigo sorprendido = "images/sprites/MC/rodrigo_sorprendido.png"
 image rodrigo pain = "images/sprites/MC/Rodri.png"
-image rodrigo scared = "images/sprites/MC/Rodri.png"
+image rodrigo scared = "images/sprites/MC/rodrigo_scared.png"
 image rodrigo worried = "images/sprites/MC/Rodri.png"
-image rodrigo alert = "images/sprites/MC/Rodri.png"
+image rodrigo alert = "images/sprites/MC/rodrigo_alert.png"
 image rodrigo linterna = "images/sprites/MC/Rodri.png"
 image rodrigo shocked = "images/sprites/MC/Rodri.png"
 image rodrigo aim_gun = "images/sprites/MC/Rodri.png"
@@ -319,26 +321,26 @@ image azura dead:
 
 # Cutipye
 image cutipye neutral = "images/sprites/Cutipye/Cutipye.png"
-image cutipye smile = "images/sprites/Cutipye/Cutipye.png"
+image cutipye smile = "images/sprites/Cutipye/cutipye_smile.png"
 image cutipye smile_nervous = "images/sprites/Cutipye/Cutipye.png"
 image cutipye determined = "images/sprites/Cutipye/Cutipye.png"
 image cutipye serious = "images/sprites/Cutipye/Cutipye.png"
 image cutipye soft = "images/sprites/Cutipye/Cutipye.png"
-image cutipye scared = "images/sprites/Cutipye/Cutipye.png"
+image cutipye scared = "images/sprites/Cutipye/cutipye_scared.png"
 image cutipye shocked = "images/sprites/Cutipye/Cutipye.png"
 image cutipye tired = "images/sprites/Cutipye/Cutipye.png"
 image cutipye disgust = "images/sprites/Cutipye/Cutipye.png"
 image cutipye casual_young = "images/sprites/Cutipye/Cutipye.png"
 image cutipye throw = "images/sprites/Cutipye/Cutipye.png"
-image cutipye worried = "images/sprites/Cutipye/Cutipye.png"
+image cutipye worried = "images/sprites/Cutipye/cutipye_worry.png"
 image cutipye dead:
     "images/sprites/Cutipye/Cutipye.png"
     matrixcolor TintMatrix("#000000")
 
 # Nagi
-image nagi neutral = "images/sprites/Nagi/Nagi.png"
-image nagi smug = "images/sprites/Nagi/Nagi.png"
-image nagi smile = "images/sprites/Nagi/Nagi.png"
+image nagi neutral = "images/sprites/Nagi/nagi_neutral.png"
+image nagi smug = "images/sprites/Nagi/nagi_smug.png"
+image nagi smile = "images/sprites/Nagi/nagi_smile.png"
 image nagi serio = "images/sprites/Nagi/Nagi.png"
 image nagi soft = "images/sprites/Nagi/Nagi.png"
 image nagi tired = "images/sprites/Nagi/Nagi.png"
@@ -357,11 +359,11 @@ image nagi dead:
 
 # Luz
 image luz smile = "images/sprites/Luz/Luz.png"
-image luz scared = "images/sprites/Luz/Luz.png"
-image luz worry = "images/sprites/Luz/Luz.png"
+image luz scared = "images/sprites/Luz/luz_scared.png"
+image luz worry = "images/sprites/Luz/luz_worry.png"
 image luz sad = "images/sprites/Luz/Luz.png"
 image luz angry = "images/sprites/Luz/Luz.png"
-image luz neutral = "images/sprites/Luz/Luz.png"
+image luz neutral = "images/sprites/Luz/luz_neutral.png"
 image luz serious = "images/sprites/Luz/Luz.png"
 image luz surprised = "images/sprites/Luz/Luz.png"
 image luz determined = "images/sprites/Luz/Luz.png"

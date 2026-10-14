@@ -103,9 +103,9 @@ label start:
     
     stop music
     stop sound
-    play sound "sfx/door_slam.mp3"
+    play sound door_slam
     with vpunch
-    
+
     "La puerta se cerró de golpe."
     "Nadie la tocó."
 
@@ -120,7 +120,6 @@ label start:
 
     investigador "{cps=15}¿Q-quién anda ahí?{/cps}"
 
-    play music curse fadein 0.5
     show galaxia shadow_eyes at center with dissolve
 
     "Dos puntos de luz en la oscuridad."
@@ -135,6 +134,7 @@ label start:
 
     "{color=#390169}{font=fonts/HelpMe.ttf}{cps=20}Todos dicen eso.{/cps}{/font}{/color}"
 
+    play music curse fadein 0.5
     pause 0.4
 
     "{color=#390169}{font=fonts/HelpMe.ttf}{cps=15}Jugaremos para siempre...{/cps}{/font}{/color}"
@@ -165,7 +165,6 @@ label start:
     stop music fadeout 2.0
     pause 1.0
 
-    # Inicia el Capítulo 1 
     jump cap_1
 
 ################
@@ -180,26 +179,26 @@ label cap_1:
     "Los árboles a su alrededor danzaban al suave ritmo del viento. A medida que se abrían paso a través del sendero, la conversación inevitablemente retornó al motivo de aquella junta."
 
     # Nagi lideraba la marcha, golpeando los troncos con su bate de béisbol
-    show nagi smug at center with dissolve
+    show nagi neutral at center with dissolve
     "El viento otoñal cortaba como navaja, pero a Nagi no parecía importarle."
     "Caminaba marcando el paso, golpeando los troncos con su bate de béisbol."
 
     show azura smile at right with dissolve
     a "Deberíamos volver... Dicen que este lugar no solo era un orfanato."
 
-    show cutipye smile at left with dissolve
+    show cutipye neutral at left with dissolve
     c "Oh, genial. ¿Fantasmas huérfanos y militares muertos? Nagi, elegiste el mejor lugar para un viernes."
 
-    show nagi smug at center
+    show nagi smile at center
     n "Tonterías. Son puros cuentos para asustar a los niños de secundaria."
     n "Es solo un edificio abandonado, Zu-chan."
 
     hide nagi
     hide azura
-    hide cutipye
-    with dissolve
+    show cutipye at right
+    with moveoutright
+    show rodrigo neutral at centro_izquierda with moveinleft
 
-    show rodrigo neutral at center with dissolve
     "[nombre_jugador!c] se mantuvo en silencio, la mano rozando instintivamente la daga oculta en su cinturón."
     r "¿Están seguras de que quieren hacer esto...? Hay formas menos estúpidas de ser buscados por la policía..."
 
@@ -211,6 +210,7 @@ label cap_1:
     menu:
         "Respondes con sarcasmo":
             $ afinidad_cutipye += 1
+            show rodrigo molesto with dissolve
             r "Tch, estoy seguro de que solo encontraremos insectos y poco más..."
             r "Solo es un orfanato abandonado. ¿Qué es tan especial sobre este lugar?"
             
@@ -219,6 +219,7 @@ label cap_1:
 
         "Aceptas de mala gana":
             $ afinidad_cutipye += 2
+            show rodrigo molesto with dissolve
             r "Está bien... Pero si nos arrestan, no pienso correr."
             
             show azura smile with dissolve
@@ -226,6 +227,7 @@ label cap_1:
             a "Es más."
 
         "No dices nada":
+            show rodrigo molesto with dissolve
             "[nombre_jugador!c] simplemente suspira, resignado."
             pause 1
             show azura smile with dissolve
@@ -236,15 +238,18 @@ label cap_1:
     menu:
         "Te burlas del rumor":
             $ afinidad_azura -= 1
+            show rodrigo neutral with dissolve
             r "Vaya giro de guión. Qué conveniente."
             r "¿También hay una niña de pelo largo que aparece en los espejos o eso viene en el DLC de pago?"
 
         "Te muestras incómodo":
             $ afinidad_azura += 1
             $ estado_mental += 1
+            show rodrigo incomodo with dissolve
             r "...Ok, eso sí fue un poco más turbio de lo que esperaba."
 
         "Guardas silencio":
+            show rodrigo neutral with dissolve
             "[nombre_jugador!c] se limitó a fruncir el ceño sin responder, su mueca una clara muestra de desapruebo."
 
     show azura at centro_derecha with moveinright
@@ -258,7 +263,7 @@ label cap_1:
     "Antes de que [nombre_jugador!c] pudiera responder, la suave y cálida mano de la pelirroja rodeó la suya con gentileza..."
     "Su celeste mirada acompañada por una leve sonrisa, aquella mueca siendo suficiente para calmar el impulso del castaño."
 
-    show rodrigo soft with dissolve
+    show rodrigo neutral with dissolve
     r "Y, en todo caso, ¿cómo tienen pensado entrar?"
 
     hide rodrigo
@@ -302,9 +307,11 @@ label cap_1:
     queue sound "sfx/land.mp3"
     
     "Uno a uno, saltaron al interior. El sonido de sus botas contra el suelo resonó con un eco seco."
+    show rodrigo neutral with dissolve
     "Una vez bajaron todos, [nombre_jugador!c] se mantuvo de pie observando a sus amigos, quienes comenzaban a explorar lo que parecía ser una lavandería."
     
     pause 0.8
+    show rodrigo molesto with dissolve
     r "Tch, hasta acá llega el olor a muerto..."
 
     scene lavanderia_abandonada with fade
@@ -339,15 +346,15 @@ label cap_1:
 
     #agregar scene de Cutipye iluminando asustada.
     #AÑADIR IMÁGEN DE CUTIPYE ILUMINANDO HACIA LA PANTALLA
+    scene rat_shadow with dissolve
     pause 0.7
     play sound shock
     "La luz temblorosa iluminó una aberración: Un torso de piel estirada al límite, espinazos expuestos rompiendo la carne y extremidades demasiados largas para su cuerpo."
     "Pero lo peor eran sus ojos. Dos orbes que la miraban fijamente, brillando en la oscuridad como rubíes podridos."
-
-    show cutipye scared at center, vjump
     c "¡D-Dios mío!"
-
     "La criatura se abalanzó con un chillido ensordecedor."
+
+    scene rat_slash
     play sound slash
     with shake
     "Cutipye giró bruscamente por puro instinto, pero una garra rasgó el costado de su brazo y se enganchó profundamente en las correas de su mochila."
@@ -363,45 +370,44 @@ label cap_1:
     hide cutipye with moveoutleft
     "Corrió ciegamente, perdiéndose en la negrura del pasillo mientras la criatura se distraía un segundo vital desgarrando la tela ensangrentada de la mochila."
 
+    stop sound fadeout 1.5
     scene pasillo_oscuro with dissolve
     "[nombre_jugador!c], ajeno al grito que se había ahogado al otro lado del edificio, se adentró en una de las habitaciones en el pasillo..."
 
-    show rodrigo neutral with dissolve
+    scene bg_dolls with dissolve
     play sound walk
     "El suelo crujía bajo sus zapatillas con cada paso cauteloso."
     "Al enfocar su linterna en una esquina cubierta de moho, encontró un montón de muñecas antiguas y deshechas."
-    
     "A pesar de parecer un simple montón de basura olvidada, algo no cuadraba. Faltaban piezas. Estaban... desmembradas metódicamente."
-    show rodrigo alert
     r "¿...?"
 
+    scene pasillo_exploration1 with dissolve
     play music melody
     play sound "pasos_susurro.ogg"
     "[nombre_jugador!c] comenzó a notar un sonido leve y sutil, como pasos pequeños..."
-
-    show rodrigo molesto
     r "Chicas, esto no es gracioso..."
 
     pause(1.5)
-    show rodrigo neutral
+    scene pasillo_exploration2 with dissolve
     r "¿Chicas?"
     pause(1.5)
     
     "Al no recibir respuesta, [nombre_jugador!c] decidió dar marcha atrás, esta vez enfocado en encontrar a alguna de sus amigas, quien sea."
     
-    scene pasillo_oscuro
+    scene pasillo_exploration3 with dissolve
     play sound run
     "Puerta tras puerta, [nombre_jugador!c] buscó a sus amigas. Mientras más merodeaba, menos opciones tenía."
     
     "Su una vez lento y cuidadoso caminar se volvió un ligero trote."
     
-    scene puerta_oxidada
+    scene pasillo_exploration4 with dissolve
+    stop sound fadeout 1.5
     "Las opciones se acababan en aquel primer pasillo, hasta que el castaño trató de abrir un de las puertas."
     "Pero antes de poder intentarlo nuevamente..."
 
     stop music
     play sound scream1
-    scene puerta_oxidada at truecenter with moveinbottom
+    scene pasillo_exploration4 with vpunch
     pause 1
     r "¿¡Luz!?"
 
@@ -414,11 +420,12 @@ label cap_1:
     "Dos veces."
     play sound door_break volume 0.8
     with hpunch
+    scene black
     "Al tercer embate, la cerradura cedió con un chasquido metálico."
     
     scene foreboding_1 with fade
     show luz scared at left
-    show rodrigo alert at right
+    show rodrigo alert at right with moveinright
     pause 1.3
     
     "Luz estaba pálida, sus pupilas contraídas en dos puntos negros que temblaban al compás de su respiración entrecortada."
@@ -571,6 +578,7 @@ label escapar_araña:
             "Al notar que Luz estaba incluso más afligida que el mismo, no tuvo más remedio que responder sincera y afectivamente."
             show rodrigo soft
             r "Con mi vida..."
+            show rodrigo at center with moveinright
             "[nombre_jugador!c] se sentó junto a ella, apoyando una mano en su hombro. Luz no respondió al principio, pero su respiración se volvió más lenta."
             "Por un momento, el silencio dejó de ser tan pesado."
 
@@ -588,8 +596,8 @@ label escapar_araña:
     
     pause(0.5)
     play sound wood_creak volume 0.7
-    show rodrigo serio at right
-    show luz worry at left
+    show rodrigo serio at vjump
+    show luz worry at vjump
     pause(0.5)
     "Hasta que un leve crujido de madera, proveniente del techo, los obligó a intercambiar miradas."
 
