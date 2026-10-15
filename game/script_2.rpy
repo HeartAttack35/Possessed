@@ -173,7 +173,7 @@ label cap_6:
     if estado_mental >= 6:
         show luz worry at centro_derecha with move
         show cutipye worried at left
-        show nagi worried at centro_izquierda
+        show nagi worry at centro_izquierda
         with moveinleft
         "Pero el único sonido era el goteo distante del lugar."
 
@@ -214,6 +214,7 @@ label cap_6:
 
     pause 0.8
 
+    show rodrigo incomodo with dissolve
     "Parpadeó."
     "Todo volvió a la normalidad."
 
@@ -228,7 +229,7 @@ label cap_6:
     scene pasillo_abandonado with fade
     play sound wood_creak loop
     show luz worry at centro_derecha
-    show azura scared at right
+    show azura worried at right
     show nagi serio at centro_izquierda
     show cutipye disgust at left
     show rodrigo neutral at center
@@ -240,8 +241,9 @@ label cap_6:
     c "¿Y si es una trampa? Ya vimos lo que hay cuando nos metemos más adentro."
     n "No podemos quedarnos dando vueltas. Información nos da ventaja."
     c "O podemos irnos y vivir otro día. Yo prefiero no 'arriesgar ventaja'."
+    stop sound fadeout 0.4
 
-    show rodrigo nervioso at center
+    show rodrigo nervioso at center with dissolve
     "[nombre_jugador!c] notó la discusión."
     "El sonido de sus voces le parecía lejano, como si viniera desde el fondo de un túnel."
 
@@ -251,9 +253,8 @@ label cap_6:
     r "(No... no ahora.)"
 
     "Ambos lo miraron casi al mismo tiempo."
-    stop sound fadeout 0.4
     pause 0.6
-
+    show rodrigo neutral with dissolve
     r "¿Qué?"
     r "¿Ahora soy el comité ejecutivo?"
 
@@ -265,7 +266,7 @@ label cap_6:
     r "O retrocedemos por el mismo camino por donde casi nos matan hace veinte minutos."
 
     pause 0.5
-
+    show rodrigo incomodo with dissolve
     r "Decisiones, decisiones."
 
     "Se llevó una mano al costado casi sin darse cuenta."
@@ -288,8 +289,10 @@ label cap_6:
             $ label_nagi = True
             $ afinidad_nagi += 1
             $ estado_mental += 1
-            show rodrigo serio
+            show rodrigo neutral with dissolve
             r "Si vamos a morir, prefiero hacerlo con un mapa en la mano."
+
+            show rodrigo molesto with dissolve
             r "Al menos así podremos decir que fue una muerte organizada."
             "Su voz fue seca."
             "Demasiado seca."
@@ -299,9 +302,11 @@ label cap_6:
         "Cuty tiene razón. No podemos seguir adentrándonos.":
             $ afinidad_cutipye += 1
             $ estado_mental -= 1
-            show rodrigo serio
+            show rodrigo neutral with dissolve
             r "Ya tuvimos suficiente turismo oscuro por hoy."
             r "Retirarse no es cobardía."
+
+            show rodrigo incomodo with dissolve
             r "Es… estrategia con pulso funcional."
             "Forzó una media sonrisa."
             "Duró menos de un segundo."
@@ -560,7 +565,9 @@ label volver_afuera:
     "Cutipye caminó más despacio hasta quedar a su lado."
 
     show cutipye neutral at center with move
-
+    show rodrigo sorprendido at vjump
+    pause 0.1
+    show rodrigo neutral
     c "Oye."
 
     "No sonó como un chiste."
@@ -571,6 +578,7 @@ label volver_afuera:
 
     c "Que cuando te quedas más callado de lo normal… es muy obvio."
 
+    show rodrigo incomodo with dissolve
     "[nombre_jugador!c] desvió la mirada."
 
     c "No me mires así."
@@ -599,7 +607,7 @@ label volver_afuera:
         "Tengo miedo, Cutipye.":
             $ afinidad_cutipye += 2
             $ estado_mental += 1
-            show rodrigo soft
+            show rodrigo incomodo
             r "Tengo miedo, Cuty."
             "La confesión salió más baja de lo que esperaba."
             "Más honesta."
@@ -1231,6 +1239,7 @@ label escena_luz_balcon_oculta:
     l "Estás funcionando."
     l "Que no es lo mismo."
 
+    show rodrigo molesto with dissolve
     "[nombre_jugador!c] apretó la mandíbula."
 
     r "No hay nada que decir."
@@ -1337,6 +1346,7 @@ label escena_luz_balcon_oculta:
 
     "La mano de [nombre_jugador!c] temblaba."
 
+    show rodrigo nervioso with dissolve
     r "No sé si…"
     r "No sé si soy solo yo aquí dentro."
 
@@ -1347,6 +1357,7 @@ label escena_luz_balcon_oculta:
     "Pero esta vez…"
 
     "[nombre_jugador!c] no estaba seguro de si eso seguía siendo verdad."
+    pause 1
 
     scene black with fade
     stop music fadeout 4.0
