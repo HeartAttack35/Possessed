@@ -1063,19 +1063,21 @@ label escape_mnts:
         "Cuestionar a Luz":
             $ estado_mental += 2
             $ afinidad_luz += 1
+            show rodrigo alert with dissolve
             "[nombre_jugador!c] no se movió."
             
             r "¿Por qué estás tan tranquila?"
             r "Y limpia."
             
+            show luz neutral with dissolve
             "La sonrisa de Luz vaciló apenas."
             
             l "¿Eh?"
-            
             r "Hemos visto un fenómeno araña colgar del techo."
             r "No pareces... afectada."
-            
             "Por un momento, el silencio pesó entre ambos."
+
+            show luz smile with dissolve
             "Luego, la expresión de Luz se suavizó."
             
             l "[apodo_jugador]..."
@@ -1083,12 +1085,13 @@ label escape_mnts:
             l "Y si no sonrío, me pongo a temblar."
             
             show luz at center
+            show rodrigo sorprendido at vjump
             with moveinright
             "Antes de que él pudiera responder, ella dio un paso al frente y lo abrazó."
             "Esta vez fue ella quien lo sostuvo con fuerza."
             
             l "Estás tenso."
-            
+            show rodrigo incomodo with dissolve
             "[nombre_jugador!c] tardó un segundo en corresponder."
             
             r "...Estoy bien."
@@ -1277,8 +1280,6 @@ label cap_3:
 
     show luz surprised at center with moveinright
     l "¡Azura!"
-
-    show azura emocion
     "Azura levanta la vista de golpe, conteniendo el aliento. Al reconocerla, sus ojos se llenan de lágrimas contenidas."
     a "Luz… [nombre_jugador!c]… Pensé que…"
 
@@ -1288,7 +1289,7 @@ label cap_3:
             $ afinidad_azura += 2
 
             show rodrigo serio at centro_izquierda
-            show luz at centro_derecha
+            show luz surprised at centro_derecha
             with move
             "[nombre_jugador!c] acorta la distancia en dos pasos firmes."
 
@@ -1459,6 +1460,7 @@ label cap_3:
 
     play sound paper_flip
     play music story
+    show rodrigo serio with dissolve
     pause 0.5
 
     "Al abrirla, su expresión se endurece."
@@ -1484,6 +1486,7 @@ label cap_3:
     "La sola idea le revolvía el estómago."
 
     pause 0.5
+    show azura worried with dissolve
     a "Chicos... ¿Creen que alguien dormía aquí... sabiendo todo lo que pasaba?"
 
     pause 1.0
@@ -1498,13 +1501,11 @@ label cap_3:
     play sound thud
     play sound objfall
     with vpunch
-
-    "¡CRASH!"
-
-    show azura shocked at right, vjump
+    show azura scared at right, vjump
     show luz scared at left, vjump
     show rodrigo alert at center, vjump
 
+    "¡CRASH!"
     "Las baldosas del falso techo cedieron de golpe. Un bulto pesado cayó en picada y se estrelló violentamente contra la mesa central, levantando una nube de polvo gris."
     "No era un monstruo."
     "Era un cadáver momificado. Vestía una bata de laboratorio podrida, probablemente un investigador atrapado desde la caída del Proyecto H-127."
@@ -1565,7 +1566,7 @@ label cap_3:
     
     scene pasillo_abandonado
     show rodrigo serio at centro_izquierda
-    show luz neutral at left
+    show luz worry at left
     show azura worried at centro_derecha
     with fade
     play sound walk loop
@@ -1578,9 +1579,9 @@ label cap_3:
     a "No es solo viejo... Está a punto de ceder..."
     r "Entonces vayamos más lento... Por las orillas si es posible."
 
-    show luz at centro_derecha
-    show azura at right
-    show rodrigo at center
+    show luz worry at centro_derecha
+    show azura worried at right
+    show rodrigo serio at center
     with moveinleft
     "Se acomodan, caminando en fila, pegados a la pared. Sus sombras oscilan con la luz, proyectándose deformadas."
     "La tensión se siente con cada movimiento."
@@ -1614,20 +1615,18 @@ label cap_3:
     "El suelo desapareció."
     "Azura y Luz logran aferrarse a los bordes, gritando al hacerlo, pero [nombre_jugador!c] —el más cercano al centro— desaparece en la penumbra, tragado por el derrumbe."
 
-    #show luz scared at right
     $ _nombre_upper = nombre_jugador.upper()
     $ _ultima_vocal = next((c for c in reversed(_nombre_upper) if c in "AEIOUÁÉÍÓÚÜ"), _nombre_upper[-1])
     $ _idx_vocal = len(_nombre_upper) - 1 - next(i for i, c in enumerate(reversed(_nombre_upper)) if c in "AEIOUÁÉÍÓÚÜ")
     $ grito_nombre = _nombre_upper[:_idx_vocal] + _ultima_vocal * 5 + _nombre_upper[_idx_vocal + 1:]
     l "¡[grito_nombre]!"
 
-    #show azura scared at left
     a "¡No... no, no, no!"
 
     scene pasillo_abandonado
     show luz scared at centro_derecha
     show azura scared at right
-    show nagi worry at centro_izquierda
+    show nagi surprised at centro_izquierda
     show cutipye scared at left
     with dissolve
     "El polvo cubre todo. Desde el piso superior sólo se ve el vacío, y el eco lejano del cuerpo de [nombre_jugador!c] golpeando estructuras al caer."
@@ -1716,8 +1715,8 @@ label cap_4:
     scene bodega_gal_shadow with dissolve
     pause 0.7
     show galaxia shadow_eyes at center with dissolve
-    
-    g "Tan frágil... Hueles a miedo... y a sudor frío. Me encanta."
+
+    "{color=#390169}{font=fonts/HelpMe.ttf}{cps=20}Tan frágil... Hueles a miedo... y a sudor frío. Me encanta.{/cps}{/font}{/color}"
 
     r "¡Déjame en paz, maldita sea!"
     
@@ -1961,7 +1960,7 @@ label cap_5:
     scene pasillo_abandonado
     show luz scared at centro_derecha
     show azura scared at right
-    show nagi serio at centro_izquierda
+    show nagi surprised at centro_izquierda
     show cutipye scared at left
     with fade
     stop music fadeout 2
@@ -2040,8 +2039,8 @@ label cap_5:
     
     stop music
     stop sound
-    
     play sound gunshot volume 0.6 # Sonido lejano, con eco
+    with shake
     queue sound gunshot volume 0.3
     queue sound gunshot volume 0.1
     pause 1
@@ -2164,7 +2163,7 @@ label combate_ganado:
     n "Si..."
     
     "Nagi observa a Luz."
-    "Ella nsigue sosteniendo la barra."
+    "Ella sigue sosteniendo la barra."
     "No la suelta."
     pause 1
     "Luego, cuando la adrenalina comienza a bajar, Azura observa a su alrededor, anunciando con voz temblorosa:"
@@ -2186,8 +2185,7 @@ label combate_ganado:
     "El cuarto está oscuro, iluminado solo por las luces de emergencia."
     "En el rincón, una figura sentada contra la pared."
     
-    show rodrigo shock_state at center with dissolve
-    
+    show rodrigo shock_state at center, shaking with dissolve
     "Está cubierto de polvo y sangre. Tiene la mirada perdida en la pistola vacía que sostiene en su regazo."
     "Tiembla ligeramente."
     
