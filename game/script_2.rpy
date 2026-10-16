@@ -11,10 +11,11 @@ label cap_6:
     scene bg_casa_cutipye_dia with dissolve
     show layer master at sepia_filter 
     
-    play music "music/party_chill.mp3" fadein 2.0
+    play music "music/party_chill.mp3" fadein 2.0 volume 0.6
     play sound "sfx/glass_clink.mp3"
 
     "La casa de Cutipye olía a perfume caro y aperitivos horneados. Era una reunión pequeña, pero el lujo se notaba en cada rincón."
+    "Cortinas de lino filtrando la luz de media tarde. Un piso de madera tan pulido que devolvía los reflejos. Y, en algún lugar del pasillo, un reloj de péndulo que contaba los segundos con una puntualidad casi insolente."
 
     scene bg_casa_cutipye_dia_interior with dissolve
     show layer master at sepia_filter
@@ -22,25 +23,47 @@ label cap_6:
     show nagi casual_young at right
     show azura casual_young at left
 
+    "Las sillas de la sala estaban dispuestas en semicírculo, todas mirando hacia la entrada."
+    "Como para recibir a un invitado de honor. O para escuchar una declaración."
+
+    "Cutipye acomodó por tercera vez el mismo cojín. Miró hacia el pasillo, donde el reloj marcaba los últimos minutos. Volvió a acomodarlo."
     c "Ya casi es la hora. Lucien fue muy específico."
+    "Lo había sido. La hora exacta, todos presentes, sin excusas."
 
     a "Es extraño... Lucien no suele ser así de misterioso. Siempre nos cuenta todo."
-    
+
+    "Azura sostenía el teléfono con las dos manos, releyendo el mismo mensaje por enésima vez."
+    "«Hoy a la hora exacta, en casa de Cuty. Vengan todos. Es importante. Por favor, sean puntuales.»"
+    a "Ni un solo emoji. Lucien jamás escribe sin emojis."
+    c "Lleva semanas raro. Ayer le pregunté si estaba bien y me dijo «mejor que nunca»."
+    c "Con los ojos brillantes y una sonrisa enorme. Quedé más confundida que antes."
+    a "A mí me pareció que estaba esperando algo."
+
     n "Bah, no debe ser la gran cosa."
-    "Nagi se echó un puñado de papas fritas a la boca, despreocupado, apoyándose muy cerca de Cutipye."
-    
+    "Nagi se echó un puñado de papas fritas a la boca, despreocupado, apoyándose muy cerca de Cutipye. En la otra mano, un vaso de refresco al que aún no había dado ni un sorbo."
+    n "O se muda de ciudad, o gana la lotería, o lo recluta una secta."
+    c "Que sea la lotería, por favor."
+    n "Con suerte, una secta con buenos postres."
+    "Cutipye soltó una risa corta. Azura no."
+
     n "¿Qué es lo peor que puede pasar? ¿Que venga con pareja? Ojalá, así deja de ser el tercero en discordia."
 
     play sound "sfx/doorbell.mp3"
     "El timbre sonó antes de que pudieran reírse del chiste."
+
+    "Los tres se quedaron inmóviles. Nagi dejó de masticar."
+    "Azura se incorporó a medias, y volvió a sentarse."
 
     c "¡Yo abro!"
 
     hide cutipye with moveoutright
     pause 1.0
     
-    "Murmullos en la entrada. Nagi alzó una ceja, confundido."
-    
+    "Murmullos en la entrada. Dos voces."
+    "Una era la de Cutipye. La otra era baja, apenas un hilo, y no se parecía en nada a la de Lucien."
+    "Nagi alzó una ceja, confundido."
+
+    play sound door_close
     c "Pasa, pasa... chicos, miren quién llegó primero."
 
     show cutipye casual_young at center with moveinright
@@ -51,6 +74,7 @@ label cap_6:
     "Detrás de ella, una sombra poco familiar."
     "Cabello desordenado, hombros encogidos, manos en los bolsillos como si quisiera esconderlas."
     "[nombre_jugador!c]. El chico callado del fondo del salón."
+    "No miraba a nadie. Su atención, en cambio, se desviaba una y otra vez hacia el pasillo, hacia la puerta de entrada, como si esperara oírla abrirse en cualquier momento."
 
     # La tensión social
     show nagi casual_young_molesto
@@ -60,9 +84,9 @@ label cap_6:
     n "El club de ajedrez es los martes."
 
     c "¡Nagi! Cierra la boca."
-    
+
     "Cutipye le dio un codazo nada sutil a Nagi antes de sonreírle a [nombre_jugador!c], aunque con un toque de duda en sus ojos."
-    
+
     c "Ignóralo, [apodo_jugador]. Bienvenido. Aunque... ¿Lucien te invitó?"
 
     r "Sí... Lucien me dijo que tenía que estar aquí a esta hora."
@@ -79,55 +103,113 @@ label cap_6:
 
     r "Gracias..."
 
-    play sound "sfx/door_open.mp3"
-    
-    "La puerta principal se abrió de nuevo. Pasos suaves. Decididos."
+    # La espera
+    "Hubo un silencio incómodo. De esos en los que todos se miran, pero nadie mira a quien debería."
+    "Azura le señaló un lugar en el sofá. [nombre_jugador!c] se sentó en la punta, con la espalda recta y las manos entre las rodillas."
+
+    show nagi casual_young
+    n "Entonces... ¿de dónde conoces a Lucien?"
+    r "...De hace mucho."
+    n "¿Cuánto es mucho?"
+    "[nombre_jugador!c] se encogió de hombros. No era una respuesta."
+
+    c "Qué raro. Creí que Lucien nos había presentado a todos sus amigos."
+    "Lo dijo con ligereza, pero la frase quedó flotando en el aire."
+    "Nadie dijo lo que todos estaban pensando: que quizá Lucien no se lo había contado todo."
+
+    n "¿Y sabes de qué va esto?"
+    "[nombre_jugador!c] sostuvo la mirada de Nagi un segundo de más. Luego la desvió hacia el pasillo."
+    n "Genial. Un misterio dentro del misterio."
+
+    "Pasaron tres minutos. Luego cinco."
+    "Desde la cocina llegó el pitido del horno. Nadie se levantó a apagarlo."
+
+    "El teléfono de Azura vibró contra la mesa."
+    a "Es Lucien."
+    "Todos se inclinaron hacia la pantalla."
+    "«Estoy llegando. Gracias por esperarme.»"
+    n "Lucien nunca da las gracias por esperar. Lucien llega tarde y manda un meme."
+    c "Lo sé."
+
+    stop music fadeout 2.0
+    "Nadie bromeó después de eso."
+    "Sin la música, la casa se volvió más grande. Se oía el refrigerador zumbando en la cocina, el hielo asentándose en los vasos, el péndulo del pasillo."
+    "Nagi apretó su vaso con los dedos."
+
+    # La llegada
+    "Entonces, el reloj empezó a dar la hora."
+
+    play sound door_open
+    "Una campanada. Y, junto con ella, la puerta principal abriéndose."
+    "Lucien nunca tocaba el timbre. Entraba como si la casa fuera suya, gritando un «¡ya llegué!» desde el recibidor."
+    "Esta vez no gritó."
+    pause 1.0
+    "Otra campanada. Un paso."
+    "Suave. Decidido. Pero distinto: Lucien siempre arrastraba las zapatillas, y estos pisaban con cuidado, uno por uno, como quien cruza un puente que teme romper."
+    "Otra campanada. Otro paso."
 
     c "¿Lucien? ¿Eres tú? Estamos en la sala."
 
-    "Una figura apareció bajo el marco de la puerta."
-    
+    pause 1.5
+    "Ninguna respuesta. La última campanada se apagó."
+    "Una figura apareció bajo el marco de la puerta, a contraluz del pasillo."
+
     "No era Lucien."
     "O al menos, no el que ellos recordaban."
 
-    show luz pre_transition_shy at center with moveinright
+    show luz pre_transition_shy at center, oscuro with dissolve
+    pause 1.5
+
+    "Solo una silueta contra la luz: hombros rectos, manos entrelazadas, el borde de una tela moviéndose con el aire."
+    "Dudó en el umbral. Un segundo. Dos. Y luego dio el último paso hacia adentro."
+
+    show luz pre_transition_shy at center, normal with dissolve
+
+    
     "Llevaba un vestido sencillo de color pastel, el cabello suelto cayendo sobre sus hombros y un maquillaje ligero que resaltaba sus ojos."
-    
-    "Nagi soltó su vaso. Azura se cubrió la boca."
-    
+
+    play sound thud volume 0.4
+    show nagi casual_young_shock
+    "Nagi soltó su vaso. Cayó sobre la alfombra sin romperse y nadie lo miró."
+    "Azura se cubrió la boca."
+
     n "¿Pero qué...?"
     c "¿Lucien...?"
 
     l "Hola, chicos."
 
     "Su voz temblaba un poco, pero su mirada estaba firme."
+    pause 0.8
 
     l "Lamento no haberles dicho nada antes. Sé que... es una sorpresa."
-    
+
+    "Nadie respondió. Nagi había abierto la boca para soltar algún chiste, y no encontró ninguno."
+
     "Luz respiró hondo, entrelazando sus dedos frente a ella."
 
     l "Llevo mucho tiempo sintiendo que vivía la vida de alguien más. Y hoy... quería dejar de hacerlo."
     l "Quiero dar un comienzo fresco a mi vida. A quien soy realmente."
-    
+
     show luz pre_transition_smile_tears
     l "Y no podía empezar ese camino sin mis personas más queridas."
-    
+
     "Miró a Cutipye. A Nagi. A Azura."
-    
+
     l "Mis mejores amigos..."
-    
+
     "Y luego, giró la cabeza hacia la derecha, buscando los ojos del chico callado."
-    
+    pause 1.5
+
     l "...y mi novio."
 
-    show rodrigo casual_young_blush at right
-    show nagi casual_young_shock
-    
+    #show rodrigo casual_young_blush at right
+    show rodrigo soft with dissolve
+
     "Todas las miradas se dispararon hacia [nombre_jugador!c]."
     "Él no parecía sorprendido por la ropa de Luz. Solo... le sonrió. Una sonrisa pequeña, privada y llena de orgullo."
-    
+
     r "Te ves hermosa, Luz."
-    
+
     scene black with fade
     stop music fadeout 3.0
     show layer master at default # Quitar filtro Sepia

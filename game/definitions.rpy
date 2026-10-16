@@ -67,7 +67,8 @@ transform transform_blink:
 
 transform sepia_filter:
     matrixcolor SepiaMatrix()
-
+transform normal:
+    matrixcolor BrightnessMatrix(0.0)
 transform oscuro:
     matrixcolor BrightnessMatrix(-0.5)
 

@@ -734,24 +734,78 @@ label cap_2:
     with hpunch
     "[nombre_jugador!c] cerró el cuaderno de golpe, con los nudillos blancos por la ira."
 
-    # -- El hombre herido --
     stop music fadeout 3
     "Antes de que pudieran procesar el horror del descubrimiento, un quejido ahogado provino del fondo de la sala."
 
-    scene sala_h127_1 with dissolve
+    scene sala_h127_1
+    play ambient flies volume 0.3 loop
+    show rodrigo linterna at centro_izquierda
+    show luz neutral at centro_derecha
+    with dissolve
 
-    "Un hombre yacía apoyado contra unos archivadores. Estaba cubierto de sangre, pero aún respiraba."
+    "Nadie habló durante un largo rato."
+    "Lo que acaban de ver no se dejaba procesar. Era demasiado ordenado para ser un accidente. Demasiado deliberado."
+
+    "[nombre_jugador!c] movió la linterna despacio, casi sin querer, y la sala fue apareciendo por pedazos."
+    "Azulejos blancos vueltos amarillos, con grietas que subían como venas. Camillas metálicas con correas de cuero resecas, abiertas, esperando. Un desagüe en el centro del suelo y, alrededor, un círculo oscuro que ninguna fregona había logrado borrar."
+    "Arriba, un tubo fluorescente colgaba de una cadena, zumbando con un hilo de luz enferma que se encendía y se apagaba sin ritmo."
+
+    "El olor ya lo habían notado desde la puerta. Agrio. Metálico. Animal."
+    "Dentro era peor: tenía un fondo dulzón de formol y de algo más viejo que el formol."
+    "Y bajo todo eso, un goteo. Una gota. Un silencio largo. Otra gota. Como alguien contando."
+
+    show luz worry with dissolve
+    l "No quiero saber para qué eran las correas."
+    r "Entonces no las mires."
+
+    "Lo dijo seco, sin darle peso. Era lo único que le quedaba para sostener el momento."
+
+    "El haz de la linterna bajó al suelo y se detuvo."
+    "Un rastro. Ancho, arrastrado, como una mano enorme pasada de lado a lado sobre el linóleo. Partía de las sombras del fondo y terminaba tras unos archivadores volcados."
+    "Aún brillaba."
+
+    r "Esto es reciente."
+
+    "Siguiendo el rastro, la luz rozó la pared del fondo."
+    "A dos metros del suelo había una rejilla de ventilación. Le faltaba un tornillo. Del hueco caía polvo en hilos finos, muy despacio, como si algo, allá arriba, acabara de cambiar de postura."
+
+    "[nombre_jugador!c] la miró un segundo. Lo registró sin entenderlo."
+    "Y el haz siguió su camino."
+
+    # -- El hombre herido --
+    pause 1
+    "Entonces lo oyeron."
+    "Un quejido húmedo, ahogado, desde detrás de los archivadores."
+    "Humano. Demasiado humano."
+
+    show rodrigo alert at vjump
+    "La mano de Luz buscó su manga y se aferró a ella. [nombre_jugador!c] apretó la daga."
+    r "Quedate detrás de mí."
+
+    "Rodeó los archivadores con el arma por delante y la luz por detrás, paso a paso, escuchando como sus propias suelas pegaban en el suelo."
 
     show sujeto_herido at right with dissolve
-    show rodrigo alert at centro_izquierda with moveinleft
 
+    "Un hombre estaba sentado contra el metal, con las piernas estiradas, como un muñeco al que le hubieran cortado los hilos."
+    "Chaqueta de montaña rasgada de hombro a costilla. Botas con barro seco que no era de ahí. En la mano derecha, una linterna apagada, aferrada con tanta fuerza que los nudillos parecían de cera."
+    "No era de los de la bata. No era uno de los niños. Era alguien que había entrado por su propio pie."
+    "Igual que ellos."
+    "Y respiraba."
     l "¡Dios mío! ¡Señor, aguante!"
 
-    show rodrigo at vjump
     show luz surprised at centro_derecha with moveinleft
-    "Luz corrió hacia él, ignorando las protestas de [nombre_jugador!c]. Se arrodilló y pasó el brazo del hombre sobre sus hombros, ayudándolo a levantarse."
+    show rodrigo at vjump
+    r "Luz, espera... ¡Luz!"
+    r "Mira el rastro. Algo lo arrastró hasta aquí y lo dejó vivo. Eso no es normal."
+    l "Entonces me lo explicas después."
+
+    "Luz se arrodilló junto al hombre y le pasó el brazo sobre sus hombros, sin importarle la sangre."
+    "Olía a hierro, a sudor frío y a algo dulce debajo. Algo de enfermo."
 
     sujeto "No... no hagan ruido... ella los escuchará..."
+    "Hablaba en un hilo, casi sin mover los labios."
+    "Y mientras hablaba, sus ojos, muy abiertos, muy secos, se iban una y otra vez hacia el techo."
+
     l "Tranquilo. Lo sacaremos de aquí. ¿Quién le hizo esto?"
     sujeto "Ella... Ella no es como los otros... Ella lo disfruta..."
 
@@ -760,12 +814,14 @@ label cap_2:
 
     show luz worry with dissolve
     l "¿Ella...? ¿Te refieres a una de las criaturas?"
+    sujeto "Éramos... más. Cuando entramos. Los otros... Ya no..."
 
     pause (1)
     sujeto "Galaxia... su nombre... es Galaxia..."
+    sujeto "No quiere que se vayan... No deja que nadie..."
     pause (1)
 
-    "El hombre tosió sangre, pero con la ayuda de Luz, logró dar unos pasos hacia el pasillo."
+    "El hombre tosió sangre. Con la ayuda de Luz logró incorporarse, y pesaba menos de lo que debería, o ellos estaban demasiado asustados para sentir el peso."
 
     l "[nombre_jugador!c], ayúdame. Aún podemos salvarlo."
 
@@ -773,8 +829,21 @@ label cap_2:
     "Quizás no todo estaba perdido."
     "Quizás podían salir de allí."
 
-    stop music
+    "Caminaron hacia la puerta. Tres pasos. Cuatro. Las suelas arrastrándose, la respiración del hombre sibilante entre ambos."
+    "Y entonces la gota dejó de caer."
+    
+    pause 1.2
 
+    "[nombre_jugador!c] esperó la siguiente. No llegó."
+    "Un segundo después el zumbido del tubo fluorescente se apagó, como si alguien le hubiera puesto un dedo encima. La luz siguió, pero ya sin voz."
+    "Uno por uno, los ruidos de la sala se fueron retirando."
+
+    pause 1.0
+    play sound objfall volume 0.4
+    "Algo diminuto y metálico cayó desde lo alto y rodó por el linóleo, tintineando hasta chocar con el desagüe."
+    "Un tornillo."
+
+    stop music
     play sound wood_creak
     "Un crujido sobre sus cabezas los congeló."
 
@@ -783,12 +852,16 @@ label cap_2:
     "El hombre miró hacia el techo, sus ojos inyectados en terror absoluto. Sus últimas palabras salieron como un rezo ahogado:"
     sujeto "No se puede huir de ella."
 
+    # -- El ataque --
+    play sound objfall volume 0.8
+    "La rejilla salió despedida del muro y golpeó el suelo con un estruendo de lata."
+
     play sound "sfx/flesh_bubble.mp3"
     play music chase fadein 0.5
     show luz scared at vjump
     show rodrigo sorprendido at vjump
 
-    "Desde el ducto de ventilación, una figura encorvada cayó directamente sobre el hombre."
+    "Del hueco cayó una forma encorvada, un contorno más oscuro que el propio ducto, demasiado largo para haber cabido allí dentro, desenrollándose en el aire."
     "No hubo tiempo de reaccionar. Las garras se hundieron en su clavícula, arrancándolo de los brazos de Luz con una fuerza sobrehumana."
 
     play sound "sfx/bone_crack.mp3"
@@ -800,14 +873,23 @@ label cap_2:
 
     $ estado_mental += 2
 
-    "El grito fue silenciado por un crujido húmedo. La sangre salpicó el rostro de [nombre_jugador!c]."
+    "El grito fue silenciado por un crujido húmedo."
+    "La sangre salpicó el rostro de [nombre_jugador!c]. Tibia. Casi agradable, después del frío de la sala. Eso fue lo peor."
+
+    "La linterna de Luz rodó por el suelo. Su haz giró una vuelta completa sobre las paredes, la rejilla vacía, las correas, y se detuvo contra un rincón, iluminando nada."
 
     "{color=#390169}{font=fonts/HelpMe.ttf}{cps=20}Jueguen mientras puedan...{/cps}{/font}{/color}"
 
-    "La figura arrastró el cuerpo inerte hacia la oscuridad del pasillo, desapareciendo entre las sombras con una risa gutural."
+    "Algo pesado se arrastró sobre el linóleo, alejándose. Lento. Sin urgencia."
+    "La figura se llevó el cuerpo inerte hacia la oscuridad del pasillo, desapareciendo entre las sombras con una risa gutural."
     play sound glx_laugh
 
+    "Luz seguía de rodillas, con los brazos todavía a medio alzar, sosteniendo a alguien que ya no estaba."
+    "Tenía las manos rojas. Las miraba como si fueran de otra persona."
+
     r "¡CORRE! ¡LUZ, CORRE!"
+
+    "[nombre_jugador!c] la agarró de la muñeca y tiró de ella hasta ponerla en pie."
 
     # -- Huida --
     scene pasillo_huida with fade
@@ -1597,7 +1679,7 @@ label cap_3:
 
     stop sound
     play sound crack
-    show rodrigo scared at vjump
+    show rodrigo sorprendido at vjump
     "CRRRK…"
     "El piso bajo los pies del trío se agrieta. Se oye un crujido largo, siniestro."
 
@@ -1605,6 +1687,9 @@ label cap_3:
 
     play sound crack
     pause 0.5
+    show rodrigo scared at vjump
+    show azura scared at vjump
+    show luz scared at vjump
     play music shock noloop
     pause 0.2
     scene derrumbe with vpunch
@@ -1669,10 +1754,11 @@ label cap_4:
     "Apretando los dientes, la aseguró en su cinturón improvisado."
 
     scene bodega_dark
-    show rodrigo alert at center
+    show rodrigo neutral at center
     with dissolve
 
     r "Perfecto... Un sótano oscuro en un orfanato abandonado."
+    show rodrigo molesto with dissolve
     r "Solo falta una niña en triciclo y tengo el bingo del terror completo."
 
     scene bg_bodega_pan with dissolve
@@ -1725,7 +1811,8 @@ label cap_4:
 
     scene pasillo_corriendo with vpunch
     play sound run
-    show rodrigo run_panic at center
+    #show rodrigo run_panic at center
+    show rodrigo alert at center
     
     "[nombre_jugador!c] giró y corrió por el pasillo de la izquierda, más rápido de lo que jamás había corrido en su vida."
     "Detrás de él, no había pasos humanos. Había una bestia cazando."
@@ -1791,7 +1878,7 @@ label cap_4:
     "Se giró para buscar otra salida, dándole la espalda al cuerpo."
     
     play sound "sfx/wet_whisper.mp3" volume 2.0
-    show rodrigo scared at vjump
+    show rodrigo sorprendido at vjump
     g "{size=+10}{cps=5}Oye...{/cps}{/size}"
     "[nombre_jugador!c] tropezó hacia atrás."
 
