@@ -489,6 +489,7 @@ define land = "sfx/land.mp3"
 define objfall = "sfx/object-fall.mp3"
 define nailtap = "sfx/nails-tapping.mp3"
 define larvcry = "sfx/larvae_cry.mp3"
+define audio.heartbeat = "sfx/heartbeat.mp3"
 
 # Música
 define audio.main_menu = "<loop 28.25>music/menu.ogg"
@@ -498,6 +499,8 @@ define audio.story = "<loop 41.53>music/historia.ogg"
 define audio.curse = "music/maldicion.ogg"
 define audio.chase = "<loop 62.8>music/persecucion.ogg"
 define audio.chase1 = "<loop 34.5>music/persecucion (galaxia).ogg"
+define audio.chase2_begin = "music/persecucion (final) 1.wav"
+define audio.chase2 = "music/persecucion (final).wav"
 define audio.flashback = "<loop 28.00>music/flashback.ogg"
 define audio.credits = "music/creditos.mp3"
 define audio.rodtheme = "music/rodtheme.mp3" #DEFINIR LOOP, CAMBIAR A OGG

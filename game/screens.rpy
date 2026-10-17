@@ -336,6 +336,33 @@ style navigation_button:
 style navigation_button_text:
     properties gui.text_properties("navigation_button")
 
+screen attract_watcher():
+    add AttractIdleWatcher()
+    timer ATTRACT_POLL repeat True action Function(attract_tick, _update_screens=False)
+
+# Evita que Esc abra el menú de juego durante el attract
+screen attract_guard():
+    zorder 200
+    key "game_menu" action Return(True)
+
+screen attract_entrada(titulo, cuerpo):
+    zorder 100
+    vbox at attract_fade:
+        xalign 0.5
+        yalign 0.5
+        xsize 1300
+        spacing 36
+        text titulo:
+            size 34
+            color "#a32020"
+            xalign 0.5
+            outlines [ (2, "#000", 0, 0) ]
+        text cuerpo:
+            size 42
+            color "#e9e4d4"
+            xalign 0.5
+            text_align 0.5
+            outlines [ (3, "#000", 0, 0) ]
 
 ## Main Menu screen ############################################################
 ##
@@ -368,6 +395,8 @@ screen main_menu():
 
             text "[config.version]":
                 style "main_menu_version"
+    
+    use attract_watcher
 
 define config.main_menu_music = "<loop 28.25>music/menu.ogg"
 

@@ -176,7 +176,7 @@ label cap_6:
     l "Llevo mucho tiempo sintiendo que vivía la vida de alguien más. Y hoy... quería dejar de hacerlo."
     l "Quiero dar un comienzo fresco a mi vida. A quien soy realmente."
 
-    scene scn_casa_fb_7 at sepia_filter with dissolve
+    scene casa_fb_7 at sepia_filter with dissolve
     l "Y no podía empezar ese camino sin mis personas más queridas."
 
     "Miró a Cutipye. A Nagi. A Azura."
@@ -188,7 +188,7 @@ label cap_6:
 
     l "...y mi novio."
 
-    scene scn_casa_fb_8 at sepia_filter with dissolve
+    scene casa_fb_8 at sepia_filter with dissolve
 
     "Todas las miradas se dispararon hacia [nombre_jugador!c]."
     "Él no parecía sorprendido por la ropa de Luz. Solo... le sonrió. Una sonrisa pequeña, privada y llena de orgullo."
