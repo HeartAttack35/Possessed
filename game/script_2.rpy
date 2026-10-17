@@ -8,20 +8,13 @@ label cap_6:
     
     centered "{i}Tres años atrás...{/i}"
 
-    scene bg_casa_cutipye_dia with dissolve
-    show layer master at sepia_filter 
+    scene scn_casa_fb_1 at sepia_filter with fade
     
     play music "music/party_chill.mp3" fadein 2.0 volume 0.6
     play sound "sfx/glass_clink.mp3"
 
     "La casa de Cutipye olía a perfume caro y aperitivos horneados. Era una reunión pequeña, pero el lujo se notaba en cada rincón."
     "Cortinas de lino filtrando la luz de media tarde. Un piso de madera tan pulido que devolvía los reflejos. Y, en algún lugar del pasillo, un reloj de péndulo que contaba los segundos con una puntualidad casi insolente."
-
-    scene bg_casa_cutipye_dia_interior with dissolve
-    show layer master at sepia_filter
-    show cutipye casual_young at center
-    show nagi casual_young at right
-    show azura casual_young at left
 
     "Las sillas de la sala estaban dispuestas en semicírculo, todas mirando hacia la entrada."
     "Como para recibir a un invitado de honor. O para escuchar una declaración."
@@ -49,6 +42,8 @@ label cap_6:
     n "¿Qué es lo peor que puede pasar? ¿Que venga con pareja? Ojalá, así deja de ser el tercero en discordia."
 
     play sound "sfx/doorbell.mp3"
+    pause 0.3
+    scene scn_casa_fb_2 at sepia_filter with dissolve
     "El timbre sonó antes de que pudieran reírse del chiste."
 
     "Los tres se quedaron inmóviles. Nagi dejó de masticar."
@@ -56,7 +51,7 @@ label cap_6:
 
     c "¡Yo abro!"
 
-    hide cutipye with moveoutright
+    #hide cutipye with moveoutright
     pause 1.0
     
     "Murmullos en la entrada. Dos voces."
@@ -66,10 +61,7 @@ label cap_6:
     play sound door_close
     c "Pasa, pasa... chicos, miren quién llegó primero."
 
-    show cutipye casual_young at center with moveinright
-    show nagi casual_young at centro_derecha
-    show rodrigo casual_young_shy at right
-    with moveinright
+    scene casa_fb_3 at sepia_filter with dissolve
 
     "Detrás de ella, una sombra poco familiar."
     "Cabello desordenado, hombros encogidos, manos en los bolsillos como si quisiera esconderlas."
@@ -77,7 +69,6 @@ label cap_6:
     "No miraba a nadie. Su atención, en cambio, se desviaba una y otra vez hacia el pasillo, hacia la puerta de entrada, como si esperara oírla abrirse en cualquier momento."
 
     # La tensión social
-    show nagi casual_young_molesto
     "El silencio fue instantáneo."
 
     n "¿Eh? ¿Te equivocaste de biblioteca, amigo?"
@@ -92,10 +83,7 @@ label cap_6:
     r "Sí... Lucien me dijo que tenía que estar aquí a esta hora."
     r "Dijo que era importante."
 
-    show cutipye casual_young at left
-    show nagi casual_young_molesto at centro_izquierda
-    with moveinright
-    show azura casual_young_smile at centro_derecha with moveinleft
+    scene scn_casa_fb_4 at sepia_filter with dissolve
     "Azura dio un paso al frente, con esa sonrisa que podía desarmar cualquier tensión."
     
     a "Hola, [nombre_jugador!c]. Soy Azura. Nos sentamos a dos bancos de distancia en Historia."
@@ -107,7 +95,7 @@ label cap_6:
     "Hubo un silencio incómodo. De esos en los que todos se miran, pero nadie mira a quien debería."
     "Azura le señaló un lugar en el sofá. [nombre_jugador!c] se sentó en la punta, con la espalda recta y las manos entre las rodillas."
 
-    show nagi casual_young
+    scene casa_fb_3 at sepia_filter with dissolve
     n "Entonces... ¿de dónde conoces a Lucien?"
     r "...De hace mucho."
     n "¿Cuánto es mucho?"
@@ -157,19 +145,17 @@ label cap_6:
     "No era Lucien."
     "O al menos, no el que ellos recordaban."
 
-    show luz pre_transition_shy at center, oscuro with dissolve
+    scene scn_casa_fb_5 at sepia_filter with dissolve
     pause 1.5
 
     "Solo una silueta contra la luz: hombros rectos, manos entrelazadas, el borde de una tela moviéndose con el aire."
     "Dudó en el umbral. Un segundo. Dos. Y luego dio el último paso hacia adentro."
 
-    show luz pre_transition_shy at center, normal with dissolve
-
+    scene scn_casa_fb_6 at sepia_filter with dissolve
     
     "Llevaba un vestido sencillo de color pastel, el cabello suelto cayendo sobre sus hombros y un maquillaje ligero que resaltaba sus ojos."
 
     play sound thud volume 0.4
-    show nagi casual_young_shock
     "Nagi soltó su vaso. Cayó sobre la alfombra sin romperse y nadie lo miró."
     "Azura se cubrió la boca."
 
@@ -190,7 +176,7 @@ label cap_6:
     l "Llevo mucho tiempo sintiendo que vivía la vida de alguien más. Y hoy... quería dejar de hacerlo."
     l "Quiero dar un comienzo fresco a mi vida. A quien soy realmente."
 
-    show luz pre_transition_smile_tears
+    scene scn_casa_fb_7 at sepia_filter with dissolve
     l "Y no podía empezar ese camino sin mis personas más queridas."
 
     "Miró a Cutipye. A Nagi. A Azura."
@@ -202,8 +188,7 @@ label cap_6:
 
     l "...y mi novio."
 
-    #show rodrigo casual_young_blush at right
-    show rodrigo soft with dissolve
+    scene scn_casa_fb_8 at sepia_filter with dissolve
 
     "Todas las miradas se dispararon hacia [nombre_jugador!c]."
     "Él no parecía sorprendido por la ropa de Luz. Solo... le sonrió. Una sonrisa pequeña, privada y llena de orgullo."

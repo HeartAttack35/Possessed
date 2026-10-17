@@ -270,6 +270,15 @@ image luzdrigo_fb_5 = "images/scn/scn_luzdrigo_fb_5.jpeg"
 image luzdrigo_fb_6 = "images/scn/scn_luzdrigo_fb_6.jpeg"
 image luzdrigo_fb_7 = "images/scn/scn_luzdrigo_fb_7.jpeg"
 
+image casa_fb_1 = "images/scn/scn_casa_fb_1.jpeg"
+image casa_fb_2 = "images/scn/scn_casa_fb_2.jpeg"
+image casa_fb_3 = "images/scn/scn_casa_fb_3.jpeg"
+image casa_fb_4 = "images/scn/scn_casa_fb_4.jpeg"
+image casa_fb_5 = "images/scn/scn_casa_fb_5.jpeg"
+image casa_fb_6 = "images/scn/scn_casa_fb_6.jpeg"
+image casa_fb_7 = "images/scn/scn_casa_fb_7.jpeg"
+image casa_fb_8 = "images/scn/scn_casa_fb_8.jpeg"
+
 # Muertes
 image spdr1 = "images/game_over/death_spdr_1.png"
 

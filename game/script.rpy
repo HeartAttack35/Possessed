@@ -1265,12 +1265,10 @@ label cap_3:
     centered "{i}{color=#000000}...Estático. Luz cálida. Voces infantiles a lo lejos...{/color}{/i}"
 
     play music flashback fadein 2
-    scene luzdrigo_fb_1 with dissolve
-    show layer master at sepia_filter
+    scene luzdrigo_fb_1 at sepia_filter with dissolve
     "El sol de primavera caía oblicuo sobre el patio de la escuela, manchado con sombras largas el concreto rajado."
     
-    scene luzdrigo_fb_2 with fade
-    show layer master at sepia_filter
+    scene luzdrigo_fb_2 at sepia_filter with fade
     "En una esquina, lejos de los juegos, los gritos, y las risas, un niño de cabello desordenado se acurrucaba contra una pared, con la mirada baja y con los brazos cruzados sobre las rodillas."
     
     "[nombre_jugador!c]."
@@ -1279,8 +1277,7 @@ label cap_3:
     "No hablaba. No miraba. Solo esperaba que el recreo acabara."
     "Hasta que oyó pasos. Lentos, ligeros. Y una sombra diferente a las demás cubrió parte de su cuaderno."
     
-    scene luzdrigo_fb_3 with dissolve
-    show layer master at sepia_filter
+    scene luzdrigo_fb_3 at sepia_filter with dissolve
     '?' "{i}¿Tú lo dibujaste?{/i}"
 
     "[nombre_jugador!c] levantó apenas la vista. Frente a él había un niño de cabello castaño claro, suelto y algo desordenado. Sostenía una manzana a medio comer, y lo miraba sin miedo, sin burla. Solo… con interés genuino."
@@ -1290,8 +1287,7 @@ label cap_3:
     "[nombre_jugador!c] no respondió. Volvió a mirar el cuaderno, esperando que el niño se aburriera y se marchara."
     "Eso es lo que todos hacían."
 
-    scene luzdrigo_fb_4 with dissolve
-    show layer master at sepia_filter
+    scene luzdrigo_fb_4 at sepia_filter with dissolve
     "Pero no se fue."
     "El niño se sentó a su lado sin invitación, cruzando las piernas sobre el suelo sucio."
 
@@ -1318,22 +1314,19 @@ label cap_3:
     "Lucien señaló hacia el centro del patio con su manzana."
     ln "{i}Los niños grandes gritan mucho allá. Juegan a la pelota y siempre te empujan si no te quitas. Aquí es más tranquilo. Además, tú dibujas cosas geniales.{/i}"
     
-    scene luzdrigo_fb_5 with dissolve
-    show layer master at sepia_filter
+    scene luzdrigo_fb_5 at sepia_filter with dissolve
     "Lucien partió un trozo de su manzana con las manos. Se lo tendió."
     ln "{i}¿Quieres? Mi mamá siempre me manda mucha comida. Y la manzana sabe mejor que la sopa verde.{/i}"
     "[nombre_jugador!c] dudó. Sus ojos fueron de la manzana a la sonrisa de Lucien. Finalmente, la tomó con torpeza, sorprendido de que alguien se quedara tanto rato con él."
 
-    scene luzdrigo_fb_6 with fade
-    show layer master at sepia_filter
+    scene luzdrigo_fb_6 at sepia_filter with fade
     pause 1
     "Pasaron semanas."
 
     "Y cada día, Lucien encontraba una excusa para buscarlo. A veces dibujaban juntos; Lucien le prestaba sus lápices de colores para que las criaturas no fueran solo oscuras. A veces solo se sentaban a comer en silencio."
     "Y un día, cuando la campana sonó anunciando el fin del recreo, [nombre_jugador!c] guardó su cuaderno, miró a su acompañante, y habló por primera vez:"
 
-    scene luzdrigo_fb_7 with dissolve
-    show layer master at sepia_filter
+    scene luzdrigo_fb_7 at sepia_filter with dissolve
     pause 1
     r "{i}Me llamo [nombre_jugador!c].{/i}"
     "Lucien no pareció sorprendido. Lo miró con una sonrisa que iluminó más que el sol."
@@ -1850,8 +1843,12 @@ label cap_4:
     "Galaxia soltó una carcajada y se lanzó."
     
     show galaxia at centro_izquierda with moveinright
+    pause 0.1
     play sound gunshot
     stop music
+    show rodrigo aim_gun at oscuro
+    show galaxia at oscuro
+    pause 0.1
     scene black
     with flash
     
