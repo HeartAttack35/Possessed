@@ -137,7 +137,7 @@ label start:
     play music curse fadein 0.5
     pause 0.4
 
-    "{color=#390169}{font=fonts/HelpMe.ttf}{cps=15}Jugaremos para siempre...{/cps}{/font}{/color}"
+    "{color=#390169}{font=fonts/HelpMe.ttf}{cps=15}Pero no te preocupes... Yo también estoy haciendo el mío~{/cps}{/font}{/color}"
 
     stop ambient
     play sound thud
@@ -202,7 +202,7 @@ label cap_1:
     "[nombre_jugador!c] se mantuvo en silencio, la mano rozando instintivamente la daga oculta en su cinturón."
     r "¿Están seguras de que quieren hacer esto...? Hay formas menos estúpidas de ser buscados por la policía..."
 
-    show cutipye smile
+    show cutipye smile with dissolve
     c "Vamos, [apodo_jugador], no seas tan agüafiestas. Además, solo está a unos diez minutos de aquí."
 
     menu:
@@ -297,29 +297,84 @@ label cap_1:
     scene orfanato_exterior2 at shake
     "Nagi alzó su bate y lo estrelló contra una ventanilla, destrozando el vidrio antes de bajar."
 
-    stop music fadeout 1
+    stop music fadeout 1.0
     play sound "sfx/land.mp3"
     queue sound "sfx/land.mp3"
     queue sound "sfx/land.mp3"
     queue sound "sfx/land.mp3"
     
-    "Uno a uno, saltaron al interior. El sonido de sus botas contra el suelo resonó con un eco seco."
-    show rodrigo neutral with dissolve
-    "Una vez bajaron todos, [nombre_jugador!c] se mantuvo de pie observando a sus amigos, quienes comenzaban a explorar lo que parecía ser una lavandería."
-    
-    pause 0.8
-    show rodrigo molesto with dissolve
-    r "Tch, hasta acá llega el olor a muerto..."
-
     scene lavanderia_abandonada with fade
-    play sound land
-    show rodrigo neutral
+    "Uno a uno, saltaron al interior. El sonido de sus botas contra las baldosas resquebrajadas resonó con un eco seco y hueco."
+    
+    "Una vez bajaron todos, [nombre_jugador!c] se mantuvo de pie cerca de la ventana rota, observando cómo sus amigos encendían sus linternas e iluminaban lo que parecía ser una vieja lavandería industrial."
 
-    "El grupo comenzó a explorar aquel lugar, encendiendo sus linternas."
+    pause 0.8
+    show rodrigo molesto at left with dissolve
+    r "Tch, hasta acá llega el olor a muerto... Qué lugar tan encantador."
+
+    show cutipye annoyed at right with dissolve
+    c "Ugh, dímelo a mí. Mis botas nuevas acaban de pisar algo viscoso y prefiero no saber qué es."
+    "Cutipye alzó su teléfono, moviéndolo en el aire con frustración mientras la pantalla le iluminaba el rostro con un brillo pálido."
+    c "Y para colmo, apenas tengo una raya de señal. Así no puedo subir historias."
+
+    show nagi smug at center with moveinbottom
+    n "Relájate, princesa. No vinimos a actualizar tu perfil, vinimos a ver si los rumores son ciertos."
+    "Nagi dio un par de golpecitos con el bate sobre su propio hombro, mirando las dos salidas que daban hacia el interior del edificio."
+    n "Este lugar es enorme. Si caminamos los cinco pegados como patitos, solo vamos a ver un par de pasillos vacíos antes de que anochezca."
+
+    show rodrigo serio at left
+    r "¿Estás sugiriendo que nos separemos? ¿En serio, Nagi? ¿No has visto ni una sola película de terror en tu vida?"
+
+    show nagi annoyed at center
+    n "Ay, por favor, ermitaño. Lo único que nos va a atacar aquí es el moho o un mapache con rabia."
+    show nagi smile at center
+    n "Si nos dividimos por zonas, cubrimos la planta baja en quince minutos, tomamos las fotos que tanto quieres para largarte rápido y nos vamos."
+
+    hide cutipye with dissolve
+    show azura worried at right with dissolve
+    a "No me hace mucha gracia la idea de separarnos... El edificio se ve muy deteriorado, alguien podría pisar mal y lastimarse."
+
+    show luz neutral at centro_derecha with dissolve
+    l "Azura tiene razón, pero Nagi también tiene un punto. Si lo hacemos rápido, no tenemos por qué alejarnos demasiado."
+    show luz smile at centro_derecha
+    l "Podemos revisar las salas contiguas y volver a esta lavandería en diez minutos exactos. Si alguien no regresa o escucha algo raro, nos llamamos a gritos."
+
+    show nagi smug at center
+    n "Exacto. Yo iré a buscar las escaleras al segundo piso o la oficina del director, ahí siempre dejan las cosas interesantes."
+
+    hide azura with dissolve
+    show cutipye neutral at right with dissolve
+    c "Yo iré por el pasillo del fondo a ver si cerca del patio interior agarro algo de señal... Y de paso busco algún rincón con buena estética para un par de fotos."
+
+    show rodrigo neutral at left
+    r "Haz lo que quieras, pero no te quedes pegada a la pantalla. Mira por dónde pisas."
+
+    show cutipye smile at right
+    c "Sí, sí, gracias por el consejo, papá."
+    hide cutipye with moveoutright
+
+    show nagi smile at center
+    n "No te mueras de miedo, [nombre_jugador!c]. Nos vemos en diez."
+    hide nagi with moveoutleft
+
+    hide luz with dissolve
+    show azura neutral at right with dissolve
+    a "Yo me quedaré cerca del vestíbulo principal para asegurarme de que tengamos otra salida despejada además de esa ventana alta."
+    hide azura with moveoutleft
+
+    show luz smile at center with moveinright
+    l "Bueno, parece que quedamos tú y yo para revisar esta ala."
+
+    show rodrigo soft at left
+    r "Mejor así. Al menos sé que tú no vas a romper otra ventana con un bate."
+
+    "Ambos intercambiaron una breve mirada cómplice antes de encender sus linternas y adentrarse en el corredor más cercano, aunque a los pocos metros decidieron revisar puertas en lados opuestos del mismo pasillo para terminar antes."
+
     hide rodrigo with dissolve
+    hide luz with dissolve
+    
     scene pasillo_abandonado with wipeleft
-
-    "A unos pasillos de distancia..."
+    "Mientras tanto, a unos pasillos de distancia..."
 
     show cutipye neutral at centro_derecha with dissolve
     c "Nagi es un idiota... Ni siquiera hay buena señal aquí para subir nada."
@@ -873,52 +928,93 @@ label cap_2:
 
     $ estado_mental += 2
 
-    "El grito fue silenciado por un crujido húmedo."
-    "La sangre salpicó el rostro de [nombre_jugador!c]. Tibia. Casi agradable, después del frío de la sala. Eso fue lo peor."
+    "El grito fue silenciado de golpe por un crujido húmedo y el sonido de carne desgarrándose."
+    "La sangre salpicó el rostro de [nombre_jugador!c]. Tibia. Espesa. Casi agradable después del frío sepulcral de la sala. Y darse cuenta de eso fue lo peor."
 
-    "La linterna de Luz rodó por el suelo. Su haz giró una vuelta completa sobre las paredes, la rejilla vacía, las correas, y se detuvo contra un rincón, iluminando nada."
+    play sound objfall
+    "La linterna de Luz cayó al suelo y rodó sin control. Su haz de luz giró una vuelta completa sobre las paredes manchadas, la rejilla vacía y las correas rotas, hasta detenerse contra un rincón, iluminando la nada."
 
     "{color=#390169}{font=fonts/HelpMe.ttf}{cps=20}Jueguen mientras puedan...{/cps}{/font}{/color}"
 
-    "Algo pesado se arrastró sobre el linóleo, alejándose. Lento. Sin urgencia."
-    "La figura se llevó el cuerpo inerte hacia la oscuridad del pasillo, desapareciendo entre las sombras con una risa gutural."
+    play sound "sfx/claw_drag_concrete.mp3"
+    "Algo pesado se arrastró sobre el linóleo, alejándose hacia la penumbra. Lento. Sin la menor urgencia."
+    "La figura se llevó el cuerpo inerte hacia la oscuridad del corredor, perdiéndose entre las sombras con una risa gutural que rebotó en las paredes de concreto."
     play sound glx_laugh
 
-    "Luz seguía de rodillas, con los brazos todavía a medio alzar, sosteniendo a alguien que ya no estaba."
-    "Tenía las manos rojas. Las miraba como si fueran de otra persona."
+    "Durante un par de segundos, nadie respiró."
+    "Luz seguía de rodillas en el suelo, con los brazos todavía a medio alzar, aferrándose al vacío donde hacía un instante estaba aquel hombre."
+    "Tenía las manos bañadas en rojo. Las miraba fijamente, temblando, como si pertenecieran a otra persona."
 
-    r "¡CORRE! ¡LUZ, CORRE!"
+    l "Lo... lo tenía... Yo lo estaba sujetando..."
+    l "Prometí que lo sacaríamos..."
 
-    "[nombre_jugador!c] la agarró de la muñeca y tiró de ella hasta ponerla en pie."
+    play sound "sfx/distant_scratch.mp3"
+    "Un chillido metálico resonó desde el fondo del laboratorio, seguido por el eco de múltiples patas moviéndose entre las tuberías. El olor de la sangre fresca estaba atrayendo a los demás."
+
+    r "¡Luz, mírame! ¡Tenemos que irnos ya!"
+
+    "Ella no reaccionó. Sus pupilas estaban fijas en el charco oscuro que se extendía hasta sus rodillas."
+
+    r "¡¡LUZ, CORRE!!"
+
+    "[nombre_jugador!c] la sujetó con fuerza de las muñecas, obligándola a levantarse de un tirón. El contacto pareció romper el trance; ella inhaló una bocanada de aire ahogada y apretó su mano con desesperación."
 
     # -- Huida --
     scene pasillo_huida with fade
-    play sound run
-    play music melody
+    play sound run loop
+    play music chase fadein 0.5
 
-    "Corrieron. El pasillo parecía estirarse."
+    "Corrieron sin mirar atrás. El pasillo subterráneo parecía estirarse ante ellos como una garganta interminable mientras las luces del techo parpadeaban con violencia."
+    "Sus respiraciones entrecortadas se mezclaban con el golpeteo frenético de sus zapatillas contra el suelo húmedo."
+
+    l "¡Por aquí! ¡Las escaleras hacia el ala sur deberían estar cruzando esta puerta!"
+
+    "Doblaron la esquina derrapando contra el muro, buscando la salida, pero el alivio se les congeló en el pecho."
 
     scene escombros_bloqueo with dissolve
     stop sound
-    "¡Bloqueado!"
+    "¡Bloqueado! Una montaña de vigas colapsadas, camillas oxidadas y bloques de concreto sellaba el paso por completo."
 
     play sound door_slam
     with shake
-    r "¡Mierda!"
-    r "¡Debimos tomar esa ruta antes...!"
-    l "No tenemos tiempo, [apodo_jugador]."
-    l "¡Separémonos! ¡Grita si ves una salida!"
-    "Fue una mala idea. [nombre_jugador!c] lo sabía. Pero el pánico decidía por ellos."
+    r "¡Mierda! ¡No, no, no!"
+    
+    "[nombre_jugador!c] empujó una de las placas metálicas con el hombro, pero apenas logró arrancarle un quejido al óxido. Era imposible mover eso a tiempo."
+    
+    r "¡Está cerrado! ¡Debimos tomar la bifurcación de atrás!"
 
-    stop music fadeout 2
+    play sound nailtap
+    "Clic. Clic. Clic."
+    "El sonido detuvo sus corazones. No venía de arriba; venía del mismo pasillo por el que acababan de correr. Pesado, rítmico, como cuchillas golpeando el linóleo a toda velocidad."
+    "Algo se acercaba hacia ellos. Y ya estaba a la vuelta de la esquina."
+
+    show luz scared at right with dissolve
+    l "¡No nos va a dar tiempo a volver juntos, [apodo_jugador]! ¡Nos va a acorralar contra los escombros!"
+
+    show rodrigo alert at left with dissolve
+    r "¿¡Qué quieres hacer!? ¡No pienso dejarte sola con esa cosa!"
+
+    l "¡Mira! ¡Hay puertas a ambos lados del corredor!"
+    "Luz señaló con urgencia las habitaciones laterales antes de empujarlo del pecho hacia los dormitorios de la izquierda."
+    l "¡Si corremos juntos, nos atrapará a los dos! ¡Entra ahí y escóndete, yo buscaré por el ala este para dividir el rastro!"
+
+    r "¡Luz, espera—!"
+
+    l "¡Grita si ves una salida! ¡Te prometo que no me dejaré atrapar!"
+
+    hide luz with moveoutright
+    "Antes de que [nombre_jugador!c] pudiera sujetarla de nuevo, ella ya había cruzado hacia el corredor opuesto. El sonido de las garras doblando la esquina le heló la sangre."
+    "Separarse era una pésima idea. [nombre_jugador!c] lo sabía con cada fibra de su cuerpo. Pero con la muerte a diez metros de distancia, el pánico decidía por ellos."
+
+    stop music fadeout 2.0
     scene foreboding_2 with fade
     stop sound
     $ renpy.save("1-1", "Encuentro 2")
     show rodrigo nervioso at center with moveinright
     play sound door_close
-    "[nombre_jugador!c] entró tropezando en una antigua habitación de literas y cerró la puerta a sus espaldas, intentando no hacer ruido."
-    "Se apoyó contra la madera fría. Su pecho subía y bajaba con violencia; el eco de su propia respiración le parecía demasiado fuerte para un cuarto tan quieto."
-    "Estaba solo. Eso quería creer."
+    "[nombre_jugador!c] entró tropezando en una antigua habitación de literas y cerró la puerta a sus espaldas en el último segundo, conteniendo el aliento para no hacer ruido."
+    "Se apoyó de espaldas contra la madera fría. Su pecho subía y bajaba con violencia; el latido en sus oídos y el eco de su propia respiración le parecían demasiado fuertes para un cuarto tan quieto."
+    "Estaba solo. O al menos, eso quería creer."
 
     "Encendió la linterna con manos temblorosas."
     "El haz recorrió filas de literas oxidadas, colchones hundidos y un armario alto con la puerta entornada."
@@ -1680,12 +1776,12 @@ label cap_3:
 
     play sound crack
     pause 0.5
-    show rodrigo scared at vjump
+    show rodrigo scared at vfall
     show azura scared at vjump
     show luz scared at vjump
     play music shock noloop
     pause 0.2
-    scene derrumbe with vpunch
+    scene derrumbe with shake
     play sound break_wood
     pause 0.5
     
@@ -1842,15 +1938,34 @@ label cap_4:
     show galaxia smile
     "Galaxia soltó una carcajada y se lanzó."
     
+    # --- INICIO DE LA SECUENCIA DE IMPACT FRAMES ---
     show galaxia at centro_izquierda with moveinright
-    pause 0.1
+    window hide None
+
+    # --- F0 (~2 frames): lanzamiento + arranca el disparo ---
+    # El sonido se lanza aquí (un frame antes del fogonazo) para
+    # compensar la latencia de audio (~40 ms): el estruendo y el
+    # primer impact frame coinciden.
     play sound gunshot
     stop music
-    show rodrigo aim_gun at oscuro
-    show galaxia at oscuro
-    pause 0.1
+
+    # --- F1 (~3 frames): negativo + sacudida vertical ---
     scene black
-    with flash
+    show rodrigo aim_gun at left, impact_white_silhouette, impact_jolt(0, 10)
+    show galaxia headshot at centro_izquierda, impact_white_silhouette, impact_jolt(0, 10)
+    $ renpy.pause(0.05, hard=True)
+
+    # --- F2 (~4 frames): IMPACT FRAME principal + sacudida horizontal ---
+    scene white
+    show rodrigo aim_gun at left, impact_silhouette_left, impact_jolt(15, 0)
+    show galaxia headshot at centro_izquierda, impact_silhouette_hit, impact_jolt(15, 0)
+    $ renpy.pause(0.066, hard=True)
+
+    # --- Cierre: flash blanco corto que se apaga a negro ---
+    scene black with impact_flash
+    window show None
+    #return
+
     
     "¡BANG!"
     
@@ -1926,10 +2041,11 @@ label cap_4:
     "Al final del pasillo, un resquicio de luz iluminaba su única salvación: una vieja escalera de mano oxidada que subía hacia una escotilla."
     "Estaba a cinco pasos. Pero el sonido de las garras estaba, literalmente, sobre su cuello."
     
+# --- FASE 1: ALCANZAR LA ESCALERA (3.0s) ---
     call screen qte_escalera
 
 label continue_escape_ladder:
-    scene escalera_mano_1 with fade
+    scene escalera_mano_1 with shake
     
     "[nombre_jugador!c] saltó y se aferró al primer peldaño de metal, impulsándose hacia arriba con desesperación."
     
@@ -1944,18 +2060,29 @@ label continue_escape_ladder:
     g "Te tengo."
     r "¡Suéltame!"
     
+    # --- FASE 2: EL DISPARO A QUEMARROPA (2.5s) ---
+    call screen qte_disparo_escalera
+
+label exito_disparo_escalera:
     play sound gunshot
     with flash
     
     "Disparo a quemarropa en el abdomen."
     play sound "sfx/gal_pain_scream.mp3"
     
-    "El impacto la dobló. [nombre_jugador!c] trepó como una exhalación."
+    "El impacto la dobló. [nombre_jugador!c] trepó como una exhalación y se arrojó hacia el interior del cuarto superior."
 
-    scene bg_cuarto_maquinas
+    scene bg_cuarto_maquinas with vpunch
+    "Abajo, el eco de las garras rasgando el metal anunciaba que Galaxia ya estaba subiendo a toda velocidad."
+
+    # --- FASE 3: CERRAR LA ESCOTILLA (2.0s) ---
+    call screen qte_cerrar_escotilla
+
+label exito_cerrar_escotilla:
     play sound "sfx/hatch_slam_lock.mp3"
+    with vpunch
     
-    "Cerró la escotilla. Giró la válvula."
+    "Cerró la escotilla de golpe y giró la válvula con todas sus fuerzas, justo un instante antes de que ella lo alcanzara."
     
     play sound "sfx/heavy_bang.mp3"
     with vpunch
@@ -1989,15 +2116,41 @@ label continue_escape_ladder:
 
 # --- PANTALLAS (QTE) ---
 
+# QTE 1: Abajo al centro (3.0 segundos)
 screen qte_escalera():
     modal True
-    timer 3.0 action Jump("game_over_ladder") # 3 segundos para reaccionar
+    timer 3.0 action Jump("game_over_ladder")
     
     vbox:
         xalign 0.5
         yalign 0.8
+        spacing 15
         text "{font=fonts/HelpMe.ttf}{size=50}¡LA ESCALERA! ¡AHORA!{/font}{/size}" color "#f00" at transform_blink
         textbutton "TREPAR" action Return() style "button_panic"
+
+# QTE 2: Derecha al centro (2.5 segundos)
+screen qte_disparo_escalera():
+    modal True
+    timer 2.5 action Jump("game_over_ladder")
+    
+    vbox:
+        xalign 0.8
+        yalign 0.5
+        spacing 15
+        text "{font=fonts/HelpMe.ttf}{size=50}¡APUNTA AL ABDOMEN!{/font}{/size}" color "#f00" at transform_blink
+        textbutton "¡DISPARAR!" action Jump("exito_disparo_escalera") style "button_panic"
+
+# QTE 3: Izquierda arriba (2.0 segundos - Clímax de tensión)
+screen qte_cerrar_escotilla():
+    modal True
+    timer 2.0 action Jump("game_over_ladder")
+    
+    vbox:
+        xalign 0.2
+        yalign 0.3
+        spacing 15
+        text "{font=fonts/HelpMe.ttf}{size=55}¡VIENE SUBIENDO!{/font}{/size}" color "#f00" at transform_blink
+        textbutton "¡SELLAR ESCOTILLA!" action Jump("exito_cerrar_escotilla") style "button_panic"
 
 label game_over_ladder:
     play sound slash
@@ -2131,7 +2284,7 @@ label cap_5:
     "{i}¡BAAANG!{/i}"
     
     #show avispa_guardia alert with vpunch
-    play sound larvcry volume 2.5
+    play ambient larvcry volume 2.5
     pause 1
     "Las larvas comienzan a chillar. Un sonido agudo, como llanto de bebé distorsionado."
     
@@ -2160,6 +2313,7 @@ label cap_5:
     
     "La puerta se cierra... casi."
     
+    stop ambient fadeout 0.3
     play sound "sfx/metal_crunch.mp3"
     with shake
     
@@ -2284,6 +2438,7 @@ label combate_ganado:
     "Luz se lanza a abrazarlo, ignorando la sangre. El resto del grupo se queda en la puerta, viendo la escena."
     
     n "Está vivo. Ese bastardo duro de matar está vivo."
+    pause 1.5
     
     call chapter_complete("Capítulo 5")
     jump cap_6
@@ -2342,6 +2497,7 @@ label game_over_wasp:
     "Los gritos de Azura se ahogaron rápidamente en un gorgoteo sangriento."
     
     "Incluso cuando dejó de moverse, la avispa no se detuvo. Seguía atacando el cadáver, movida por puro instinto asesino, defendiendo su colmena de la intrusa."
+    pause 2
     
     scene gameover_screen with dissolve
     pause(2)

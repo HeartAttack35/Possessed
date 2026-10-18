@@ -19,39 +19,41 @@ label cap_6:
     "Las sillas de la sala estaban dispuestas en semicírculo, todas mirando hacia la entrada."
     "Como para recibir a un invitado de honor. O para escuchar una declaración."
 
-    "Cutipye acomodó por tercera vez el mismo cojín. Miró hacia el pasillo, donde el reloj marcaba los últimos minutos. Volvió a acomodarlo."
+    "Cutipye acomodó por tercera vez el mismo cojín. Miró hacia el pasillo, donde el reloj marcaba los últimos minutos, y volvió a acomodarlo con impaciencia."
+    
     c "Ya casi es la hora. Lucien fue muy específico."
     "Lo había sido. La hora exacta, todos presentes, sin excusas."
 
-    a "Es extraño... Lucien no suele ser así de misterioso. Siempre nos cuenta todo."
+    a "Todavía me cuesta creer que por fin haya vuelto a la ciudad... ¿Cuánto tiempo pasó desde que sus padres se lo llevaron a estudiar fuera? ¿Casi un año?"
 
-    "Azura sostenía el teléfono con las dos manos, releyendo el mismo mensaje por enésima vez."
-    "«Hoy a la hora exacta, en casa de Cuty. Vengan todos. Es importante. Por favor, sean puntuales.»"
-    a "Ni un solo emoji. Lucien jamás escribe sin emojis."
-    c "Lleva semanas raro. Ayer le pregunté si estaba bien y me dijo «mejor que nunca»."
-    c "Con los ojos brillantes y una sonrisa enorme. Quedé más confundida que antes."
-    a "A mí me pareció que estaba esperando algo."
+    c "Diez meses y dos semanas, para ser exactos. Diez meses sobreviviendo a base de puros mensajes de texto y excusas cada vez que queríamos hacer videollamada."
 
-    n "Bah, no debe ser la gran cosa."
-    "Nagi se echó un puñado de papas fritas a la boca, despreocupado, apoyándose muy cerca de Cutipye. En la otra mano, un vaso de refresco al que aún no había dado ni un sorbo."
-    n "O se muda de ciudad, o gana la lotería, o lo recluta una secta."
-    c "Que sea la lotería, por favor."
-    n "Con suerte, una secta con buenos postres."
+    a "Es extraño... Lucien no suele ser así de reservado. Antes nos contaba absolutamente todo, pero estos últimos meses sentí que guardaba un secreto enorme."
+
+    "Azura sostenía su teléfono con las dos manos, releyendo el último mensaje del chat grupal por enésima vez."
+    "«Ya estoy de vuelta. Hoy a las cinco en punto, en casa de Cuty. Vengan todos, tengo algo importante que mostrarles. Por favor, sean puntuales.»"
+
+    a "Ni un solo emoji. Lucien jamás escribe sin emojis. Y ni siquiera quiso mandarnos un audio para avisar que ya había llegado."
+
+    c "Lleva meses raro en el chat. Ayer le escribí para preguntarle si todo había salido bien con su regreso y solo me respondió: «Mejor que nunca. Mañana por fin me verán de verdad»."
+    c "Sin stickers, sin fotos, sin nada. Quedé más confundida que antes."
+
+    a "A mí me dio la impresión de que llevaba muchísimo tiempo esperando este día."
+
+    n "Bah, le están dando demasiadas vueltas. No debe ser la gran cosa."
+    
+    "Nagi se echó un puñado de papas fritas a la boca, despreocupado, apoyándose muy cerca de Cutipye. En la otra mano sostenía un vaso de refresco al que aún no había dado ni un sorbo."
+    
+    n "Seguro se hizo un tatuaje horrible en otra ciudad, o ganó la lotería, o lo reclutó una secta durante el viaje."
+    c "Que sea la lotería, por favor. No pienso visitar a nadie en una comuna hippy."
+    n "Con suerte, es una secta con buenos postres."
+    
     "Cutipye soltó una risa corta. Azura no."
 
-    n "¿Qué es lo peor que puede pasar? ¿Que venga con pareja? Ojalá, así deja de ser el tercero en discordia."
+    n "En serio, relájense. ¿Qué es lo peor que puede pasar después de casi un año sin vernos? ¿Que aparezca con pareja? Ojalá, así deja de ser el tercero en discordia."
 
     play sound "sfx/doorbell.mp3"
-    pause 0.3
-    scene scn_casa_fb_2 at sepia_filter with dissolve
     "El timbre sonó antes de que pudieran reírse del chiste."
-
-    "Los tres se quedaron inmóviles. Nagi dejó de masticar."
-    "Azura se incorporó a medias, y volvió a sentarse."
-
-    c "¡Yo abro!"
-
-    #hide cutipye with moveoutright
     pause 1.0
     
     "Murmullos en la entrada. Dos voces."
@@ -422,71 +424,86 @@ label ir_administracion:
     n "Aquí debería haber algo útil."
 
     "No hubo sonrisa."
-    "No hubo exageración teatral."
+    "No hubo exageración teatral ni golpes con el bate contra la palma de su mano."
 
     "Solo una frase corta."
     "Directa."
 
     "[nombre_jugador!c] sintió esa ausencia más que cualquier grito."
 
-    "Mientras los demás revisaban cajones, Nagi se acercó al mapa."
+    "Mientras las chicas revisaban los archivadores del fondo, Nagi se acercó a la mesa donde descansaba el mapa."
     show nagi serio at centro_izquierda with move
-    "Y luego, sin decir nada, se colocó al lado de [nombre_jugador!c]."
+    "Y luego, sin decir nada, se colocó justo al lado de [nombre_jugador!c]."
 
     show nagi worried at centro_izquierda with dissolve
     
-    "No invadió su espacio. No le dió un golpe en el hombro. No lo llamó 'fantasma' ni 'poeta deprimido'."
+    "No invadió su espacio. No le pasó un brazo por el cuello ni lo llamó 'fantasma' o 'poeta deprimido'."
+    "Solo se quedó ahí, apoyando los nudillos sobre la madera polvorienta mientras lo miraba de reojo."
+
     n "Oye..."
 
     pause 0.5
 
-    n "Respira."
+    n "Suelta el aire, ermitaño. Llevas medio minuto sin parpadear."
 
     "No fue una orden burlona."
-    "Fue... suave."
+    "Su voz sonó baja. Casi cautelosa."
 
-    "Demasiado suave."
+    "[nombre_jugador!c] tensó la mandíbula y evitó mirarlo, fijando la vista en las líneas borrosas del plano."
+    "El sabor dulce y metálico volvió a subir por su lengua."
 
-    "[nombre_jugador!c] evitó mirarlo."
-    "El sabor dulce volvió a su lengua."
+    r "Solo estoy viendo por dónde salir."
 
-    n "Te conozco."
-    n "Cuando te quedas así de callado no es porque estés pensando."
-    n "Es porque algo te aplasta por dentro."
+    show nagi serio at centro_izquierda
+    n "Ajá. Claro."
+    
+    "Nagi soltó un bufido corto, sin humor, y cruzó los brazos."
+    n "Llevo aguantándote la cara de funeral desde secundaria, [apodo_jugador]. Sé perfectamente cómo te ves cuando estás pensando o cuando solo quieres que todos se callen."
+    
+    show nagi worried at centro_izquierda
+    n "Normalmente ya habrías puesto los ojos en blanco o habrías soltado algún comentario de mierda sobre cómo vamos a morir todos por mi culpa."
+    n "Pero desde que salimos de ese cuarto de máquinas... ni siquiera parece que estés aquí."
+    n "Estás raro, amigo. Incluso para tus estándares."
 
-    "Eso tampoco era normal."
-    "Nagi no solía leerlo tan directamente."
-    "Lo empujaba."
-    "Lo provocaba."
-    "Lo obligaba a reaccionar."
+    "Eso tampoco era normal en Nagi."
+    "Por lo general, cuando notaba que [nombre_jugador!c] se encerraba en sí mismo, lo empujaba. Lo provocaba hasta obligarlo a reaccionar."
+    "Era su equilibrio de siempre: el chico ruidoso arrastrando al callado fuera de su caparazón."
 
-    "Pero ahora no intentaba sacarlo de su caparazón."
-    "Intentaba... sostenerlo."
+    "Pero ahora no estaba tirando de él hacia afuera."
+    "Estaba tanteando el terreno... como si temiera que, si empujaba demasiado fuerte, algo se fuera a quebrar."
 
-    #show rodrigo nervioso at center
+    show rodrigo nervioso at center
     menu:
         "Estoy bien.":
             $ estado_mental -= 1
-            r "Estoy bien. Solo... Necesito un minuto."
-            n "Vale."
-            n "Pero no me mientas si deja de ser verdad."
+            r "Estoy bien, Nagi. En serio. Solo... tengo el golpe de la caída encima. Necesito un minuto."
+            
+            show nagi serio at centro_izquierda
+            "Nagi lo sostuvo en la mirada un par de segundos más, claramente sin tragarse el cuento del todo, pero decidió no presionar frente a las demás."
+            
+            n "Vale. Te compro el minuto."
+            show nagi worried at centro_izquierda
+            n "Pero no te hagas el duro conmigo si te empiezas a caer a pedazos, ¿me oyes? No pienso cargarte todo el camino de vuelta."
 
         "Creo que algo no está bien conmigo.":
             $ afinidad_nagi += 2
             $ estado_mental += 1
-            show rodrigo nervioso
-            r "No me siento bien, Nagi."
-            show nagi worried
-            n "¿Te mareas? ¿Te duele algo?"
-            n "Dime dónde y vemos qué hacemos."
+            show rodrigo nervioso at center
+            r "No lo sé, Nagi... Siento el cuerpo extraño desde que caí. Creo que algo no está bien conmigo."
+            
+            show nagi worried at centro_izquierda
+            "La poca ligereza que Nagi intentaba fingir desapareció de golpe. Se inclinó un poco más hacia él, bajando aún más la voz para no alarmar a Luz ni a Azura."
+            
+            n "¿Te mareas? ¿Crees que te rompiste una costilla al caer o qué?"
+            n "Dime qué sientes y vemos cómo lo parchamos, pero no te me quedes ido, que me pones más nervioso que esos bichos."
 
-    "Nagi dio un paso más cerca."
-    "Instintivamente, como siempre hacía cuando estaba por hacer una broma."
-    "Pero esta vez no dijo nada gracioso."
+    "Nagi dio medio paso más cerca."
+    "Instintivamente, con la misma postura que adoptaba siempre antes de soltar una broma pesada para aligerar el ambiente."
+    "Pero esta vez el chiste se le quedó atascado en la garganta."
 
-    "Sus ojos recorrían el rostro de [nombre_jugador!c]."
+    "Sus ojos púrpura recorrían el rostro pálido de [nombre_jugador!c], bajando brevemente hacia la mancha de sangre seca en su ropa."
     "Analizando."
-    "Buscando algo que no sabía nombrar."
+    "Intuyendo que algo había cambiado allá abajo, aunque todavía no supiera cómo llamarlo."
 
     n "Ella te tocó, ¿no?"
 
@@ -949,53 +966,68 @@ label cap_7:
 
     show rodrigo neutral at center
 
-    "[nombre_jugador!c] observó la Biblia en las manos de Nagi."
+    "[nombre_jugador!c] observó la vieja Biblia entre las manos de Nagi."
 
-    "Varias páginas estaban gastadas."
+    "Varias páginas estaban amarillentas, gastadas por el roce obsesivo de unos dedos pequeños."
     "Marcadas."
-    "Subrayadas con trazos temblorosos."
+    "Subrayadas con trazos temblorosos que parecían haber perdido la cordura a mitad de camino."
 
-    a "Hay una página doblada..."
+    show azura worried at right with dissolve
+    a "Miren ahí... Hay una esquina doblada."
 
-    "Nagi la abrió con cuidado."
+    "Nagi pasó las hojas con inusual cuidado hasta detenerse en el pliegue."
 
     pause 0.5
     play sound paper_flip
-    show nagi surprised at centro_izquierda
+    show nagi surprised at centro_izquierda with dissolve
     pause 0.5
 
-    n '“¿Es mi heredad para mí como hiena manchada?'
-    n "¿Están las aves de rapiña contra ella en derredor?"
-    n "Venid, reunid todas las fieras del campo,"
-    n 'venid a devorarla.”'
+    n "«¿Es mi heredad para mí como hiena manchada? ¿No están contra ella las aves de rapiña en derredor?»"
+    n "«Venid, reuníos, vosotras las fieras del campo, venid a devorarla.»"
 
     "La palabra 'hiena' estaba subrayada una y otra vez."
-    "La presión del lápiz había rasgado levemente el papel."
+    "Con tanta saña que el grafito del lápiz había terminado por rasgar el papel."
 
     pause 0.5
+    play sound "sfx/wet_whisper.mp3"
 
-    "{cps=12}{color=#390169}{i}¿Lo ves ahora, [nombre_jugador!c]?{/i}{/color}{/cps}"
-    "{cps=12}{color=#390169}{i}Siempre estuvo escrito.{/i}{/color}{/cps}"
+    "{color=#390169}{font=fonts/HelpMe.ttf}{cps=16}¿Lo ves ahora, [apodo_jugador]?~{/cps}{/font}{/color}"
+    "{color=#390169}{font=fonts/HelpMe.ttf}{cps=16}Qué tierna era, ¿verdad? Gasto tanto lápiz por nada~{/cps}{/font}{/color}"
 
-    r "(No.)"
+    show rodrigo tenso at center with dissolve
+    "[nombre_jugador!c] tensó la mandíbula. Un escalofrío le recorrió la nuca, justo donde la piel le ardía."
 
-    "{cps=12}{color=#390169}{i}Yo también recé…{/i}{/color}{/cps}"
-    "{cps=12}{color=#390169}{i}Pedí ser salvada.{/i}{/color}{/cps}"
-    "{cps=12}{color=#390169}{i}Pero Él me convirtió en la hiena.{/i}{/color}{/cps}"
+    r "(Cállate. No estás aquí.)"
 
-    "El aire de la habitación se volvió pesado."
-    "[nombre_jugador!c] apartó la mirada del texto."
+    "Pero la risita resonó directamente detrás de sus tímpanos, cálida, húmeda y terriblemente divertida."
 
-    r "(Es solo un versículo.)"
-    r "(No significa nada.)"
+    "{color=#390169}{font=fonts/HelpMe.ttf}{cps=15}Yo también junté las manitos y recé, ¿sabes?{/cps}{/font}{/color}"
+    "{color=#390169}{font=fonts/HelpMe.ttf}{cps=15}Pedí tan fuerte que alguien viniera a salvarme...{/cps}{/font}{/color}"
+    "{color=#390169}{font=fonts/HelpMe.ttf}{cps=14}Pero como nadie bajó del cielo, decidí que ser la hiena era mucho más divertido~{/cps}{/font}{/color}"
+
+    show rodrigo molesto with dissolve
+    r "(Genial. Ahora el parásito en mi cabeza también da sermones de catecismo.)"
+    r "(Solo es fiebre... Es la maldita infección jugándome una mala pasada.)"
+
+    "{color=#390169}{font=fonts/HelpMe.ttf}{cps=16}Oh, vamos, no pongas esa cara de funeral~{/cps}{/font}{/color}"
+    "{color=#390169}{font=fonts/HelpMe.ttf}{cps=15}Tú y yo sabemos leer entre líneas, [apodo_jugador].{/cps}{/font}{/color}"
+
+    "El aire de la habitación se volvió denso, casi irrespirable, cargado con ese repentino olor a hierro y azúcar fermentada."
+    "[nombre_jugador!c] apartó la mirada de la Biblia de golpe, clavando las uñas en las palmas de sus manos para anclarse a la realidad."
+
+    r "(Es solo tinta vieja en el libro de una niña traumatizada.)"
+    r "(No significa una mierda. No tiene nada que ver conmigo.)"
 
     pause 0.8
 
-    "{cps=12}{color=#390169}{i}Venid… reunid todas las fieras del campo…{/i}{/color}{/cps}"
-    "{cps=12}{color=#390169}{i}Venid a devorarla.{/i}{/color}{/cps}"
+    "Sin embargo, su costado herido palpitó al compás de la voz de ella, como una segunda boca dándole la razón."
+
+    "{color=#390169}{font=fonts/HelpMe.ttf}{cps=14}Sigue repitiéndotelo si te hace sentir mejor~{/cps}{/font}{/color}"
+    "{color=#390169}{font=fonts/HelpMe.ttf}{cps=12}«Venid… reunid a todas las fieras del campo…»{/cps}{/font}{/color}"
+    "{color=#390169}{font=fonts/HelpMe.ttf}{cps=10}Veamos quién termina devorando a quién~{/cps}{/font}{/color}"
 
     stop music fadeout 1.0
-
+    pause 1.5
     scene habitacion_abandonada at slight_zoom with fade
     play music rodtheme fadein 3.0 volume 0.65
     play ambient forest fadein 3.0
@@ -1057,81 +1089,97 @@ label cap_7:
 label confesion_rodrigo:
     scene rodrigo_cig_balcony_2 with dissolve
 
-    "Se giró hacia el grupo."
+    "Apagó el cigarrillo contra la baranda oxidada y se giró hacia el interior de la habitación."
 
     r "Chicos."
 
-    "Todos alzaron la vista al mismo tiempo."
-    "Algo en su tono los alertó antes de que dijera otra palabra."
+    "Nadie dormía realmente. Todos alzaron la vista casi al mismo tiempo."
+    "No hizo falta que levantara la voz; la forma en que sostenía su propio costado les dijo exactamente de qué iba a hablar."
 
-    r "Creo que… deberíamos dormir por turnos."
-    r "Y alguien tiene que quedarse despierto conmigo todo el tiempo."
+    r "Si vamos a descansar aquí, tenemos que hacerlo por turnos."
+    r "Y necesito que el que haga guardia no me quite los ojos de encima."
 
-    n "¿Por qué solo contigo?"
+    "No hubo preguntas ingenuas."
+    "Nagi no soltó ningún chiste, y Cutipye dejó de juguetear con el cierre de su chaqueta."
+    "En el fondo, todos habían visto la sangre seca, el polvo negro en sus dedos o la forma extraña en que su mirada se perdía en la oscuridad desde que salieron del cuarto de máquinas."
 
-    r "Porque…"
+    show nagi serio at left with dissolve
+    n "Habla claro, [apodo_jugador]."
+    n "No es solo por el golpe de cuando caíste, ¿verdad?"
 
-    pause 1.2
+    r "No."
 
-    r "Porque creo que algo me está siguiendo."
-    r "Y no está afuera."
+    pause 1.0
 
-    "Silencio."
+    r "Abajo, antes de subir por esa escotilla... ella me alcanzó."
+    r "Y desde entonces siento que algo me sigue el rastro. Pero no viene por los pasillos."
 
+    "[nombre_jugador!c] bajó la mirada hacia su propia mano, cerrando los dedos con lentitud para disimular el temblor."
+
+    r "Está adentro."
+
+    show luz worry at right with dissolve
     l "[apodo_jugador]…"
 
-    r "No estoy alucinando."
-    r "O… quizás sí."
-    r "Pero si estoy alucinando, entonces es mejor que alguien me vigile."
-    r "Y si no estoy alucinando…"
+    r "Sé cómo suena. Pero les juro que no es el pánico haciéndome ver cosas."
+    r "La escucho. Todo el maldito rato. Es como tener un segundo pulso detrás de los oídos... o algo respirando dentro de mi propia caja torácica cada vez que tomo aire."
+    r "Y mi herida... ni siquiera duele como debería. Se siente caliente. Viva."
 
-    "Dejó la frase colgando."
+    show azura worried at centro_derecha with dissolve
+    "Azura se abrazó a sí misma, rozando inconscientemente el bolsillo donde había escondido el informe médico de los Huéspedes."
 
-    c "¿Qué sientes exactamente?"
+    a "Dios mío, [apodo_jugador]..."
 
-    "[nombre_jugador!c] dudó."
-    "Buscó las palabras."
+    r "No se los digo para que me tengan lástima. Se los digo porque todavía soy yo el que está hablando."
+    r "Pero no sé cuánto tiempo más va a durar eso. Y como estamos encerrados en la misma trampa..."
 
-    r "Como si… alguien respirara dentro de mi caja torácica."
-    r "Y cada vez que respiro yo… respira también."
-    r "Al mismo tiempo."
+    show nagi worried at left
+    n "Estás infectado."
 
-    "Azura se abrazó a sí misma."
+    "Nagi no lo dijo como una acusación, sino como quien termina de leer un diagnóstico que llevaba horas evitando mirar."
+    "La palabra cayó en medio del cuarto como un bloque de plomo."
 
-    a "Eso suena…"
+    l "¡Nagi, cállate!"
 
-    r "A locura. Lo sé."
+    n "No lo digo para joderlo, Luz. Míralo, él mismo nos lo está diciendo."
+    n "Todos vimos los papeles allá abajo y vimos lo que había en esa cocina. Sabemos lo que hace esta mierda."
+    
+    "Nagi apretó la mandíbula, mirando a [nombre_jugador!c] directamente a los ojos, sin retroceder."
 
-    n "No."
-    n "Suena a que estás infectado."
+    n "Nos metimos juntos en este agujero. Así que no vamos a fingir que estás bien hasta que sea demasiado tarde para todos."
 
-    "La palabra cayó como plomo."
+    r "Exacto."
+    r "Por eso necesito que estemos de acuerdo desde ahora. Si en algún punto dejo de responder... o si notan que ya no los reconozco..."
 
-    l "¡Nagi!"
+    "Dejó la frase colgando en el aire frío. Nadie necesitaba que la terminara."
+    "El grupo intercambió una mirada silenciosa, pesada, cargada con el agotamiento de quienes ya no tienen espacio para negarlo."
 
-    n "No lo digo para herirlo."
-    n "Lo digo porque ya vimos qué les pasa a los que se infectan."
-    n "Y si él está empezando…"
+    show cutipye serious at centro_izquierda with dissolve
+    c "A ver, frena ahí. Escúchame bien, [apodo_jugador]."
+    
+    "Cutipye dio un paso al frente, cruzándose de brazos con una firmeza que rara vez mostraba cuando todo iba bien."
 
-    r "Entonces hay que decidir qué hacemos conmigo antes de que sea tarde."
-
-    "El grupo se miró entre sí."
-    "Nadie quería decirlo en voz alta."
-
-    c "Primero: nadie va a dispararte, apuñalarte ni dejarte tirado."
-    c "Segundo: vamos a vigilarte. Todos."
-    c "Tercero: si en algún momento empiezas a… cambiar… nos avisas."
+    c "Primero: baja ese tono de despedida, porque nadie aquí va a dispararte, apuñalarte ni dejarte tirado en un rincón."
+    c "Entramos los cinco a esta basura de lugar y el problema es de los cinco, nos guste o no."
+    c "Segundo: vamos a vigilarte. Todos. Por turnos, como pediste."
+    c "Tercero: al primer síntoma raro que sientas, por estúpido que sea, abres la boca y nos avisas. Nada de hacerte el mártir callado."
+    
+    show cutipye worried at centro_izquierda
     c "Y cuarto…"
 
-    "Se acercó a él. Muy despacio."
+    "Deshizo el cruce de brazos y se acercó a él muy despacio, hasta quedar a medio metro."
 
-    c "Si llega ese momento… prométeme que lucharás contra eso con todo lo que tengas."
-    c "Porque no pienso perderte sin que al menos lo intentes."
+    c "Si esa cosa quiere meterse en tu cabeza, le vas a hacer la vida imposible. Prométeme que vas a pelear con todo lo que tengas antes de cederle un solo centímetro."
+    c "Porque no pienso perderte hoy sin que al menos le des pelea."
 
-    r "…Lo intentaré."
+    "La determinación en los ojos de Cutipye, respaldada por el asentimiento silencioso de Nagi y Azura detrás de ella, le quitó un peso helado de los hombros."
+    "Seguía teniendo un monstruo germinando bajo la piel. Pero al menos ya no lo estaba cargando a escondidas."
 
-    "No era una promesa muy sólida."
-    "Pero era lo único que podía dar."
+    r "…Lo intentaré. Se los prometo."
+
+    "No era una garantía."
+    "Pero en un lugar como ese, era lo más honesto que tenía para darles."
+
     jump escena_luz_balcon_confesion
 
 label ocultar_influencia:
@@ -1265,7 +1313,8 @@ label escena_luz_balcon_confesion:
 
     "Y por primera vez…"
     "No estaba seguro de quién la estaba moviendo."
-
+    
+    pause 1.5
     scene black with fade
     stop music fadeout 4.0
     stop ambient fadeout 2.0

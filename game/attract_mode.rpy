@@ -150,7 +150,6 @@ label attract_opening:
     $ attract_pause(1.2)
 
     show text "{size=80}{color=#fd5353}{font=fonts/HelpMe.ttf}POSSESSED{/font}{/color}{/size}" at truecenter with dissolve
-    show layer master at distortion_heavy
     play sound glx_laugh volume 0.2
     $ attract_pause(3.0)
     hide text with dissolve

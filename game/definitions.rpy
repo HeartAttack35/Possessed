@@ -112,6 +112,14 @@ transform vjump:
     linear 0.08 yoffset -25
     linear 0.08 yoffset 0
 
+# Rodrigo cae hacia abajo (derrumbe del piso)
+transform vfall:
+    yoffset 0
+    linear 0.05 yoffset -15
+    linear 0.35 yoffset 400
+    alpha 1.0
+    linear 0.15 alpha 0.0
+
 # Transforms para distorsión y efectos psicológicos
 transform distortion_light:
     matrixcolor SaturationMatrix(0.4)  # Saturación incrementada
@@ -129,6 +137,46 @@ transform distortion_heavy:
     linear 0.05 zoom 1.02 xoffset -1 yoffset 1
     linear 0.05 zoom 1.0 xoffset 1 yoffset -1
     repeat
+
+# Fondos puros para el contraste del Impact Frame
+image white = Solid("#ffffff")
+image black = Solid("#000000")
+
+define impact_flash = Fade(0.0, 0.0, 0.10, color="#fff")
+
+# Galaxia entra desde la derecha en ~3 frames.
+# Reemplaza `with moveinright` (0.5 s).
+transform impact_lunge:
+    xoffset 300
+    linear 0.04 xoffset 0
+
+# Sacudida de 2 frames. Reemplaza `with vpunch` / `with hpunch`
+# (0.275 s cada uno). dx/dy en píxeles:
+#   (0, 10) ~ vpunch      (15, 0) ~ hpunch
+transform impact_jolt(dx=0, dy=0):
+    xoffset dx yoffset dy
+    pause 0.016
+    xoffset (-dx) yoffset (-dy)
+    pause 0.016
+    xoffset 0 yoffset 0
+
+# Silueta negra pura + ligero retroceso (para Rodrigo)
+transform impact_silhouette_left:
+    matrixcolor TintMatrix("#000000")
+    linear 0.03 xoffset -25 zoom 1.05
+    linear 0.03 xoffset 0 zoom 1.0
+
+# Silueta negra pura + sacudida violenta por el tiro (para Galaxia)
+transform impact_silhouette_hit:
+    matrixcolor TintMatrix("#000000")
+    linear 0.02 xoffset 35 yoffset -15 zoom 1.12
+    linear 0.02 xoffset -20 yoffset 10
+    linear 0.02 xoffset 15 yoffset -5
+    linear 0.02 xoffset 0 yoffset 0 zoom 1.0
+
+# Inversión: Silueta blanca pura (para alternar en el frame negativo)
+transform impact_white_silhouette:
+    matrixcolor TintMatrix("#ffffff")
 
 ## Fondos
 image mainmenubg = "images/bg/bg_main_menu.png"
@@ -185,7 +233,6 @@ image habitacion_intacta = "images/bg/bg_habitacion_intacta.png"
 
 # Sprite: rata mutante (placeholder con avispa hasta tener asset propio)
 image rata_mutant = "images/sprites/avispa_zangano.png"
-
 # Variante de Rodrigo ensangrentado (placeholder)
 image rodrigo bloodied = "images/sprites/MC/Rodri.png"
 
@@ -320,6 +367,7 @@ image rodrigo pain = "images/sprites/MC/Rodri.png"
 image rodrigo scared = "images/sprites/MC/rodrigo_scared.png"
 image rodrigo worried = "images/sprites/MC/Rodri.png"
 image rodrigo alert = "images/sprites/MC/rodrigo_alert.png"
+image rodrigo tenso = "images/sprites/MC/rodrigo_alert.png"
 image rodrigo linterna = "images/sprites/MC/Rodri.png"
 image rodrigo shocked = "images/sprites/MC/Rodri.png"
 image rodrigo aim_gun = "images/sprites/MC/Rodri.png"
@@ -382,6 +430,7 @@ image cutipye scared = "images/sprites/Cutipye/cutipye_scared.png"
 image cutipye shocked = "images/sprites/Cutipye/Cutipye.png"
 image cutipye tired = "images/sprites/Cutipye/Cutipye.png"
 image cutipye disgust = "images/sprites/Cutipye/Cutipye.png"
+image cutipye annoyed = "images/sprites/Cutipye/Cutipye.png"
 image cutipye casual_young = "images/sprites/Cutipye/Cutipye.png"
 image cutipye throw = "images/sprites/Cutipye/Cutipye.png"
 image cutipye worried = "images/sprites/Cutipye/cutipye_worry.png"
