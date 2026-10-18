@@ -400,7 +400,7 @@ label cap_1:
     #AÑADIR IMÁGEN DE CUTIPYE ILUMINANDO HACIA LA PANTALLA
     scene rat_shadow with dissolve
     pause 0.7
-    play sound shock
+    play music shock noloop
     "La luz temblorosa iluminó una aberración: Un torso de piel estirada al límite, espinazos expuestos rompiendo la carne y extremidades demasiados largas para su cuerpo."
     "Pero lo peor eran sus ojos. Dos orbes que la miraban fijamente, brillando en la oscuridad como rubíes podridos."
     c "¡D-Dios mío!"
