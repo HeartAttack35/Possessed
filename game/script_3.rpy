@@ -63,9 +63,9 @@ label creditos:
 
         # Epílogo de Rodrigo
         if ending_type == "bad1":
-            splashes.append(("rodrigo dead", "La familia de Rodrigo aceptó su desaparición en completo silencio.\nSu padre lo dio por fugado, su madre no volvió a mencionarlo, y nadie se molestó en buscarlo."))
+            splashes.append(("rodrigo dead", "La familia de [nombre_jugador!c] aceptó su desaparición en completo silencio.\nSu padre lo dio por fugado, su madre no volvió a mencionarlo, y nadie se molestó en buscarlo."))
         else:
-            splashes.append(("rodrigo neutral", "La familia de Rodrigo no inició una investigación.\nSu padre lo atribuye a una desaparición voluntaria, mientras que su madre se niega a hablar del tema.\nSin embargo, sus amigos saben la verdad."))
+            splashes.append(("rodrigo neutral", "La familia de [nombre_jugador!c] no inició una investigación.\nSu padre lo atribuye a una desaparición voluntaria, mientras que su madre se niega a hablar del tema.\nSin embargo, sus amigos saben la verdad."))
 
         # --- INFO. RELEVANTE SOBRE LA PARTIDA (Estadísticas Dinámicas) ---
         texto_stats = "{size=+10}Resumen de la Partida{/size}\n\n"
@@ -91,11 +91,11 @@ label creditos:
             texto_stats += "Tu relación con Luz fue distante.\n\n"
 
         if estado_mental <= 10:
-            texto_stats += "Rodrigo mantuvo la calma.\n\n"
+            texto_stats += "[nombre_jugador!c] mantuvo la calma.\n\n"
         elif estado_mental <= 15:
-            texto_stats += "Rodrigo estuvo bajo presión.\n\n"
+            texto_stats += "[nombre_jugador!c] estuvo bajo presión.\n\n"
         else:
-            texto_stats += "Rodrigo sucumbió al estrés.\n\n"
+            texto_stats += "[nombre_jugador!c] sucumbió al estrés.\n\n"
 
         texto_stats += "Final obtenido: " + str(ending_type)
         splashes.append(texto_stats)
@@ -148,7 +148,6 @@ label creditos:
             "Como si algo aún protegiera aquel lugar."
             )
         else:
-            # ESTO TE AYUDARÁ A DETECTAR EL ERROR:
             splashes.append("ERROR: No se encontró un epílogo para el ending_type: " + str(ending_type) + ". Por favor, revisa tus variables.")
 
         # --- AGRADECIMIENTOS (Ahora va al final de la lista) ---

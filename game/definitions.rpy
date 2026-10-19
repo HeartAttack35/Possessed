@@ -178,6 +178,39 @@ transform impact_silhouette_hit:
 transform impact_white_silhouette:
     matrixcolor TintMatrix("#ffffff")
 
+# 1. Saturación extrema y temblor ocular (cuando empieza la hiperventilación)
+transform panic_saturate_jitter:
+    matrixcolor SaturationMatrix(2.5) * ContrastMatrix(1.6)
+    block:
+        linear 0.04 xoffset -3 yoffset 2
+        linear 0.04 xoffset 3 yoffset -2
+        linear 0.04 xoffset 0 yoffset 0
+        pause 0.15
+        repeat
+
+# 2. Corrupción agresiva de sprites (desfase cromático/oscuro y saltos de frame)
+transform sprite_corrupt_glitch:
+    block:
+        matrixcolor InvertMatrix(0.85) * SaturationMatrix(3.0) * TintMatrix("#690139")
+        xoffset -14 yoffset 4 zoom 1.04
+        pause 0.05
+        matrixcolor SaturationMatrix(0.2) * ContrastMatrix(2.8) * TintMatrix("#2a0040")
+        xoffset 12 yoffset -4 zoom 0.98
+        pause 0.05
+        matrixcolor SaturationMatrix(1.8) * ContrastMatrix(1.5)
+        xoffset 0 yoffset 0 zoom 1.0
+        pause 0.25
+        repeat
+
+# 3. Distorsión de amenaza pura (para el instante en que Luz se acerca y él ve una sombra)
+transform threat_shadow_corrupt:
+    matrixcolor TintMatrix("#05000a")
+    alpha 0.95
+    block:
+        linear 0.03 zoom 1.12 xoffset -8
+        linear 0.03 zoom 1.08 xoffset 8
+        repeat
+
 ## Fondos
 image mainmenubg = "images/bg/bg_main_menu.png"
 
@@ -213,6 +246,7 @@ image vestibulo_fight_glitch:
     "images/bg/bg_vestibulo.jpg"
     matrixcolor HueMatrix(30)
 image vestibulo_aftermath = "images/bg/bg_vestibulo.jpg"
+image vestibulo_sangre = "images/bg/bg_vestibulo.jpg"
 image fiesta_flashback1 = "images/bg/bg_sala_espera_abandonada.jpg"
 image fiesta_flashback2 = "images/bg/bg_sala_espera_abandonada.jpg"
 image fiesta_flashback3 = "images/bg/bg_sala_espera_abandonada.jpg"
@@ -411,6 +445,7 @@ image azura temblor = "images/sprites/Azura/azura_temblor.png"
 image azura emocion = "images/sprites/Azura/Azura.png"
 image azura scared = "images/sprites/Azura/azura_scared.png"
 image azura worried = "images/sprites/Azura/azura_worried.png"
+image azura desesperada = "images/sprites/Azura/azura_scared.png"
 image azura shocked = "images/sprites/Azura/Azura.png"
 image azura tired = "images/sprites/Azura/Azura.png"
 image azura casual_young = "images/sprites/Azura/Azura.png"
@@ -427,7 +462,7 @@ image cutipye determined = "images/sprites/Cutipye/Cutipye.png"
 image cutipye serious = "images/sprites/Cutipye/Cutipye.png"
 image cutipye soft = "images/sprites/Cutipye/Cutipye.png"
 image cutipye scared = "images/sprites/Cutipye/cutipye_scared.png"
-image cutipye shocked = "images/sprites/Cutipye/Cutipye.png"
+image cutipye shocked = "images/sprites/Cutipye/cutipye_scared.png"
 image cutipye tired = "images/sprites/Cutipye/Cutipye.png"
 image cutipye disgust = "images/sprites/Cutipye/Cutipye.png"
 image cutipye annoyed = "images/sprites/Cutipye/Cutipye.png"
@@ -449,7 +484,7 @@ image nagi tired = "images/sprites/Nagi/Nagi.png"
 image nagi angry = "images/sprites/Nagi/Nagi.png"
 image nagi annoyed = "images/sprites/Nagi/Nagi.png"
 image nagi worried = "images/sprites/Nagi/Nagi.png"
-image nagi shocked = "images/sprites/Nagi/Nagi.png"
+image nagi shocked = "images/sprites/Nagi/nagi_scared.png"
 image nagi surprised = "images/sprites/Nagi/nagi_surprised.png"
 image nagi scared = "images/sprites/Nagi/nagi_scared.png"
 image nagi casual_young = "images/sprites/Nagi/Nagi.png"

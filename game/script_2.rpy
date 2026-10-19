@@ -207,88 +207,118 @@ label cap_6:
     scene luz_hug_rodrigo with dissolve
     # afinidad_luz tiene un valor entre 2 y 5 para este punto
     
-    "El recuerdo se disipó, reemplazado por el olor a sangre y aceite."
-    "Luz seguía abrazándolo, temblando, pero ya no era aquella chica tímida con vestido pastel."
+    "El recuerdo cálido de aquella tarde se disipó, reemplazado de golpe por el hedor a óxido, sangre y aceite rancio."
+    "Luz seguía abrazándolo con fuerza contra su pecho, temblando, muy lejos ya de ser aquella chica tímida con vestido pastel."
     
-    l "Te tengo, [apodo_jugador]... Estoy aquí."
+    l "Te tengo, [apodo_jugador]... Ya pasó, estoy aquí contigo."
 
-    "[nombre_jugador!c] trató de contestar, pero su respiración era más pesada de lo que recordaba."
-    "Había un sabor extraño en su boca."
+    "Alrededor de ambos, el resto del grupo soltó el aire que parecían haber estado conteniendo desde que el piso cedió en el segundo nivel."
+
+    n "Carajo, amigo... Cuando vimos ese agujero pensamos que te habías partido el cuello en el acto."
+    c "Casi me da un infarto cuando escuchamos los disparos aquí abajo, idiota. No vuelvas a darnos un susto así."
+    a "Menos mal que lograste encerrarte a tiempo... No sé qué habríamos hecho si llegábamos tarde."
+
+    "Sus voces sonaban atropelladas, cargadas de ese alivio torpe y ruidoso de quienes acaban de ganarle un segundo a la muerte."
+    "Pero [nombre_jugador!c] apenas podía seguirles el hilo. Su propia respiración le resultaba pesada, ajena."
+    "Había un sabor extraño impregnado en su paladar."
     "{cps=15}Dulce. Metálico.{/cps}"
 
-    r "...Luz..."
+    r "...Luz... Espera..."
+
     scene bg_cuarto_maquinas
     show rodrigo shock_state at right
-    show luz worry at left
+    show luz worry at centro_derecha
+    show nagi smile at centro_izquierda
+    show cutipye neutral at left
     with dissolve
 
-    "El costado le ardía. Bajó la mirada un instante."
+    "[nombre_jugador!c] se apartó unos centímetros con manos temblorosas. El costado derecho le ardía con un calor espeso, casi febril. Bajó la mirada un instante y apartó la tela desgarrada de su chaqueta."
     
-    "Donde antes la sangre empapaba su ropa, ahora la tela estaba húmeda... Pero la herida parecía menos profunda."
-    "Demasiado menos profunda."
+    "Donde minutos antes los cortes de las garras manaban sangre sin control, ahora la tela solo estaba húmeda y fría... y la carne debajo parecía haberse cerrado hasta ser poco más que un par de rasguños pálidos."
+    "Demasiado superficiales para el dolor que recordaba."
 
     r "...No estaba así..."
+    r "Ella me abrió el costado... Yo tenía la mano llena de sangre, no estaba así..."
 
-    pause 0.5
+    "Las sonrisas de alivio de Nagi y Cutipye se congelaron poco a poco. El ambiente en el cuarto de máquinas cambió de peso."
+
+    show nagi neutral at centro_izquierda
+    n "¿De qué hablas, [apodo_jugador]? Si es solo un rasponazo, mejor para nosotros, ¿no?"
+
+    r "No, no me entienden... Me dio de lleno en la escalera, yo sentí cómo—"
+
+    pause 0.4
+
+    "Un latido sordo le golpeó detrás de los tímpanos, seguido por la sensación de dedos helados cosiendo su carne desde adentro."
 
     play ambient "sfx/wet_whisper.mp3" fadein 0.3
-    centered "{cps=15}{color=#390169}{i}Casi... casi mía...{/i}{/color}{/cps}"
+    "{color=#390169}{font=fonts/HelpMe.ttf}{cps=16}No iba a dejar que te desangraras tan rápido, [apodo_jugador]~{/cps}{/font}{/color}"
+    "{color=#390169}{font=fonts/HelpMe.ttf}{cps=15}Apenas me estoy acomodando ahí dentro~{/cps}{/font}{/color}"
     stop ambient fadeout 0.5
 
-    "[nombre_jugador!c] parpadeó con fuerza."
+    show rodrigo alert at right with vpunch
+    "[nombre_jugador!c] dio un respingo violento, parpadeando con fuerza y girando la cabeza hacia los conductos oscuros del techo."
 
-    r "¿Escucharon eso...?"
+    r "¿Escucharon eso...? ¡Está aquí! ¡Está en los ductos!"
 
     if estado_mental >= 6:
-        show luz worry at centro_derecha with move
+        show luz worry at centro_derecha
         show cutipye worried at left
         show nagi worry at centro_izquierda
-        with moveinleft
-        "Pero el único sonido era el goteo distante del lugar."
+        show azura worried at right behind rodrigo
+        with dissolve
+        
+        "Nadie se movió. El único sonido en la sala era el goteo lento y distante de una tubería oxidada."
+        "El alivio de hace unos segundos había desaparecido por completo; ahora los cuatro lo miraban en un silencio tenso, tratando de descifrar qué le ocurría."
 
-        n "Ey... Cálmate, hombre. No hay nada."
-        c "No sobrepienses las cosas. Solo es el estrés."
+        n "Ey, ey... Baja el arma, hombre. Escúchame. Aquí no hay nadie más que nosotros."
+        c "[apodo_jugador], me estás asustando... No se oyó absolutamente nada."
 
-        "Los otros se inclinaron hacia él como si esperaran una explicación, sus rostros marcados por la preocupación y el desconcierto."
-        "Algo en su voz —tensa y quebrada— les hizo pensar que había más que un simple golpe; parecía un estado de shock."
-        n "¿Te acuerdas de quién... o qué dijiste?"
-        c "Respira, [apodo_jugador]. Estamos acá."
+        "Los otros se inclinaron levemente hacia él, con los rostros marcados por el desconcierto al ver cómo le temblaban las manos y cómo su mirada rebotaba de una esquina a otra."
+        "Algo en su voz —quebrada, paranoica y fuera de ritmo— les dejó claro que aquello no era el simple aturdimiento de una caída; tenía el pánico clavado hasta los huesos."
+        
+        n "Mírame un segundo. ¿Qué fue lo que viste allá afuera antes de encerrarte?"
+        c "Trata de respirar lento, ¿sí? Estamos acá contigo. La puerta de acero está cerrada."
 
     else:
-        show luz worry at centro_derecha with move
-        show cutipye neutral at left
-        show nagi neutral at centro_izquierda
-        with moveinleft
-        "El único sonido seguía siendo ese goteo distante."
+        show luz worry at centro_derecha
+        show cutipye worried at left
+        show nagi serio at centro_izquierda
+        with dissolve
+        
+        "Durante un par de segundos, todos contuvieron el aliento mirando hacia el techo... pero el único sonido seguía siendo ese goteo distante."
+        "La ligereza del reencuentro se esfumó, dejando paso a una preocupación silenciosa mientras observaban el sudor frío en la frente de [nombre_jugador!c]."
 
-        n "Ok, tranquilo, no pasa nada."
-        c "Probablemente fue el golpe, tómalo con calma."
-        a "Ven, recuéstate un segundo."
+        n "Tranquilo, hermano... No se escuchó nada. Ese cuarto es una caja fuerte, aquí no entró nadie."
+        c "Todavía estás temblando entero. Seguro es la adrenalina y el golpe de la caída jugándote una mala pasada."
+        
+        show azura worried at right behind rodrigo with dissolve
+        a "Ven, no intentes levantarte de golpe. Apóyate un segundo más y trata de recuperar el aire."
 
-        "Lo rodearon más suavemente, intentando reconfortarlo después del susto, como quien cuida a alguien que tuvo un mal rato."
+        "Lo rodearon con cautela, hablándole en voz baja como quien intenta traer de vuelta a la tierra a alguien que sigue atrapado en medio de la pesadilla."
 
-    "Luz lo miró con preocupación, sin soltarlo."
+    "Luz le sujetó el rostro con ambas manos para obligarlo a mirarla, pero apenas sus dedos rozaron sus mejillas, frunció el ceño."
 
-    l "[apodo_jugador]... estás frío."
+    l "[apodo_jugador]... estás helado. Tienes la piel como el hielo."
 
-    "Al apoyar la mano en el suelo para incorporarse, notó pequeñas motas oscuras pegadas a sus dedos."
-    "Parecían ceniza… o algo peor."
+    "Al apoyar la palma en el suelo sucio para terminar de incorporarse, [nombre_jugador!c] notó pequeñas motas oscuras adheridas a las yemas de sus dedos."
+    "Parecían ceniza húmeda… o algo que había brotado de sus propios poros."
 
-    "Las frotó instintivamente."
+    "Las frotó instintivamente contra su pantalón antes de que alguien más bajara la vista."
     "Desaparecieron."
-    "Pero dejaron una sensación pegajosa que no se iba."
+    "Pero dejaron una sensación espesa y pegajosa que no se iba."
 
-    "Por un segundo —solo un segundo— la luz del lugar le molestó más de lo normal."
-    "Su pupila se contrajo… de una forma que no reconoció."
+    "Por un segundo —solo un segundo— el brillo tenue de la lámpara de emergencia le resultó insoportable."
+    "Su pupila se contrajo en un destello vertical… de una forma que su propio cuerpo no reconoció."
 
     pause 0.8
 
-    show rodrigo incomodo with dissolve
-    "Parpadeó."
+    show rodrigo incomodo at right with dissolve
+    "Parpadeó con fuerza, tragando esa saliva dulce y ferrosa."
     "Todo volvió a la normalidad."
 
-    "Tal vez era el golpe."
-    "Tal vez era el miedo."
+    "Tal vez tenían razón y solo era la contusión."
+    "Tal vez era el miedo haciéndole escuchar el eco de esa voz."
 
     "Tal vez..."
 
@@ -640,121 +670,144 @@ label volver_afuera:
     show cutipye serious at left
     with dissolve
 
-    "[nombre_jugador!c] sintió un pequeño zumbido en la punta de los dedos."
-    "Un impulso extraño."
-    "Un deseo breve de… empujar los escombros con una fuerza que sabía que no tenía."
+    "[nombre_jugador!c] sintió un pequeño zumbido eléctrico en la punta de los dedos."
+    "Un impulso extraño, casi muscular."
+    "Un deseo breve y absurdo de… apoyar las manos contra los escombros y empujarlos con una fuerza que sabía perfectamente que no tenía."
 
-    r "(No.)"
+    r "(No. Cálmate.)"
 
-    "Cutipye caminó más despacio hasta quedar a su lado."
+    "A unos metros por delante, Luz y Azura revisaban las uniones del corredor con Nagi, pero Cutipye fue acortando el paso poco a poco hasta quedar rezagada junto a él."
 
     show cutipye neutral at center with move
     show rodrigo sorprendido at vjump
     pause 0.1
-    show rodrigo neutral
+    show rodrigo neutral at right
+    
     c "Oye."
 
-    "No sonó como un chiste."
+    "No sonó como el inicio de un chiste ni tuvo su habitual tono de superioridad."
+    "Caminaba con los brazos cruzados contra el frío del pasillo, mirándolo de reojo mientras el resto del grupo avanzaba unos pasos más allá."
 
-    c "¿Sabes cuál es la parte buena de que seas tan callado?"
+    c "Es curioso, ¿no? Te abrí la puerta de mi casa hace tres años y creo que desde esa tarde nunca habíamos tenido un segundo para hablar así, de tú a tú."
+    c "Siempre está Luz en medio, o Nagi haciendo ruido."
 
-    pause 0.5
+    r "Bueno... tampoco es que yo sea el tipo más conversador del mundo."
 
-    c "Que cuando te quedas más callado de lo normal… es muy obvio."
+    c "Justamente por eso."
 
-    show rodrigo incomodo with dissolve
-    "[nombre_jugador!c] desvió la mirada."
+    pause 0.4
 
-    c "No me mires así."
-    c "No estoy haciendo un discurso motivacional."
-    c "Eso es territorio de Nagi."
+    c "¿Sabes cuál es la parte buena de que siempre seas tan callado, [apodo_jugador]?"
+    c "Que cuando te quedas más callado de lo normal… se nota a kilómetros."
 
-    "Intentó sonreír."
+    show rodrigo incomodo at right with dissolve
+    "[nombre_jugador!c] tensó los hombros y desvió la mirada hacia las baldosas rotas."
+
+    c "Ey, no me mires como si te estuviera pasando lista."
+    c "No voy a darte un discurso motivacional ni a darte palmaditas en la espalda. Ese es territorio de Nagi."
+
+    "Intentó curvar los labios en una de sus sonrisas despreocupadas."
     "No le salió del todo."
+    "Disminuyó aún más la voz, asegurándose de que la conversación quedara solo entre los dos."
 
-    "Bajó la voz."
-
-    c "Solo… dime si estás aquí conmigo."
+    c "Pero allá abajo nos pegaste un susto de muerte. Así que deja de hacerte el misterioso conmigo un segundo y solo… dime si estás aquí. Conmigo."
 
     menu:
         "No voy a dejar que nadie más se lastime.":
             $ afinidad_cutipye += 1
-            show rodrigo serio
-            r "No voy a dejar que nadie más se lastime."
-            "Cutipye lo miró un segundo más de lo normal."
-            c "Lo sé."
-            c "Pero no te toca cargar con todo."
-            c "No eres el guardaespaldas oficial del grupo."
-            c "Eres [nombre_jugador!c]."
-            c "Y eso ya es suficiente."
+            show rodrigo serio at right
+            r "Estoy aquí, Cuty. Y no voy a dejar que nadie más salga lastimado en este lugar."
+            
+            "Cutipye lo observó durante un segundo más largo de lo habitual, como si buscara grietas detrás de esa respuesta automática."
+            
+            show cutipye soft at center with dissolve
+            c "Lo sé. Sé que siempre te pones en medio."
+            c "Pero baja el escudo un rato, ¿sí? No te toca cargar con todo el peso de esta noche tú solo."
+            c "No eres el guardaespaldas oficial del grupo, [apodo_jugador]."
+            c "Solo eres tú. Nuestro amigo. Y con que salgas entero de aquí con nosotros ya es más que suficiente."
 
         "Tengo miedo, Cutipye.":
             $ afinidad_cutipye += 2
             $ estado_mental += 1
-            show rodrigo incomodo
-            r "Tengo miedo, Cuty."
-            "La confesión salió más baja de lo que esperaba."
-            "Más honesta."
-            show cutipye soft
+            show rodrigo incomodo at right
+            r "Tengo miedo, Cuty. No sé qué mierda está pasando aquí abajo y tengo miedo."
+            
+            "La confesión salió más baja de lo que esperaba. Casi un susurro."
+            "Más honesta de lo que se había permitido sonar frente a nadie en toda la noche."
+            
+            show cutipye soft at center with dissolve
+            "En lugar de burlarse o incomodarse, la expresión de Cutipye se suavizó por completo. Dio medio paso hacia él, rozando brevemente su hombro con el suyo mientras caminaban."
+            
             c "Bien."
-            c "Eso significa que todavía quieres salir de aquí."
-            c "Yo también tengo miedo."
-            c "Pero prefiero tener miedo contigo que hacerme la valiente sola."
+            c "Eso significa que todavía tienes cordura y que quieres salir de aquí tanto como yo."
+            c "Porque te voy a confesar un secreto: yo también estoy muerta de miedo."
+            c "Pero prefiero mil veces tener miedo contigo, hablando claro, que seguir fingiendo que soy la valiente yo sola."
 
-    "Durante un segundo, el pasillo dejó de sentirse tan estrecho."
+    "Durante un breve segundo, la opresión del pasillo pareció ceder. El aire frío dejó de sentirse tan irrespirable."
 
-    "[nombre_jugador!c] apoyó la mano contra la pared para estabilizarse."
+    "Sin embargo, un repentino mareo le nubló el borde de la vista. [nombre_jugador!c] extendió el brazo y apoyó la palma contra la pared para estabilizarse."
 
     show rodrigo shocked at vjump
 
-    "Una leve marca oscura quedó sobre el concreto."
-    "Pequeña."
-    "Casi como hollín húmedo."
+    "Al despegar los dedos, una leve marca oscura quedó impresa sobre el concreto húmedo."
+    "Pequeña. Espesa."
+    "Casi como hollín mezclado con aceite."
 
-    "La limpió rápido con la manga."
+    "Se apresuró a frotarla con la manga de su chaqueta para borrarla."
 
-    "Cutipye frunció el ceño."
-    "Notó el gesto."
+    show cutipye serious at center with dissolve
+    "Pero Cutipye ya se había detenido. Frunció el ceño, clavando la vista primero en la pared y luego en la mano que él intentaba esconder."
 
     pause 0.5
 
-    c "¿Te manchaste con algo?"
+    c "Espera... ¿Te manchaste con algo allá abajo o te volvió a sangrar la herida?"
 
     menu:
         "Es polvo. Nada más.":
             $ estado_mental -= 1
-            r "Es polvo. Nada más."
-            c "Claro."
-            c "Polvo misterioso de edificio maldito."
-            c "Mi favorito."
+            show rodrigo neutral at right
+            r "Es solo polvo viejo de la pared. Nada más."
+            
+            "Cutipye sostuvo la mirada en su manga un instante más. Sabía que le estaba ocultando algo, pero respetó el código tácito que acababan de formar y no lo acorraló."
+            
+            show cutipye neutral at center
+            c "Ajá. Claro."
+            c "Polvo misterioso y grasiento de edificio maldito. Justo mi favorito para arruinar la ropa."
+            c "Camina, anda. No te me quedes atrás."
 
         "No lo sé.":
             $ afinidad_cutipye += 1
             $ estado_mental += 1
-            r "No lo sé."
-            show cutipye worried
-            c "Vale."
-            c "Entonces lo vigilamos."
+            show rodrigo nervioso at right
+            r "La verdad... no lo sé, Cuty. Desde que salí de ese cuarto siento las manos raras."
+            
+            show cutipye worried at center with dissolve
+            "Cutipye no retrocedió ni puso cara de asco. Tomó aire en silencio, asimilando la respuesta con una madurez que rara vez dejaba ver."
+            
+            c "Vale. Gracias por no mentirme."
+            c "Entonces nos mantenemos cerca y lo vigilamos entre los dos, ¿de acuerdo?"
             c "No te voy a dejar convertirte en…"
-            c "Bueno."
-            c "En algo raro sin avisarme."
+            
+            "Hizo una pausa, buscando una palabra que no sonara tan aterradora en la penumbra."
+            
+            c "Bueno. En algo raro sin que al menos me avises primero."
 
-            "Intentó que sonara ligero."
-            "No lo logró del todo."
+            "Intentó que el remate sonara ligero, casi como una de sus bromas habituales."
+            "No lo logró del todo, pero no se apartó de su lado en el resto del trayecto."
             
     play sound door_open
     scene lavanderia_abandonada with dissolve
 
-    "Al final del corredor apareció la lavandería por donde habían entrado."
-    "La luz fluorescente parpadeaba sobre la puerta metálica."
+    "Al final del corredor apareció por fin la vieja lavandería por donde habían entrado horas atrás."
+    "La luz fluorescente parpadeaba con un zumbido agónico sobre la puerta metálica."
 
-    "El olor a detergente viejo y humedad les golpeó de frente."
+    "El olor a detergente rancio y humedad estancada les golpeó de frente."
 
-    "[nombre_jugador!c] sintió algo extraño al cruzar el umbral."
-    "Como si una parte de él no quisiera salir."
+    "[nombre_jugador!c] sintió un tirón helado en la boca del estómago al cruzar el umbral."
+    "Como si algo anclado detrás de sus costillas rechazara la idea de acercarse a la salida."
 
-    "Parpadeó."
-    "La sensación desapareció."
+    "Parpadeó con fuerza."
+    "La sensación se disipó en la penumbra."
 
     call chapter_complete("Capítulo 6")
     jump cap_7
@@ -775,38 +828,69 @@ label cap_7:
     show azura worried at right
     show nagi serio at centro_izquierda
     show cutipye serious at left
+    with dissolve
 
     "El edificio ya no se sentía igual."
-    "El aire era más denso."
-    "Más estrecho."
+    "El aire era más denso, cargado de un polvo rancio que se pegaba a la garganta."
+    "Y las paredes parecían haberse estrechado un par de centímetros más."
 
     if label_nagi == True:
 
-        "El mapa que Nagi llevaba en la mano ya no coincidía del todo con el pasillo frente a ellos."
+        "Nagi se detuvo en seco bajo el marco corroído del corredor. Bajó la linterna hacia el mapa que llevaba en la mano y luego volvió a alumbrar hacia el frente, con la mandíbula tensa."
+        "El plano marcaba una escalera de servicio y un acceso directo al patio exterior."
+        "Frente a ellos solo había un muro de ladrillo sellado con concreto viejo y tuberías oxidadas."
 
-        show nagi annoyed
-        n "No tiene sentido… esto no estaba aquí."
+        show nagi annoyed at centro_izquierda
+        n "No... No tiene ningún puto sentido. ¡Esto no estaba aquí!"
+        
+        "Sacudió el papel con brusquedad, casi rasgándolo por los bordes, como si darle la vuelta fuera a cambiar la arquitectura del pasillo."
+        
+        n "Conté las puertas desde el archivo, [apodo_jugador]. ¡La salida de emergencia tendría que estar justo detrás de esta pared!"
 
-        show cutipye serious
-        c "Te dije que meternos más adentro era mala idea."
+        show cutipye angry at left
+        c "¡Te lo dije, Nagi! ¡Te dije que meternos más adentro era una estupidez!"
+        c "¡Nos hiciste bajar a la boca del lobo por un pedazo de papel que ni siquiera sirve porque remodelaron esta pocilga hace décadas!"
+
+        show nagi angry at centro_izquierda
+        n "¡Al menos yo intenté buscar una ruta en vez de correr a ciegas, Cuty!"
+
+        show azura worried at right
+        a "¡Basta, chicos, por favor! ¡Si gritamos así nos van a escuchar desde abajo!"
+        
+        show luz worry at centro_derecha
+        l "Azura tiene razón... No ganamos nada peleando ahora. El plano debe ser anterior a que clausuraran el subsuelo. Tenemos que seguir buscando otra puerta que conecte con el vestíbulo."
 
         $ ruta_anterior = "nagi"
 
     else:
 
-        "La lavandería por donde habían entrado ya no era accesible."
-        "Un derrumbe reciente bloqueaba el regreso."
+        "Al cruzar el umbral de la lavandería, el alivio que habían sentido segundos atrás se les heló en el estómago."
+        "La ventana alta por la que habían saltado horas antes ya no era accesible."
+        "Una montaña de vigas podridas, escombros del segundo piso y mampostería colapsada sepultaba toda la pared exterior hasta el techo."
 
-        show cutipye shocked
-        c "No… no, no, no. Esto no estaba así."
+        show cutipye shocked at left
+        c "No… no, no, no. ¡Esto no estaba así cuando entramos!"
+        
+        "Cutipye se adelantó tropezando y empujó un bloque de concreto con ambas manos, raspándose las palmas sin lograr moverlo ni un milímetro."
+        
+        show cutipye scared at left
+        c "¡Hace un par de horas saltamos por ahí mismo! ¡Estaba despejado! ¡¿En qué momento se cayó todo esto sin que escucháramos nada?!"
 
-        show nagi serio
-        n "El edificio se está moviendo… o algo lo está moviendo."
+        show nagi serio at centro_izquierda
+        n "Cuando el piso cedió bajo los pies de [apodo_jugador] en el segundo nivel... Toda esa ala vieja debió venirse abajo en cadena."
+        n "O la estructura se está desplomando sola… o esa cosa sabe exactamente por dónde queríamos escapar y nos acaba de cerrar la jaula."
+
+        show azura scared at right
+        a "No puede ser... ¿Estamos enterrados? ¿Y si el resto del techo también se viene abajo?"
+
+        show luz worry at centro_derecha
+        l "¡No nos vamos a quedar encerrados aquí! Escúchenme, este edificio tenía salidas de carga y patios internos. Si la ventana ya no sirve, buscaremos cómo rodear el derrumbe por los pasillos interiores."
 
         $ ruta_anterior = "cuty"
 
 
-    "Un golpe metálico resonó en el techo."
+    "Nadie alcanzó a responderle."
+    "Un estruendo metálico, seco y descomunal, retumbó justo sobre sus cabezas."
 
     play sound "sfx/metal_impact.mp3"
     scene pasillo_oscuridad
@@ -820,26 +904,41 @@ label cap_7:
     stop ambient
     play ambient "sfx/ringing.mp3"
 
-    "Las luces se apagaron."
+    "Los tubos fluorescentes chisporrotearon una última vez y se apagaron de golpe."
 
-    l "¿[apodo_jugador]?"
+    c "¡¿Qué fue eso?!"
+    a "¡Mi linterna no prende! ¡Nagi!"
+    l "¡¿[apodo_jugador]?! ¡¿Dónde estás?! ¡No te sueltes de mí!"
 
     pause 1.0
     play music ambiental fadein 1.0 volume 0.6
 
+    "Pero las voces de sus amigos empezaron a sonar lejanas, amortiguadas, como si hablaran detrás de un cristal grueso bajo el agua."
     "Oscuridad total."
 
     hide rodrigo
     show rodrigo shock_state at center
     with dissolve
 
-    "{cps=10}{color=#390169}{i}[nombre_jugador!c]…{/i}{/color}{/cps}"
+    "En medio de esa ceguera absoluta, lo único nítido era el calor palpitando en su costado... y el roce de un aliento helado paseándose con calma alrededor de su nuca."
+
+    play sound "sfx/wet_whisper.mp3"
+    "{color=#390169}{font=fonts/HelpMe.ttf}{cps=14}[apodo_jugador]…~{/cps}{/font}{/color}"
 
     pause 0.5
 
-    "{cps=12}{color=#390169}{i}Ellos no lo entienden…{/i}{/color}{/cps}"
+    "{color=#390169}{font=fonts/HelpMe.ttf}{cps=16}Míralos dar vueltas en la oscuridad, buscando puertas que ya no existen.{/cps}{/font}{/color}"
+    "{color=#390169}{font=fonts/HelpMe.ttf}{cps=15}Qué agotador debe ser fingir que todavía eres igual a ellos, ¿no?~{/cps}{/font}{/color}"
 
-    r "¿Quién—?"
+    r "(¿Quién—? ¡Sal de mi cabeza!)"
+
+    "{color=#390169}{font=fonts/HelpMe.ttf}{cps=16}Shhh... No gastes saliva con ellos. Ellos no lo entienden.{/cps}{/font}{/color}"
+    "{color=#390169}{font=fonts/HelpMe.ttf}{cps=15}Creen que el monstruo es algo que acecha afuera en los pasillos...{/cps}{/font}{/color}"
+    "{color=#390169}{font=fonts/HelpMe.ttf}{cps=14}Siempre tan ruidosos, tan llenos de promesas bonitas cuando tienen miedo.{/cps}{/font}{/color}"
+    "{color=#390169}{font=fonts/HelpMe.ttf}{cps=14}Pero tú y yo siempre supimos mirar desde el rincón, ¿verdad, [apodo_jugador]?{/cps}{/font}{/color}"
+    "{color=#390169}{font=fonts/HelpMe.ttf}{cps=12}Yo también me aferré a esa esperanza inútil alguna vez... Ven un poquito más cerca y te mostraré cuánto vale~{/cps}{/font}{/color}"
+
+    r "¿Qué quieres de mí...?"
 
     play sound "sfx/lights_back.mp3"
     scene pasillo_intermedio
@@ -850,54 +949,57 @@ label cap_7:
     show rodrigo shock_state at center
     with flash
 
-    l "[apodo_jugador], ¿estás bien?"
+    "Los focos volvieron a encenderse con un chasquido eléctrico, devolviéndolo de golpe al pasillo polvoriento."
+    "Había dicho esa última frase en voz alta."
+
+    l "[apodo_jugador], ¿con quién hablabas? ¿Estás bien?"
 
     menu:
         "La escuché otra vez.":
             $ estado_mental += 1
-            r "Sí... la escuché."
-            r "No estoy inventando esto."
+            r "Sí... la escuché otra vez."
+            r "Estaba hablándome aquí mismo cuando se fue la luz. Juro que no me lo estoy inventando."
 
             if ruta_anterior == "nagi":
-                show cutipye worried
+                show cutipye worried at left
                 $ afinidad_cutipye += 2
-                c "¿La voz?"
-                c "Yo te creo."
-                c "No estás inventándolo."
-                r "Gracias, Cuty. Sólo... no quiero parecer un loco."
-                r "Necesito que alguien más lo confirme."
+                c "¿La voz de esa cosa?"
+                c "Tranquilo, [apodo_jugador]. Yo te creo."
+                c "Después de lo que vimos allá abajo, sé que no te lo estás inventando."
+                r "Gracias, Cuty. Solo... siento que me estoy volviendo loco."
+                r "Necesitaba saber que no estoy perdiendo la cabeza yo solo."
             else:
-                show nagi worried
+                show nagi worried at centro_izquierda
                 $ afinidad_nagi += 2
-                n "Vale. Bien."
-                n "Entonces no estás loco."
-                n "Algo está jugando contigo."
-                r "¿Algo... o alguien?"
-                r "Me da la sensación de que me observan."
+                n "Vale. Bien. Respira."
+                n "Te creo, hermano. No estás loco."
+                n "Esa cabrona está jugando contigo desde que salimos del sótano."
+                r "No sé si solo está jugando, Nagi..."
+                r "Siento como si me estuviera observando desde adentro."
 
-            "Los demás se miraron entre sí, asintiendo con seriedad."
-            n "Si necesitás que estemos más atentos, lo estaremos."
-            c "No estás solo en esto."
+            "Los demás intercambiaron una mirada tensa, asintiendo con gravedad."
+            n "Si necesitas que estemos más atentos, no te vamos a soltar ni un segundo."
+            c "No estás solo en esto, [apodo_jugador]."
 
         "Nada. Vámonos.":
             $ estado_mental -= 1
-            r "No es nada. Fue un ruido."
-            r "Si nos vamos, quizá nos calme."
+            r "No es nada. Solo pensé en voz alta por el ruido del techo."
+            r "Dejemos de perder el tiempo aquí. Si avanzamos, se me pasará."
 
             if ruta_anterior == "nagi":
                 $ afinidad_cutipye += 1
-                show cutipye serious
-                "Cutipye apretó los labios y frunció el seño ligeramente; su silencio era una mezcla de incredulidad y dolor."
+                show cutipye serious at left
+                "Cutipye apretó los labios y frunció el ceño ligeramente; su silencio era una mezcla pesada de incredulidad y dolor al ver que volvía a cerrarse."
             else:
                 $ afinidad_nagi += 1
-                show nagi serio
-                "Nagi frunció el ceño y negó con exageración, su expresión abierta de falta de creencia."
+                show nagi serio at centro_izquierda
+                "Nagi frunció el ceño y negó lentamente con la cabeza, sin molestarse en disimular que no se había creído ni una palabra."
 
-            "Nadie dijo nada más."
-            "El aire pareció volverse más pesado mientras cada uno procesaba a su modo."
+            "Nadie insistió."
+            "Pero el aire entre los cinco pareció volverse de plomo mientras cada uno procesaba la mentira a su modo."
 
 
-    "Decidieron avanzar hacia una puerta semiabierta al fondo del pasillo."
+    "Sin más opciones a sus espaldas, decidieron avanzar hacia una puerta semiabierta al final del corredor."
 
     scene habitacion_abandonada with fade
     play ambient "sfx/room_tone.mp3"
@@ -2122,179 +2224,229 @@ label cap_9:
     #play music "bgm/tense_confrontation.mp3" fadein 1.0
     play music ambiental fadein 1.0
 
-    "El vestíbulo huele a óxido y carne abierta."
+    "El vestíbulo huele a óxido caliente, bilis y carne abierta."
     "El cuerpo de la criatura yace a unos metros. Demasiado destrozado."
-    "{cps=15}Demasiado... Irreconocible...{/cps}"
+    "{cps=15}Demasiado... irreconocible.{/cps}"
 
+    play sound "sfx/heavy_breathing.mp3" loop volume 0.5
     "Las manos de [nombre_jugador!c] todavía tiemblan."
-    "No sabía bien si era por el esfuerzo..."
-    "...o por lo que disfrutó durante un segundo."
+    "Siente los dedos extrañamente livianos, fríos, como si toda la sangre se le hubiera escurrido hacia los codos y una baja de presión le estuviera vaciando las palmas."
+    "Aprieta el mango de la daga, pero apenas percibe el tacto del metal contra su piel adormecida."
+    "Y en el fondo de su estómago, revuelto de náuseas, no sabe si tiembla por el esfuerzo brutal..."
+    "...o por el segundo exacto en que disfrutó escuchar cómo cedía el hueso."
 
-    n "¡¿Qué ha sido eso?! ¡El ratón de biblioteca que conozco no hubiera acabado con esa bestia ni con la adrenalina de la muerte encima, mucho menos dejar su cráneo como queso suizo!"
-    "Nagi señala el cadáver. Evita mirar directamente a [nombre_jugador!c]."
+    show nagi scared at left with dissolve
+    n "¡¿Qué mierda ha sido eso?! ¡El ratón de biblioteca que conozco no habría acabado con esa bestia ni con toda la adrenalina de la muerte encima, y mucho menos habría dejado su cráneo como un maldito queso suizo!"
+    
+    "Nagi señala el cadáver con el bate tembloroso. Evita mirar directamente a [nombre_jugador!c] a los ojos."
 
-    a "¿No creen que tras lo que haya pasado tenga sentido que empiece a decir que 'escucha voces'? O sea, dudo que le esté dando lo mismo que a las bestias del orfanato, podría ser solo la adrenalina o el pánico."
-
-    a "...o no, Cuty?"
+    show azura worried at right with dissolve
+    a "¿No creen que... tras todo lo que ha pasado, tenga sentido que empiece a decir que 'escucha voces'?"
+    a "O sea, dudo que le esté dando exactamente lo mismo que a las bestias del orfanato... Podría ser solo el colapso nervioso o el pánico acumulado."
+    a "...¿O no, Cuty?"
 
     pause 1.0
 
-    c "Miren, ya no tiene tanto caso el decir si [nombre_jugador!c] tenía razón o no, venir a este orfanato fue una idea estúpida y debemos irnos cuanto antes."
+    show cutipye serious at centro_izquierda with dissolve
+    c "Miren, ya no tiene ningún caso discutir si [nombre_jugador!c] tenía razón o no. Venir a este orfanato fue una idea estúpida desde el principio y tenemos que largarnos de aquí cuanto antes."
 
-    "No se acercan a él."
-    "Forman un semicírculo."
-    "Como si fuera el siguiente peligro."
+    "Nadie da un paso hacia él."
+    "Sin darse cuenta, han formado un semicírculo a varios metros de distancia."
+    "Como si acorralaran al siguiente peligro de la habitación."
 
-    l "¡Esperen! [nombre_jugador!c] no es así... él solo nos protegió. No lo juzguen tan rápido."
-    n "¡Pero míralo, Luz! Está cubierto de sangre, como un animal!"
-    l "¡No! Es nuestro amigo, y lo que hizo fue por nosotros. Denle una oportunidad de explicarse."
+    show luz worry at centro_derecha with dissolve
+    l "¡Esperen! ¡[nombre_jugador!c] no es un monstruo... él solo nos protegió! ¡No lo miren así!"
+    
+    show nagi angry at left
+    n "¡Pero míralo, Luz! ¡Está bañado en sangre y nos mira como un animal acorralado!"
+    
+    l "¡No me importa! ¡Es nuestro amigo, y lo que hizo fue para que esa cosa no nos matara! ¡Denle aunque sea un segundo para respirar y explicarse!"
 
-    pause 1.5
+    pause 1.2
 
-    "[nombre_jugador!c] trató de hablar."
-    pause 0.7
-    "Su garganta arde."
+    "[nombre_jugador!c] intentó darles la razón. Intentó decirles que seguía ahí dentro."
+    "Pero al tragar saliva, su garganta ardió como si hubiera tragado vidrio molido."
+    "Las puntas de sus dedos habían perdido toda sensibilidad; un hormigueo helado le trepaba por las muñecas hasta los hombros, entumeciéndole la piel."
 
-    r "Yo... yo no-"
+    r "Yo... Chicos, yo no quise—"
 
+    # --- INICIO DEL COLAPSO SENSORIAL Y ATAQUE DE PÁNICO ---
     show screen screen_distortion_light
-    play sound "sfx/voices_overlapping.mp3"  # Voces distorsionadas de amigos.
-    play ambient glx_laugh loop
+    play sound "sfx/voices_overlapping.mp3"
+    play ambient "sfx/ringing.mp3" fadein 1.0
     with hpunch
-    "Las voces se superponen."
+
+    "El sonido de su propia voz se quebró, ahogado por un zumbido agudo que le perforó los tímpanos."
+    "Las voces de sus amigos empezaron a superponerse unas sobre otras, desfasadas, rebotando contra las paredes como estática rota."
     "Demasiado fuertes."
     "Demasiado cerca."
 
-    g "Ja ja ja... ¿Ves? Tus 'amigos' te temen ahora. Son tan frágiles~"
-    "Tu visión parpadea."
-    "El vestíbulo parece inclinarse."
-    "Los bordes de la imágen se saturan."
-    "Los colores se intensifican hasta hacerse irreales."
-    "Como si el mundo no soportara la velocidad de sus pensamientos."
+    play sound glx_laugh
+    "{color=#390169}{font=fonts/HelpMe.ttf}{cps=16}Ja, ja, ja... ¿Lo ves, [apodo_jugador]?~{/cps}{/font}{/color}"
+    "{color=#390169}{font=fonts/HelpMe.ttf}{cps=15}Míralos bien. Tus 'amigos' se mueren de miedo de ti. Son tan frágiles~{/cps}{/font}{/color}"
 
-    play sound heartbeat loop
-    "El pulso del castaño se dispara."
-    play sound heartbeat loop
-    "Algo empezó a empujar desde dentro."
-    play sound heartbeat loop
-    "Algo quiere salir."
+    show nagi angry at left, panic_saturate_jitter
+    show cutipye serious at centro_izquierda, panic_saturate_jitter
+    show luz worry at centro_derecha, panic_saturate_jitter
+    show azura worried at right, panic_saturate_jitter
+    with vpunch
 
-    a "Tal vez sea el estrés acumulado, pero esto no es normal."
-    c "Luz, esto es peligroso. Debemos irnos antes de que... algo peor pase."
-    l "¡Basta! [nombre_jugador!c] ha pasado por mucho. Todos lo hemos hecho. Apóyenlo en vez de atacarlo."
-    l "¡No lo abandonaremos! Él nos necesita."
+    "Su visión parpadea con violencia."
+    "El suelo del vestíbulo parece inclinarse hacia un lado, robándole el equilibrio."
+    "Los bordes de todo lo que mira se saturan hasta quemar la retina; los colores se deforman, chillones e irreales, como si el mundo físico no soportara la velocidad a la que se disparan sus pensamientos."
 
-    "La palabra 'abandonar' retumba."
-    "Se deforma."
-    "Se estira."
-    "Se convierte en eco."
+    "Un calor húmedo e insoportable le inunda los ojos de golpe."
+    "Quiere contener las lágrimas, aprieta los párpados con rabia para no llorar frente a ellos, pero el nudo en su tráquea es tan grande que le impide pasar el aire."
+
+    play sound "sfx/heart_slow.mp3" loop
+    "Su pulso golpea contra sus costillas. Desbocado. Hueco."
+    "Toma una bocanada de aire corta, desesperada, pero sus pulmones se sienten cerrados."
+    "Algo empuja desde el fondo de su esternón, abriéndose paso a codazos entre sus órganos."
+    "Algo que quiere salir."
+
+    a "Tal vez sea el estrés acumulado, pero esto no es normal..."
+    c "Luz, aléjate de él, esto es peligroso. Debemos irnos antes de que... algo peor pase."
+    l "¡Basta! ¡[nombre_jugador!c] ha pasado por un infierno! ¡Todos lo hemos hecho! ¡Apóyenlo en vez de tratarlo así!"
+    l "¡No lo abandonaremos! ¡Él nos necesita!"
+
+    play sound "sfx/low_drone.mp3"
+    with vpunch
+    "La palabra {b}'abandonar'{/b} se despega del resto de la frase."
+    "Retumba en su cráneo."
+    "Se deforma en medio de la estática, estirándose como un alarido metálico hasta borrar todo lo demás."
 
     hide screen screen_distortion_light
     show screen screen_distortion_heavy
+    
+    # Los sprites de los amigos comienzan a corromperse visualmente
+    show nagi angry at left, sprite_corrupt_glitch
+    show cutipye serious at centro_izquierda, sprite_corrupt_glitch
+    show azura worried at right, sprite_corrupt_glitch
+    with hpunch
 
-    "La risa de Galaxia se vuelve más clara."
-    "Más cercana."
-    "Como si respirara tras del cuello de [nombre_jugador!c]."
+    "La risa de Galaxia ya no suena en la habitación; resuena dentro de su propia médula, pegada a su nuca, respirando por su misma boca."
 
-    centered "Hazlo. Demuéstrales lo que eres."
+    "{color=#390169}{font=fonts/HelpMe.ttf}{cps=14}Hazlo. Termina de romperte y demuéstrales lo que eres~{/cps}{/font}{/color}"
 
-    centered "No."
-    centered "No quiero."
-    centered "No soy eso."
+    r "(¡No! ¡Cállate!)"
+    r "(¡No quiero! ¡Yo no soy eso!)"
 
-    "Pero el miedo no suena humano."
-    "Suena como un gruñido bajo su pecho."
+    play sound "sfx/beast_growl.mp3"
+    "Intenta gritarles que se tapen los oídos, que él sigue aquí, pero lo que escapa de su garganta cerrada no suena a palabras."
+    "Suena como un gruñido ronco, animal y quebrado de llanto bajo su pecho."
 
-    "La mirada de [nombre_jugador!c] recorrió la de los demás."
-    "Nagi retrocede medio paso."
-    "Azura aprieta los labios."
-    "Cutipye calcula distancias."
-    "Luz... se acerca."
+    "A través del velo borroso de las lágrimas que se le escapan sin permiso, [nombre_jugador!c] recorre las siluetas distorsionadas frente a él."
+    "Sus rostros parecen parpadear, desfigurados por sombras negras y trazos de estática."
+    "Nagi retrocede medio paso, alzando el bate."
+    "Azura aprieta los labios, temblando."
+    "Cutipye tensa las piernas, calculando la distancia hacia la puerta."
+    "Y Luz... Luz se adelanta."
 
-    "Ellos tienen miedo."
-    "Por él."
-    "{b}De él.{/b}"
+    "Tienen miedo."
+    "Ya no tienen miedo por él."
+    "{b}Tienen miedo de él.{/b}"
 
-    "La culpa cae como plomo en su estómago."
-    centered "¿En qué te estás convirtiendo?"
-    centered "¿Y si Galaxia tiene razón?"
-    centered "¿Y si ya cruzaste una línea invisible?"
+    "La culpa y el pánico le aplastan el pecho como una losa de plomo."
+    "Ya no siente sus propias manos. No siente el suelo bajo sus botas. Solo escucha el jadeo frenético, superficial y asfixiante de su propia hiperventilación."
 
-    "Su respiración se acelera."
-    "Demasiado rápido."
-    "Demasiado fuerte."
+    centered "{color=#ff0033}{cps=25}¿En qué mierda te estás convirtiendo?{/cps}{/color}"
+    centered "{color=#ff0033}{cps=25}¿Y si Galaxia tiene razón?{/cps}{/color}"
+    centered "{color=#ff0033}{cps=25}¿Y si ya cruzaste la línea y ni siquiera te diste cuenta?{/cps}{/color}"
 
-    "El mundo comienza a ir más rápido que él."
-    "O él más rápido que el mundo."
-    "No lo sabe."
+    "Su respiración se acelera hasta marearlo. Corta. Entrecortada. Insuficiente."
+    "Las paredes del vestíbulo laten al ritmo de la estática."
+    "El mundo entero empieza a girar demasiado rápido para sus ojos... o es su cuerpo el que se está moviendo más rápido que el mundo."
+    "Ya no puede distinguir la diferencia."
 
-    "Luz da un paso más."
-    "Extiende la mano con cuidado."
-    "Como si se acercara a un animal herido."
+    show luz worry at center, sprite_corrupt_glitch with move
+    "En medio del ruido ensordecedor, una de las figuras da un paso más hacia su punto ciego."
+    "Extiende una extremidad pálida con cuidado."
+    "Como quien intenta tocar a una bestia rabiosa y herida."
 
-    l "[nombre_jugador!c]... tranquilo... estamos contigo."
+    l "[apodo_jugador]... mírame, tranquilo... Estoy aquí contigo."
 
-    "Su mano toca a [nombre_jugador!c] por el hombro."
+    "Los dedos cálidos de ella rozan el hombro de [nombre_jugador!c]."
 
-    #play sound "sfx/violent_reaction.mp3"
+    # --- EL IMPACTO ---
+    show luz scared at center, threat_shadow_corrupt
     play sound slash
     stop music
+    stop ambient
     with hpunch
-    "El contaxto quema."
+    scene black with flashred
 
-    r "¡N-no to-!"
+    "El contacto le quema la piel como hierro al rojo vivo."
 
-    "No ve a Luz."
-    "Ve una sombra acercarse."
-    "Una amenaza."
+    r "¡¡N-NO ME TO—!!"
+
+    "Su cerebro saturado de pánico no registra el rostro de Luz."
+    "Su pupila contraída solo procesa una silueta negra invadiendo su cuello."
+    "Una amenaza directa."
     "Un ataque."
 
-    "El cuerpo de [nombre_jugador!c] reaccionó antes que su mente."
-    "Un reflejo primitivo."
-    "Una embestida desesperada."
+    "El cuerpo infectado de [nombre_jugador!c] actuó medio segundo antes que su conciencia."
+    "Un espasmo ciego. Un reflejo puramente depredador nacido del terror absoluto."
+    "Una embestida desesperada para quitarse el peligro de encima."
 
-    stop ambient fadeout 0.7  # Detiene la risa de Galaxia abruptamente.
-    play sound thud
+    # --- EL SILENCIO POSTERIOR ---
     hide screen screen_distortion_heavy
+    play sound "sfx/thud.mp3"
+    with vpunch
 
-    "El golpe resuena en el vestíbulo."
-    "Seco."
+    "El golpe seco de un cuerpo cayendo de espaldas resuena en todo el vestíbulo."
+    "Pesado."
     "Hueco."
 
-    # Reacciones horrorizadas de todos.
-    play music rodtheme fadein 1.5
-    c "¡Luz! ¡No!"
-    n "¡Dios mío!"
-    a "Qué... Has hecho..."
+    pause 1.5
 
-    "La sangre comienza a extenderse bajo ella."
-    "Roja."
-    "Imposible de ignorar."
+    "Y de pronto, la estática desaparece."
+    "La risa de Galaxia se apaga de golpe. No vuelve."
+    "No hace falta. El silencio que deja detrás es infinitamente peor."
 
-    "El tiempo vuelve a su velocidad normal."
-    "Y con [nombre_jugador!c] dentro."
+    scene vestibulo_sangre with fade
+    play music rodtheme fadein 2.0
+    
+    show cutipye shocked at left
+    show nagi shocked at centro_izquierda
+    show azura desesperada at right
+    with dissolve
 
+    c "¡¡Luz!! ¡¡NO!!"
+    n "¡Joder, no! ¡¡Dios mío!!"
+    a "¿Qué... qué has hecho...?"
+
+    "La niebla ácida se disipa de sus ojos de un solo golpe, devolviéndole el tacto en las manos, el peso de su cuerpo y la nitidez cruel de la mañana."
+    "A sus pies, un charco escarlata comienza a extenderse lentamente sobre las baldosas sucias bajo el pecho de ella."
+    "Rojo. Brillante."
+    "Imposible de negar."
+
+    "El tiempo recupera su velocidad normal."
+    "Y encierra a [nombre_jugador!c] dentro de lo que acaba de hacer."
+
+    show rodrigo shock_state at center with dissolve
     r "(No...)"
-    r "(No no no no...)"
+    r "(No, no, no, por favor, no...)"
 
-    centered "Tus manos."
+    "Sus rodillas ceden. Las lágrimas que había intentado retener le caen de golpe por las mejillas heladas mientras mira hacia abajo."
+
+    centered "{cps=15}Tus manos.{/cps}"
     centered "{cps=10}{b}Tus malditas manos.{/b}{/cps}"
 
     scene closeup_luz_dying with dissolve  # Close-up de Luz herida.
-    if afinidad_luz < 3:
-        l "[nombre_jugador!c]... duele... ¿por qué?"  # Mínimo afecto: Confusión y dolor.
-    elif afinidad_luz == 4:
-        l "No... fue un accidente... lo sé..."  # Ligeramente más comprensiva.
-    elif afinidad_luz == 5:
-        l "[nombre_jugador!c], no te culpes... fuiste fuerte por nosotros."  # Empieza a mostrar apoyo.
-    elif afinidad_luz == 6:
-        l "Te... aprecio tanto... no dejes que esto te destruya."  # Afecto moderado, preocupación por él.
-    elif afinidad_luz == 7:
+    if afinidad_luz >= 13:
+        l "Te quiero... [nombre_jugador!c]. No olvides nuestros momentos... vive por mí."  # Máximo afecto: Amor y legado. Muy raro.
+    elif afinidad_luz >= 10:
         l "[apodo_jugador]... Amor... siempre estaré contigo en espíritu."  # Alto afecto, conexión emocional.
-    elif afinidad_luz == 8:
-        l "Te quiero... [nombre_jugador!c]. No olvides nuestros momentos... vive por mí."  # Máximo afecto: Amor y legado.
+    elif afinidad_luz >= 7:
+        l "Te... aprecio tanto... no dejes que esto te destruya."  # Afecto moderado, preocupación por él.
+    elif afinidad_luz >= 5:
+        l "[nombre_jugador!c], no te culpes... fuiste fuerte por nosotros."  # Empieza a mostrar apoyo.
+    elif afinidad_luz >= 3:
+        l "No... fue un accidente... lo sé..."  # Ligeramente más comprensiva.
+    else:
+        l "[nombre_jugador!c]... duele... ¿por qué?"  # Mínimo afecto: Confusión y dolor. Más probable.
 
-    if afinidad_luz >= 6:
+    if afinidad_luz >= 10:
         "Sus dedos buscan los de él."
         "Incluso ahora."
         "Incluso mientras la vida se le escapa."
@@ -2727,7 +2879,7 @@ label nagi_no_traiciona:
     n "¿Aguantar?"
     n "Te tiemblan las manos."
     n "Nos miras como si fuéramos comida."
-    n "Casi matas a—"
+    n "Mataste a—"
 
     "Se detiene antes de terminar la frase. Silencio pesado."
     pause 0.5

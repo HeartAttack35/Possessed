@@ -488,10 +488,24 @@ label cap_1:
     play sound door_open
     scene black
     pause(0.5)
-    "[nombre_jugador!c] entra a la habitación, pero la falta de iluminación le impide ver..."
-    "Lenta y torpemente, desliza su mano por el contorno de la puerta para buscar el interruptor..."
-    "...y lo que ve lo deja paralizado."
-    
+
+    "[nombre_jugador!c] cruzó el umbral y la oscuridad lo recibió como una mano sobre la cara."
+    "El aire era espeso. Dulce y podrido a la vez, con una humedad que se le pegaba a la garganta."
+    "Y bajo eso, un zumbido constante, en algún punto frente a él."
+
+    l "[apodo_jugador]... espera."
+    "Luz habló pegada a su espalda, en un susurro que apenas se sostenía."
+    l "Algo se movió ahí dentro. Solo un segundo, pero... se movió."
+    r "Por eso entro yo primero."
+    l "...No me voy a quedar sola en el pasillo."
+    r "Lo sé. Entonces no te sueltes."
+
+    "Los dedos de Luz se cerraron sobre la tela de su polo."
+    "Con la mano libre, [nombre_jugador!c] recorrió la pared a ciegas, lento y torpe, buscando el interruptor. Yeso frío. Un clavo oxidado. Algo pegajoso que decidió no identificar."
+    "Por fin, sus dedos dieron con un botón de plástico. Lo presionó."
+    "Una bombilla amarillenta parpadeó, dudó... y se encendió."
+    "Y lo que vio lo dejó paralizado."
+
     window hide
     play music shock noloop
     scene habitacion_cadaver with flash
@@ -500,64 +514,113 @@ label cap_1:
     window show
     $ renpy.save("1-1", "Encuentro 1")
     pause 1.5
-    
+
     r "Qué ca..."
 
     play audio "goteo_lento.ogg"
     pause 0.1
     "Antes de poder terminar la frase, una gota espesa y tibia cayó sobre su mejilla. No era agua."
+    "La mano de Luz se cerró sobre su brazo con una fuerza que dolió."
     "Acto seguido, subieron la vista."
 
     scene scene_spdr with dissolve
     pause 0.7
     play music chase fadein 0.5
-    
-    "En el techo, desafiando la gravedad, algo que alguna vez fue humano los observaba."
-    "[nombre_jugador!c] dió un paso atrás, manteniendo su arma en alto mientras contempla sus opciones."
-    
-    menu:
-        "Intentas atacar a la criatura":
-            $ estado_mental += 2
-            r "¡Atrás!" 
-            "[nombre_jugador!c] sacudió su daga con más fuerza, avanzando un paso desafiante..."
 
-            l "¡[apodo_jugador], no!"
+    "En el techo, desafiando la gravedad, algo que alguna vez fue humano los observaba."
+    "No se movía. Ni siquiera parecía respirar. Solo una cabeza ladeada de más y unos dedos largos clavados en el yeso, como si el techo fuera el suelo y ellos los que estaban cabeza abajo."
+
+    l "[apodo_jugador]..."
+    "Su voz era apenas un hilo."
+    r "No te muevas."
+
+    "[nombre_jugador!c] dio un paso atrás, manteniendo su daga en alto."
+    "Pero la criatura ya no los miraba a los dos. Giró la cabeza, despacio, con un chasquido seco, como el de una rama al romperse."
+    "Y se detuvo en Luz."
+
+    play sound nailtap
+    "Las uñas rasparon el yeso. Una mano. Luego la otra."
+    "Descendía por la pared, centímetro a centímetro, hacia la puerta. Hacia ella."
+
+    r "(No. A ella no.)"
+
+    "No había tiempo para pensar. Tenía, con suerte, un segundo para decidir."
+
+    menu:
+        "Te interpones entre Luz y la criatura":
+            $ estado_mental += 2
+            "El miedo no desapareció. Solo se volvió estrecho, como si el mundo se redujera a un túnel con dos puntos al fondo: la criatura y Luz."
+            "[nombre_jugador!c] se movió antes de decidirlo. Un paso al frente, luego otro, hasta quedar entre la pared y ella, con la daga en alto y el cuerpo tapándola."
+
+            r "Ni se te ocurra."
+            "Salió más firme de lo que esperaba. La daga, en cambio, temblaba."
+            r "¡Atrás!"
+
+            l "¡[apodo_jugador], no! ¡No sabemos qué es!"
+
+            "La criatura se detuvo, con la cabeza ladeada, como si lo estudiara."
+            "Luego sus dedos se soltaron del yeso, uno por uno, y una lluvia fina de polvo cayó sobre los hombros de [nombre_jugador!c]."
+            "Luz le agarró el brazo con las dos manos, tirando de él hacia la puerta."
+
+            l "Esto no es una pelea... ¡Por favor, vámonos!"
+
+            "Pero la puerta estaba a cinco pasos, y las rodillas de Luz apenas la sostenían."
+            "Cinco pasos que ella no podría dar a esa velocidad. Cinco pasos que la criatura cruzaría en un parpadeo."
 
             menu:
-                "Huyes con Luz":
-                    "El grito de Luz lo trajo a la realidad. No podía ganar esto."
+                "Sacas a Luz de ahí":
+                    "El tirón de Luz lo sacó del túnel. No podía ganar esto. Y si caía, ella se quedaba sola con esa cosa."
+                    r "Está bien... Está bien. ¡Vámonos!"
+                    "Retrocedió empujándola delante de sí, sin bajar la daga, hasta que el umbral quedó a su espalda."
                     jump escapar_araña
 
-                "Insistes en atacar":
-                    "Contrario a su sentido común, [nombre_jugador!c] se decidió a atacar."
-                    r "¡Tú vete! ¡Yo te daré tiempo!"
+                "Te quedas para darle tiempo":
+                    "Lo vio con una claridad tan nítida que casi fue calma: si corrían juntos, la criatura los alcanzaría en el pasillo. Si él la retenía, aunque fuera un segundo, Luz tendría una oportunidad."
+                    r "Luz. Tienes que soltarme."
+                    l "No. No, no, no..."
+                    r "Cuando te diga, corres. No mires atrás."
+                    l "¡No voy a dejarte!"
+                    r "No me dejas. Yo te alcanzo."
+                    "Mintió. Y ella lo supo."
+                    r "¡Vete! ¡Yo te doy tiempo!"
                     "[nombre_jugador!c] arremetió contra la criatura con todas sus fuerzas."
                     jump game_over_spdr
 
-        "Sigues retrocediendo, sin atacar":
+        "Retrocedes con Luz, sin darle la espalda":
             $ estado_mental += 1
-            r "...Esto no vale la pena."
-            "[nombre_jugador!c] mantuvo su daga en alto, pero dio pasos hacia atrás sin atacar."
+            r "Despacio... Esto no vale la pena. Ven."
+            "[nombre_jugador!c] mantuvo la daga en alto, pero no atacó. Tomó a Luz del brazo y dio un paso atrás. Luego otro."
+            "Sin movimientos bruscos. Sin dar la espalda. Como se hace con un perro desconocido."
+            "Solo que los perros no cuelgan del techo."
+            "Cruzaron el umbral de espaldas. Tres pasos. Cuatro."
+            play sound crack
+            "Y entonces, sobre sus cabezas, el yeso crujió. La criatura se había soltado."
             jump escapar_araña
 
-        "Sales corriendo sin mirar atrás":
+        "El pánico te gana: echas a correr":
             $ estado_mental += 3
             "El miedo pudo más. [nombre_jugador!c] giró y corrió sin pensarlo."
+            "Su mano encontró la muñeca de Luz a medio giro. No recordaría haberla agarrado."
+            "Detrás, algo arañó el yeso. Rápido. Muy rápido."
             jump escapar_araña
-        
+
 label game_over_spdr:
     stop sound
     scene black with fade
-    
+
     "Pero..."
-    
+
     play music curse
     scene spdr1 with fade
+    play sound slash
     pause(1)
     "La criatura fue más rápida, más fuerte, más letal de lo que [nombre_jugador!c] jamás pudo anticipar."
+    "Ganó un segundo. Quizá dos. Para él no fueron suficientes."
     "Su acto de valentía solo resultó en una muerte sin gloria."
     pause(1)
     "{cps=15}[nombre_jugador!c] murió como un idiota...{/cps}"
+    pause(1.5)
+    "{cps=15}...pero se puso delante.{/cps}"
 
     pause(2)
 
@@ -567,13 +630,13 @@ label game_over_spdr:
         "Cargar partida":
             jump load_screen
         "Volver al menú principal":
-            return    
-    
+            return
+
 label escapar_araña:
     r "¡Corre!"
     stop sound
     play sound run loop
-    
+
     scene pasillo_corriendo
     scene pasillo_corriendo at truecenter with None
     scene pasillo_corriendo at truecenter:
@@ -582,6 +645,7 @@ label escapar_araña:
         repeat
     "[nombre_jugador!c] y Luz corrieron por los pasillos sin mirar atrás."
     "El pasillo se convertía en un túnel borroso mientras sus pulmones ardían."
+    "Detrás, ningún paso los seguía. Y por alguna razón, eso era peor."
 
     scene escape_1
     show rodrigo scared at right:
@@ -593,14 +657,16 @@ label escapar_araña:
         linear 0.5 xalign 0.6
         linear 0.5 xalign 0.7
         repeat
-    
-    r "¿¡Donde están las demás!?"
-    
-    l "¡No lo se! ¡Nos separamos y las perdí de vista!"
-    
+
+    l "¿¡Qué era eso!? ¡[apodo_jugador], qué era eso!"
+    r "¡No lo sé, y no pienso preguntárselo!"
+    r "¿¡Dónde están las demás!?"
+
+    l "¡No lo sé! ¡Nos separamos y las perdí de vista!"
+
     pause 1.0
     stop music fadeout 2.0
-    
+
     "[nombre_jugador!c] y Luz siguieron corriendo durante un rato, hasta que finalmente encontraron un lugar que parecía ser seguro."
     
     scene sala_espera_abandonada with dissolve
@@ -962,7 +1028,6 @@ label cap_2:
     # -- Huida --
     scene pasillo_huida with fade
     play sound run loop
-    play music chase fadein 0.5
 
     "Corrieron sin mirar atrás. El pasillo subterráneo parecía estirarse ante ellos como una garganta interminable mientras las luces del techo parpadeaban con violencia."
     "Sus respiraciones entrecortadas se mezclaban con el golpeteo frenético de sus zapatillas contra el suelo húmedo."
@@ -1012,6 +1077,7 @@ label cap_2:
     $ renpy.save("1-1", "Encuentro 2")
     show rodrigo nervioso at center with moveinright
     play sound door_close
+    play ambient audio.heartbeat fadein 0.8
     "[nombre_jugador!c] entró tropezando en una antigua habitación de literas y cerró la puerta a sus espaldas en el último segundo, conteniendo el aliento para no hacer ruido."
     "Se apoyó de espaldas contra la madera fría. Su pecho subía y bajaba con violencia; el latido en sus oídos y el eco de su propia respiración le parecían demasiado fuertes para un cuarto tan quieto."
     "Estaba solo. O al menos, eso quería creer."
@@ -1119,10 +1185,12 @@ label escape_mnts:
     pause (2.5)
     stop music fadeout 1.5
     play sound alarm volume 0.2 loop
+    stop ambient
     "¡BEEEEEP! ¡BEEEEEP!"
     
     "La criatura giró bruscamente y salió de la habitación, atraída por el nuevo ruido."
     stop sound fadeout 2.0
+    play ambient heartbeat fadein 0.8 volume 0.6
     scene foreboding_2
     show rodrigo scared at center
     with dissolve
@@ -1142,6 +1210,7 @@ label escape_mnts:
     "Cuando por fin se incorporó, su espalda crujió y soltó un suspiro contenido."
     "Abrió la puerta de la habitación lentamente, asomandose al pasillo."
     
+    stop ambient fadeout 1.5
     scene pasillo_abandonado with fade
     "Vacío."
 
@@ -1582,52 +1651,141 @@ label cap_3:
 
     "Azura y Luz lo siguen."
 
+    # -- La escalera --
     stop music fadeout 1.5
     scene escaleras_con_sombra with fade
+    play sound wood_creak volume 0.4
+
+    "La escalera era ancha y vieja, con una barandilla que se descascaraba bajo los dedos. Cada peldaño devolvía un quejido distinto."
+    "[nombre_jugador!c] subió pegado a la pared, probando el peso de cada escalón antes de confiarle el siguiente paso. Detrás, la respiración de Azura. Más atrás, la de Luz. Tres ritmos distintos intentando no hacer ruido."
     "Subieron al segundo piso. El silencio era peor que los gritos."
 
+    show rodrigo serio at center
+    show luz worry at left
+    show azura worried at right
+    with dissolve
+
+    "En el rellano, la linterna cortó un pasillo largo con puertas a ambos lados. Todas cerradas. Todas iguales."
+    "Al fondo, algo goteaba. Y bajo el goteo, un golpeteo leve y regular que podía ser una tubería, una ventana suelta, o cualquier otra cosa."
+
+    a "Si corrían, tuvieron que subir por aquí. Es la única escalera que quedó libre."
+    a "Pero mira cuántas puertas. Podrían estar detrás de cualquiera."
+
+    l "Entonces los llamamos. Si están cerca, nos oirán."
+
+    "Azura se giró hacia ella tan rápido que la linterna le bailó en la mano."
+
+    a "No. Luz, no. Lo que nos separó también oye."
+    l "¿Y si están heridos? ¿Y si están a diez metros y no se atreven a contestar?"
+
+    "La pregunta quedó colgando en el pasillo. Las dos miraron a [nombre_jugador!c]."
+
+    menu:
+        "Llamarlos en voz alta, una sola vez":
+            $ afinidad_luz += 1
+            r "Una vez. Bajito, pero que se oiga."
+            "Azura apretó los labios, pero no discutió."
+            "Luz acercó las manos a la boca, cuidando el volumen."
+            l "¡Nagi! ¡Cuty!"
+            "Su voz recorrió el pasillo y se fue apagando contra el fondo, puerta tras puerta."
+            pause 1.5
+            "Nada."
+            "Ni pasos. Ni una voz. Solo el goteo, y un eco que tardó demasiado en volver."
+            l "...Quizá no nos oyen."
+            a "O no pueden contestar."
+            "Nadie corrigió a Azura."
+
+        "Pedir silencio y revisar las puertas una a una":
+            $ afinidad_azura += 1
+            $ estado_mental -= 1
+            r "Nada de gritos. Primero escuchamos."
+            "Azura soltó el aire que tenía retenido. Luz dudó. Luego asintió, despacio."
+            l "Está bien. Pero si en algún momento..."
+            r "Lo sé. Si pasa, gritamos todos."
+            "Se quedaron quietos, con las linternas apuntando al suelo. El pasillo se fue llenando de sonidos pequeños: el goteo, el golpeteo regular, la madera asentándose, sus propios pulsos."
+            "Ni una voz. Pero tampoco ninguna señal de que alguien los hubiera oído llegar."
+
+    "Fueron probando puertas. La primera estaba atrancada. La segunda daba a un cuarto con el techo hundido y las paredes negras de humedad, y nadie quiso entrar."
+    "La tercera cedió sin un solo chirrido."
+    "Demasiado bien aceitada."
+
+    # -- La habitación --
     scene habitacion_intacta with dissolve
     pause 0.5
 
     "Una habitación... Limpia. Sin sangre. Sin roturas."
+    "[nombre_jugador!c] entró primero. Revisó detrás de la puerta. Bajo la cama. Tras la cortina de la ventana. Un procedimiento aprendido de memoria; la paranoia, otra vez, ejerciendo de oficio."
+    "Nada. Solo una cama con las sábanas tensas, un escritorio de madera clara, una mesa en el centro y tres acuarelas de paisajes pálidos colgadas de la pared."
+
     show rodrigo neutral
     show luz neutral at left
     show azura neutral at right
     with dissolve
 
     "Por primera vez desde que entraron al orfanato, el aire no olía a podredumbre."
-    "En el fondo, en un perchero, cuelga un abrigo viejo. Un olor a humedad y tinta seca impregna el ambiente, pero era un espacio extrañamente pacífico."
+    "En el fondo, en un perchero, colgaba un abrigo viejo. Un olor a humedad y tinta seca impregnaba el ambiente, pero era un espacio extrañamente pacífico."
+    "Sobre la mesa central, una baldosa del falso techo estaba combada, con una mancha oscura en el medio, del tamaño de una mano. [nombre_jugador!c] la registró y la descartó: humedad, probablemente."
 
-    a "Es raro... Alguien cuidaba este lugar.."
+    a "Es raro... Alguien cuidaba este lugar..."
 
     "Sus ojos esmeralda se dirigen a los cuadros mientras da un par de pasos hacia ellos, bajando los hombros visiblemente."
     "Era el espejismo de un refugio. Una falsa sensación de seguridad que todos necesitaban desesperadamente."
 
     show luz smile with dissolve
-    "Luz, aprovechando la pausa, revisaba los cajones de un escritorio en busca de información útil."
+    "Luz, aprovechando la pausa, revisaba los cajones del escritorio en busca de información útil. Los abría apenas lo necesario para que no rechinaran."
 
-    l "¡[apodo_jugador]! ¡Mira esto!"
+    l "[apodo_jugador]... ven. Mira esto."
 
     "Luz sacó un bulto envuelto en un pañuelo de un cajón. Dentro, el metal frío brilló bajo la linterna."
-    
+
     hide rodrigo
     hide azura
     hide luz
     show pistola_primer_plano at truecenter
     with dissolve
     "Una pistola. Vieja, pero aceitada. Y una caja de balas."
-    
+
     show rodrigo neutral
     show luz smile at left
     show azura neutral at right
     hide pistola_primer_plano
     with dissolve
-    
+
     l "¿Crees que funcione?"
     r "Esperemos no tener que averiguarlo."
-    
+
+    "Luz giró el arma entre las manos con el dedo lejos del gatillo, como quien sostiene un animal dormido."
+
+    show luz worry
+    l "No sé si podría usarla, [apodo_jugador]. De verdad. Si llegara el momento..."
+
+    "No terminó la frase. Azura bajó la mirada al suelo."
+
+    menu:
+        "Dejar que Luz se la quede: \"Tú tienes mejor pulso\"":
+            $ afinidad_luz += 1
+            r "Quédatela. Tú tienes mejor pulso que yo."
+            l "Mentiroso. Pero gracias por fingir."
+            r "No estoy fingiendo."
+            "Luz sostuvo su mirada un segundo. Después volvió a envolver el arma en el pañuelo y se la acomodó en la cintura, con cuidado."
+
+        "Intentar quedártela: \"Dámela, yo me encargo\"":
+            $ estado_mental += 1
+            r "Dámela. Yo me encargo."
+            l "No."
+            r "Luz..."
+            l "No, [apodo_jugador]. Tú siempre quieres llevarlo todo tú."
+            l "Si hay que apretar el gatillo, prefiero que sea decisión mía. No algo que me quitaron de las manos."
+            "[nombre_jugador!c] conocía esa mirada. Nunca había ganado contra ella."
+            r "...Está bien."
+            "Luz guardó el arma en su cintura. Él se quedó con las manos vacías y con la sensación de que acababa de perder algo más que una discusión."
+
+    "La caja de balas desapareció en el bolsillo de Luz."
+
+    # -- La nota --
     "Luego, [nombre_jugador!c] se dirigió al pequeño librero."
-    "Entre papeles sueltos y libros de cuidado infantil, encuentra una nota amarillenta doblada cuidadosamente."
+    "Un manual de puericultura. Una libreta de asistencia con las páginas pegadas por la humedad. Libros de cuentos con los lomos vencidos de tanto uso."
+    "Y entre dos tomos, una nota amarillenta doblada con una prolijidad que desentonaba con todo lo demás."
 
     play sound paper_flip
     play music story
@@ -1641,32 +1799,89 @@ label cap_3:
     "{cps=20}El {b}60%%{/b} de los primeros sujetos han fallecido. El proceso de mutación resultó inestable; los tejidos colapsan, los huesos se expanden sin orden y los sistemas vitales no resisten.{/cps}"
     "{cps=20}Los cuerpos se deforman en masas amorfas, aún respirando en algunos casos por horas. Las cámaras frías están saturadas. Se incrementó la dosis de estabilizadores para los próximos voluntarios.{/cps}"
 
+    "La leyó dos veces. La segunda, más despacio, como si el número pudiera cambiar."
+    "Detrás de él, los pasos de Luz se acercaron sobre las tablas."
+
     l "¿Y? ¿Qué encontraste?"
 
     "[nombre_jugador!c] arrugó la nota antes de guardarla en su bolsillo, tragándose el nudo de horror moral que se le formó en la garganta."
-    
-    r "Nada útil... Solo... Basura vieja..."
-    
-    show luz neutral
-    l "¿Seguro? Te vi la cara."
-    l "¿No será algo importante?"
 
-    r "No nos sirve. Vamos."
+    menu:
+        "Decir que no es nada":
+            $ estado_mental += 1
+            r "Nada útil... Solo... Basura vieja..."
+            show luz neutral
+            l "¿Seguro? Te vi la cara."
+            l "¿No será algo importante?"
+            r "No nos sirve. Vamos."
+            "Luz abrió la boca. La cerró."
+            "Conocía a [nombre_jugador!c] lo suficiente para saber cuándo empujar y cuándo no. Esta vez no empujó. Eso no significaba que se lo hubiera creído."
+
+        "Decir que es más de lo mismo, pero que no quieres leerlo en voz alta":
+            $ afinidad_luz += 1
+            r "Más de lo mismo. Lo que ya sabemos, pero peor."
+            r "No quiero leerlo en voz alta. Todavía no."
+            "No era mentira. Solo era la parte más pequeña de la verdad."
+            show luz worry
+            l "...Está bien."
+            l "Pero cuando puedas, me lo cuentas. Aunque sea feo."
+            r "Cuando pueda."
+            "Le salió más fácil de lo que esperaba. Eso fue lo que lo asustó."
 
     "Incluso si no quería admitirlo, [nombre_jugador!c] se estremeció por lo que leyó."
     "La sola idea le revolvía el estómago."
 
+    # -- La pregunta de Azura --
     pause 0.5
+    "Azura se había quedado de pie frente a las acuarelas. Pasó un dedo por el borde de un marco. Ni una mota de polvo."
+
     show azura worried with dissolve
     a "Chicos... ¿Creen que alguien dormía aquí... sabiendo todo lo que pasaba?"
 
+    "La pregunta no iba dirigida a nadie en concreto. Pero [nombre_jugador!c] sintió el papel en su bolsillo como si ardiera."
+
+    menu:
+        "Querer creer que no sabía":
+            $ afinidad_azura += 2
+            r "Quiero creer que no sabía."
+            "Salió suave. Casi convincente."
+            "Tenía en el bolsillo una hoja arrugada que decía exactamente lo contrario."
+            a "Yo también."
+            "Azura sonrió apenas. Una sonrisa pequeña, agradecida, que a [nombre_jugador!c] le quemó más que cualquier grito."
+            a "Es una tontería, pero necesito creerlo. Si no, esta habitación..."
+            "No terminó la frase. No hacía falta."
+
+        "Decir que sí sabía, y que se quedó callado":
+            $ estado_mental += 1
+            r "Alguien que lo sabía... y se quedó callado."
+            "No lo pensó. La frase salió sola, con un filo que no esperaba."
+            "Solo después, tarde, notó el peso exacto de la hoja en su bolsillo."
+            "Azura parpadeó. La poca sonrisa que le quedaba se apagó."
+            a "...Eso es peor, ¿sabes?"
+            r "Lo sé."
+            "Luz se acercó un paso y le rozó la manga. No dijo nada."
+
+        "Cambiar el foco: Nagi y Cuty":
+            $ estado_mental -= 1
+            $ afinidad_azura += 1
+            r "Ahora mismo, lo único que me importa es dónde están Nagi y Cuty."
+            "Lo dijo sin dureza. Era verdad."
+            a "Tienes razón. Perdón. Es que... los pensamientos se me van a lugares feos."
+            r "A mí también. Por eso mejor miramos al frente."
+            "Azura asintió, aferrándose a la frase como a una barandilla."
+
+    "Luz lo miró un segundo más de lo necesario. Era la mirada de quien guarda una pregunta para después."
+
+    # -- El derrumbe --
     pause 1.0
     stop music fadeout 1.5
     stop ambient fadeout 1.0
     "El silencio reinó unos segundos."
     "Demasiados."
+    "Y en algún momento, sin que nadie lo notara, el golpeteo del pasillo dejó de sonar."
+    "Sobre la mesa central, un hilo fino de polvo gris se desprendió de la baldosa combada."
 
-    play sound "sfx/wood_creak.mp3"
+    play sound wood_creak
     "Un crujido seco sobre sus cabezas los hizo congelarse."
 
     play sound thud
@@ -1686,7 +1901,12 @@ label cap_3:
 
     "Luz alzó la pistola con las manos temblorosas, apuntando instintivamente hacia el hueco oscuro en el techo."
     "Pero no había nada allí. Solo el eco del impacto desvaneciéndose."
-    
+
+    "Por un instante, nadie se atrevió a mirar el rostro del cadáver. Los tres pensaron lo mismo y ninguno lo dijo: ¿y si no era un desconocido?"
+    a "No es... no es ninguno de ellos."
+    "Lo dijo como se dice una oración. Luz soltó el aire que no sabía que contenía."
+    "El alivio duró un segundo. Después llegó la culpa de haberse alegrado frente a un muerto."
+
     "[nombre_jugador!c] da unos pasos hacia la puerta, cada músculo tenso. El espejismo de refugio se había hecho pedazos."
 
     $ renpy.save("1-1", "Encuentro 3")
@@ -1859,7 +2079,7 @@ label cap_4:
 
     show rodrigo move_slow with dissolve
     play sound walk loop
-    "[nombre_jugador!c] da unos pasos con lentitud, examinando la habitación. Se apoya contra una pared y para mantener el equilibrio."
+    "[nombre_jugador!c] da unos pasos con lentitud, examinando la habitación. Se apoya contra una pared para mantener el equilibrio."
     "Por unos instantes, se permite respirar."
 
     r "Podría ser peor... Podría estar atrapado con uno de esos monstruos..."
@@ -1898,25 +2118,132 @@ label cap_4:
     play sound "sfx/monster_parkour.ogg"
     "La criatura se abalanzó, rebotando desde la pared hacia él con una agilidad inhumana."
 
+    # --- DECISIÓN 1: LA RUTA DE HUIDA ---
+    menu:
+        "Correr por el pasillo de la izquierda":
+            jump persecucion_cap4_pasillo
+            
+        "Correr por el pasillo de la derecha":
+            "[nombre_jugador!c] se lanzó hacia el corredor derecho, buscando una salida rápida."
+            scene escombros_bloqueo with vpunch
+            "Pero a los pocos metros, un derrumbe de vigas oxidadas y hormigón bloqueaba el paso por completo."
+            r "¡No, no, no! ¡Está cerrado!"
+            jump game_over_persecucion_bodega
+
+        "Esconderse tras las estanterías":
+            "[nombre_jugador!c] se arrojó detrás de una hilera de estanterías corroídas, conteniendo el aliento en la penumbra."
+            play sound "sfx/shelf_rip.ogg"
+            with vpunch
+            "Fue inútil. Ella no buscaba con los ojos; su olfato la guio directo hacia él, arrancando el metal de cuajo como si fuera cartón."
+            jump game_over_persecucion_bodega
+
+label persecucion_cap4_pasillo:
     scene pasillo_corriendo with vpunch
-    play sound run
+    play sound run loop
     #show rodrigo run_panic at center
     show rodrigo alert at center
     
-    "[nombre_jugador!c] giró y corrió por el pasillo de la izquierda, más rápido de lo que jamás había corrido en su vida."
+    "[nombre_jugador!c] giró sobre sus talones y corrió por el pasillo de la izquierda, más rápido de lo que jamás había corrido en su vida."
+    "Se lanzó a través de una serie de habitaciones conectadas: antiguas lavanderías con máquinas oxidadas que parecían fauces abiertas y cuartos de calderas donde las tuberías silbaban como serpientes."
     "Detrás de él, no había pasos humanos. Había una bestia cazando."
+    
+    play sound "sfx/claw_drag_concrete.mp3"
     "Clic-clic-clic."
-    "Impactos pesados contra las paredes y el techo."
+    "Impactos pesados contra las paredes y el techo. Galaxia no solo lo perseguía; jugaba con el terreno, cerrando la distancia a cada segundo."
 
+    # --- DECISIÓN 2: OBSTÁCULO EN EL CORREDOR ---
+    menu:
+        "Derribar una estantería pesada a su paso":
+            play sound "sfx/heavy_bang.mp3"
+            with hpunch
+            "Sin dejar de correr, [nombre_jugador!c] aferró el borde de un armario de suministros oxidado y lo volcó tras de sí con un estruendo metálico."
+            "Las garras de Galaxia rasparon el metal al saltar por encima del obstáculo, dándole apenas un par de segundos vitales de ventaja."
+            jump persecucion_cap4_almacen
+
+        "Disparar hacia atrás sin detenerse":
+            $ estado_mental += 1
+            play sound gunshot
+            with flash
+            "Dominado por el pánico, [nombre_jugador!c] giró el torso y disparó a ciegas hacia la penumbra del corredor."
+            "El fogonazo iluminó por una fracción de segundo una silueta que se desplazaba por el techo, esquivando el tiro sin esfuerzo."
+            play sound glx_laugh
+            g "{cps=20}¡Uy, casi! ¡No desperdicies tus juguetes tan pronto, [apodo_jugador]!~{/cps}"
+            "El retroceso lo hizo trastabillar, pero el terror puro mantuvo sus piernas en movimiento."
+            jump persecucion_cap4_almacen
+
+        "Ocultarse entre las calderas de vapor":
+            stop sound
+            "[nombre_jugador!c] frenó de golpe y se deslizó en el hueco estrecho entre dos enormes calderas inactivas, rezando para que las sombras lo cubrieran."
+            "Pero en el silencio húmedo, el latido desbocado de su corazón y el olor de su propio sudor eran como un faro en la oscuridad."
+            jump game_over_persecucion_bodega
+
+label persecucion_cap4_almacen:
+    stop sound
     scene bg_almacen_medico with fade
     show rodrigo alert at left with moveinright
     play sound "sfx/glass_break_footsteps.mp3"
     
-    "Derrapó en un almacén médico. Cristales rotos bajo sus rodillas. Se levantó al instante."
+    "Derrapó al entrar en un antiguo almacén médico. Estanterías volcadas y frascos rotos cubrían el suelo."
+    "Cayó de rodillas sobre los cristales rotos, sintiendo el corte frío en la piel, pero se levantó al instante."
 
     g "¡Vamos, [apodo_jugador]! ¡Corre más rápido!"
     g "Si te alcanzo, te doy un besito. O un mordisco~"
+
+    # --- DECISIÓN 3: DENTRO DEL ALMACÉN MÉDICO ---
+    menu:
+        "Correr hacia la puerta metálica del fondo":
+            "[nombre_jugador!c] divisó una puerta de acero al otro extremo del almacén y se lanzó hacia ella como su última esperanza."
+            jump persecucion_acorralado
+
+        "Empujar una camilla para bloquear la entrada":
+            play sound "sfx/metal_crunch.mp3"
+            "[nombre_jugador!c] aferró una camilla oxidada y la arrojó contra el umbral por el que acababa de entrar."
+            play sound "sfx/monster_parkour.ogg"
+            with vpunch
+            "La sombra ni siquiera tocó el suelo: pasó por encima del marco de la puerta, obligándolo a retroceder desesperado hasta el fondo del salón."
+            jump persecucion_acorralado
+
+        "Plantarse en medio de la sala y apuntar a la entrada":
+            "[nombre_jugador!c] alzó la pistola en el centro del almacén, apuntando fijo hacia el umbral oscuro con las manos temblorosas."
+            "Pero no hubo ruidos frente a él. Un crujido metálico resonó directamente sobre su cabeza, entre las vigas del techo."
+            jump game_over_persecucion_bodega
+
+label game_over_persecucion_bodega:
+    stop sound
+    play sound slash
+    play music curse
+    scene black with flash
+
+    "{cps=15}Error fatal.{/cps}"
+
+    play sound "sfx/heavy_bang.mp3"
+    with vpunch
+    "Un peso brutal cayó desde arriba, derribando a [nombre_jugador!c] contra el concreto húmedo antes de que pudiera levantar el arma."
     
+    play sound "sfx/bone_crack.mp3"
+    "La pistola salió volando de sus manos, perdiéndose en la oscuridad con un eco metálico."
+
+    scene bodega_gal_shadow with dissolve
+    show galaxia shadow_eyes at center with dissolve
+    
+    g "{color=#390169}{font=fonts/HelpMe.ttf}{cps=20}¿Eso fue todo? Qué decepción, [apodo_jugador]~{/cps}{/font}{/color}"
+    g "{color=#390169}{font=fonts/HelpMe.ttf}{cps=20}Pensé que jugaríamos un ratito más.{/cps}{/font}{/color}"
+
+    play sound "sfx/bite_crunch.mp3"
+    scene black with vpunch
+    pause 1.0
+
+    "{cps=15}[nombre_jugador!c] fue devorado en la oscuridad del subsuelo.{/cps}"
+
+    scene gameover_screen with dissolve
+    pause(2)
+    menu:
+        "Cargar partida":
+            jump load_screen
+        "Volver al menú principal":
+            return
+
+label persecucion_acorralado:
     play sound door_slam
     "Llegó al final. Puerta metálica. Cerrada."
     r "¡Mierda!"
@@ -1943,9 +2270,6 @@ label cap_4:
     window hide None
 
     # --- F0 (~2 frames): lanzamiento + arranca el disparo ---
-    # El sonido se lanza aquí (un frame antes del fogonazo) para
-    # compensar la latencia de audio (~40 ms): el estruendo y el
-    # primer impact frame coinciden.
     play sound gunshot
     stop music
 
@@ -2201,30 +2525,150 @@ label cap_5:
     show cutipye scared at left
     with fade
     stop music fadeout 2
-    
+    play music ambiental fadein 1.5
+
     l "¡RODRIGO! ¡RESPONDE!"
-    
+
     "El grito de Luz se pierde en la oscuridad del agujero. El polvo tarda en asentarse."
-    
+    "Nagi y Cutipye acaban de arrastrarlas lejos del borde, a tirones, sin soltarles las muñecas. Luz y Azura todavía no recuperan el aliento. Ninguna piensa hacerlo."
+
     play sound "sfx/rocks_falling_echo.mp3"
     "Solo se escucha el eco lejano de piedras cayendo. Y luego... nada."
-    
+    "El último trozo tarda demasiado en llegar al fondo. Nadie quiere decirlo en voz alta."
+
+    show nagi serio
     n "Mierda... El suelo estaba podrido."
-    
+    "Nagi mira el hueco con la mandíbula tensa, como quien mira un error propio."
+    n "Y nosotros caminando encima como idiotas."
+
+    show cutipye worried
     c "¿Se... se mató? ¿Cayó hasta el fondo?"
-    
+    "La voz de Cutipye sale pequeña. Demasiado pequeña para ella."
+
     l "¡No! ¡Él está bien! ¡Tiene que estar bien!"
-    "Luz se acerca peligrosamente al borde, pero Nagi la sujeta del brazo."
-    
+
+    # -- El borde --
+    show nagi angry
+    "Luz se lanza hacia el borde. Las rodillas casi no la sostienen, pero avanza a rastras sobre las tablas rotas, buscando la orilla con los dedos. Nagi la sujeta del brazo."
+
     n "¡Atrás! Si te acercas, te vas con él. Toda esta estructura es inestable."
-    
-    a "¿Qué hacemos? No tenemos cuerdas... No podemos bajar."
-    
+    l "¡Suéltame! ¡Está ahí abajo, Nagi! ¡Está solo!"
+    n "¿¡Y de qué le sirves tú ahí abajo, con la espalda rota!?"
+
+    "Nagi no la suelta. Con la mano libre ahueca la boca y se asoma lo mínimo, con el cuerpo echado hacia atrás."
+    n "¡[apodo_jugador]! ¡Si me oyes, haz ruido! ¡Lo que sea, idiota!"
+
+    pause 1.5
+    "El agujero le devuelve su propia voz, más lenta y más grave. Nada más."
+
+    show nagi worried
+    n "...Vamos, ermitaño. Responde."
+    "Nagi, que nunca habla bajo, lo dice casi sin voz."
+
+    # -- La cuenta --
+    show azura worried
+    "Azura no discute. Se arrodilla junto a la orilla y recoge un trozo de yeso del tamaño de un puño."
+    a "Voy a soltarlo. Cuenten conmigo."
+    "Nadie pregunta para qué."
+    "Lo deja caer. Cuentan."
+    "Un segundo. Un segundo largo. Casi dos."
+    play sound objfall volume 0.3
+    "Y entonces, abajo, un golpe seco."
+
+    a "Diez metros. Doce, como mucho."
+    c "¿Eso es... bueno?"
+    a "Es posible. Si cayó sobre escombros y no sobre concreto. Si se cubrió la cabeza. Si..."
+    "No termina la lista. Su voz es firme. Sus manos, no."
+    a "Es posible. Eso es todo lo que sé."
+
+    l "Entonces está vivo."
+    a "Luz..."
+    l "Está vivo."
+
+    "Cutipye abre la boca. Busca el chiste de siempre, el que tiene a mano para estos momentos. No aparece."
+    c "Azura... dime que es de los que caen de pie."
+    a "Es de los que se levantan."
+    "Lo dice rápido, sin pensarlo. Quizá por eso suena a verdad."
+
+    # -- Lo que hay abajo --
+    show cutipye serious
+    c "Luz, yo quiero bajar tanto como tú. Pero no sabemos qué hay ahí abajo."
+    c "Lo que nos persiguió arriba... si hay más de eso, o algo peor..."
+
+    show luz serious
+    l "Hay más."
+    l "Rodrigo y yo bajamos antes. Hay un laboratorio, Cuty. Y hay cosas dentro."
+    n "¿Cosas?"
+    l "Vi cómo se llevaban a un hombre. Lo tenía agarrado yo. Estaba vivo, Nagi, y en un segundo ya no."
+    "Luz se mira las manos. Todavía no ha podido limpiárselas del todo."
+    l "Y la de la ventana, la de antes... Se llama Galaxia."
+    n "¿Qué ventana? ¿Quién es Galaxia?"
+    l "No hay tiempo para explicarlo, Nagi. Después. Te lo cuento todo después."
+
+    "Luz se lleva la mano a la cintura. Vacía."
+    show luz scared
+    l "La pistola."
+    n "¿Qué pistola?"
+    l "Encontramos una arriba. La tenía yo, y cuando me aferré al borde..."
+    "No termina. Mira el agujero."
+    l "Está ahí abajo. Con él."
+    a "Entonces tiene con qué defenderse."
+    "Luz saca del bolsillo la caja de balas. La sostiene un segundo, inútil, y la aprieta contra el pecho."
+    l "Con lo que le quede en el cargador. Las balas las tengo yo."
+
+    # -- El suelo cede --
+    stop ambient
+    play sound crack
+    "Un crujido largo, más cerca que los anteriores. Un tramo de tablas junto al agujero se hunde un palmo."
+
+    show nagi shocked
+    n "¡Atrás! ¡Todos atrás, ahora!"
+
+    play sound objfall volume 0.6
+    "Retroceden de espaldas, tropezando entre sí. El borde del agujero avanza medio metro hacia ellos... y se detiene."
+    "Nadie respira."
+
+    # -- Algo abajo --
+    pause 1.0
+    play sound "sfx/claw_drag_concrete.mp3" volume 0.3
+    "Y entonces, desde el fondo, llega algo."
+    "Un rasguño largo. Uñas contra hormigón, tan lejos que podría ser una tubería."
+
+    pause 1.0
+    play sound glx_laugh volume 0.25
+    "Y después, apenas un hilo que sube por el hueco como humo: una risita baja, gutural."
+
+    show azura shocked
+    show luz scared
+    show cutipye scared
+    "Azura se cubre la boca con ambas manos. Luz se queda sin color."
+
+    n "¿Eso fue... una risa?"
+    c "Dime que fue el eco. Por favor, dime que fue el eco."
+    a "No fue el eco."
+    l "Es ella."
+    "No lo dice como pregunta. Lo dice como quien ve cerrarse una puerta."
+
+    "Nadie vuelve a gritar su nombre. Todos entienden, sin decirlo, que ahora cada grito es una dirección."
+    "Y esa impotencia duele más que el silencio de abajo."
+
+    # -- Moverse --
     show luz determined
     l "Buscamos las escaleras. El sótano. Tiene que haber un acceso de servicio."
     l "No me voy de aquí sin él."
-    
+
+    show azura worried
+    a "La cocina. Un lugar así no subía la comida ni el carbón por la escalera principal. Tiene que haber un montacargas o una escalera de servicio, y casi siempre quedan juntos."
+    a "Hacia el fondo del ala, creo. Si nos damos prisa..."
+
+    show cutipye determined
+    c "Entonces nos damos prisa. Pero juntos. Esta vez, nadie se separa."
+    "Nadie la contradice."
+
+    show nagi serio
     n "Bien. Muévanse. Quedarnos aquí llorando no lo va a sacar."
+
+    "Nagi toma la delantera con el bate en alto. Luz es la última en apartarse. Desde el borde, el agujero sigue mirándola."
 
     scene pasillo_servicio with fade
     play music melody fadein 2.0
