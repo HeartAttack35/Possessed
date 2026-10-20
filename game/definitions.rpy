@@ -19,6 +19,8 @@ default afinidad_cutipye = 0
 default afinidad_nagi = 0
 default estado_mental = 0
 default tiempo_escape = 0
+default timer_persecucion = 30
+default opciones_agotadas = set()
 default nombre_capitulo = ""
 define slow_dissolve = Dissolve(3.0)
 default splashes = []
@@ -457,10 +459,13 @@ image azura dead:
 # Cutipye
 image cutipye neutral = "images/sprites/Cutipye/Cutipye.png"
 image cutipye smile = "images/sprites/Cutipye/cutipye_smile.png"
+image cutipye half_smile = "images/sprites/Cutipye/Cutipye.png"
 image cutipye smile_nervous = "images/sprites/Cutipye/Cutipye.png"
 image cutipye determined = "images/sprites/Cutipye/Cutipye.png"
 image cutipye serious = "images/sprites/Cutipye/Cutipye.png"
 image cutipye soft = "images/sprites/Cutipye/Cutipye.png"
+image cutipye mirada_reojo = "images/sprites/Cutipye/Cutipye.png"
+image cutipye feign_surprise = "images/sprites/Cutipye/Cutipye.png"
 image cutipye scared = "images/sprites/Cutipye/cutipye_scared.png"
 image cutipye shocked = "images/sprites/Cutipye/cutipye_scared.png"
 image cutipye tired = "images/sprites/Cutipye/Cutipye.png"
@@ -591,6 +596,7 @@ define audio.rodtheme = "music/rodtheme.mp3" #DEFINIR LOOP, CAMBIAR A OGG
 define audio.ambiental = "music/ambiental.mp3" #DEFINIR LOOP, CAMBIAR A OGG
 
 # Pantalla de temporizador para la secuencia de escape del Cap 12
+# REEMPLAZADA por hud_reloj_persecucion — se mantiene por compatibilidad
 screen timer_escape():
     frame:
         xalign 0.98
@@ -603,6 +609,30 @@ screen timer_escape():
             yalign 0.5
             text "⏱ TIEMPO:" size 22 bold True color "#ff4444"
             text "[tiempo_escape]s" size 26 bold True color "#ffdd00" outlines [(2, "#000000", 0, 0)]
+
+# --- PANTALLA DEL RELOJ EN TIEMPO REAL ESTRICTO ---
+# Corre cada 1 segundo real sin importar en qué menú o diálogo esté el jugador.
+# Uso: show screen hud_reloj_persecucion("etiqueta_de_muerte")
+screen hud_reloj_persecucion(etiqueta_muerte):
+
+    zorder 100
+
+    timer 1.0 repeat True action If(
+        timer_persecucion > 1,
+        SetVariable("timer_persecucion", timer_persecucion - 1),
+        [Hide("hud_reloj_persecucion"), Jump(etiqueta_muerte)]
+    )
+
+    frame:
+        xalign 0.5
+        yalign 0.05
+        background "#000000aa"
+        padding (25, 10)
+
+        if timer_persecucion <= 10:
+            text "{font=fonts/HelpMe.ttf}{size=48}[timer_persecucion]s{/size}{/font}" color "#ff0000" at transform_blink
+        else:
+            text "{font=fonts/HelpMe.ttf}{size=42}[timer_persecucion]s{/size}{/font}" color "#ffffff"
 
 # Pantalla HUD de afinidades y estado mental
 # NOTA: Para activar/desactivar el contador HUD desde la consola (Shift+O):

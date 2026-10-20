@@ -184,14 +184,21 @@ label cap_1:
     "Caminaba marcando el paso, golpeando los troncos con su bate de béisbol."
 
     show azura smile at right with dissolve
-    a "Deberíamos volver... Dicen que este lugar no solo era un orfanato."
+    "Azura aceleró para alcanzarlo. Sonreía, pero la sonrisa no le llegaba a los ojos."
+    a "Oigan... ¿y si mejor lo dejamos para otro día?"
+    a "Es que dicen que este lugar no era solo un orfanato. Y no sé, me da mala espina."
 
     show cutipye neutral at left with dissolve
-    c "Oh, genial. ¿Fantasmas huérfanos y militares muertos? Nagi, elegiste el mejor lugar para un viernes."
+    "Desde atrás, Cutipye soltó una risa corta."
+    c "Oh, genial. ¿Fantasmas huérfanos? ¿Un sótano con experimentos y todo?"
+    c "Nagi, elegiste el mejor plan para un viernes. Yo pedí algo emocionante, no un documental de crímenes."
 
     show nagi smile at center
-    n "Tonterías. Son puros cuentos para asustar a los niños de secundaria."
-    n "Es solo un edificio abandonado, Zu-chan."
+    n "Tonterías, Zu-chan. Son puros cuentos para asustar a los niños de secundaria."
+    n "Es solo un edificio abandonado. Lo peor que vamos a encontrar son goteras y ratas."
+    n "Y tú, Cuty, pediste emoción. Yo solo la conseguí."
+
+    "Sin esperar respuesta, Nagi retomó la marcha a grandes zancadas. Azura lo siguió unos pasos atrás, mirando por encima del hombro cada tanto, como si el bosque pudiera contestarle."
 
     hide nagi
     hide azura
@@ -199,11 +206,13 @@ label cap_1:
     with moveoutright
     show rodrigo neutral at centro_izquierda with moveinleft
 
-    "[nombre_jugador!c] se mantuvo en silencio, la mano rozando instintivamente la daga oculta en su cinturón."
-    r "¿Están seguras de que quieren hacer esto...? Hay formas menos estúpidas de ser buscados por la policía..."
+    "[nombre_jugador!c] había caminado hasta entonces al final del grupo, sin abrir la boca, con la mano rozando instintivamente la daga oculta en su cinturón."
+    r "¿Están seguros de que quieren hacer esto?"
+    r "Y no lo digo por los fantasmas. Hay formas menos estúpidas de ser buscados por la policía..."
 
     show cutipye smile with dissolve
-    c "Vamos, [apodo_jugador], no seas tan agüafiestas. Además, solo está a unos diez minutos de aquí."
+    c "Vamos, [apodo_jugador], no seas tan agüafiestas. Nadie vigila un edificio que lleva años abandonado."
+    c "Además, solo está a unos diez minutos de aquí."
 
     menu:
         "Respondes con sarcasmo":
@@ -660,15 +669,15 @@ label escapar_araña:
 
     l "¿¡Qué era eso!? ¡[apodo_jugador], qué era eso!"
     r "¡No lo sé, y no pienso preguntárselo!"
-    r "¿¡Dónde están las demás!?"
+    r "¿¡Dónde están los demás!?"
 
-    l "¡No lo sé! ¡Nos separamos y las perdí de vista!"
+    l "¡No lo sé! ¡Nos separamos y los perdí de vista!"
 
     pause 1.0
     stop music fadeout 2.0
 
     "[nombre_jugador!c] y Luz siguieron corriendo durante un rato, hasta que finalmente encontraron un lugar que parecía ser seguro."
-    
+
     scene sala_espera_abandonada with dissolve
     show luz scared at left
     show rodrigo nervioso at centro_derecha
@@ -676,42 +685,69 @@ label escapar_araña:
     play music "ambiente_tenso.ogg" fadein 2.0
     stop sound fadeout 1.5
 
-    "Ambos se sentaron en unas viejas sillas de madera, tratando de recuperar el aliento."
+    "Una sala de espera. Sillas de madera alineadas contra una pared, una mesa baja con revistas hinchadas por la humedad y un reloj detenido en una hora que nadie recordaba."
+    "[nombre_jugador!c] cerró la puerta tras ellos y se quedó apoyado contra ella, escuchando."
+    "Nada. Solo su pulso en los oídos, y la daga, que seguía en su mano sin que él hubiera decidido sostenerla."
+
+    "Luz resbaló por la pared hasta quedar sentada en el suelo, con las rodillas contra el pecho. Las manos no dejaban de temblarle."
 
     r "Oh mierda, oh mierda, oh mierda..."
     r "Sabía que era una pésima idea..."
-    
-    "Luz se sentó en el suelo, abrazando sus piernas con la mirada perdida."
-    
+
+    l "Me miró a mí. ¿Lo viste? Me miró a mí."
+    r "Lo vi."
+    l "Y si hay más... Azura, Nagi, Cuty... Si esa cosa los encontró a ellos..."
+    "No terminó la frase. No hacía falta."
+
     show rodrigo serio
-    "[nombre_jugador!c] la observó en silencio. Sabía que no podían quedarse ahí para siempre, pero ella necesitaba algo..."
+    "[nombre_jugador!c] sentía dos tirones a la vez, y ninguno era un capricho."
+    "Uno lo empujaba hacia ella. Luz se estaba deshaciendo a un metro de él, y él sabía bien lo que era hundirse, y lo que cambiaba que alguien se quedara al lado."
+    "El otro lo empujaba hacia la puerta. Cada minuto en esa sala era un minuto que los demás pasaban solos con lo que fuera que habitara ese lugar. Y las manos le temblaban a él también: mientras no se detuviera, no tendría que notarlo."
 
     menu:
-        "Reconfortas a Luz":
+        "Sentarte con ella un momento":
             $ afinidad_luz += 2
+            show rodrigo soft
+            "Se despegó de la puerta. Si no recuperaban el aliento, no llegarían lejos, y los dos lo sabían."
+            show rodrigo at center with move
+            "[nombre_jugador!c] se sentó junto a ella en el suelo, hombro con hombro, con el filo de la daga lejos de ambos."
+
             r "Hey... vamos a salir de esta, cariño."
             pause 1
             l "¿Me lo prometes...?"
-            
-            "Al notar que Luz estaba incluso más afligida que el mismo, no tuvo más remedio que responder sincera y afectivamente."
-            show rodrigo soft
             r "Con mi vida..."
-            show rodrigo at center with moveinright
-            "[nombre_jugador!c] se sentó junto a ella, apoyando una mano en su hombro. Luz no respondió al principio, pero su respiración se volvió más lenta."
-            "Por un momento, el silencio dejó de ser tan pesado."
 
-        "Piensas en opciones":
+            "Luz no respondió al principio. Pero su respiración se fue volviendo más lenta, y sus dedos terminaron enredados en la manga de él."
+
+            r "Un minuto. Respiramos un minuto y salimos a buscarlos."
+            l "Un minuto."
+
+            "Por un momento, el silencio dejó de ser tan pesado."
+            "Pero [nombre_jugador!c] no dejó de pensar en los demás ni un segundo. Ese minuto era un préstamo, y alguien más lo estaba pagando."
+
+        "Revisar la sala y buscar por dónde seguir":
             $ estado_mental -= 1
             r "Tenemos que movernos... Debe haber una salida."
-            "[nombre_jugador!c] se quedó de pie, analizando el entorno, forzándose a no pensar en el miedo. Cada minuto que pasaba ahí era un riesgo."
-            
-            r "Enfoquémonos en encontrar a las demás, ¿Si?"
-            "Luz solo asintió."
-    
-    "El silencio reinaba en aquella sala de espera, interrumpido únicamente por el sonido entrecortado de la respiración de ambos jóvenes."
+            "No lo dijo como una orden. Lo dijo bajo, casi para sí mismo."
+            l "...¿Ahora?"
+            r "Si me quedo quieto, no sé si voy a poder volver a moverme."
+            "Era la frase más honesta que había dicho en toda la tarde. Luz lo miró un largo segundo."
+            l "Eso último no era solo para mí, ¿verdad?"
+            r "Un poco para los dos."
+
+            "Se agachó frente a ella lo justo para quedar a su altura."
+            r "Ayúdame. Tú mira esa pared, yo reviso el fondo. Cinco minutos, y dejamos de ser dos que se esconden para ser dos que buscan."
+
+            "Luz tardó un segundo. Luego se aferró a su mano y se incorporó, despacio, apoyándose en la pared."
+            "Seguía temblando, pero ahora sus manos tenían algo que hacer. A veces era lo único que hacía falta."
+
+            "Revisaron la sala en silencio. Una segunda puerta, condenada con tablones. Una ventana tapiada con chapa. Tras el mostrador, papeles amarillos y un cajón vacío."
+            "Nada que sirviera. Pero al menos sabían que no había nada más allí con ellos."
+
+    "El silencio volvió a asentarse en la sala, interrumpido únicamente por la respiración de ambos."
     pause(1.0)
     "El tiempo parecía haberse detenido..."
-    
+
     pause(0.5)
     play sound wood_creak volume 0.7
     show rodrigo serio at vjump
@@ -720,9 +756,9 @@ label escapar_araña:
     "Hasta que un leve crujido de madera, proveniente del techo, los obligó a intercambiar miradas."
 
     r "No puede ser... ¿Otra vez?"
-    l "[apodo_jugador]... Tenemos que buscar a los demás..."
+    l "[apodo_jugador]... Tenemos que buscar a los demás."
 
-    "Él asintió con desgano, poniéndose de pie primero, ayudando a Luz segundos después."
+    "[nombre_jugador!c] asintió. Luz le buscó la mano sin mirarla y él se la dejó tomar; ninguno de los dos habría sabido decir quién la buscó primero."
     "Y aunque aún no sabían cómo salir, sabían que no podían quedarse quietos."
 
     scene pasillo_abandonado with dissolve
@@ -2352,19 +2388,102 @@ label persecucion_acorralado:
     
     g "¡CORRE, CORRE, CORRE!"
     "Ya no había coquetería. Solo hambre."
-    
-    play sound "sfx/heavy_bang.mp3"
-    "[nombre_jugador!c] volcó un viejo archivador metálico para ganar tiempo."
-    
-    "No sirvió. Ella saltó sobre él, rebotando en las paredes."
-    
-    r "¡Aléjate, monstruo!"
-    play sound "sfx/brick_throw.mp3"
-    "Lanzó un ladrillo. Ella ni se inmutó."
-    
+
+    # --- INICIO DE LA CUENTA REGRESIVA EN TIEMPO REAL ---
+    $ _skipping = False
+    $ opciones_agotadas = set()
+    $ timer_persecucion = 30
+
+    # Deshabilitar rollback durante toda la persecución
+    $ config.rollback_enabled = False
+
+    show screen hud_reloj_persecucion("game_over_ladder")
+
+    "Las cuatro extremidades de Galaxia golpearon el suelo al unísono, recortando la distancia."
+
+# ==========================================================
+# MENÚ 1: OBSTÁCULO EN EL PASILLO
+# ==========================================================
+label cap4_menu_persecucion_1:
+
+    $ renpy.block_rollback()
+
+    menu:
+        set opciones_agotadas
+
+        "Volcar el archivador metálico":
+            play sound "sfx/heavy_bang.mp3"
+            with hpunch
+
+            "[nombre_jugador!c] volcó un viejo archivador metálico para ganar tiempo."
+            "No sirvió para detenerla —ella saltó sobre él rebotando en las paredes—, pero evitó el impacto directo."
+
+            jump cap4_menu_persecucion_2
+
+        "Forcejear con la puerta lateral":
+            play sound door_slam
+            with vpunch
+
+            $ renpy.pause(1.0, hard=True)
+            "Se lanzó contra la manija de una puerta oxidada. ¡Soldada por dentro! Tiene que seguir por el pasillo."
+
+            jump cap4_menu_persecucion_1
+
+        "Empujar unos tambores vacíos":
+            play sound objfall
+            $ renpy.pause(1.0, hard=True)
+
+            "Arrojó unos barriles plásticos a su paso, pero eran demasiado ligeros; Galaxia ni siquiera redujo el paso."
+
+            jump cap4_menu_persecucion_1
+
+# ==========================================================
+# MENÚ 2: DISTANCIA CRÍTICA ANTES DE LA ESCALERA
+# ==========================================================
+label cap4_menu_persecucion_2:
+
+    $ renpy.block_rollback()
+
+    menu:
+        set opciones_agotadas
+
+        "Lanzarle un ladrillo a la cara":
+            r "¡Aléjate, monstruo!"
+            play sound "sfx/brick_throw.mp3"
+
+            "Lanzó un ladrillo sin dejar de correr. Ella ni se inmutó, pero el gesto le permitió alcanzar el fondo del corredor."
+
+            jump cap4_llegada_escalera
+
+        "Disparar a ciegas hacia atrás":
+            $ estado_mental += 1
+            play sound gunshot
+            with flash
+
+            $ renpy.pause(1.0, hard=True)
+            "Disparó por encima del hombro presa del pánico. El tiro se perdió en el techo y el retroceso lo hizo trastabillar."
+
+            jump cap4_menu_persecucion_2
+
+        "Esconderse tras una columna agrietada":
+            play sound "sfx/claw_drag_concrete.mp3"
+            with vpunch
+
+            $ renpy.pause(1.0, hard=True)
+            "Intentó pegarse tras un pilar, pero las garras de Galaxia destrozaron el borde de concreto a centímetros de su cabeza. ¡Imposible esconderse!"
+
+            jump cap4_menu_persecucion_2
+
+# ==========================================================
+# LLEGADA A LA ESCALERA — CONEXIÓN CON LOS 3 QTEs FINALES
+# ==========================================================
+label cap4_llegada_escalera:
+
     "Al final del pasillo, un resquicio de luz iluminaba su única salvación: una vieja escalera de mano oxidada que subía hacia una escotilla."
     "Estaba a cinco pasos. Pero el sonido de las garras estaba, literalmente, sobre su cuello."
-    
+
+    # El reloj global sigue corriendo durante los QTEs hasta que cierre la escotilla
+
 # --- FASE 1: ALCANZAR LA ESCALERA (3.0s) ---
     call screen qte_escalera
 
@@ -2403,6 +2522,8 @@ label exito_disparo_escalera:
     call screen qte_cerrar_escotilla
 
 label exito_cerrar_escotilla:
+    hide screen hud_reloj_persecucion
+    $ _skipping = True # Restauramos el salto de texto normal
     play sound "sfx/hatch_slam_lock.mp3"
     with vpunch
     
@@ -2420,7 +2541,11 @@ label exito_cerrar_escotilla:
 
     show rodrigo bleeding_wall at center with dissolve
     stop music fadeout 3.0
-    
+
+    # Persecución superada — reactivar rollback
+    $ config.rollback_enabled = True
+    $ renpy.block_rollback()
+
     "[nombre_jugador!c] se dejó caer. Sangre caliente en sus dedos."
     "Miró su arma. Pocas balas."
     
@@ -2477,6 +2602,10 @@ screen qte_cerrar_escotilla():
         textbutton "¡SELLAR ESCOTILLA!" action Jump("exito_cerrar_escotilla") style "button_panic"
 
 label game_over_ladder:
+    # Persecución terminada (muerte) — reactivar rollback
+    $ config.rollback_enabled = True
+    $ renpy.block_rollback()
+
     play sound slash
     play music curse
     scene black with flash

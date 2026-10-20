@@ -2944,7 +2944,7 @@ label cap_11:
         "[nombre_jugador!c] se hundió en el suelo, pegando la espalda a la pared fría. Sus hombros sufrían espasmos y entrelazaba sus dedos con fuerza, como si tratara de evitar que sus manos se convirtieran en algo más."
         "El silencio era una losa, hasta que Cutipye lo rompió con un tono afilado."
 
-        show cutipye media_sonrisa at right
+        show cutipye half_smile at right
         c "Es fascinante, ¿No? Como siempre logras que todo sea un caos absoluto."
 
         if not nagi_dead:
@@ -2959,7 +2959,7 @@ label cap_11:
         "[nombre_jugador!c] hundió la barbilla en el pecho, su voz apenas un hilo de voz."
         r "Cuty… no estoy haciendo esto a propósito."
         
-        show cutipye sorpresa_fingida
+        show cutipye feign_surprise
         c "¿Oh? ¿Entonces sí sabes lo que haces?"
 
         if not nagi_dead:
@@ -2973,7 +2973,7 @@ label cap_11:
         
         c "Siempre tienes el consejo perfecto para los demás. 'Relájate', dices. 'Estás exagerando', dices."
         
-        show cutipye fria
+        show cutipye disgust
         c "Pero ahora que tú eres el que tiene un monstruo en las tripas… todos tenemos que ser comprensivos contigo."
         
         "[nombre_jugador!c] la mira. Sus ojos están brillosos. No de rabia, sino de contención."
@@ -3007,7 +3007,7 @@ label cap_11:
         
         "[nombre_jugador!c] ya no responde. Solo llora en silencio, sin defenderse."
 
-        show cutipye cansada
+        show cutipye tired
         c "No puedo más. Necesito aire antes de que yo también me vuelva loca."
         
         hide cutipye with moveoutright
@@ -3365,15 +3365,17 @@ label cap_12:
     # PERSECUCIÓN FINAL — SECUENCIA DE QTEs CON LÍMITE DE TIEMPO
     # ============================================================
     # El timer global es de 90 segundos (1:30) en tiempo real.
-    # La pantalla timer_escape descuenta 1s por segundo automáticamente.
+    # La pantalla hud_reloj_persecucion descuenta 1s por segundo automáticamente,
+    # sin importar en qué menú o diálogo esté el jugador.
     # Las decisiones del jugador NO penalizan el tiempo — solo el reloj.
-    # Si tiempo_escape llega a 0 → jump escape_tiempo_agotado → bad1.
+    # Si timer_persecucion llega a 0 → jump escape_tiempo_agotado → bad1.
     # ============================================================
 
     $ renpy.block_rollback()
-    $ tiempo_escape = 90
+    $ timer_persecucion = 90
+    $ opciones_agotadas = set()
 
-    show screen timer_escape
+    show screen hud_reloj_persecucion("escape_tiempo_agotado")
     with dissolve
 
     jump persecucion_qte_inicio
@@ -3544,14 +3546,14 @@ label persecucion_qte_5:
             "El candado cedió al tercer golpe."
             "La puerta se abrió hacia fuera."
             "El aire frío de la noche golpeó sus caras."
-            hide screen timer_escape
+            hide screen hud_reloj_persecucion
             jump persecucion_exitosa
 
         "[[ PATEAR LA PUERTA ]]":
             play sound door_break
             "La puerta cedió hacia afuera con el segundo golpe."
             "Salieron tropezando."
-            hide screen timer_escape
+            hide screen hud_reloj_persecucion
             jump persecucion_exitosa
 
 
@@ -3583,7 +3585,7 @@ label persecucion_exitosa:
 label escape_tiempo_agotado:
 
     $ renpy.block_rollback()
-    hide screen timer_escape
+    hide screen hud_reloj_persecucion
     $ ending_type = "bad1"
 
     scene black with slow_dissolve
