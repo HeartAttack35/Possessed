@@ -2392,7 +2392,7 @@ label persecucion_acorralado:
     # --- INICIO DE LA CUENTA REGRESIVA EN TIEMPO REAL ---
     $ _skipping = False
     $ opciones_agotadas = set()
-    $ timer_persecucion = 30
+    $ timer_persecucion = 40
 
     # Deshabilitar rollback durante toda la persecución
     $ config.rollback_enabled = False
