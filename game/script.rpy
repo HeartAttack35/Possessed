@@ -614,15 +614,117 @@ label cap_1:
             jump escapar_araña
 
 label game_over_spdr:
+    stop music fadeout 1.0
     stop sound
-    scene black with fade
 
+    # -- La estocada --
+    "Un paso. Otro."
+    "[nombre_jugador!c] cruzó el espacio que lo separaba de la pared con la daga por delante y toda su rabia detrás."
+    "A su espalda, Luz gritó su nombre. Después, por fin, sus pasos: tropezando, alejándose, arrastrando un sollozo que él no quiso oír."
+    "Eso era lo que estaba comprando. Eso era lo único que importaba."
+
+    play sound wood_creak volume 0.4
+    "Entonces la bombilla se sacudió."
+    "La criatura se había soltado del yeso, sin que él la viera hacerlo, y al caer rozó el cable. La luz amarillenta empezó a columpiarse sobre el cuarto, y a cada vaivén la habitación se mostraba en un fotograma distinto."
+    "Un vaivén: el cadáver reseco, y las moscas alzándose sobre él en una nube."
+    "Otro: la pared, vacía, con la mancha de humedad donde había colgado."
+    "Otro: la forma, ya en el suelo, abierta en abanico. Dos manos apoyadas."
+    "Otro: cuatro."
+    "Otro: seis. Las puntas hundidas en el suelo como los dedos de una mano enorme."
+    "Había contado dos manos. Había contado mal."
+
+    play sound break_glass volume 0.5
+    scene black
+    "La bombilla chocó contra el muro y murió con un chasquido de cristal."
+    "Oscuridad total. Y, impresa tras sus párpados, la última imagen: un torso pálido, a la altura de su pecho. El centro exacto."
+
+    "[nombre_jugador!c] no frenó."
+    "Lanzó la estocada hacia ese centro, desde la cadera, con todo el peso de su cuerpo detrás."
+
+    play sound thud volume 0.7
+    "El impacto le subió por el brazo hasta el hombro. Sordo. Apretado. No sonó a carne."
+    "Pero en la oscuridad, con la sangre golpeándole los oídos, eso era un detalle. Algo cedió bajo la punta. Algo tibio y húmedo le mojó los nudillos."
+    "La había herido. Lo había logrado."
+    "La esperanza duró un segundo. Quizá menos."
+
+    # -- La hoja atrapada --
+    pause 1.2
     "Pero..."
+    "Una criatura herida chilla. Se encoge. Retrocede."
+    "Esta no hizo nada."
 
+    "[nombre_jugador!c] tiró de la daga para recuperarla. No vino."
+    "No estaba clavada en carne. Se había hundido apenas dos dedos entre capas de seda apretada, dura como cuerda, y ahí se había quedado, mordida por una placa de quitina lisa y gruesa que había frenado la punta como un chaleco frena una bala."
+    "Tiró otra vez. Las hebras, todavía tibias, se le enroscaron en los nudillos, en la muñeca, y se endurecieron al aire como cola de carpintero."
+    "Lo que le había mojado la mano no era sangre. Era seda recién hilada."
+
+    pause 1.0
+    "Ningún chillido. Ningún latigazo. Ni un solo movimiento en la oscuridad."
+    "Solo la certeza, helada y absurdamente tranquila, de que algo estaba muy cerca y no tenía ninguna prisa."
+
+    play sound nailtap volume 0.3
+    "Clic."
+    pause 0.6
+    "Clic. Clic."
+    "A su derecha. A su izquierda. Sobre su cabeza. Puntas duras posándose sobre el suelo, el yeso, el techo, una a una, rodeándolo."
+    "Contó cuatro. Seis. Ocho."
+    "Dejó de contar."
+
+    # -- Los hombros --
     play music curse
-    scene spdr1 with fade
-    play sound slash
-    pause(1)
+    scene spdr1 with flash
+    play sound crack
+    "Dos patas lo tomaron por los brazos."
+    "No fue un golpe. Fue un abrazo mecánico: las articulaciones se plegaron en ángulos que ningún hueso debería tener, y las puntas, duras como clavos, se cerraron sobre sus brazos por encima del codo."
+    "Tiraron."
+
+    play sound "sfx/bone_crack.mp3"
+    with vpunch
+    "El hombro derecho cedió con un pop húmedo. La cabeza del hueso se deslizó fuera de su cuenca y la piel se abultó, tensa, como si algo se moviera debajo."
+    "El izquierdo, medio segundo después."
+    "Un trueno de dolor le cruzó la espalda de lado a lado."
+
+    "Su guardia no se rompió. Se abrió, como se abren las hojas de una puerta."
+    "Los dedos soltaron la daga. No porque quisieran: ya no tenían a quién obedecer. Quedó ahí, clavada en la quitina, tiesa, como un adorno."
+    "Y [nombre_jugador!c] se quedó de pie, con los brazos abiertos y el pecho expuesto, en una postura que nadie adopta si no es para que lo crucifiquen."
+
+    # -- Los colmillos --
+    pause 1.0
+    "Algo bajó hacia él desde las alturas."
+    "Un aliento tibio le cayó sobre la cara, con olor a cueva y a algo dulzón, de fruta pasada."
+    "Y dos ganchos curvos, negros y brillantes, se hundieron a la vez por encima de sus clavículas."
+
+    play sound "sfx/bite_crunch.mp3"
+    "Los huesos cedieron con un chasquido de rama verde."
+    "No sintió el dolor al instante. Sintió la presión, y luego un frío que se abría paso desde los ganchos hacia abajo, por el pecho, por el vientre."
+    "Después, el fuego."
+
+    "Algo corrosivo se derramaba dentro de él, y donde llegaba, deshacía."
+    "Primero el estómago: se aflojó, tibio, como una bolsa que se rompe. Luego el hígado. Los riñones. Cada órgano perdía el contorno y se volvía una espesura caliente que se movía sola, cuesta abajo."
+    "En los pulmones empezó un gorgoteo, el de una cañería que se atasca."
+
+    "Quiso gritar."
+    "Abrió la boca. El pecho hizo el movimiento. Pero el veneno le había apagado la voz como se apaga una radio, y lo único que subió fue un hilo de aire con espuma, que le reventó contra los labios."
+
+    # -- De pie --
+    pause 1.0
+    "Y seguía de pie."
+    "Eso era lo peor. Las patas lo sostenían por las axilas y por la cintura. Las rodillas se le doblaban, pero no llegaban al suelo. Lo mantenían erguido, como a un maniquí en un escaparate, para que lo de dentro se fuera drenando hacia donde tenía que drenarse."
+
+    play sound "sfx/flesh_bubble.mp3" volume 0.6
+    "Un sorbo largo, húmedo, que sintió en el centro del cuerpo. Después otro."
+    "Su pecho se fue hundiendo bajo la camisa como una bolsa que se vacía, y la tela, empapada, se pegó a unas costillas que ya no tenían nada dentro."
+
+    pause 1.0
+    "Muy lejos, una puerta. Y pasos que no se detenían."
+    "Era lo único que oía, aparte de los sorbos."
+    "Pensó en ella. No pensó en nada más."
+
+    pause 1.5
+    "Los sorbos se fueron espaciando."
+    "La criatura no tenía prisa por bajarlo. Lo mantuvo erguido mucho después de que [nombre_jugador!c] dejara de sostenerse solo."
+
+    pause 1.0
     "La criatura fue más rápida, más fuerte, más letal de lo que [nombre_jugador!c] jamás pudo anticipar."
     "Ganó un segundo. Quizá dos. Para él no fueron suficientes."
     "Su acto de valentía solo resultó en una muerte sin gloria."
