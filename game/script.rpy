@@ -2354,7 +2354,7 @@ label persecucion_acorralado:
     g "{size=+10}{cps=5}Oye...{/cps}{/size}"
     "[nombre_jugador!c] tropezó hacia atrás."
 
-    play music chase1 volume 1.0
+    play music chase1
     scene chase1_reprise with fade
     "Estaba de pie."
     "El lado izquierdo de su rostro era una ruina sanguinolenta y humeante."
@@ -2369,10 +2369,8 @@ label persecucion_acorralado:
         linear 0.5 zoom 1.8
     with dissolve
 
-    play sound "sfx/blood_drip.mp3"
+    play sound "sfx/glx_regen.wav" # Sonido asqueroso de regeneración
     "Se acercó. Le dio un toquecito en la nariz con una garra, manchándolo de sangre."
-
-    play sound "sfx/flesh_bubble.mp3" # Sonido asqueroso de regeneración
     
     show galaxia regen with dissolve 
     pause 0.5
