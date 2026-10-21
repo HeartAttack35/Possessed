@@ -522,6 +522,7 @@ label cap_1:
     pause 0.5
     window show
     $ renpy.save("1-1", "Encuentro 1")
+    $ renpy.block_rollback()
     pause 1.5
 
     r "Qué ca..."
@@ -554,9 +555,11 @@ label cap_1:
     r "(No. A ella no.)"
 
     "No había tiempo para pensar. Tenía, con suerte, un segundo para decidir."
+    $ renpy.block_rollback()
 
     menu:
         "Te interpones entre Luz y la criatura":
+            $ renpy.block_rollback()
             $ estado_mental += 2
             "El miedo no desapareció. Solo se volvió estrecho, como si el mundo se redujera a un túnel con dos puntos al fondo: la criatura y Luz."
             "[nombre_jugador!c] se movió antes de decidirlo. Un paso al frente, luego otro, hasta quedar entre la pared y ella, con la daga en alto y el cuerpo tapándola."
@@ -578,12 +581,14 @@ label cap_1:
 
             menu:
                 "Sacas a Luz de ahí":
+                    $ renpy.block_rollback()
                     "El tirón de Luz lo sacó del túnel. No podía ganar esto. Y si caía, ella se quedaba sola con esa cosa."
                     r "Está bien... Está bien. ¡Vámonos!"
                     "Retrocedió empujándola delante de sí, sin bajar la daga, hasta que el umbral quedó a su espalda."
                     jump escapar_araña
 
                 "Te quedas para darle tiempo":
+                    $ renpy.block_rollback()
                     "Lo vio con una claridad tan nítida que casi fue calma: si corrían juntos, la criatura los alcanzaría en el pasillo. Si él la retenía, aunque fuera un segundo, Luz tendría una oportunidad."
                     r "Luz. Tienes que soltarme."
                     l "No. No, no, no..."
@@ -596,6 +601,7 @@ label cap_1:
                     jump game_over_spdr
 
         "Retrocedes con Luz, sin darle la espalda":
+            $ renpy.block_rollback()
             $ estado_mental += 1
             r "Despacio... Esto no vale la pena. Ven."
             "[nombre_jugador!c] mantuvo la daga en alto, pero no atacó. Tomó a Luz del brazo y dio un paso atrás. Luego otro."
@@ -607,6 +613,7 @@ label cap_1:
             jump escapar_araña
 
         "El pánico te gana: echas a correr":
+            $ renpy.block_rollback()
             $ estado_mental += 3
             "El miedo pudo más. [nombre_jugador!c] giró y corrió sin pensarlo."
             "Su mano encontró la muñeca de Luz a medio giro. No recordaría haberla agarrado."
@@ -744,6 +751,7 @@ label game_over_spdr:
             return
 
 label escapar_araña:
+    $ renpy.block_rollback()
     r "¡Corre!"
     stop sound
     play sound run loop
@@ -1213,6 +1221,7 @@ label cap_2:
     scene foreboding_2 with fade
     stop sound
     $ renpy.save("1-1", "Encuentro 2")
+    $ renpy.block_rollback()
     show rodrigo nervioso at center with moveinright
     play sound door_close
     play ambient audio.heartbeat fadein 0.8
@@ -1289,6 +1298,8 @@ label cap_2:
     "Luego siguió. El roce de algo duro arrastrándose bajo los somieres, centímetro a centímetro."
     "No buscaba a ciegas. Lo estaba rastreando."
     "Y [nombre_jugador!c] no lograba dejar de temblar."
+    $ renpy.block_rollback()
+
     menu:
         "Te acercas a comprobar":
             jump game_over_mnts_1
@@ -1298,6 +1309,7 @@ label cap_2:
             jump escape_mnts
     
 label escape_mnts:
+    $ renpy.block_rollback()
     stop music fadeout 1.5
     stop sound
     stop ambient
@@ -1596,6 +1608,7 @@ label escape_mnts:
     jump cap_3
 
 label game_over_mnts_1:
+    $ renpy.block_rollback()
     stop music fadeout 1.5
     stop sound
 
@@ -1704,6 +1717,7 @@ label game_over_mnts_1:
             return
 
 label game_over_mnts_2:
+    $ renpy.block_rollback()
     stop music fadeout 1.0
     stop sound
 
@@ -3330,6 +3344,7 @@ label cap_5:
     "No es electricidad. Es un zumbido orgánico."
     "Grave, húmedo, hecho de miles de pequeños latidos superpuestos. Cuando la luz roza la cera de las paredes, la cera tiembla."
     $ renpy.save("1-1", "Encuentro 5")
+    $ renpy.block_rollback()
 
     show luz determined
     "Luz acelera sin darse cuenta. Se abre paso entre Azura y la pared, luego entre Cutipye y la pared. Nagi la sujeta del hombro sin mirarla."
