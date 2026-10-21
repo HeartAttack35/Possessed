@@ -482,6 +482,7 @@ label ir_administracion:
     "[nombre_jugador!c] tensó la mandíbula y evitó mirarlo, fijando la vista en las líneas borrosas del plano."
     "El sabor dulce y metálico volvió a subir por su lengua."
 
+    show rodrigo incomodo with dissolve
     r "Solo estoy viendo por dónde salir."
 
     show nagi serio at centro_izquierda
@@ -502,7 +503,6 @@ label ir_administracion:
     "Pero ahora no estaba tirando de él hacia afuera."
     "Estaba tanteando el terreno... como si temiera que, si empujaba demasiado fuerte, algo se fuera a quebrar."
 
-    show rodrigo nervioso at center
     menu:
         "Estoy bien.":
             $ estado_mental -= 1
@@ -518,7 +518,7 @@ label ir_administracion:
         "Creo que algo no está bien conmigo.":
             $ afinidad_nagi += 2
             $ estado_mental += 1
-            show rodrigo nervioso at center
+            show rodrigo nervioso with dissolve
             r "No lo sé, Nagi... Siento el cuerpo extraño desde que caí. Creo que algo no está bien conmigo."
             
             show nagi worried at centro_izquierda
@@ -535,7 +535,7 @@ label ir_administracion:
     "Analizando."
     "Intuyendo que algo había cambiado allá abajo, aunque todavía no supiera cómo llamarlo."
 
-    n "Ella te tocó, ¿no?"
+    n "¿Ella te hizo algo?"
 
     "La pregunta quedó suspendida en el aire."
 
@@ -1139,19 +1139,23 @@ label cap_7:
 
     scene rodrigo_cig_balcony with dissolve
 
-    "[nombre_jugador!c] se acercó al balcón oxidado."
+    "[nombre_jugador!c] se acercó al balcón oxidado buscando aire."
     "El metal crujió bajo su peso, pero aguantó."
 
     "Afuera, la noche era absoluta."
     "Ni una luz. Ni un coche lejano. Ni siquiera el rumor del viento entre los árboles."
-
     "Solo negrura."
 
     r "(Esto no es normal… incluso para un bosque tan profundo.)"
 
+    "Miró de reojo hacia el interior de la habitación a través del marco corroído."
+    "Nadie dormía. Nagi tenía el bate apoyado sobre las rodillas, Cutipye se frotaba los brazos contra el frío y Azura miraba el suelo en silencio, con una mano aún cerca del bolsillo de su abrigo."
+    "Llevaban horas mirándolo de reojo."
+    "Desde que lo encontraron en aquel cuarto de máquinas gritándole a los conductos vacíos, desde las manchas oscuras en sus dedos y su sobresalto cuando se apagaron las luces en el pasillo... todos sabían que algo en él no encajaba."
+
     "Se llevó una mano al costado sin darse cuenta."
-    "La herida palpitaba, pero no dolía como debería."
-    "Era más bien… una presión. Algo que se expandía y contraía muy despacio."
+    "Bajo la tela manchada de sangre seca, la carne cerrada palpitaba, pero no dolía como debería."
+    "Era más bien… una presión tibia. Algo que se expandía y contraía muy despacio."
 
     play sound heartbeat volume 0.8
     "Latido."
@@ -1166,6 +1170,8 @@ label cap_7:
 
     r "…"
 
+    "Tenía cuatro pares de ojos agotados a su espalda esperando una respuesta que él mismo temía pronunciar."
+
     menu:
         "Confesar que sientes la influencia.":
             $ afinidad_luz += 2
@@ -1173,21 +1179,23 @@ label cap_7:
             $ afinidad_cutipye += 2
             $ afinidad_nagi += 2
 
-            r "(Si me lo guardo... Puede que empeore.)"
-            r "(No puedo arrastrarlos a esto sin decir nada.)"
+            r "(Ya vieron demasiado. Si sigo fingiendo que es solo el golpe de la caída, los voy a poner en peligro.)"
+            r "(Merecen saber qué tienen al lado antes de que esto empeore.)"
             jump confesion_rodrigo
         
         "Mantenerlo en secreto.":
             $ estado_mental += 2
-            r "(No.)"
-            r "(Si lo digo en voz alta, se vuelve real.)"
-            r "(Y no voy a darles una razón para que me miren como a los otros.)"
+            r "(No. Están al límite. Si les digo que tengo esa mierda adentro, el grupo se va a romper aquí mismo.)"
+            r "(Necesitan creer que solo estoy aturdido por la caída. Y no voy a darles una razón para que me miren como a las cosas de allá abajo.)"
 
-            "[nombre_jugador!c] dió una fuerte calada a su cigarrillo, esperando que el tabaco calmara la presión en su pecho."
-            "El latido dentro de su pecho se desaceleró."
-            "O tal vez solo se acostumbró a él por un momento."
+            "[nombre_jugador!c] dio una calada profunda a su cigarrillo, obligando a sus hombros a destensarse y dejando que el humo amargo tapara el sabor dulce y metálico en su lengua."
+            "El latido ajeno dentro de su pecho pareció desacelerarse."
+            "O tal vez solo se acomodó detrás de su mentira."
             jump ocultar_influencia
 
+# ==========================================================
+# RUTA A: CONFESAR LA INFLUENCIA
+# ==========================================================
 label confesion_rodrigo:
     scene rodrigo_cig_balcony_2 with dissolve
 
@@ -1195,7 +1203,7 @@ label confesion_rodrigo:
 
     r "Chicos."
 
-    "Nadie dormía realmente. Todos alzaron la vista casi al mismo tiempo."
+    "Todos alzaron la vista casi al mismo tiempo."
     "No hizo falta que levantara la voz; la forma en que sostenía su propio costado les dijo exactamente de qué iba a hablar."
 
     r "Si vamos a descansar aquí, tenemos que hacerlo por turnos."
@@ -1203,11 +1211,11 @@ label confesion_rodrigo:
 
     "No hubo preguntas ingenuas."
     "Nagi no soltó ningún chiste, y Cutipye dejó de juguetear con el cierre de su chaqueta."
-    "En el fondo, todos habían visto la sangre seca, el polvo negro en sus dedos o la forma extraña en que su mirada se perdía en la oscuridad desde que salieron del cuarto de máquinas."
+    "En el fondo, todos habían visto su herida cerrarse demasiado rápido en el cuarto de máquinas, el hollín grasiento en sus manos y la forma en que hablaba solo cuando las luces se apagaron."
 
     show nagi serio at left with dissolve
     n "Habla claro, [apodo_jugador]."
-    n "No es solo por el golpe de cuando caíste, ¿verdad?"
+    n "No es por la contusión de cuando caíste del segundo piso, ¿verdad?"
 
     r "No."
 
@@ -1223,7 +1231,7 @@ label confesion_rodrigo:
     show luz worry at right with dissolve
     l "[apodo_jugador]…"
 
-    r "Sé cómo suena. Pero les juro que no es el pánico haciéndome ver cosas."
+    r "Sé cómo suena. Pero les juro que lo del cuarto de máquinas y lo del pasillo no fue el pánico haciéndome oír cosas."
     r "La escucho. Todo el maldito rato. Es como tener un segundo pulso detrás de los oídos... o algo respirando dentro de mi propia caja torácica cada vez que tomo aire."
     r "Y mi herida... ni siquiera duele como debería. Se siente caliente. Viva."
 
@@ -1284,53 +1292,78 @@ label confesion_rodrigo:
 
     jump escena_luz_balcon_confesion
 
+# ==========================================================
+# RUTA B: MANTENERLO EN SECRETO
+# ==========================================================
 label ocultar_influencia:
     scene rodrigo_cig_balcony_2 with dissolve
 
-    "Se giró hacia el grupo."
+    "Apagó el cigarrillo contra el metal húmedo, compuso su expresión más neutra y se giró hacia el grupo."
 
     r "Chicos."
 
-    "Todos alzaron la vista."
+    "Todos alzaron la vista de inmediato, tensos, como si llevaran rato esperando que por fin hablara."
 
-    r "Deberíamos dormir por turnos."
-    r "Este lugar no es seguro."
+    r "Deberíamos descansar un par de horas, pero hay que hacerlo por turnos."
+    r "Este piso tampoco es seguro."
 
+    show nagi serio at left with dissolve
     n "Eso ya lo sabemos."
-    n "¿Algo más?"
+    
+    "Nagi no apartó la vista de él. Apoyó los codos sobre las rodillas, escrutándolo en la penumbra."
 
-    r "No."
-    r "Solo… eso."
+    n "¿Y tú en qué turno piensas dormir? Porque llevas desde el cuarto de máquinas viendo sombras en el techo y saltando cada vez que parpadea un foco."
+    n "¿Vas a decirnos qué te pasa o seguimos haciendo como que no vimos nada?"
 
-    "Nagi lo observó unos segundos más."
-    "Como si esperara que dijera algo adicional."
+    show cutipye serious at centro_izquierda with dissolve
+    c "Nagi tiene razón, [apodo_jugador]. Tienes la piel helada, apenas hablas y hace un rato en el pasillo..."
 
-    "[nombre_jugador!c] sostuvo la mirada."
-    "No parpadeó."
+    show luz worry at right with dissolve
+    l "Déjenlo respirar un segundo, por favor. Cayó desde un segundo piso y tuvo a esa cosa encima."
 
-    "El latido volvió."
+    "[nombre_jugador!c] aprovechó el salvavidas de Luz sin parpadear."
+
+    r "Es solo eso."
+    r "Me golpeé la cabeza al caer por el derrumbe y perdí sangre en la escalera. Estoy aturdido, tengo los oídos zumbando por los disparos en el sótano y llevo toda la noche con la adrenalina al cuello."
+    r "Si me vieron raro allá atrás, es porque apenas puedo mantenerme en pie del cansancio. Nada más."
+
+    show azura worried at centro_derecha with dissolve
+    "Azura apretó los labios. Sus dedos rozaron el bolsillo de su abrigo donde guardaba la Entrada 09, debatiéndose en silencio entre hablar o creer en la excusa más sencilla."
+    "Nagi sostuvo la mirada de [nombre_jugador!c] durante varios segundos interminables."
+    "No le creía del todo. Pero el agotamiento en el cuarto era tan denso que nadie tenía fuerzas para iniciar un interrogatorio."
+
+    show nagi worried at left
+    n "…Vale. Como quieras, ermitaño."
+    n "Pero si te vuelves a marear o escuchas ruidos, despiertas al que esté de guardia antes de ponerte a disparar a oscuras."
+
+    r "Hecho."
+
+    "El grupo desvió la mirada poco a poco, aferrándose a esa mentira porque era mucho más fácil de digerir que la alternativa."
+    "Volvieron a discutir en voz baja sobre rutas de escape y posibles salidas del orfanato…"
+
+    c "Si cruzamos por el vestíbulo al amanecer, quizá encontremos una ventana baja que ceda."
+    n "O la puerta de carga trasera. Con algo de luz será más fácil no caer en otra trampa."
+    l "Sí... solo tenemos que aguantar hasta que salga el sol."
 
     play sound heartbeat fadein 1.0 loop
 
-    "{cps=9}{color=#390169}{i}Mentiroso…{/i}{/color}{/cps}"
+    "Pero el latido ajeno volvió a golpear contra sus costillas."
+    "Más lento. Más profundo."
+
+    "[nombre_jugador!c] apenas los escuchaba."
+    "Las voces de sus amigos empezaron a sentirse lejanas, amortiguadas, como si hablaran desde el otro extremo de un túnel sumergido."
+
+    "{color=#390169}{font=fonts/HelpMe.ttf}{cps=12}{i}Mentiroso~{/i}{/cps}{/font}{/color}"
 
     r "(Cállate.)"
 
-    "Mientras el grupo discutía rutas de escape y posibles salidas del orfanato…"
+    "{color=#390169}{font=fonts/HelpMe.ttf}{cps=14}{i}Míralos qué rápido aceptan tu excusa... Prefieren fingir que estás sano antes que mirarte de verdad~{/i}{/cps}{/font}{/color}"
+    "{color=#390169}{font=fonts/HelpMe.ttf}{cps=12}{i}No necesitan saberlo todavía. Que sea nuestro secreto un ratito más~{/i}{/cps}{/font}{/color}"
 
-    c "Si encontramos el ala administrativa, quizá haya planos."
-    n "O una salida trasera que no esté bloqueada."
-    l "Tenemos que movernos antes del amanecer."
-
-    "[nombre_jugador!c] apenas escuchaba."
-
-    "La conversación se sentía lejana."
-    "Como si estuviera ocurriendo al final de un túnel."
-
-    "{cps=9}{color=#390169}{i}No necesitan saberlo todavía…{/i}{/color}{/cps}"
+    "[nombre_jugador!c] apretó los dientes, dándoles la espalda otra vez hacia la baranda helada."
 
     r "(No estoy perdiendo el control.)"
-    r "(Todavía no.)"
+    r "(Todavía puedo manejarlo yo solo.)"
 
     stop sound fadeout 1.0
 

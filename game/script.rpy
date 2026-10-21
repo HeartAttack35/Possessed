@@ -2799,54 +2799,143 @@ label cap_5:
 
     "Nagi toma la delantera con el bate en alto. Luz es la última en apartarse. Desde el borde, el agujero sigue mirándola."
 
+    # -- Dejando el agujero --
     scene pasillo_servicio with fade
     play music melody fadein 2.0
-    play ambient flies loop
-    
-    "El grupo avanza hacia el área de servicio. El aire cambia. Ya no huele a polvo viejo."
-    "Huele a dulce. A carne podrida y azúcar fermentada."
-    
+    play ambient flies loop volume 0.15 fadein 3.0
+    play sound walk loop volume 0.4
+
+    show nagi serio at centro_izquierda
+    show cutipye worried at left
+    show luz worry at centro_derecha
+    show azura worried at right
+    with dissolve
+
+    "El grupo avanza hacia el área de servicio. Dejan atrás el agujero, pero no lo que salió de él: la risita sigue colgada en el aire, aunque ya nadie la oiga."
+    "Avanzan en fila, pegados a la pared. Nagi al frente, con el bate en alto. Cutipye, con dos dedos enganchados en la correa de la mochila de Azura, como quien se agarra a una barandilla. Y al final Luz, que cada tres pasos gira la cabeza hacia atrás, hacia un hueco que ya ni siquiera se ve."
+    "«Nadie se separa». Cutipye lo dijo como una regla. Ahora la cumplen con el cuerpo."
+
+    # -- El pasillo --
+    "El ala de servicio no se parece al resto del edificio."
+    "Arriba, el abandono era seco: polvo, pintura descascarada, madera que se quebraba como galleta. Aquí es húmedo, y la humedad lo ha ido desmontando todo desde dentro."
+    "El papel tapiz cuelga en tiras largas e hinchadas, como piel que se despega después de una quemadura. Debajo, el yeso está negro de moho: manchas que trepan desde el zócalo en abanico, con un borde verde y aterciopelado donde roza la luz."
+    "Las baldosas están levantadas, y en las hendiduras duerme agua quieta, color té, que devuelve el haz de las linternas con un brillo aceitoso. Cada paso la rompe. Cada paso suena a chapoteo."
+    "Gotea. En todas partes gotea, y ningún goteo coincide con otro: un reloj de mil manecillas que no se ponen de acuerdo sobre la hora."
+
+    "En el bolsillo de Luz, la caja de balas traquetea a cada paso. Un tableteo diminuto y seco que, en ese silencio, suena a campana."
+    "Nagi se vuelve sin detenerse y le clava la mirada. Luz cierra el puño sobre el bolsillo y aprieta la caja contra el muslo hasta que calla."
+    "Sus manos todavía huelen a hierro. Se las frota contra el pantalón, una y otra vez. Ya no queda nada que limpiar. El olor sí."
+
+    # -- El olor --
+    "Primero, solo humedad: moho, cañería vieja, tierra mojada."
+    "Después, algo más. Tan leve que al principio nadie lo nombra. Como una fruta olvidada en el fondo de una bolsa."
+    "Dulce."
+
+    "Mientras más avanzan, más se espesa. Ya no es fruta. Es caramelo quemado, azúcar fermentada, miel dejada al sol demasiados días."
+    "Y debajo, sosteniéndola, como el hueso bajo la carne, algo que no es dulce en absoluto: carne que lleva mucho tiempo dejando de ser carne."
+    "El aire se vuelve tibio. Tibio de verdad, como el aliento de alguien dormido. Se pega a la garganta."
+    "Luz traga saliva y lo nota en la lengua: azúcar y cobre."
+
     show cutipye disgust with dissolve
     c "Ugh... ¿Qué es esa peste?"
-    
-    show azura neutral at left with dissolve
+    "Cutipye se tapa la nariz con la manga. Le sale una voz nasal, de resfriado."
+
+    n "(sin volverse) Respira por la boca."
+    c "Peor. Así la estoy comiendo."
+    "Lo dice plano, sin el filo de siempre. El chiste sale, pero no suena a chiste: suena a alguien comprobando que todavía puede hacer uno."
+    "Nadie ríe. Cutipye tampoco lo esperaba."
+
+    "La primera mosca se posa en el hombro de Azura, perezosa, y ella la sacude con un respingo."
+    "La segunda ya está en la pared. Después, decenas: negras, gordas, quietas sobre el moho, como si el moho hubiera echado ojos."
+    "Cuando el haz de una linterna las roza, se levantan todas a la vez, y por un segundo el pasillo entero parece respirar."
+
+    "En la juntura entre el techo y la pared aparece un hilo ámbar, translúcido. Cera: cera de vela derramada que se endureció a mitad de goteo."
+    "Al principio es un solo hilo. Luego una vena que baja por el marco de una puerta. Luego láminas gruesas que cubren el zócalo y se arrastran hacia el suelo."
+    "Las suelas dejan de chapotear. Se pegan. Cada paso se despega con un chasquido húmedo, como cinta arrancada de la piel."
+
+    # -- El zumbido --
+    "Bajo el chapoteo y los goteos, empieza a oírse algo más."
+    "Primero ni siquiera se oye: se siente. Una vibración baja en las costillas, en los dientes, en la linterna que Azura aprieta con las dos manos."
+    "En los charcos, el agua tiembla sin que nadie la toque, dibujando anillos que nacen en el centro y se pierden en los bordes."
+
     a "Suena como... ¿electricidad?"
-    
-    "No era electricidad. Era un zumbido orgánico."
+    "Lo dice con algo parecido a la esperanza. Un ala con corriente es un ala con luces, y las luces son salidas."
+
+    "No es electricidad. Es un zumbido orgánico."
+    "Grave, húmedo, hecho de miles de pequeños latidos superpuestos. Cuando la luz roza la cera de las paredes, la cera tiembla."
     $ renpy.save("1-1", "Encuentro 5")
-    
+
+    show luz determined
+    "Luz acelera sin darse cuenta. Se abre paso entre Azura y la pared, luego entre Cutipye y la pared. Nagi la sujeta del hombro sin mirarla."
+    n "Detrás de mí. Aunque tengas prisa. Sobre todo si tienes prisa."
+    l "Cada minuto que estamos aquí..."
+    n "Lo sé."
+    "Y sin decir nada más, Nagi acelera él también."
+
+    # -- La cocina --
+    "Al final del pasillo, dos puertas vaivén con ojos de buey tan sucios que solo dejan pasar un resplandor ámbar."
+    "Nagi apoya la palma en una. Está tibia. Tibia como una frente con fiebre."
+
+    stop sound fadeout 1.0
+    play sound door_open volume 0.6
+    "Empuja. La hoja cede con un tirón húmedo: hilos de cera se estiran entre la puerta y el marco, como saliva, y se rompen uno a uno."
+
     scene cocina_infestada with dissolve
-    
-    "Al empujar las puertas vaivén de la cocina, se detienen en seco."
-    
+    play ambient flies loop volume 0.7 fadein 1.0
+
+    "El calor los golpea primero. Una bocanada espesa, cargada de azúcar, que se pega a la cara como una mano abierta."
+    "Aquí el olor ya no se huele: se bebe. Es un caramelo que lleva meses pudriéndose por dentro."
+    "Cutipye se dobla, con la manga contra la boca, conteniendo una arcada."
+    "Dan dos pasos hacia el interior. Y se detienen en seco."
+
     "Lo que alguna vez fue una cocina industrial ahora es un nido."
-    
-    "Las mesas de metal están cubiertas de una sustancia cerosa y amarillenta."
+
+    "Las linternas lo recorren a trozos, y cada trozo es peor que el anterior."
+    "Hornillas del largo de un autobús. Campanas extractoras. Ollas del tamaño de barriles, colgadas de sus ganchos y selladas por una costra amarilla."
+    "En el techo, la cera no gotea: construye. Capas, celdas, un patrón de hexágonos torcidos que se repite hasta perderse en la oscuridad."
+    play sound thud volume 0.2
+    "De las campanas cuelgan estalactitas ámbar con una gota gorda temblando en cada punta. Cuando una cae, golpea la mesa de abajo con un plop mucho más pesado de lo que debería."
+    "El suelo es una piel brillante y tibia que se pega a las botas. En las esquinas, moscas muertas amontonadas como arena. Cuando Nagi da un paso, crujen bajo su suela como cereal."
+
+    "Las mesas de metal, alineadas en filas como en una morgue, están cubiertas de una sustancia cerosa y amarillenta."
     "Y sobre ella... cosas."
-    
+
     c "Dios... son..."
-    
+
     "Larvas. Del tamaño de perros grandes. Pálidas, húmedas, retorciéndose lentamente."
+    "Se mueven todas al mismo ritmo, como una sola ola que respira. Su piel es tan fina que la luz de las linternas la atraviesa, y debajo se ve algo oscuro y latiendo."
+    "Un chasquido pegajoso cada vez que una se despega de la cera para volver a pegarse."
     "Pero tienen rasgos. Pequeñas manos atrofiadas. Rostros humanos a medio formar que boquean en silencio."
-    
+    "Una abre la boca hacia la linterna de Azura, como una cría hacia la luz. No emite ningún sonido."
+
+    "Luz sabe de dónde vienen estas cosas. Lo leyó en la bitácora. Saberlo no ayuda."
     l "No miren. Solo... busquemos la salida al fondo."
-    
+
+    "Al otro lado de la sala, entre las hornillas y una hilera de cámaras frías con las puertas entreabiertas, hay una puerta de metal pesada. La cera se acumula en su marco como una cicatriz."
+    "Azura la ilumina un segundo. Un letrero de esmalte descascarado: «Servicio». Tenía razón, y no sirve de nada tenerla: entre ellos y la puerta hay doce mesas."
+
+    # -- La nodriza --
     play sound "sfx/wasp_wings.mp3" fadein 1.0
-    
+
+    "Avanzan. Y entonces el zumbido, que llevaba rato siendo parte del aire, cambia de tono."
+    "Se separa. Se concentra. Se vuelve uno solo."
     "Un aleteo pesado desciende del techo."
-    
+
     scene avispa_guardia with dissolve
     "Una criatura desciende. Mitad hombre, mitad insecto. Sus piernas son largas y quitinosas, su abdomen palpita con un aguijón rezumante."
-    
+    "El aire se desplaza antes que ella: una corriente tibia, todavía más dulce. Cuatro alas vidriosas siguen vibrando incluso después de plegarse, y esa vibración se siente en los dientes."
+
     "El grupo retrocede, preparando sus armas."
-    
+
     "Pero la criatura no ataca."
-    
-    "Se posa sobre una de las larvas humanoides. Acaricia su cabeza deforme con sus antenas. La limpia."
-    
+
+    "Se posa sobre una de las larvas humanoides. Acaricia su cabeza deforme con sus antenas. La limpia, con una delicadeza que eriza la piel."
+    "Una gota de cera tibia resbala por la frente de la larva, y la nodriza la alisa con una pata, como quien arropa a un niño."
+
     a "¿La está... protegiendo?"
+    "Nagi susurra sin mover los labios, con los nudillos blancos sobre el bate."
     n "Son nodrizas. Mientras no toquemos a las crías, quizás no nos..."
-    
+
     stop music
     stop sound
     play sound gunshot volume 0.6 # Sonido lejano, con eco
@@ -2855,11 +2944,15 @@ label cap_5:
     queue sound gunshot volume 0.1
     pause 1
     "{i}¡BAAANG!{/i}"
-    
+
+    "Llega desde muy abajo, deformado por el hormigón y las cañerías. Pero Luz lo reconoce: lo tuvo en las manos."
+    l "(en un hilo) La pistola... Está vivo. Está..."
+
     #show avispa_guardia alert with vpunch
     play ambient larvcry volume 2.5
     pause 1
     "Las larvas comienzan a chillar. Un sonido agudo, como llanto de bebé distorsionado."
+    "Todas las bocas que llevaban rato abriéndose en silencio, de pronto, tienen voz. El chillido se contagia de mesa en mesa, cada vez más agudo, hasta ser un solo sonido que entra por los oídos y se instala detrás de los ojos."
     
     play music chase
     "La Avispa Nodriza se gira hacia el grupo. Sus ojos multifacéticos se tornan rojos de furia."
