@@ -145,10 +145,10 @@ label start:
     "Algo lo levantó del suelo con una facilidad que no debería ser posible."
 
     play sound slash
+    queue sound "sfx/flesh_bubble.mp3"
+    queue sound "sfx/bone_crack.mp3"
     scene black with flashred
 
-    play sound "sfx/flesh_bubble.mp3"
-    play sound "sfx/bone_crack.mp3"
     investigador "¡AAAAAHHH!"
 
     "El sonido se cortó de golpe."
@@ -1196,55 +1196,145 @@ label cap_2:
             jump escape_mnts
     
 label escape_mnts:
-    "[nombre_jugador!c] apagó la linterna y se pegó a la pared, tras el viejo armario metálico, conteniendo el aliento hasta que le dolieron los pulmones."
-
-    scene foreboding_2 with dissolve
-    play sound "sfx/claw_drag_concrete.mp3"
-    "Entonces, un chasquido metálico, seguido del raspado de una garra recorriendo la pared..."
-    
-    play sound door_open fadein 0.3
-    "...y el crujido de la puerta abriéndose."
-    scene habitacion_mantis with dissolve
-    
-    centered "{cps=10}La criatura te está buscando.{/cps}"
-    
-    "La Mantis entró. Sus antenas vibraban, captando el miedo en el aire."
-    "Se acercó muy lentamente."
-    "Un brazo se alza, una hoja afilada..."
-    
-    "Una."
-    "Dos veces."
-    
-    "[nombre_jugador!c] sostuvo el aire, cerrando sus ojos y preparándose para lo peor. Un solo movimiento en falso y era hombre muerto."
-    
-    "La Mantis pasó de largo frente a las camas, ignorando el armario alto."
-    pause (2.5)
     stop music fadeout 1.5
-    play sound alarm volume 0.2 loop
+    stop sound
     stop ambient
-    "¡BEEEEEP! ¡BEEEEEP!"
-    
-    "La criatura giró bruscamente y salió de la habitación, atraída por el nuevo ruido."
+
+    scene black with dissolve
+    "[nombre_jugador!c] se metió en el hueco entre el armario y la pared sin pensarlo, a ciegas, con el hombro raspando el metal."
+    "Un palmo de ancho, quizá menos. Lo justo para caber de lado, con la daga contra el pecho y la linterna muerta aferrada en el puño."
+    "Se pegó al yeso y contuvo el aliento hasta que le dolieron los pulmones."
+
+    "Detrás del armario el aire era distinto. Polvo, metal frío y, debajo, un olor tenue y dulzón a plástico quemado, como un enchufe viejo."
+    "Buscó apoyo con la mano libre y encontró algo que no era yeso: una cuerda gruesa, forrada de tela, que bajaba por la pared."
+    "Un cable. El forro, quebradizo, se le deshizo en la yema como corteza seca, y debajo había algo liso y frío."
+    "Retiró la mano de golpe."
+    "Un cable pelado, en un edificio al que hacía años que nadie pagaba la luz."
+
+    pause 1.5
+    "Del otro lado del metal, el roce bajo los somieres se había detenido."
+    "Ya no había clics. Ya no había nada. Otra vez ese silencio con forma."
+
+    centered "{cps=10}La criatura te está buscando.{/cps}"
+
+    play sound nailtap volume 0.3
+    "Clic."
+    pause 1.0
+    "Clic."
+    "Los pasos cambiaron de rumbo. Ya no tanteaban las literas: venían en línea recta hacia el fondo de la habitación."
+    "[nombre_jugador!c] se mordió el interior de la mejilla. Un gesto viejo. Sabor a hierro."
+
+    # -- El armario --
+    play sound wood_creak volume 0.5
+    "La puerta del armario crujió al abrirse, despacio, de par en par."
+    "Un golpecito hueco contra el fondo de chapa. Luego otro. Tanteando."
+    pause 1.0
+    "Vacío. Lo supo por el sonido: ese eco sin resistencia, sin nada que lo detuviera."
+    "Y si lo de dentro estaba vacío, lo siguiente era lo de al lado."
+
+    pause 1.2
+    "Del otro lado, algo pesado se apoyó contra el armario. El metal gimió, y el borde se le clavó a [nombre_jugador!c] en el pecho."
+    "No se movió. No respiró. Notó cada latido en la garganta, tan fuerte que le pareció imposible que no se oyera."
+
+    "Y entonces lo sintió en la columna."
+    "Una vibración leve, apenas un cosquilleo. En la espalda, el cable. En el pecho, el metal del armario."
+    "Primero creyó que era su propio temblor. Pero su temblor no tenía ritmo, y esto sí: un zumbido grave y regular que subía por el hueso."
+    "Cada vez más fuerte. Como si dentro de la pared se estuviera despertando algo."
+
+    pause 1.0
+    "Por el extremo del hueco, a un dedo de su cara, asomó algo pálido y curvo."
+    "No lo vio. Lo sintió: un aire apenas más frío, el roce lentísimo de una punta recorriendo el yeso. Centímetro a centímetro. Como un dedo buscando una cerradura."
+
+    # -- La falla --
+    pause 1.2
+    "Arriba, en la negrura, algo hizo tic."
+    "Un chasquido diminuto. Una uña contra un cristal."
+
+    scene foreboding_2 with flash
+    play sound crack volume 0.4
+    "Una luz naranja, sucia, de filamento agonizante, se encendió en el techo."
+    "Una bombilla desnuda colgaba sobre las literas. [nombre_jugador!c] no se había fijado en ella antes: llevaba décadas muerta, y por unos segundos el edificio se la había devuelto."
+
+    "Y esa luz enferma, colándose por el hueco, proyectó una sombra sobre el yeso, a un palmo de su cara."
+    "Demasiado alta. Demasiado delgada. Demasiadas articulaciones, plegadas en ángulos que ninguna criatura debería tener. Dos brazos recogidos contra el pecho, juntos y quietos, como en una plegaria."
+    "La cabeza, triangular, estaba ladeada hacia el hueco."
+
+    pause 1.0
+    "Y entonces la sombra giró la cabeza. Hacia arriba. Hacia la luz."
+
+    play sound break_glass volume 0.4
+    scene black
+    "La bombilla estalló con un chasquido seco, como una nuez al romperse, y la oscuridad volvió de golpe, más negra que antes."
+
+    play sound thud volume 0.6
+    "Lejos, muy abajo, algo enorme cedió. Un golpe sordo que llegó por las paredes, por el suelo, por el metal del armario, hasta la planta de sus pies."
+    "Un tablero. Un transformador. Un fusible del tamaño de un brazo. Cualquier cosa vieja que por fin se hubiera hartado de aguantar."
+
+    play sound alarm volume 0.2 fadein 0.4 loop
+    "Y entonces, en algún punto del edificio, empezó a sonar una alarma."
+    "No era una sirena moderna: era un timbre de cobre y martillo, agrio y desafinado, de los que se instalaban para incendios que nunca llegaron."
+    "[nombre_jugador!c] no tenía forma de saber si alguien había tirado de una palanca allá abajo o si el cableado, simplemente, se había rendido."
+    "No era un milagro. Era un edificio vencido, rindiéndose por tramos."
+
+    # -- La elección --
+    pause 1.5
+    "Del otro lado del armario, nada se movió."
+    "Un segundo. Dos."
+    "La punta pálida seguía ahí, a un dedo de su cara. Ya no la recorría: esperaba."
+    "Estaba eligiendo. [nombre_jugador!c] casi pudo oírlo: el sonido de algo que decide."
+
+    play sound nailtap volume 0.3
+    "Un clic metálico, muy suave."
+    "La punta se retiró. Centímetro a centímetro, tal como había llegado."
+    "Los pasos se alejaron hacia la puerta. No corriendo. Ni siquiera con prisa."
+    "Con el paso de un cazador que oye romperse una rama al otro lado del bosque, y decide ir a ver sin soltar el rastro."
+
+    pause 2.0
+    "La alarma siguió, agria, desafinada, y [nombre_jugador!c] no se atrevió a moverse."
+    "Después empezó a fallar. Los campanazos se fueron espaciando, cada vez más graves y más lentos, como un motor sin combustible."
     stop sound fadeout 2.0
-    play ambient heartbeat fadein 0.8 volume 0.6
+    "Uno solo. Largo. Roto."
+    pause 1.0
+    "Y después, nada."
+
+    "Pasaron los segundos. No oyó volver nada. Pero tampoco oyó el final de los pasos: simplemente dejaron de oírse, en algún punto más allá de la puerta."
+    "El edificio ya no tenía más ruido que prestarle."
+
+    # -- Después --
+    pause 2.0
     scene foreboding_2
     show rodrigo scared at center
     with dissolve
-    
+    play ambient heartbeat fadein 0.8 volume 0.6
+
     $ estado_mental += 1
-    play sound thud
-    "[nombre_jugador!c] cayó al suelo, temblando. Había estado a centímetros."
+    play sound thud volume 0.4
+    "[nombre_jugador!c] se deslizó por la pared hasta quedar sentado en el suelo, temblando. Había estado a centímetros."
     show rodrigo nervioso with dissolve
     pause (1)
     "Finalmente respira."
-    
+
     "Sus manos tiritaban."
-    
+
     r "Esa cosa... Me buscaba..."
     r "Sabía lo que hacía..."
-    
+
+    "Y lo único que la había apartado de él era un cable podrido en otra ala del edificio."
+    "Una risa corta y rota se le escapó antes de que pudiera evitarlo. Se la tapó con la manga hasta ahogarla. Escuchó. Nada."
+
+    r "(No fue suerte. Fue... instalación eléctrica.)"
+    r "(No me salvé. Algo se rompió, y yo estaba en el lugar correcto.)"
+
+    "Pensó en el suelo bajo sus pies. En el techo sobre su cabeza. En cuánto de todo aquello seguía en pie por pura costumbre."
+
+    r "(Y lo que se rompe una vez... sigue rompiéndose.)"
+
+    "Golpeó la linterna contra la palma. Una vez. Dos."
+    "Tosió una luz mortecina y se encendió. Un contacto flojo: llevaba todo ese tiempo a un golpe de volver."
+    stop ambient fadeout 4.0
+
     "Cuando por fin se incorporó, su espalda crujió y soltó un suspiro contenido."
-    "Abrió la puerta de la habitación lentamente, asomandose al pasillo."
+    "La puerta seguía abierta de par en par, tal como la criatura la había dejado. [nombre_jugador!c] se asomó al pasillo, con la luz tapada por la palma, y escuchó."
     
     stop ambient fadeout 1.5
     scene pasillo_abandonado with fade
@@ -1404,51 +1494,260 @@ label escape_mnts:
     jump cap_3
 
 label game_over_mnts_1:
-    "[nombre_jugador!c] avanzó con cautela, su linterna apagada, guiado solamente por instinto."
+    stop music fadeout 1.5
+    stop sound
+
+    "[nombre_jugador!c] avanzó con cautela, la linterna muerta en una mano y la daga en la otra, guiado solamente por el oído."
+    "Hacia las literas del fondo. Hacia el suelo, donde algo olfateaba bajo los somieres."
+
     scene black with fade
-    "Pero no había tiempo para dudar. La criatura detectó su pulso acelerado."
-    
-    play sound "sfx/claw_drag_concrete.mp3"
-    "Una figura se abalanzó desde las sombras, dos hojas brillantes descendieron."
+    pause 0.8
+
+    "Un paso. Esperó. Otro."
+    "Arrastraba las suelas para no levantar los pies, con la mano de la linterna extendida en el vacío, como un ciego."
+    "El linóleo estaba ligeramente pegajoso. Cada paso se despegaba con un tirón leve."
+
+    play sound nailtap volume 0.4
+    "Clic."
+    pause 0.8
+    "Clic."
+    "Cerca. Más cerca de lo que habría querido. Pero siempre abajo, a ras de suelo, tanteando bajo las camas."
+    "[nombre_jugador!c] se obligó a mirar hacia donde sonaba. Hacia delante. Hacia abajo."
+
+    pause 1.0
+    stop sound
+    "Y el sonido se detuvo."
+    "No se alejó. No se fue apagando. Se detuvo, como se detiene una respiración."
+    pause 1.5
+    "Otra vez ese silencio con forma."
+
+    "[nombre_jugador!c] dio un paso más. Esperando el clic. Esperando cualquier cosa."
+
+    play sound "sfx/flesh_bubble.mp3" volume 0.4
+    "Su bota se hundió."
+    "Algo blando cedió bajo la suela: tela empapada sobre algo que ya no ofrecía resistencia. Debajo, un crujido menudo, como de ramitas húmedas."
+    "Un olor dulzón y agrio le subió desde el suelo, tibio de un modo que no debía serlo."
+    "No era un colchón caído. No era ropa."
+    "Era alguien. Había sido alguien."
+    "«Éramos más», había dicho el hombre de la sala H-127."
+
+    "Se quedó rígido, con el pie todavía sobre aquello. Retroceder era hacer ruido. Quedarse quieto era regalarle tiempo a lo que fuera."
+    "Entonces lo notó: el olor a hierba muerta."
+    "Ya no venía de la puerta ni del suelo."
+    pause 1.0
+    "Venía de arriba."
+
+    pause 1.2
+    play sound nailtap volume 0.6
+    "Sobre su coronilla, algo se ajustó."
+    "Un chasquido a la vez seco y húmedo: mandíbulas abriéndose y cerrándose sobre nada. Probando el aire. Probando el sitio exacto donde, un instante después, estaría su cuello."
+    pause 0.8
+    "Y un aliento tibio, lento, descendió sobre su cabello."
+
+    "Todo ese tiempo había estado escuchando el suelo."
+
+    scene death_mnts_1 with flash
+    "Alzó la cabeza."
+    "Seis puntos de un brillo húmedo se encendieron sobre él, como gotas de aceite atrapando una luz que no existía. Una cabeza triangular, ladeada, boca abajo, a un palmo de su cara."
+    "Lo que había arrastrado bajo las literas no era la criatura. Era solo una de sus hojas, tanteando el suelo."
+    "El resto de ella llevaba un rato arriba, en la litera superior, esperando a que él mirara hacia otro lado."
+
+    "{cps=20}Antes de poder siquiera gritar por ayuda...{/cps}"
+
+    # -- La clavada --
     play music curse
-    scene death_mnts_1 with fade
-    
-    "Por un momento, la aterrada mirada de [nombre_jugador!c] se encontró con los seis ojos de aquella criatura, pero antes de poder siquiera gritar por ayuda..."
     scene death_mnts_2 with shake
     play sound slash
-    pause 3
-    "{cps=20}Un corte limpio y rápido le atravesó el pecho. Ni siquiera sintió dolor antes de caer.{/cps}"
+    queue sound "sfx/bone_crack.mp3"
+    pause 0.5
+
+    "No hubo un tajo limpio."
+    "Las hojas bajaron desde arriba, una a cada lado, y se hundieron bajo sus costillas. Eran aserradas. Los dientes rasparon el hueso al entrar, y siguieron raspando."
+    "[nombre_jugador!c] no gritó. No le quedaba aire para eso."
+    play sound objfall volume 0.3
+    "La daga cayó al suelo con un tintineo pequeño y absurdo."
+
+    pause 0.8
+    with vpunch
+    "Lo levantó."
+    "Las botas dejaron el linóleo. Patalearon en el vacío, buscando un suelo que ya no estaba."
+    "Las hojas se cerraron hacia dentro, como una trampa. No para cortar: para sujetar. Lo mantuvo ahí, clavado y suspendido, con una paciencia casi tierna."
+    "La sangre le subió por la garganta en un borbotón caliente y le llenó la boca."
+
+    pause 1.0
+    play sound "sfx/blood_drip.mp3"
+    "Lo acercó. Despacio. Hacia las mandíbulas."
+    "Y cuando se cerraron sobre la base de su cuello, no lo arrancaron."
+    pause 0.5
+    play sound "sfx/bite_crunch.mp3"
+    "Royeron."
+    "Un roer húmedo y rítmico, de cartílago, que [nombre_jugador!c] oyó desde dentro de su propia cabeza."
+
+    pause 1.5
+    "Seguía pataleando. Eso fue lo peor: el cuerpo todavía no se había enterado de que ya había perdido."
+    "Las botas tamborileaban contra el aire. Cada vez más despacio."
+    pause 1.0
+    "Cada vez más despacio."
+
     pause 2
+    "{cps=15}[nombre_jugador!c] murió despierto, mientras algo lo devoraba por el cuello.{/cps}"
+    pause 2
+
     scene gameover_screen with dissolve
     pause(2)
     menu:
         "Cargar partida":
             jump load_screen
         "Volver al menú principal":
-            return    
+            return
 
 label game_over_mnts_2:
+    stop music fadeout 1.0
+    stop sound
+
     "Rápidamente, [nombre_jugador!c] se deslizó bajo una de las camas, conteniendo la respiración."
-    
+
     scene habitacion_mantis with fade
-    play sound nailtap volume 1.3
-    "El sonido de los pasos se intensificaba... Cada vez más cerca..."
+    pause 0.5
+
+    "Cabía justo. Ese «justo» fue lo primero que lo asustó."
+    "El somier quedaba a un palmo de su cara: tablillas combadas, resortes oxidados y, encima, un colchón hundido entre ellas como un vientre vacío."
+    "Bajo la cama, el polvo de décadas le crujía bajo los codos. Olía a lana vieja, a orina seca y a algo dulzón que prefirió no identificar."
+    "La daga pegada al pecho. La linterna muerta, inútil, en el bolsillo."
+    "Por la rendija entre el borde del somier y el suelo se colaba una franja de gris apenas menos negro que todo lo demás: la puerta, que había quedado abierta."
+
+    play sound nailtap volume 0.3
+    "Clic."
+    pause 1.0
+    "Clic."
+    "Garras sobre el linóleo. Ni rápidas ni lentas: con el compás de quien sabe que no tiene por qué apurarse."
+
+    play sound nailtap volume 0.5
+    "Cada clic sacudía un hilo de polvo del somier. Caía sobre su cara, fino como ceniza."
+
+    play sound nailtap volume 0.8
+    "Cada vez más cerca. Cada vez más fuerte."
+
     stop sound fadeout 0.3
-    "Una sombra se detuvo justo frente a la cama..."
-    pause (2)
-    
-    play sound "sfx/claw_drag_concrete.mp3"
-    "Una garra raspa el suelo... Luego la cama."
-    
-    
-    pause (1.5)
+    pause 1.0
+    "Entonces la franja de gris se apagó."
+    "Una sombra se había detenido justo frente a la cama. Desde el suelo, el borde del somier solo le dejaba ver el linóleo y el punto exacto donde la oscuridad se volvía más densa."
+    "El olor a hierba muerta se coló bajo la cama y se quedó."
+
+    pause 2.0
+    play sound "sfx/claw_drag_concrete.mp3" volume 0.6
+    "Una garra raspó el suelo. Un trazo largo, tanteando."
+    pause 1.0
+    "Después, la pata de la cama. Un roce seco contra el metal, a la altura de su cabeza."
+    "El somier entero tembló. Otra lluvia de polvo le cayó sobre las pestañas, sobre el labio."
+    "Le cosquilleó la nariz."
+    "[nombre_jugador!c] apretó los dientes hasta que le dolieron las muelas, y se aguantó."
+
+    # -- El colchón --
+    pause 1.5
+    play sound wood_creak volume 0.6
+    "Arriba, el marco gimió."
+    "Algo se estaba subiendo a la cama."
+    "No de un salto. Pata a pata, probando el borde, como quien prueba el hielo de un lago."
+
+    play sound wood_creak volume 1.0
+    "Los resortes chillaron."
+    "Una tablilla podrida se partió con un chasquido seco, y el colchón, viejo y vencido, cedió."
+
+    scene black with dissolve
+    "Se hundió entre las tablillas como una lengua pesada. Bajó, y bajó, hasta posarse sobre la cara de [nombre_jugador!c]."
+
+    "Con el colchón vino todo lo que llevaba dentro."
+    "Décadas de polvo y lana podrida reventaron por las costuras en una nube gris. Le llenó la nariz. Los ojos. La boca entreabierta."
+    "Sabía a papel quemado. Se le pegó a la lengua y a la garganta como harina seca."
+    "Y encima, el peso. Lo que fuera que estuviera sobre la cama apretaba a través del colchón, contra su cara, contra su pecho, contra el suelo."
+
+    "Necesitaba toser."
+    "Necesitaba respirar."
+    "Hacer cualquiera de las dos cosas era gritar «aquí estoy»."
+
+    pause 1.0
+    "Contó. Uno. Dos. Tres."
+    "Arriba, el peso no se movía. Debajo, el pulso le martilleaba en las sienes."
+    "Siete. Ocho. Nueve."
+    "Manchas de colores empezaron a florecer tras sus párpados."
+
+    pause 1.0
+    "Sobre el colchón, a centímetros de su cara, algo inhaló."
+    "Un olfateo largo y profundo, que pegó la tela aún más contra su nariz. Aspirando el aire a través del propio colchón. Aspirándolo a él."
+
+    "Catorce. Quince."
+    pause 0.8
+    "No pudo más."
+    "Fue una tos mínima, un hipido de nada, ahogado por la tela. Un sonido que no habría cruzado una pared."
+
+    pause 1.0
+    "Arriba, el olfateo se detuvo."
+    "El peso dejó de moverse, y el cuarto entero se detuvo con él."
+    pause 1.5
+    "El colchón se aflojó sobre su cara. No porque la criatura se fuera: se estaba irguiendo, afirmando el cuerpo, como quien afirma los pies antes de un golpe."
+    "Y el cuerpo de [nombre_jugador!c], traidor, hizo lo único que le quedaba por hacer."
+    "Inhaló. Con todo lo que tenía."
+
+    # -- La clavada --
+    pause 0.8
     scene death_mnts_3 with shake
     play music curse
     play sound slash
-    "Sin aviso, la hoja atraviesa el colchón y su torso."
-    
+    "La primera hoja atravesó el colchón sin avisar."
+    "Entró por el costado derecho, raspando las costillas con sus dientes. No hubo dolor. Solo frío. Un frío limpio, de metal."
+
+    play sound break_wood
+    play audio "sfx/flesh_bubble.mp3"
+    "No se detuvo en él. Le cruzó el pulmón recién lleno, atravesó el linóleo como una piel y se hundió en las tablas de debajo, que se rajaron con un crujido largo."
+    "Lo clavó al piso. Como a un insecto en una vitrina."
+
+    pause 0.8
+    "Quiso gritar. No hubo con qué."
+    "El aire que acababa de tomar no llegaba a ninguna parte: se escapaba por el agujero nuevo con un silbido, y a cada intento de respirar, la herida burbujeaba, húmeda, ruidosa."
+    "La sangre le subió por la garganta, tibia, con sabor a metal y a polvo."
+    "Tosió. Ahora podía toser todo lo que quisiera."
+    "Ya no importaba."
+
+    # -- El anzuelo --
+    pause 1.2
+    "Arriba, el peso se corrió hacia el borde de la cama."
+    "La franja de gris volvió a oscurecerse."
+
+    play sound "sfx/claw_drag_concrete.mp3" volume 0.5
+    "Por debajo del somier, a ras de suelo, se deslizó algo pálido y curvo."
+    "Una segunda hoja, lisa por fuera, aserrada por dentro. Se arrastró sobre el linóleo como un gancho de carnicero buscando el colgadero."
+
+    "Tanteó. Su rodilla. Su cadera. Encontró la herida y entró en ella."
+    "Se enganchó en una costilla rota y se curvó adentro, como se curva un anzuelo."
+
+    pause 0.8
+    play sound break_wood volume 0.7
+    "La primera hoja se desclavó de las tablas con un chirrido de madera y de hueso. Desgarró al salir."
+
+    with vpunch
+    "Y la otra tiró."
+    "No lo levantó: lo arrastró. Como un pescador recoge la línea."
+
+    play sound "sfx/claw_drag_concrete.mp3" volume 0.8
+    "Su espalda raspó el somier. Una tablilla le abrió la camisa y la piel de debajo."
+    "La daga se le escapó de los dedos y rodó bajo la cama, a un palmo de su mano. Ya no tenía manos para ella."
+    "Los talones buscaron agarrarse al linóleo y no encontraron nada. Los dedos dibujaron cuatro surcos cortos y temblorosos, y se rindieron."
+
+    play sound "sfx/blood_drip.mp3"
+    "Salió de debajo de la cama dejando un rastro: una franja ancha, oscura y brillante, con dos surcos paralelos a los lados."
+    "Un rastro que nadie seguiría, porque nadie sabía que estaba allí."
+
+    pause 1.0
     play sound "sfx/ultimo_aliento.wav"
-    pause(2)
+    "Y al salir, por fin, hubo aire."
+    "Aire de verdad, ancho y frío, el de toda la habitación."
+    "[nombre_jugador!c] sintió cómo le rozaba la cara, y no tuvo con qué respirarlo."
+
+    pause 2
+    "{cps=15}[nombre_jugador!c] se escondió donde nada podía verlo. Olvidó que a eso no lo buscaba con los ojos.{/cps}"
+    pause 2
+
     scene gameover_screen with dissolve
     pause(2)
     menu:
@@ -1948,48 +2247,115 @@ label cap_3:
     $ renpy.save("1-1", "Encuentro 3")
     "[nombre_jugador!c] se detiene. Su mirada se dirige hacia la ventana."
 
+    # -- El silencio --
+    "Un segundo antes no sabía por qué. Ahora lo entiende: acaba de dejar de oír algo."
+    "Desde que entraron, la ventana había vibrado en su marco con cada ráfaga, un traqueteo suave de cristal flojo al que nadie prestaba atención, igual que no se presta atención al tic-tac de un reloj."
+    "Ahora no vibra. Ni una ráfaga. Ni el más leve temblor."
+    "Como si alguien, desde fuera, la estuviera sujetando con la mano."
+
+    show rodrigo alert
     r "(Algo está mal... Todo se quedó en silencio de nuevo...)"
+    "Un segundo piso. Sin cornisa. Sin árbol cerca. Nada, allá afuera, que pueda sujetar una ventana a seis metros del suelo."
+
     l "¿[apodo_jugador]...?"
+    "Luz lo pregunta casi sin voz. Ya sostiene la pistola con las dos manos, aunque todavía apunta al hueco del techo."
+
     r "No se muevan."
 
     "Extiende su mano hacia Luz sin apartar la vista del cristal sucio."
-    
-    play music melody
 
-    "Una voz femenina se desliza entre las paredes, suave, casi cantarina, con un tono juguetón que hiela la sangre."
+    # -- El frío --
+    pause 1.0
+    "El aire cambia. Un frío seco, de golpe, como si alguien hubiera abierto una puerta a la noche en el otro extremo de la casa."
+    "Los haces de las linternas tiemblan sobre el vidrio. La mugre los devuelve en un resplandor lechoso que no deja ver nada del otro lado..."
+    "...salvo que, justo detrás, algo es más oscuro que la oscuridad."
+
+    "Y entonces, en el centro del cristal, empieza a florecer un círculo de vaho."
+    "Desde afuera."
+    "Crece despacio. Se encoge. Crece de nuevo. Sin prisa, con el ritmo exacto de alguien que respira con calma. De alguien que lleva ahí un buen rato."
+    "[nombre_jugador!c] se pregunta cuánto. Qué vio. Cuánto de lo que hicieron en esa habitación lo hicieron con ella mirando."
+
+    play sound nailtap volume 0.3
+    "Tic."
+    "Una sola uña contra el cristal. Como quien llama a una puerta que sabe abierta."
+
+    # -- La voz --
+    pause 1.0
+    play music melody
+    "Entonces llega la voz."
+    "No viene de la ventana. Se desliza por las paredes, por el yeso, por las tablas bajo sus pies, por el hueco negro del falso techo: llega desde todas partes a la vez, como si el edificio entero hablara con su boca."
+    "Es baja. Pausada. Casi cortés. Con un deje divertido que ninguna situación debería justificar."
 
     play ambient "sfx/susurro_cercano.wav"
-    g "Sé que están ahí~"
+    g "Sé que están ahí."
 
-    "Azura se cubre la boca con ambas manos, retrocediendo."
-    "Luz gira lentamente hacia la ventana, donde una silueta se asoma."
+    show azura shocked
+    "Azura se cubre la boca con ambas manos, retrocediendo. Choca con el escritorio y ni lo siente."
+    show luz scared
+    "Luz mueve los labios sin sonido. Un nombre. [nombre_jugador!c] lo reconoce antes de terminar de leerlo: lo oyeron en el sótano, de boca de un moribundo."
 
+    "El cañón de la pistola gira despacio hacia el cristal. A Luz le tiemblan los dos brazos."
+    "La mano de [nombre_jugador!c] se cierra sobre el cañón y lo empuja hacia el suelo, con cuidado, como quien desactiva algo."
+    r "(apenas audible) No. Un disparo es justo lo que está esperando."
+    "Luz asiente, sin soltar el arma. Tiene los nudillos blancos."
+
+    # -- La silueta --
+    pause 1.0
     scene galaxia_ventana with dissolve
-    
-    "Allí estaba. Una silueta oscura recortada contra la noche, con orejas de gato y una sonrisa demasiado ancha."
-    
-    g "¿Ya juegan al escondite? Me encanta ese juego..."
 
-    "[nombre_jugador!c] baja el rostro, dientes apretados."
+    "Una uña larga dibuja un arco limpio en el vaho. Luego otro. Un círculo, como una mirilla."
+    "Y detrás de la mirilla, recortada contra la noche, hay una silueta."
+    "Demasiado cerca del cristal. Demasiado quieta. Pegada al muro exterior sin cornisa que la sostenga, sin esfuerzo visible, como quien espera en una puerta."
+    "Dos orejas puntiagudas, de gato, asoman sobre el contorno de la cabeza. Una mano de dedos larguísimos descansa abierta contra el vidrio."
+    "Y debajo, tan ancha que tarda un segundo en reconocerla como lo que es, una línea pálida. Una sonrisa."
+
+    "La cabeza se inclina hacia un lado. Parece recorrer la habitación: la pistola, Azura, el cadáver sobre la mesa."
+    "Y se detiene en [nombre_jugador!c]. Solo en él."
+
+    g "Entraron cinco. Desde aquí cuento tres."
+    g "¿Dónde dejaron a los otros dos? Qué descuido."
+
+    "Nadie contesta. Nadie respira. El polvo del falso techo sigue cayendo en hilos finos, y es lo único que se mueve en la habitación."
+
+    g "¿Escondite, entonces? Elección acertada. Es mi juego favorito."
+    g "Lástima que mis compañeros duren tan poco."
+
+    "[nombre_jugador!c] baja el rostro, dientes apretados. La empuñadura de la daga le marca la palma; ni lo nota."
+
+    g "Les daré ventaja. Sería de mala educación no hacerlo."
 
     play sound "sfx/bang_window.mp3" volume 2.0
-    with vpunch 
-    
-    g "Pero yo siempre gano."
-    
+    with vpunch
+    "La palma abierta se estrella contra el cristal."
+    "Una grieta lo recorre de lado a lado, ramificándose como una vena. No cede."
+    "No necesita ceder. Quiere que lo vean: cuando decida entrar, entrará."
+
+    g "Pero no lo olviden: siempre gano."
+
     r "Vámonos. ¡YA!"
-    
-    play sound "sfx/rasguño_vidrio.wav"
-    "Un chirrido agudo de garras contra el cristal los persiguió mientras huían."
-    
+
+    # -- La huida --
+    stop ambient fadeout 1.0
+    play audio "sfx/rasguño_vidrio.wav"
+    "Un chirrido largo de garras contra el cristal los persigue mientras huyen."
+
     scene pasillo_corriendo with dissolve
     play sound run
-    "Cuando finalmente abandonan la habitación y cierran la puerta con suavidad, el grupo suelta el aire contenido."
+    "Cruzan el umbral a trompicones."
+    "El chirrido no se queda atrás: continúa al otro lado del muro, paralelo a ellos, manteniendo el paso con una facilidad insultante. No corre. No necesita hacerlo."
+
+    "Cuando por fin abandonan la habitación, [nombre_jugador!c] cierra la puerta con suavidad, casi sin tocarla."
+    "Un gesto absurdo: como si a algo que atraviesa las paredes con la voz le importara una cerradura."
+
+    stop audio
+    "El chirrido se corta en seco. El silencio que deja es peor."
+    "El grupo suelta el aire contenido."
 
     show rodrigo alert
     "[nombre_jugador!c], aún en tensión, no mira atrás. Solo camina al frente, guiándolas."
     "Pero por un momento... su sombra proyectada en la pared parece temblar."
-    "Como si algo dentro de él empezara a agitar"
+    "No es la linterna: la luz está firme en su mano. Es la sombra la que no lo está."
+    "Como si algo dentro de él empezara a agitarse."
     
     scene pasillo_abandonado
     show rodrigo serio at centro_izquierda
